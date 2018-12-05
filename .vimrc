@@ -1,0 +1,4 @@
+colo elflord
+syntax on
+
+

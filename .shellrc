@@ -1,0 +1,17 @@
+#!/bin/sh
+
+if command -v most > /dev/null 2>&1; then
+    export PAGER="most"
+fi
+
+if command -v vim > /dev/null 2>&1; then
+    export EDITOR="vim"
+fi
+
+
+alias watch="watch "
+alias kubeall="kubectl get all,pvc"
+alias kubeallw="kubectl get all,pvc -o wide"
+alias mydstat="dstat -lcdfmnp -C total --disk-util"
+alias mydstat="dstat -lcdfmnp -C total --disk-util"
+
