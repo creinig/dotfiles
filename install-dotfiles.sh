@@ -11,6 +11,8 @@ function config {
 }
 
 
+git config --global core.eol lf
+git config --global core.autocrlf input
 mkdir -p .dotfiles-backup
 config checkout
 if [ $? = 0 ]; then
@@ -26,6 +28,8 @@ config config status.showUntrackedFiles no
 # (2) If possible, switch to zsh and install oh-my-zsh
 #
 if command -v zsh > /dev/null 2>&1; then
+#  git config --global core.eol lf
+#  git config --global core.autocrlf input
   git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
   #chsh -s $(which zsh)
 fi
