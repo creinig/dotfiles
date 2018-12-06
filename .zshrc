@@ -1,13 +1,15 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export SHELL=$(which zsh)
+export DISABLE_AUTO_TITLE=true
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="babun"
-ZSH_THEME="clean"
-#ZSH_THEME="random"
+ZSH_THEME="kardan"
+#ZSH_THEME="terminalparty"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -48,7 +50,7 @@ source $ZSH/oh-my-zsh.sh
 
 zstyle ':completion:*' special-dirs true
 
-PS1="%{${fg_bold[green]}%}%(2L.+.)%n@%m %# %{${reset_color}%}"
+#PS1="%{${fg_bold[green]}%}%(2L.+.)%n@%m %# %{${reset_color}%}"
 
 . ~/.shellrc
 
