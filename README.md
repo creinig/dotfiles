@@ -9,8 +9,6 @@
 # TODO
 
 * Improve installation script
-  * Optional readonly checkout via anon http instead of ssh
   * Better checks for files that are already present
-    * abort install before anything has been written, roll back checkout?
     * Properly save really all files that would be overwritten?
 * Document installation command
