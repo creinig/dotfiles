@@ -12,3 +12,11 @@
   * Better checks for files that are already present
     * Properly save really all files that would be overwritten?
 * Document installation command
+
+# Yum packages I like to have installed everywhere:
+
+* yum install bind-utils curl epel-release              # Basic system stuff
+* yum install vim tmux git zsh unzip multitail bc pinfo # basic convenience tools
+* yum install dstat sysstat htop atop                   # System Info
+* yum install pigz lbzip2 parallel                      # parallel processing
+
