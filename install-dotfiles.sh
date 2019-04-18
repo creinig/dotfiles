@@ -68,3 +68,11 @@ config config status.showUntrackedFiles no
 # (2) install oh-my-zsh, since I want to use zsh if in any way possible
 #
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
+#
+# (3) install Vundle if it's not installed yet
+#
+if [[ ! -d ~/.vim/bundle/Vundle.vim ]] ; then
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+
