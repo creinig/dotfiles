@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# "r" => no git commit capabilities, but doesn't need registered SSH key to install
+# "r" => no git push commit capabilities, but doesn't need registered SSH key to install
+# "rw" => clone via SSH (full push capabilities)
 if [[ -z $INSTALL_MODE ]] ; then
-  INSTALL_MODE=rw
+  INSTALL_MODE=r
 fi
 
 if command -v git > /dev/null 2>&1; then
