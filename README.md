@@ -1,5 +1,12 @@
 # Collection of dotfiles for my personal use
 
+# Installation
+
+```
+curl -Lks https://raw.githubusercontent.com/creinig/dotfiles/master/install-dotfiles.sh | /bin/bash
+```
+
+
 # Want more?
 
 * https://dotfiles.github.io/ has a large collection of dotfile repos
@@ -11,7 +18,6 @@
 * Improve installation script
   * Better checks for files that are already present
     * Properly save really all files that would be overwritten?
-* Document installation command
 
 # Yum packages I like to have installed everywhere:
 
