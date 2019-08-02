@@ -3,7 +3,11 @@
 # Installation
 
 ```
+# Readonly (pull via https only)
 curl -Lks https://raw.githubusercontent.com/creinig/dotfiles/master/install-dotfiles.sh | /bin/bash
+
+# Read/write (pull + push via ssh key)
+curl -Lks https://raw.githubusercontent.com/creinig/dotfiles/master/install-dotfiles.sh | INSTALL_MODE=rw /bin/bash 
 ```
 
 
