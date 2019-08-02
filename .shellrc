@@ -18,6 +18,12 @@ alias kubeall="kubectl get all,pvc"
 alias kubeallw="kubectl get all,pvc -o wide"
 alias mydstat="dstat -lcdfmnp -C total --disk-util"
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias cfg='config'
+alias cfgf='config fetch origin'
+alias cfgs='config status'
+alias cfga='config add'
+alias cfgc='config commit'
+alias cfgp='config push origin'
 alias ll='ls -laFh --color=tty --group-directories-first'
 alias ls='ls -F --color=tty'
 

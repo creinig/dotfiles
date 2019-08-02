@@ -25,7 +25,7 @@ ZSH_THEME="kardan"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(cp common-aliases gitfast kubectl rsync scd tmux)
 
 # User configuration
 
@@ -35,6 +35,8 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 ZSH_DISABLE_COMPFIX=true
 
 source $ZSH/oh-my-zsh.sh
+
+setopt complete_aliases
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
