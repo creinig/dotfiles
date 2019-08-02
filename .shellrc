@@ -20,6 +20,7 @@ alias mydstat="dstat -lcdfmnp -C total --disk-util"
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cfg='config'
 alias cfgf='config fetch origin'
+alias cfgl='config pull origin'
 alias cfgs='config status'
 alias cfga='config add'
 alias cfgc='config commit'
