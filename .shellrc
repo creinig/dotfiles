@@ -27,6 +27,8 @@ alias cfgc='config commit'
 alias cfgp='config push origin'
 alias ll='ls -laFh --color=tty --group-directories-first'
 alias ls='ls -F --color=tty'
+alias s="ssh -l $USER"
+
 
 if command -v pinfo > /dev/null 2>&1; then
     alias man="pinfo --apropos"
