@@ -4,10 +4,10 @@
 
 ```
 # Readonly (pull via https only)
-curl -Lks https://raw.githubusercontent.com/creinig/dotfiles/master/install-dotfiles.sh | /bin/bash
+curl -Lks https://raw.githubusercontent.com/creinig/dotfiles/master/.local/bin/install-dotfiles.sh | /bin/bash
 
 # Read/write (pull + push via ssh key)
-curl -Lks https://raw.githubusercontent.com/creinig/dotfiles/master/install-dotfiles.sh | INSTALL_MODE=rw /bin/bash 
+curl -Lks https://raw.githubusercontent.com/creinig/dotfiles/master/.local/bin/install-dotfiles.sh | INSTALL_MODE=rw /bin/bash 
 ```
 
 
@@ -22,6 +22,11 @@ curl -Lks https://raw.githubusercontent.com/creinig/dotfiles/master/install-dotf
 * Improve installation script
   * Better checks for files that are already present
     * Properly save really all files that would be overwritten?
+  * add .local/bin to path if not already in there
+  * chmod .local/bin/
+  * autorun vim BundleInstall
+  * add .shellrc to .bashrc if not present
+* implement df-install-basics.sh (termux, ubuntu, rh)
 
 # Yum packages I like to have installed everywhere:
 
