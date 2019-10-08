@@ -4,12 +4,22 @@
 
 ```
 # Readonly (pull via https only)
-curl -Lks https://raw.githubusercontent.com/creinig/dotfiles/master/.local/bin/install-dotfiles.sh | /bin/bash
+curl -Lks https://raw.githubusercontent.com/creinig/dotfiles/master/.local/bin/df-install.sh | /bin/bash
 
 # Read/write (pull + push via ssh key)
-curl -Lks https://raw.githubusercontent.com/creinig/dotfiles/master/.local/bin/install-dotfiles.sh | INSTALL_MODE=rw /bin/bash 
+curl -Lks https://raw.githubusercontent.com/creinig/dotfiles/master/.local/bin/df-install.sh | INSTALL_MODE=rw /bin/bash 
 ```
 
+# What's included?
+
+* A .zshrc with oh-my-zsh and some custom stuff
+* A .shellrc with custom stuff for both zsh and bash
+* A .vimrc with Vundle and some custom stuff
+* A .tmuxrc with some custom settings
+* [termux](https://wiki.termux.com/wiki/Main_Page) settings
+* A default git config (`.config/git/config`) with settings that can be overridden by the "normal" .gitconfig
+* A script to install my favorite packages (`.local/bin/df-install-basics.sh`)
+* An installer that can also upgrade existing installations (`.local/bin/df-install.sh`)
 
 # Want more?
 
@@ -19,19 +29,5 @@ curl -Lks https://raw.githubusercontent.com/creinig/dotfiles/master/.local/bin/i
 
 # TODO
 
-* Improve installation script
-  * Better checks for files that are already present
-    * Properly save really all files that would be overwritten?
-  * add .local/bin to path if not already in there
-  * chmod .local/bin/
-  * autorun vim BundleInstall
-  * add .shellrc to .bashrc if not present
-* implement df-install-basics.sh (termux, ubuntu, rh)
 
-# Yum packages I like to have installed everywhere:
-
-* yum install bind-utils curl epel-release              # Basic system stuff
-* yum install vim tmux git zsh unzip multitail bc pinfo # basic convenience tools
-* yum install dstat sysstat htop atop                   # System Info
-* yum install pigz lbzip2 parallel                      # parallel processing
 

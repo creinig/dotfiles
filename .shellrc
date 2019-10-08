@@ -8,6 +8,10 @@ if command -v vim > /dev/null 2>&1; then
     export EDITOR="vim"
 fi
 
+if ! echo $PATH | grep -q ".local/bin" ; then
+    PATH=$HOME/.local/bin:$PATH
+fi
+
 export VAGRANT_PREFER_SYSTEM_BIN=1
 #export LSCOLORS="Hxfxcxdxbxegedabagacad"
 #export LS_COLORS="di=1;37:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
@@ -17,6 +21,7 @@ alias watch="watch "
 alias kubeall="kubectl get all,pvc"
 alias kubeallw="kubectl get all,pvc -o wide"
 alias mydstat="dstat -lcdfmnp -C total --disk-util"
+
 alias config='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cfg='config'
 alias cfgf='config fetch origin'
@@ -25,10 +30,13 @@ alias cfgs='config status'
 alias cfga='config add'
 alias cfgc='config commit'
 alias cfgp='config push origin'
+
 alias ll='ls -laFh --color=tty --group-directories-first'
 alias ls='ls -F --color=tty'
+
 alias s="ssh -l $USER"
 
+alias tf="terraform"
 
 if command -v pinfo > /dev/null 2>&1; then
     alias man="pinfo --apropos"
