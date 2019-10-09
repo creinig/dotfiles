@@ -25,15 +25,18 @@ fi
 cd "$HOME"
 
 # Mode of operation: update/fix or install
-[[ -d .dotfiles ]]
-DO_UPDATE=$?
+if [[ -d .dotfiles ]] ; then
+  DO_UPDATE=true
+else
+  DO_UPDATE=false
+fi
 
 #
 # (0) Safety checks
 #
 
 
-if [[ ! $DO_UPDATE ]] ; then
+if ! $DO_UPDATE ; then
   if [[ -d ".dotfiles-backup" ]] ; then
     echo "Dir '.dotfiles-backup' already exists. Please move it away and try again"
     exit -1
@@ -70,7 +73,7 @@ function install {
 #
 # (1) Install or update
 #
-if [[ $DO_UPDATE ]] ; then
+if $DO_UPDATE ; then
   echo "Updating the installation"
   config pull
 else
