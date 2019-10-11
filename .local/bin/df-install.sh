@@ -108,7 +108,7 @@ if [ -f .bashrc ] ; then
     echo ".bashrc already sources .shellrc"
   else
     echo >> .bashrc
-    echo ". $HOME/.shellrc" >> .bashrc
+    echo ". ~/.shellrc" >> .bashrc
     echo >> .bashrc
     echo ".bashrc now sources .shellrc"
   fi
