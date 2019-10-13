@@ -8,6 +8,11 @@ if command -v vim > /dev/null 2>&1; then
     export EDITOR="vim"
 fi
 
+if command -v pinfo > /dev/null 2>&1; then
+    alias man="pinfo --apropos"
+fi
+
+
 if ! echo $PATH | grep -q ".local/bin" ; then
     PATH=$HOME/.local/bin:$PATH
 fi
@@ -38,7 +43,4 @@ alias s="ssh -l $USER"
 
 alias tf="terraform"
 
-if command -v pinfo > /dev/null 2>&1; then
-    alias man="pinfo --apropos"
-fi
 
