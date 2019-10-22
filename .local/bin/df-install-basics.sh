@@ -9,7 +9,7 @@ elif [[ $DF_OS == 'rhel' ]] ; then
 	sudo yum install \
 		bind-utils curl epel-release ntp # Basic system stuff \
         vim tmux git zsh unzip multitail # basic convenience tools \
-		most bc pinfo tree mosh \
+		most bc pinfo tree mosh httpie \
 		dstat sysstat htop atop iftop    # System Info \
 		pigz lbzip2 parallel             # parallel processing
 elif [[ $DF_OS == 'ubuntu' ]] ; then
@@ -17,7 +17,7 @@ elif [[ $DF_OS == 'ubuntu' ]] ; then
 		bind-utils curl epel-release ntp # Basic system stuff \
 		dnsutils \
         vim tmux git zsh unzip multitail # basic convenience tools \
-		most bc pinfo tree  mosh \
+		most bc pinfo tree  mosh httpie \
 		dstat sysstat htop atop iftop    # System Info \
 		pigz lbzip2 parallel             # parallel processing
 else
