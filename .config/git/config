@@ -1,5 +1,7 @@
 [push]
         default = matching
+[pull]
+	rebase = true
 [core]
         trustctime = false
         editor = vim
