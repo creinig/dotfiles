@@ -38,6 +38,7 @@ alias cfgp='config push origin'
 
 alias ll='ls -laFh --color=tty --group-directories-first'
 alias ls='ls -F --color=tty'
+alias ag='alias | grep'
 
 alias s="ssh -l $USER"
 
