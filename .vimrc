@@ -15,6 +15,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'Raimondi/delimitMate'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'mtdl9/vim-log-highlighting'
 "Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
