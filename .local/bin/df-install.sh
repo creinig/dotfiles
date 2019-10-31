@@ -6,10 +6,15 @@ if [[ -z $INSTALL_MODE ]] ; then
   INSTALL_MODE=r
 fi
 
+function log {
+  echo -n '== '
+  echo $@
+}
+
 if command -v git > /dev/null 2>&1; then
-  echo "git installed. that's good."
+  log "git installed. that's good."
 else 
-  echo "git not found"
+  log "git not found"
   exit -1
 fi
 
@@ -38,7 +43,7 @@ fi
 
 if ! $DO_UPDATE ; then
   if [[ -d ".dotfiles-backup" ]] ; then
-    echo "Dir '.dotfiles-backup' already exists. Please move it away and try again"
+    log "Dir '.dotfiles-backup' already exists. Please move it away and try again"
     exit -1
   fi
 fi
@@ -60,9 +65,9 @@ function install {
   mkdir -p .dotfiles-backup
   config checkout
   if [ $? = 0 ]; then
-    echo "Checked out dotfiles.";
+    log "Checked out dotfiles.";
     else
-      echo "Backing up pre-existing dot files.";
+      log "Backing up pre-existing dot files.";
       config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
   fi;
   config checkout
@@ -74,10 +79,10 @@ function install {
 # (1) Install or update
 #
 if $DO_UPDATE ; then
-  echo "Updating the installation"
+  log "Updating the installation"
   config pull
 else
-  echo "Performing fresh install"
+  log "Performing fresh install"
   install
 fi
 
@@ -87,7 +92,8 @@ fi
 if [[ ! -d .oh-my-zsh ]] ; then
   git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 else
-  echo "oh-my-zsh is already installed"
+  log "oh-my-zsh is already installed. Updating."
+  (cd ~/.oh-my-zsh ; git pull)
 fi
 
 #
@@ -97,7 +103,8 @@ if [[ ! -d ~/.vim/bundle/Vundle.vim ]] ; then
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   vim -c ":BundleInstall" -c ':qall!'
 else
-  echo "Vundle is already installed"
+  log "Vundle is already installed. Updating Plugins"
+  vim -c ":BundleInstall" -c ':qall!'
 fi
 
 #
@@ -105,13 +112,13 @@ fi
 
 if [ -f .bashrc ] ; then
   if grep -q '\.shellrc' .bashrc ; then
-    echo ".bashrc already sources .shellrc"
+    log ".bashrc already sources .shellrc"
   else
     echo >> .bashrc
     echo ". ~/.shellrc" >> .bashrc
     echo >> .bashrc
-    echo ".bashrc now sources .shellrc"
+    log ".bashrc now sources .shellrc"
   fi
 else
-  echo "no .bashrc present -- skipping sourcing of .shellrc"
+  log "no .bashrc present -- skipping sourcing of .shellrc"
 fi
