@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # "r" => no git push commit capabilities, but doesn't need registered SSH key to install
 # "rw" => clone via SSH (full push capabilities)
@@ -6,12 +6,12 @@ if [[ -z $INSTALL_MODE ]] ; then
   INSTALL_MODE=r
 fi
 
-function log {
+function log() {
   echo -n '== '
   echo $@
 }
 
-if command -v git > /dev/null 2>&1; then
+if command -v git &>/dev/null ; then
   log "git installed. that's good."
 else 
   log "git not found"
@@ -48,7 +48,7 @@ if ! $DO_UPDATE ; then
   fi
 fi
 
-function config {
+function config() {
   /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
 
@@ -56,7 +56,7 @@ function config {
 # Function: Install the dotfiles repo in the current home dir.
 # Copied & adapted from https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/ 
 #
-function install {
+function install() {
   git clone --bare "$GIT_REPO" .dotfiles
 
   git config --global core.eol lf
@@ -64,7 +64,7 @@ function install {
 
   mkdir -p .dotfiles-backup
   config checkout
-  if [ $? = 0 ]; then
+  if [[ $? = 0 ]]; then
     log "Checked out dotfiles.";
     else
       log "Backing up pre-existing dot files.";
@@ -110,7 +110,7 @@ fi
 #
 # (4) source .shellrc in .bashrc if not done already
 
-if [ -f .bashrc ] ; then
+if [[ -f .bashrc ]] ; then
   if grep -q '\.shellrc' .bashrc ; then
     log ".bashrc already sources .shellrc"
   else
@@ -122,3 +122,5 @@ if [ -f .bashrc ] ; then
 else
   log "no .bashrc present -- skipping sourcing of .shellrc"
 fi
+
+

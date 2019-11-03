@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 . $HOME/.local/bin/.df-common.sh
 
