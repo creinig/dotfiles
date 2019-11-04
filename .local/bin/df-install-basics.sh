@@ -4,7 +4,7 @@
 
 PKG="     curl ntp"   i                     # Basic system stuff
 PKG="$PKG vim tmux git zsh unzip multitail" # basic convenience tools
-PKG="$PKG most bc pinfo tree mosh httpie"
+PKG="$PKG most bc pinfo tree mosh httpie mosh"
 PKG="$PKG dstat sysstat htop atop iftop"    # System Info
 PKG="$PKG pigz lbzip2 parallel"             # parallel processing
 
