@@ -4,10 +4,10 @@
 
 ```
 # Readonly (pull via https only)
-curl -Lks https://raw.githubusercontent.com/creinig/dotfiles/master/.local/bin/df-install.sh | /bin/bash
+curl -Lks https://git.io/crdotfiles | /bin/bash
 
 # Read/write (pull + push via ssh key)
-curl -Lks https://raw.githubusercontent.com/creinig/dotfiles/master/.local/bin/df-install.sh | INSTALL_MODE=rw /bin/bash 
+curl -Lks https://git.io/crdotfiles | INSTALL_MODE=rw /bin/bash 
 ```
 
 # What's included?
