@@ -23,6 +23,11 @@ Plugin 'mtdl9/vim-log-highlighting'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" https://vim.fandom.com/wiki/Indenting_source_code
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+
 colo elflord
 syntax on
 
