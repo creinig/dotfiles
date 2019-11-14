@@ -1,5 +1,5 @@
 [push]
-        default = matching
+        default = simple
 [pull]
 	rebase = true
 [core]
