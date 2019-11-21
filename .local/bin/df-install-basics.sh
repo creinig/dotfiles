@@ -9,7 +9,7 @@ PKG="$PKG dstat sysstat htop atop iftop"    # System Info
 PKG="$PKG pigz lbzip2 parallel"             # parallel processing
 
 if [[ $DF_OS == 'termux' ]] ; then
-	pkg install mosh nodejs zsh vim multitail
+	pkg install mosh nodejs zsh vim multitail tree
 elif [[ $DF_OS == 'rhel' ]] ; then
 	sudo yum install epel-release bind-utils
 	sudo yum install $PKG
