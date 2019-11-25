@@ -1,0 +1,107 @@
+# -*- mode: ruby -*-
+# vim: set ft=ruby :
+# vim: tabstop=2:shiftwidth=2:expandtab
+
+Vagrant.configure(2) do |config|
+
+  #
+  # Common definitions ======================
+  #
+
+  # IP address to use for the first machine. Other machines will get IPs following this one. 
+  ipAddr = "192.168.55.50"
+
+  hostDefaults = {
+    :box => 'ubuntu/bionic64',
+    :cpu => 1,
+    :ram => 2048,
+    :ip  => ipAddr,
+    :blank => false # set to "true" if only the very basic setup should be performed
+  }
+
+  # Configuration for all machines 
+  hosts = {
+	  'ubuntu' => {},
+    'microk8s' => {
+      :ram => 16384,
+      :cpu => 2
+    },
+    'centos' => {
+      :box => 'centos/7'
+    },
+    'ubuntu-blank' => {
+      :blank => true
+    },
+    'centos-blank' => {
+      :box => 'centos/7',
+      :blank => true
+    }
+  }
+
+  hosts.keys.each do |name|
+    hosts[name] = hostDefaults.merge(hosts[name])
+  end
+
+  #
+  # Precompute some values for all VMs =======
+  # 
+  etcHosts = ""            # Script for fixing /etc/hosts
+  etcHosts << "echo '127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4' > /etc/hosts\n"
+  etcHosts << "echo '::1         localhost localhost.localdomain localhost6 localhost6.localdomain6' >> /etc/hosts\n"
+  hosts.keys.each do |name|
+    #puts "Defined VM <#{name}> with IP <#{ipAddr}>"
+    hosts[name][:ip] = ipAddr
+    etcHosts << "echo '#{ipAddr} #{name}' >> /etc/hosts" << "\n"
+    ipAddr = ipAddr.next
+  end
+  
+
+  #
+  # Configure the machines ====================
+  #
+  hosts.each do |name, opts|    # define the specification of each machine
+    config.vm.define name do |node|
+      puts "defining '#{name}' -> <#{opts}>"
+      node.vm.box = opts[:box] # Base image
+
+      node.vm.provider "virtualbox" do |vb|
+        vb.name = name
+        vb.linked_clone = true   
+      
+        vb.memory = opts[:ram] # available RAM in MB
+        vb.cpus = opts[:cpu]           # number of available CPUs
+        vb.customize ["modifyvm", :id, "--ioapic", "on"]
+      end
+      
+      # Local networking with static IP, in addition to NAT
+      node.vm.network :private_network, ip: opts[:ip]
+      node.vm.network "forwarded_port", guest: 8080, host: 18080
+      node.vm.network "forwarded_port", guest: 16443, host:16443
+      node.vm.hostname = name
+      # Use NFS for shared folders for better performance
+      #node.vm.synced_folder '.', '/vagrant', type: "nfs"
+      node.vm.synced_folder '.', '/vagrant', type: 'rsync'
+
+      # register all VMs in /etc/hosts
+      node.vm.provision "hosts", type: :shell, inline: etcHosts
+      
+      #
+      # Run installation scripts ==============
+      #
+      
+      # See https://www.vagrantup.com/docs/provisioning/ansible_local.html
+      
+      # Tweak the base OS
+      node.vm.provision "install-base", type: :shell, inline: "apt -y install bc vim tmux git"
+      node.vm.provision "ssh-passwd",   type: :shell, inline: "sed -re 's/PasswordAuthentication *no/PasswordAuthentication yes/g' </etc/ssh/sshd_config  > /tmp/sshd_config && cat /tmp/sshd_config > /etc/ssh/sshd_config && systemctl restart sshd"
+
+      #if(name.start_with?('docker')) then
+      #  node.vm.provision "docker", type: :shell, inline: "sudo -i /vagrant/bootstrap/install-docker.sh"
+      #elsif(name.start_with?('microk8s')) then
+      #  node.vm.provision "microk8s", type: :shell, inline: "sudo snap install microk8s --classic && sleep 5 && microk8s.enable dns storage ingress"
+      #elsif(name.start_with?('solvatio')) then
+      #  node.vm.provision "solvatio", type: :shell, inline: "sudo -i /vagrant/bootstrap/install-solvatio.sh"
+      #end 
+    end
+  end
+end
