@@ -20,6 +20,8 @@ curl -Lks https://git.io/crdotfiles | INSTALL_MODE=rw /bin/bash
 * A default git config (`.config/git/config`) with settings that can be overridden by the "normal" .gitconfig
 * A script to install my favorite packages (`.local/bin/df-install-basics.sh`)
 * An installer that can also upgrade existing installations (`.local/bin/df-install.sh`)
+* Some devops-y tooling and configuration (`devops/*`)
+  * A Vagrantfile for a set of different VMs, for quick testing of stuff in various environments
 
 # Want more?
 
@@ -29,5 +31,16 @@ curl -Lks https://git.io/crdotfiles | INSTALL_MODE=rw /bin/bash
 
 # TODO
 
-
-
+* Add ansible bootstrapping to vagrant stuff
+* Add installers and/or install+config docs for useful extra tooling
+  * https://github.com/tmux-python/tmuxp
+  * https://github.com/emre/storm
+  * https://kubernetes.io/docs/tasks/tools/install-minikube/
+  * https://www.vagrantup.com/
+  * https://www.terraform.io/
+  * https://www.ansible.com/
+  * https://kubernetes.io/docs/tasks/tools/install-kubectl/
+  * https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
+  * https://github.com/cbucher/console
+* Better environment detection (linux vs WSL vs cygwin)
+* Personal documentation / notes and links to good doc resources
