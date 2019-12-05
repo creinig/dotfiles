@@ -42,5 +42,6 @@ curl -Lks https://git.io/crdotfiles | INSTALL_MODE=rw /bin/bash
   * https://kubernetes.io/docs/tasks/tools/install-kubectl/
   * https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
   * https://github.com/cbucher/console
+    * Cfg: unbind ctrl-R, ctrl-W; Fix size (view -> show console -> settigns -> set font size to tiny)
 * Better environment detection (linux vs WSL vs cygwin)
 * Personal documentation / notes and links to good doc resources
