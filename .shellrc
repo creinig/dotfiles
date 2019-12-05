@@ -33,7 +33,7 @@ alias cfgf='config fetch origin'
 alias cfgl='config pull origin'
 alias cfgs='config status --branch'
 alias cfga='config add'
-alias cfgc='config commit'
+alias cfgc='config commit -v'
 alias cfgp='config push origin'
 alias cfglog='config log --oneline --decorate --graph --all'
 
