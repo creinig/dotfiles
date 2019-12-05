@@ -41,6 +41,8 @@ alias ll='ls -laFh --color=tty --group-directories-first'
 alias ls='ls -F --color=tty'
 alias ag='alias | grep'
 
+alias gch='git commit -v -c HEAD'
+
 alias s="ssh -l $USER"
 
 alias cpv='rsync -ah --info=progress2'
