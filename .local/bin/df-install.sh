@@ -123,4 +123,17 @@ else
   log "no .bashrc present -- skipping sourcing of .shellrc"
 fi
 
-
+if [[ ${SHELL##*/} != 'zsh' ]] && command -v zsh >/dev/null ; then
+  log 'zsh is installed, but not the login shell'
+  if [[ -f /etc/shells ]] ; then
+    chsh -s $(grep zsh /etc/shells)
+    log '... fixed that'
+  elif [[ $PREFIX =~ 'termux' ]] ; then
+    chsh -s zsh
+    log '... fixed that'
+  else
+    log '  strange system here. perhaps try running "chsh" manually'
+  fi
+else
+  log 'zsh is already your login shell'
+fi
