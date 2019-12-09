@@ -11,10 +11,25 @@ function log() {
   echo $@
 }
 
+function logOk() {
+  echo -n '=/ '
+  echo $@
+}
+
+function logDo() {
+  echo -n '=> '
+  echo $@
+}
+
+function logError() {
+  echo -n '!! '
+  echo $@
+}
+
 if command -v git &>/dev/null ; then
-  log "git installed. that's good."
+  logOk "git installed. that's good."
 else 
-  log "git not found"
+  logError "git not found"
   exit -1
 fi
 
@@ -43,7 +58,7 @@ fi
 
 if ! $DO_UPDATE ; then
   if [[ -d ".dotfiles-backup" ]] ; then
-    log "Dir '.dotfiles-backup' already exists. Please move it away and try again"
+    logError "Dir '.dotfiles-backup' already exists. Please move it away and try again"
     exit -1
   fi
 fi
@@ -65,9 +80,9 @@ function install() {
   mkdir -p .dotfiles-backup
   config checkout
   if [[ $? = 0 ]]; then
-    log "Checked out dotfiles.";
+    logDo "Checked out dotfiles.";
     else
-      log "Backing up pre-existing dot files.";
+      logDo "Backing up pre-existing dot files.";
       config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
   fi;
   config checkout
@@ -92,7 +107,7 @@ fi
 if [[ ! -d .oh-my-zsh ]] ; then
   git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 else
-  log "oh-my-zsh is already installed. Updating."
+  logDo "oh-my-zsh is already installed. Updating."
   (cd ~/.oh-my-zsh ; git pull)
 fi
 
@@ -103,7 +118,7 @@ if [[ ! -d ~/.vim/bundle/Vundle.vim ]] ; then
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   vim -c ":BundleInstall" -c ':qall!'
 else
-  log "Vundle is already installed. Updating Plugins"
+  logDo "Vundle is already installed. Updating Plugins"
   vim -c ":BundleInstall" -c ':qall!'
 fi
 
@@ -111,33 +126,33 @@ fi
 # (4) source .shellrc in .bashrc if not done already
 if [[ -f .bashrc ]] ; then
   if grep -q '\.shellrc' .bashrc ; then
-    log ".bashrc already sources .shellrc"
+    logOk ".bashrc already sources .shellrc"
   else
     echo >> .bashrc
     echo ". ~/.shellrc" >> .bashrc
     echo >> .bashrc
-    log ".bashrc now sources .shellrc"
+    logDo ".bashrc now sources .shellrc"
   fi
 else
-  log "no .bashrc present -- skipping sourcing of .shellrc"
+  logOk "no .bashrc present -- skipping sourcing of .shellrc"
 fi
 
 #
 # (5) Make zsh the default shell
 #
 if [[ ${SHELL##*/} != 'zsh' ]] && command -v zsh >/dev/null ; then
-  log 'zsh is installed, but not the login shell'
+  logDo 'zsh is installed, but not the login shell'
   if [[ -f /etc/shells ]] ; then
     chsh -s $(grep zsh /etc/shells)
-    log '... fixed that'
+    logDo '... fixed that'
   elif [[ $PREFIX =~ 'termux' ]] ; then
     chsh -s zsh
-    log '... fixed that'
+    logDo '... fixed that'
   else
-    log '  strange system here. perhaps try running "chsh" manually'
+    logError '  strange system here. perhaps try running "chsh" manually'
   fi
 else
-  log 'zsh is already your login shell'
+  logOk 'zsh is already your login shell'
 fi
 
 
