@@ -22,6 +22,7 @@ Plugin 'hashivim/vim-terraform'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'tpope/vim-sleuth'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'mustache/vim-mustache-handlebars'
 "Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
