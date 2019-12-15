@@ -39,7 +39,7 @@ alias cfga='config add'
 alias cfgc='config commit -v'
 alias cfgp='config push origin'
 alias cfglog='config log --oneline --decorate --graph --all'
-alias cfgu='df-install.sh' # Update installation
+alias cfgu='config pull origin && df-install.sh' # Update installation
 
 alias ll='ls -laFh --color=tty --group-directories-first'
 alias ls='ls -F --color=tty'
