@@ -58,4 +58,5 @@ map <C-n> :NERDTreeToggle<CR>
 
 colo elflord
 syntax on
+set nowrap "a more sensible default for me"
 
