@@ -109,7 +109,6 @@ fi
 
 #
 # (4) source .shellrc in .bashrc if not done already
-
 if [[ -f .bashrc ]] ; then
   if grep -q '\.shellrc' .bashrc ; then
     log ".bashrc already sources .shellrc"
@@ -123,6 +122,9 @@ else
   log "no .bashrc present -- skipping sourcing of .shellrc"
 fi
 
+#
+# (5) Make zsh the default shell
+#
 if [[ ${SHELL##*/} != 'zsh' ]] && command -v zsh >/dev/null ; then
   log 'zsh is installed, but not the login shell'
   if [[ -f /etc/shells ]] ; then
@@ -136,4 +138,16 @@ if [[ ${SHELL##*/} != 'zsh' ]] && command -v zsh >/dev/null ; then
   fi
 else
   log 'zsh is already your login shell'
+fi
+
+
+#
+# (6) Install fzf (fuzzy finder)
+#
+if [[ ! -d ~/.fzf ]] ; then
+  log 'installing fzf'
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install --key-bindings --completions --no-update-rc --no-fish 
+else
+  log 'fzf is already installed'
 fi

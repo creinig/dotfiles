@@ -55,4 +55,4 @@ zstyle ':completion:*' special-dirs true
 #PS1="%{${fg_bold[green]}%}%(2L.+.)%n@%m %# %{${reset_color}%}"
 
 . ~/.shellrc
-
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
