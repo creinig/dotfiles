@@ -23,6 +23,7 @@ Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'tpope/vim-sleuth'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'scrooloose/nerdtree'
 "Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
@@ -46,6 +47,10 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" Open NERDTree if vim is started without parameters
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 colo elflord
 syntax on
