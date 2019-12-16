@@ -43,5 +43,8 @@ curl -Lks https://git.io/crdotfiles | INSTALL_MODE=rw /bin/bash
   * https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
   * https://github.com/cbucher/console
     * Cfg: unbind ctrl-R, ctrl-W; Fix size (view -> show console -> settigns -> set font size to tiny)
+  * https://github.com/BurntSushi/ripgrep (and configure as finder for fzf)
+  * https://github.com/honza/vim-snippets and https://github.com/SirVer/ultisnips ?
 * Better environment detection (linux vs WSL vs cygwin)
 * Personal documentation / notes and links to good doc resources
+  * https://www.youtube.com/watch?v=qgG5Jhi_Els
