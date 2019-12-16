@@ -160,9 +160,9 @@ fi
 # (6) Install fzf (fuzzy finder)
 #
 if [[ ! -d ~/.fzf ]] ; then
-  log 'installing fzf'
+  logDo 'installing fzf'
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish 
 else
-  log 'fzf is already installed'
+  logOk 'fzf is already installed'
 fi
