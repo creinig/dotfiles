@@ -162,7 +162,7 @@ fi
 if [[ ! -d ~/.fzf ]] ; then
   log 'installing fzf'
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fzf/install --key-bindings --completions --no-update-rc --no-fish 
+  ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish 
 else
   log 'fzf is already installed'
 fi
