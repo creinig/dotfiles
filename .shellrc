@@ -1,5 +1,13 @@
 #!/bin/sh
 
+if ! echo $PATH | grep -q ".local/bin" ; then
+    PATH=$HOME/.local/bin:$PATH
+fi
+
+#
+# Integrate useful tools if they are present
+#
+
 if command -v most > /dev/null 2>&1; then
     export PAGER="most"
 fi
@@ -16,8 +24,9 @@ if command -v bat >/dev/null 2>&1; then
     alias cat="bat"
 fi
 
-if ! echo $PATH | grep -q ".local/bin" ; then
-    PATH=$HOME/.local/bin:$PATH
+if command -v rg >/dev/null 2>&1; then
+    export FZF_DEFAULT_COMMAND='rg --files --hidden'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
 # Workaround for 'vagrant ssh' in cygwin
