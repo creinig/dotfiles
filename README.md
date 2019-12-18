@@ -37,13 +37,13 @@ curl -Lks https://git.io/crdotfiles | INSTALL_MODE=rw /bin/bash
   * https://github.com/emre/storm
   * https://kubernetes.io/docs/tasks/tools/install-minikube/
   * https://www.vagrantup.com/
-  * https://www.terraform.io/
+  * (X) https://www.terraform.io/
   * https://www.ansible.com/
-  * https://kubernetes.io/docs/tasks/tools/install-kubectl/
-  * https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
+  * (X) https://kubernetes.io/docs/tasks/tools/install-kubectl/
+  * (X) https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
   * https://github.com/cbucher/console
     * Cfg: unbind ctrl-R, ctrl-W; Fix size (view -> show console -> settigns -> set font size to tiny)
-  * https://github.com/BurntSushi/ripgrep (and configure as finder for fzf)
+  * (X) https://github.com/BurntSushi/ripgrep (and configure as finder for fzf)
   * https://github.com/honza/vim-snippets and https://github.com/SirVer/ultisnips ?
 * Better environment detection (linux vs WSL vs cygwin)
 * Personal documentation / notes and links to good doc resources
