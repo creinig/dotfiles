@@ -26,6 +26,16 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+
+" ultisnips requires python3, which is not supported in vim under termux
+if has("python3")
+    " Track the engine.
+    Plugin 'SirVer/ultisnips'
+
+    " Snippets are separated from the engine. Add this if you want them:
+    Plugin 'honza/vim-snippets'
+endif
+
 "Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
@@ -52,9 +62,20 @@ nmap ea <Plug>(EasyAlign)
 
 " Open NERDTree if vim is started with a directory as parameter
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | exe 'NERDTreeFocus' | endif
 
 map <C-n> :NERDTreeToggle<CR>
+
+if has("python3")
+    " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<c-b>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+    " If you want :UltiSnipsEdit to split your window.
+    let g:UltiSnipsEditSplit="vertical"
+endif
+
 
 colo elflord
 syntax on
