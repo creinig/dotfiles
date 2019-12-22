@@ -23,7 +23,7 @@ function install_basics() {
 
 	if [[ $DF_OS == 'termux' ]] ; then
 		pkg install \
-			mosh nodejs zsh vim multitail \
+			mosh nodejs zsh vim-python multitail \
 			tree bat ripgrep
 	elif [[ $DF_OS == 'rhel' ]] ; then
 		sudo yum install epel-release bind-utils
