@@ -31,10 +31,14 @@ Plugin 'junegunn/fzf.vim'
 if has("python3")
     " Track the engine.
     Plugin 'SirVer/ultisnips'
-
-    " Snippets are separated from the engine. Add this if you want them:
-    Plugin 'honza/vim-snippets'
+else
+    Plugin 'MarcWeber/vim-addon-mw-utils'
+    Plugin 'tomtom/tlib_vim'
+    Plugin 'garbas/vim-snipmate'
 endif
+
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
 
 "Plugin 'altercation/vim-colors-solarized'
 
