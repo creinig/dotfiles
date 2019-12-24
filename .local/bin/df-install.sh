@@ -140,7 +140,9 @@ fi
 #
 # (5) Make zsh the default shell
 #
-if [[ ${SHELL##*/} != 'zsh' ]] && command -v zsh >/dev/null ; then
+if ! command -v zsh >/dev/null ; then
+  logOk "zsh is not installed"
+elif [[ ${SHELL##*/} != 'zsh' ]] && command -v zsh >/dev/null ; then
   logDo 'zsh is installed, but not the login shell'
   if [[ -f /etc/shells ]] ; then
     chsh -s $(grep zsh /etc/shells)
