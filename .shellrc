@@ -22,6 +22,7 @@ fi
 
 if command -v bat >/dev/null 2>&1; then
     alias cat="bat"
+    export BAT_STYLE=changes
 fi
 
 if command -v rg >/dev/null 2>&1; then
