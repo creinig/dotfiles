@@ -10,6 +10,13 @@ curl -Lks https://git.io/crdotfiles | /bin/bash
 curl -Lks https://git.io/crdotfiles | INSTALL_MODE=rw /bin/bash 
 ```
 
+This fetches the [install script](.local/bin/df-install..sh) and executes it. 
+The basic idea behind it is described in this atlassian 
+[blog post](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).
+The same install script can also perform an update (it autodetects what mode of 
+operation is correct). For convenience, `.shellrc` defines an alias "cfgu", performing a pull followed by execution of the update script.
+
+
 # What's included?
 
 * A .zshrc with oh-my-zsh and some custom stuff
