@@ -36,7 +36,7 @@ ZSH_DISABLE_COMPFIX=true
 
 source $ZSH/oh-my-zsh.sh
 
-setopt complete_aliases
+setopt no_complete_aliases
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -49,6 +49,10 @@ setopt complete_aliases
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# useful when having parallel sessions, each dedicated
+# to its own tasks
+alias private_history="setopt no_shared_history"
 
 zstyle ':completion:*' special-dirs true
 
