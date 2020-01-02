@@ -57,7 +57,7 @@ function install_cloud() {
 		exit 1
 	fi
 
-	curl -L https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubect > ~/.local/bin/kubectl
+	curl -L https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl > ~/.local/bin/kubectl
 	curl -L https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx >~/.local/bin/kubectx
 	curl -L https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens >~/.local/bin/kubens
 
