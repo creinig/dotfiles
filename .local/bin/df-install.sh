@@ -6,6 +6,11 @@ if [[ -z $INSTALL_MODE ]] ; then
   INSTALL_MODE=r
 fi
 
+# Collection of hints to be displayed at the end
+declare HINTS=()
+HINTS+='Some shell configuration might have been changed. This will take effect after re-login.'
+
+
 function log() {
   echo -n '== '
   echo $@
@@ -142,6 +147,7 @@ fi
 #
 if ! command -v zsh >/dev/null ; then
   logOk "zsh is not installed"
+  HINTS+=('Without zsh you will miss out quite a bit. "df-tools.sh basics" will install it')
 elif [[ ${SHELL##*/} != 'zsh' ]] && command -v zsh >/dev/null ; then
   logDo 'zsh is installed, but not the login shell'
   if [[ -f /etc/shells ]] ; then
@@ -150,6 +156,7 @@ elif [[ ${SHELL##*/} != 'zsh' ]] && command -v zsh >/dev/null ; then
   elif [[ $PREFIX =~ 'termux' ]] ; then
     chsh -s zsh
     logDo '... fixed that'
+    HINTS+="Your login shell has been changed. You'll want to re-login to use it"
   else
     logError '  strange system here. perhaps try running "chsh" manually'
   fi
@@ -167,4 +174,21 @@ if [[ ! -d ~/.fzf ]] ; then
   ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish 
 else
   logOk 'fzf is already installed'
+fi
+
+
+
+#
+# (x) Final things
+#
+if [[ -e $(config config user.email) ]] && config remote -v | grep -q 'git@' ; then
+  HINTS+=('git: user.email is not set. You might want to run "cfg config --local user.email my@mail.org"')
+fi
+
+if (( ${#HINTS[@]} > 0 )); then
+  echo
+  echo '== Some issues you might want to take care of:'
+  for hint in "${HINTS[@]}" ; do
+    echo '*' "$hint"
+  done
 fi
