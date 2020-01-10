@@ -31,6 +31,20 @@ a pull followed by execution of the update script.
 * Some devops-y tooling and configuration (`devops/*`)
   * A Vagrantfile for a set of different VMs, for quick testing of stuff in various environments
 
+## A note on QA
+
+I test these scripts by using them almost daily, and since they are only intended
+for my personal use I don't worry about doing explicit QA.
+
+The environments I regularly use them on are:
+
+* WSL 1 with ubuntu 18
+* native ubuntu 18
+* native CentOS 7
+* termux (android)
+* cygwin (babun)
+
+
 # Want more?
 
 * https://dotfiles.github.io/ has a large collection of dotfile repos
