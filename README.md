@@ -102,18 +102,11 @@ The environments I regularly use them on are:
 
 * Add ansible bootstrapping to vagrant stuff
 * Add installers and/or install+config docs for useful extra tooling
-  * https://github.com/tmux-python/tmuxp
-  * https://github.com/emre/storm
   * https://kubernetes.io/docs/tasks/tools/install-minikube/
   * https://www.vagrantup.com/
-  * (X) https://www.terraform.io/
   * https://www.ansible.com/
-  * (X) https://kubernetes.io/docs/tasks/tools/install-kubectl/
-  * (X) https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
   * https://github.com/cbucher/console
     * Cfg: unbind ctrl-R, ctrl-W; Fix size (view -> show console -> settigns -> set font size to tiny)
-  * (X) https://github.com/BurntSushi/ripgrep (and configure as finder for fzf)
-  * https://github.com/honza/vim-snippets and https://github.com/SirVer/ultisnips ?
 * Better environment detection (linux vs WSL vs cygwin)
 * Personal documentation / notes and links to good doc resources
 
