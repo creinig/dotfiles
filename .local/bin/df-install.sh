@@ -172,6 +172,9 @@ if [[ ! -d ~/.fzf ]] ; then
   logDo 'installing fzf'
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish 
+elif [[ ! -f ~/.fzf.zsh ]] && command -v zsh >/dev/null ; then
+  logDo '.fzf.zsh missing - re-running installer'
+  ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish 
 else
   logOk 'fzf is already installed'
 fi
