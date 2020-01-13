@@ -52,7 +52,7 @@ setopt no_complete_aliases
 
 # useful when having parallel sessions, each dedicated
 # to its own tasks
-alias private_history="setopt no_shared_history"
+alias private_history="setopt no_share_history"
 
 zstyle ':completion:*' special-dirs true
 
