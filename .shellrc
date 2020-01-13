@@ -23,6 +23,7 @@ fi
 if command -v bat >/dev/null 2>&1; then
     alias cat="bat"
     export BAT_STYLE=changes
+    export BAT_PAGER=less # 'most' has some problems with the escape sequences
 fi
 
 if command -v rg >/dev/null 2>&1; then
