@@ -50,6 +50,7 @@ filetype plugin indent on    " required
 set expandtab
 set shiftwidth=4
 set softtabstop=4
+autocmd FileType groovy setlocal smartindent
 
 " https://vim.fandom.com/wiki/Toggle_auto-indenting_for_code_paste
 set pastetoggle=<F2>
