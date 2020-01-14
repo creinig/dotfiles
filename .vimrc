@@ -26,6 +26,7 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'tpope/vim-fugitive'
 
 " ultisnips requires python3, which is not supported in vim under termux
 if has("python3")
