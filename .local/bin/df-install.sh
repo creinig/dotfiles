@@ -8,37 +8,36 @@ fi
 
 # Collection of hints to be displayed at the end
 declare HINTS=()
-HINTS+='Some shell configuration might have been changed. This will take effect after re-login.'
+HINTS+=('Some shell configuration might have been changed. This will take effect after re-login.')
 
 
 function log() {
   echo -n '== '
-  echo $@
+  echo "$@"
 }
 
 function logOk() {
   echo -n '=/ '
-  echo $@
+  echo "$@"
 }
 
 function logDo() {
   echo -n '=> '
-  echo $@
+  echo "$@"
 }
 
 function logError() {
   echo -n '!! '
-  echo $@
+  echo "$@"
 }
 
 if command -v git &>/dev/null ; then
   logOk "git installed. that's good."
 else 
   logError "git not found"
-  exit -1
+  exit 1
 fi
 
-SCRIPTNAME=$( basename $0 )
 
 if [[ $INSTALL_MODE == "rw" ]] ; then
   GIT_REPO="git@github.com:creinig/dotfiles.git"
@@ -47,7 +46,7 @@ else
 fi
 
 
-cd "$HOME"
+cd "$HOME" || exit
 
 # Mode of operation: update/fix or install
 if [[ -d .dotfiles ]] ; then
@@ -64,12 +63,12 @@ fi
 if ! $DO_UPDATE ; then
   if [[ -d ".dotfiles-backup" ]] ; then
     logError "Dir '.dotfiles-backup' already exists. Please move it away and try again"
-    exit -1
+    exit 1
   fi
 fi
 
 function config() {
-  /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
+  /usr/bin/git "--git-dir=$HOME/.dotfiles/" --work-tree=$HOME $@
 }
 
 #
@@ -85,11 +84,11 @@ function install() {
   mkdir -p .dotfiles-backup
   config checkout
   if [[ $? = 0 ]]; then
-    logDo "Checked out dotfiles.";
+    logDo "Checked out dotfiles."
     else
-      logDo "Backing up pre-existing dot files.";
-      config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
-  fi;
+      logDo "Backing up pre-existing dot files."
+      config checkout 2>&1 | grep -E "\s+\." | awk '{ print $1 }' | xargs -I{} mv {} .dotfiles-backup/{}
+  fi
   config checkout
   config config status.showUntrackedFiles no
 }
@@ -109,11 +108,11 @@ fi
 #
 # (2) install oh-my-zsh, since I want to use zsh if in any way possible
 #
-if [[ ! -d .oh-my-zsh ]] ; then
+if [[ ! -d ~/.oh-my-zsh ]] ; then
   git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 else
   logDo "oh-my-zsh is already installed. Updating."
-  (cd ~/.oh-my-zsh ; git pull)
+  (cd ~/.oh-my-zsh && git pull)
 fi
 
 #
@@ -129,13 +128,13 @@ fi
 
 #
 # (4) source .shellrc in .bashrc if not done already
-if [[ -f .bashrc ]] ; then
-  if grep -q '\.shellrc' .bashrc ; then
+if [[ -f ~/.bashrc ]] ; then
+  if grep -q '\.shellrc' ~/.bashrc ; then
     logOk ".bashrc already sources .shellrc"
   else
-    echo >> .bashrc
-    echo ". ~/.shellrc" >> .bashrc
-    echo >> .bashrc
+    echo >> ~/.bashrc
+    echo ". ~/.shellrc" >> ~/.bashrc
+    echo >> ~/.bashrc
     logDo ".bashrc now sources .shellrc"
   fi
 else
@@ -156,7 +155,7 @@ elif [[ ${SHELL##*/} != 'zsh' ]] && command -v zsh >/dev/null ; then
   elif [[ $PREFIX =~ 'termux' ]] ; then
     chsh -s zsh
     logDo '... fixed that'
-    HINTS+="Your login shell has been changed. You'll want to re-login to use it"
+    HINTS+=("Your login shell has been changed. You'll want to re-login to use it")
   else
     logError '  strange system here. perhaps try running "chsh" manually'
   fi
