@@ -32,14 +32,14 @@ function install_basics() {
 		sudo apt install $PKG \
 			dnsutils
 
-		if apt-cache search '^ripgrep$' >/dev/null ; then
+		if apt-cache search '^ripgrep$' | grep -q ripgrep ; then
 			sudo apt install ripgrep
 		else
 			curl -L https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb >/tmp/ripgrep.deb
 			sudo dpkg --install /tmp/ripgrep.deb
 		fi
 
-		if apt-cache search '^bat$' >/dev/null ; then
+		if apt-cache search '^bat$'  | grep -q bat ; then
 			sudo apt install bat
 		else
 			curl -L https://github.com/sharkdp/bat/releases/download/v0.12.1/bat_0.12.1_amd64.deb >/tmp/bat.deb
