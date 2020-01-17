@@ -119,11 +119,20 @@ fi
 # (3) install Vundle if it's not installed yet
 #
 if [[ ! -d ~/.vim/bundle/Vundle.vim ]] ; then
+  logDo 'Installing Vundle (vim plugin manager)'
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-  vim -c ":BundleInstall" -c ':qall!'
 else
-  logDo "Vundle is already installed. Updating Plugins"
-  vim -c ":BundleInstall" -c ':qall!'
+  logOk "Vundle is already installed."
+fi
+
+if [[ -t 0 ]] ; then
+  logDo 'Installing missing plugins'
+  vim +PluginInstall +qall
+else
+  logDo 'Input is not a tty - installing missing plugins in the background.'
+  logDo 'This may take a few minutes'
+  # TODO reference
+  echo | echo | vim +PluginInstall +qall &>/dev/null
 fi
 
 #
