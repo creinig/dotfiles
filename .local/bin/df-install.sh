@@ -131,7 +131,7 @@ if [[ -t 0 ]] ; then
 else
   logDo 'Input is not a tty - installing missing plugins in the background.'
   logDo 'This may take a few minutes'
-  # TODO reference
+  # credits: unhashable on https://github.com/VundleVim/Vundle.vim/issues/511 
   echo | echo | vim +PluginInstall +qall &>/dev/null
 fi
 
