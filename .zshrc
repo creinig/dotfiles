@@ -58,5 +58,9 @@ zstyle ':completion:*' special-dirs true
 
 #PS1="%{${fg_bold[green]}%}%(2L.+.)%n@%m %# %{${reset_color}%}"
 
+# add vi-mode indicator to prompt
+MODE_INDICATOR="%{$fg_bold[red]%}>%{$fg[red]%}VI%{$reset_color%}"
+PROMPT="\$(vi_mode_prompt_info)$PROMPT"
+
 . ~/.shellrc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
