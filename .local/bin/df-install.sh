@@ -108,7 +108,9 @@ fi
 #
 # (2) install oh-my-zsh, since I want to use zsh if in any way possible
 #
+echo
 if [[ ! -d ~/.oh-my-zsh ]] ; then
+  logDo 'Installing oh-my-zsh'
   git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 else
   logDo "oh-my-zsh is already installed. Updating."
@@ -118,6 +120,7 @@ fi
 #
 # (3) install Vundle if it's not installed yet
 #
+echo
 if [[ ! -d ~/.vim/bundle/Vundle.vim ]] ; then
   logDo 'Installing Vundle (vim plugin manager)'
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -137,6 +140,8 @@ fi
 
 #
 # (4) source .shellrc in .bashrc if not done already
+#
+echo
 if [[ -f ~/.bashrc ]] ; then
   if grep -q '\.shellrc' ~/.bashrc ; then
     logOk ".bashrc already sources .shellrc"
@@ -153,6 +158,7 @@ fi
 #
 # (5) Make zsh the default shell
 #
+echo
 if ! command -v zsh >/dev/null ; then
   logOk "zsh is not installed"
   HINTS+=('Without zsh you will miss out quite a bit. "df-tools.sh basics" will install it')
@@ -176,6 +182,7 @@ fi
 #
 # (6) Install fzf (fuzzy finder)
 #
+echo
 if [[ ! -d ~/.fzf ]] ; then
   logDo 'installing fzf'
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
