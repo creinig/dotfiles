@@ -53,7 +53,7 @@ alias cfga='cfg add'
 alias cfgc='cfg commit -v'
 alias cfgp='cfg push origin'
 alias cfglog='cfg log --oneline --decorate --graph --all'
-alias cfgu='cfg pull origin && df-install.sh' # Update installation
+alias cfgu='curl -Lks https://git.io/crdotfiles | bash' # Update installation
 
 alias ll='ls -laFh --color=tty --group-directories-first'
 alias ls='ls -F --color=tty'
