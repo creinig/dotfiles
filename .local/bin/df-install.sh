@@ -8,8 +8,8 @@ fi
 
 # Collection of hints to be displayed at the end
 declare HINTS=()
-HINTS+=('Some shell configuration might have been changed. This will take effect after re-login.')
 
+DF_CHANGED=false
 
 function log() {
   echo -n '== '
@@ -98,11 +98,16 @@ function install() {
 # (1) Install or update
 #
 if $DO_UPDATE ; then
+  last_commit=$(config log -n 1 --format=oneline)
   log "Updating the installation"
   config pull
+  if [[ "$last_commit" != $(config log -n 1 --format=oneline) ]] ; then
+    DF_CHANGED=true
+  fi
 else
   log "Performing fresh install"
   install
+  DF_CHANGED=true
 fi
 
 #
@@ -199,6 +204,10 @@ fi
 #
 # (x) Final things
 #
+if [[ $DF_CHANGED == true ]] ; then
+  HINTS+=('Your dotfiles have changed. This will take effect after re-login.')
+fi
+
 if [[ -e $(config config user.email) ]] && config remote -v | grep -q 'git@' ; then
   HINTS+=('git: user.email is not set. You might want to run "cfg config --local user.email my@mail.org"')
 fi
