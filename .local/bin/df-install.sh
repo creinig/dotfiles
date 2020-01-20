@@ -85,9 +85,9 @@ function install() {
   config checkout
   if [[ $? = 0 ]]; then
     logDo "Checked out dotfiles."
-    else
-      logDo "Backing up pre-existing dot files."
-      config checkout 2>&1 | grep -E "\s+\." | awk '{ print $1 }' | xargs -I{} mv {} .dotfiles-backup/{}
+  else
+    logDo "Backing up pre-existing dot files."
+    config checkout 2>&1 | grep -E "\s+\." | awk '{ print $1 }' | xargs -I{} mv {} .dotfiles-backup/{}
   fi
   config checkout
   config config status.showUntrackedFiles no
