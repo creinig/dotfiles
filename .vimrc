@@ -27,6 +27,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'vim-syntastic/syntastic'
 
 " ultisnips requires python3, which is not supported in vim under termux
 if has("python3")
@@ -81,6 +82,13 @@ if has("python3")
     " If you want :UltiSnipsEdit to split your window.
     let g:UltiSnipsEditSplit="vertical"
 endif
+
+
+" basic settings for syntastic 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
 
 
 colo elflord
