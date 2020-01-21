@@ -53,7 +53,7 @@ function install_basics() {
 
 
 function install_cloud() {
-	if [[ §DF_OS == 'termux' ]] ; then
+	if [[ $DF_OS == 'termux' ]] ; then
 		echo "Not implemented yet"
 		exit 1
 	fi
