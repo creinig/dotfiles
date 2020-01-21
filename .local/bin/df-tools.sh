@@ -27,11 +27,11 @@ function install_basics() {
 			tree bat ripgrep man tmux
 	elif [[ $DF_OS == 'rhel' ]] ; then
 		sudo yum install epel-release bind-utils
-		sudo yum install $PKG
+		sudo yum install $PKG ShellCheck
 	elif [[ $DF_OS == 'ubuntu' ]] ; then
 		sudo apt update
 		sudo apt install $PKG \
-			dnsutils
+			dnsutils shellcheck
 
 		if apt-cache search '^ripgrep$' | grep -q ripgrep ; then
 			sudo apt install ripgrep
