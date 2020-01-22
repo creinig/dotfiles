@@ -66,6 +66,7 @@ alias ag='alias | grep'
 alias gch='git commit -v -c HEAD'
 
 alias s="ssh -l $USER"
+alias se="sudoedit"
 
 alias cpv='rsync -ah --info=progress2'
 
