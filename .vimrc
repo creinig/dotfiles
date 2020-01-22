@@ -1,4 +1,4 @@
-set nocompatible              " be iMproved, required
+set nocompatible
 set nobackup
 filetype off                  " required
 
@@ -91,7 +91,33 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 
+"
+" Use "<Space>" as Leader and define a bunch of mappings for it
+"
+let mapleader = " "
+
+" Mappings for fzf.vim
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>fb :Buffers<CR>
+nnoremap <leader>fh :History<CR>
+nnoremap <leader>fs :Snippets<CR>
+nnoremap <leader>fc :Commits<CR>
+nnoremap <leader>fC :BCommits<CR>
+nnoremap <leader>fm :Maps<CR>
+
+" Mappings for fugitive.vim
+nnoremap <leader>gg :Gstatus<CR>
+nnoremap <leader>gc :Gcommit
+nnoremap <leader>gp :Gpush
+nnoremap <leader>gl :Gpull
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gd :Gdiffsplit<CR>
+
+
+
 colo elflord
 syntax on
-set nowrap "a more sensible default for me"
+set nowrap  "a more sensible default for me
+set showcmd "Useful e.g. for seeing that the leader is active
 
