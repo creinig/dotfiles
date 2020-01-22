@@ -65,7 +65,7 @@ alias ag='alias | grep'
 # Useful for multiple commits on the same ticket/issue
 alias gch='git commit -v -c HEAD'
 
-alias s="ssh -l $USER"
+alias s="sudo"
 alias se="sudoedit"
 
 alias cpv='rsync -ah --info=progress2'
