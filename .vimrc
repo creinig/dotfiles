@@ -84,7 +84,7 @@ if has("python3")
 endif
 
 
-" basic settings for syntastic 
+" basic settings for syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
@@ -110,6 +110,7 @@ nnoremap <leader>fm :Maps<CR>
 nnoremap <leader>gg :Gstatus<CR>
 nnoremap <leader>gc :Gcommit
 nnoremap <leader>gp :Gpush
+nnoremap <leader>gf :Gfetch
 nnoremap <leader>gl :Gpull
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gd :Gdiffsplit<CR>
