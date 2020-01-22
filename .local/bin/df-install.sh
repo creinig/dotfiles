@@ -205,7 +205,7 @@ fi
 # (x) Final things
 #
 if [[ $DF_CHANGED == true ]] ; then
-  HINTS+=('Your dotfiles have changed. This will take effect after re-login.')
+  HINTS+=('Your dotfiles have changed. Either re-login or "source ~/.zshrc" to apply them.')
 fi
 
 if [[ -e $(config config user.email) ]] && config remote -v | grep -q 'git@' ; then
