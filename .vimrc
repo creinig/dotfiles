@@ -52,7 +52,9 @@ filetype plugin indent on    " required
 set expandtab
 set shiftwidth=4
 set softtabstop=4
+" Fix indenting for some filetypes where it is not enabled
 autocmd FileType groovy setlocal smartindent
+autocmd FileType conf   setlocal smartindent
 
 " https://vim.fandom.com/wiki/Toggle_auto-indenting_for_code_paste
 set pastetoggle=<F2>
@@ -118,7 +120,7 @@ nnoremap <leader>gd :Gdiffsplit<CR>
 " utility shortcuts
 "   remove all trailing whitespace in the file
 nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
-
+nnoremap <leader>un :set invrelativenumber<CR>
 
 colo elflord
 syntax on
@@ -127,7 +129,7 @@ set showcmd "Useful e.g. for seeing that the leader is active
 set nobackup
 set encoding=utf-8
 set ttyfast
-set relativenumber
+"set relativenumber " slows down vim. See leader mapping for toggle above
 set colorcolumn=80
 
 set ignorecase
