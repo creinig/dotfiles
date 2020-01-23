@@ -64,6 +64,8 @@ alias ag='alias | grep'
 # Commit, defaulting to the message of the previous commit
 # Useful for multiple commits on the same ticket/issue
 alias gch='git commit -v -c HEAD'
+# Exit the credential cache to make it forget the bad password I just entered
+alias gce='git credential-cache exit'
 
 alias s="sudo"
 alias se="sudoedit"
