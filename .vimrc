@@ -1,5 +1,4 @@
 set nocompatible
-set nobackup
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -116,10 +115,21 @@ nnoremap <leader>gl :Gpull
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gd :Gdiffsplit<CR>
 
+" utility shortcuts
+"   remove all trailing whitespace in the file
+nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
 
 
 colo elflord
 syntax on
 set nowrap  "a more sensible default for me
 set showcmd "Useful e.g. for seeing that the leader is active
+set nobackup
+set encoding=utf-8
+set ttyfast
+set relativenumber
+set colorcolumn=80
 
+set ignorecase
+set smartcase
+set formatoptions=crql
