@@ -132,6 +132,10 @@ set ttyfast
 "set relativenumber " slows down vim. See leader mapping for toggle above
 set colorcolumn=80
 
+" let ex completion behave similar to zs
+set wildmenu 
+set wildmode=full
+
 set ignorecase
 set smartcase
 set formatoptions=crql
