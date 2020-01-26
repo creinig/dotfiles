@@ -131,6 +131,7 @@ set encoding=utf-8
 set ttyfast
 "set relativenumber " slows down vim. See leader mapping for toggle above
 set colorcolumn=80
+set history=200
 
 " let ex completion behave similar to zs
 set wildmenu 
