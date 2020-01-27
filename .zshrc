@@ -65,3 +65,9 @@ PROMPT="\$(vi_mode_prompt_info)$PROMPT"
 
 . ~/.shellrc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [[ -d ~/.zsh/local ]] ; then
+    for script in ~/.zsh/local/*.zsh ; do
+        source $script
+    done
+fi
