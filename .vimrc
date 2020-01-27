@@ -124,6 +124,7 @@ nnoremap <leader>un :set invrelativenumber<CR>
 
 colo creinig
 syntax on
+
 set nowrap  "a more sensible default for me
 set showcmd "Useful e.g. for seeing that the leader is active
 set nobackup
