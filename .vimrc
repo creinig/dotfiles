@@ -122,8 +122,8 @@ nnoremap <leader>gd :Gdiffsplit<CR>
 nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>un :set invrelativenumber<CR>
 
-colo creinig
 syntax on
+colo creinig
 
 set nowrap  "a more sensible default for me
 set showcmd "Useful e.g. for seeing that the leader is active

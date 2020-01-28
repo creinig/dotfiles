@@ -8,7 +8,7 @@ hi clear
 if exists("syntax_on")
   syntax reset
 endif
-let g:colors_name = "elflord"
+let g:colors_name = "creinig"
 hi Normal		guifg=cyan			guibg=black
 hi Comment	term=bold		ctermfg=DarkCyan		guifg=#80a0ff
 hi Constant	term=underline	ctermfg=Magenta		guifg=Magenta
@@ -48,5 +48,8 @@ hi link Delimiter	Special
 hi link SpecialComment Special
 hi link Debug		Special
 
-hi DiffText term=standout ctermbg=LightGreen ctermfg=Black guifg=Blue guibg=LightGreen
-
+" Diff colors taken from https://github.com/NLKNguyen/papercolor-theme/
+hi DiffAdd    term=bold    ctermfg=112 ctermbg=22 guifg=#87d700 guibg=#005f00
+hi DiffDelete term=bold    ctermfg=125 ctermbg=52 guifg=#af005f guibg=#5f0000
+hi DiffText   term=reverse ctermfg=87  ctermbg=12 guifg=#5fffff guibg=#008787
+hi DiffChange term=bold    ctermfg=252 ctermbg=23 guifg=#d0d0d0 guibg=#005f5f
