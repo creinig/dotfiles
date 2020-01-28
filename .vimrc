@@ -63,6 +63,9 @@ set pastetoggle=<F2>
 map <PageDown> :set scroll=0<CR>:set scroll^=2<CR>:set scroll-=1<CR><C-D>:set scroll=0<CR>
 map <PageUp> :set scroll=0<CR>:set scroll^=2<CR>:set scroll-=1<CR><C-U>:set scroll=0<CR>
 
+" From 'Practical Vim' p101
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ea <Plug>(EasyAlign)
 
