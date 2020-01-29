@@ -118,12 +118,19 @@ nnoremap <leader>gp :Gpush
 nnoremap <leader>gf :Gfetch
 nnoremap <leader>gl :Gpull
 nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>gd :Gdiffsplit<CR>
+nnoremap <leader>gd :Gdiffsplit
 
 " utility shortcuts
 "   remove all trailing whitespace in the file
 nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>un :set invrelativenumber<CR>
+
+
+" Some remappings for better accessibility
+nmap >c ]c
+nmap <c [c
+
+
 
 syntax on
 colo creinig
