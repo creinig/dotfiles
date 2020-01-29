@@ -8,6 +8,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'lifepillar/vim-cheat40'
 Plugin 'kana/vim-textobj-user'
 Plugin 'beloglazov/vim-textobj-quotes'
 Plugin 'tpope/vim-surround'
