@@ -30,7 +30,8 @@ plugins=(git gitfast kubectl mosh scd vi-mode)
 # zplug configuration
 
 if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
-    . ~/.zsh/zplug/init.zsh
+    export ZPLUG_HOME=~/.zsh/zplug
+    . $ZPLUG_HOME/init.zsh
 
     forgit_log=gilo
     forgit_diff=gid
