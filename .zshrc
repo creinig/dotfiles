@@ -43,7 +43,17 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 
 setopt no_complete_aliases
-
+# whenever a command completion is attempted, make sure the entire command path
+# is hashed first.
+setopt hash_list_all
+# save each command's beginning timestamp and the duration to the history file
+setopt extended_history
+# display PID when suspending processes as well
+setopt longlistjobs
+# report the status of backgrounds jobs immediately
+setopt notify
+# allow use of comments in interactive code
+setopt interactivecomments
 # useful when having parallel sessions, each dedicated
 # to its own tasks
 setopt no_share_history
