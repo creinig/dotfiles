@@ -12,6 +12,7 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     zplug "lib/completion", from:oh-my-zsh
 
 #    zplug "laurenkt/zsh-vimto" # good, but messes with right prompt
+    ENHANCD_FILTER=fzf
     zplug "b4b4r07/enhancd", use:init.sh
 
     forgit_log=gilo
