@@ -111,15 +111,11 @@ else
 fi
 
 #
-# (2) install oh-my-zsh, since I want to use zsh if in any way possible
+# (2) Detect existing oh-my-zsh and warn that it's not used anymore
 #
 echo
-if [[ ! -d ~/.oh-my-zsh ]] ; then
-  logDo 'Installing oh-my-zsh'
-  git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-else
-  logDo "oh-my-zsh is already installed. Updating."
-  (cd ~/.oh-my-zsh && git pull)
+if [[ -d ~/.oh-my-zsh ]] ; then
+  HINTS+=("~/.oh-my-zsh exists. Since it's not used anymore you might want to remove it")
 fi
 
 #
