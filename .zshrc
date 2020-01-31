@@ -8,8 +8,11 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     zplug "plugins/gitfast", from:oh-my-zsh
     zplug "plugins/kubectl", from:oh-my-zsh
     zplug "plugins/mosh",    from:oh-my-zsh
-    zplug "plugins/scd",     from:oh-my-zsh
     zplug "themes/kardan",   from:oh-my-zsh, as:theme
+    zplug "lib/completion", from:oh-my-zsh
+
+#    zplug "laurenkt/zsh-vimto" # good, but messes with right prompt
+    zplug "b4b4r07/enhancd", use:init.sh
 
     forgit_log=gilo
     forgit_diff=gid
