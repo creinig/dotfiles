@@ -27,6 +27,35 @@ ZSH_THEME="kardan"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git gitfast kubectl mosh scd vi-mode)
 
+# zplug configuration
+
+if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
+    . ~/.zsh/zplug/init.zsh
+
+    forgit_log=gilo
+    forgit_diff=gid
+    forgit_add=gia
+    forgit_reset_head=girh
+    forgit_ignore=gi
+    forgit_restore=gicf
+    forgit_clean=giclean
+    forgit_stash_show=giss
+    zplug 'wfxr/forgit'
+
+
+    # Install plugins if there are plugins that have not been installed
+    if ! zplug check --verbose; then
+        printf "Install missing plugins? [y/N]: "
+        if read -q; then
+            echo; zplug install
+        fi
+    fi
+
+    # Then, source plugins and add commands to $PATH
+    zplug load --verbose
+fi
+
+
 # User configuration
 
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
