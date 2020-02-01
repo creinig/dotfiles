@@ -24,7 +24,8 @@ function install_basics() {
 	if [[ $DF_OS == 'termux' ]] ; then
 		pkg install \
 			mosh nodejs zsh vim-python multitail \
-			tree bat ripgrep man tmux
+			bat ripgrep man perl exa
+		# perl is needed for the enhancd zsh plugin
 	elif [[ $DF_OS == 'rhel' ]] ; then
 		sudo yum install epel-release bind-utils
 		sudo yum install $PKG ShellCheck

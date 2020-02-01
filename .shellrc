@@ -31,6 +31,17 @@ if command -v rg >/dev/null 2>&1; then
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
+if command -v exa >/dev/null 2>&1 ; then
+    alias ls='exa'
+    alias ll='exa -lbGFagh --git --time-style=iso --group-directories-first --color-scale'
+    alias llm='exa -lbGdagh --git --time-style=iso --sort=modified --color-scale'
+    alias tree='exa --tree --level=2'
+else
+    alias ls='ls -F --color=tty'
+    alias ll='ls -laFh --color=tty --group-directories-first'
+    alias llm='ls -laFh --color=tty --sort=time'
+fi
+
 # Workaround for 'vagrant ssh' in cygwin
 export VAGRANT_PREFER_SYSTEM_BIN=1
 
@@ -58,8 +69,6 @@ alias cfgei='vim ~/.local/bin/df-install.sh'
 alias cfgai='cfg add ~/.local/bin/df-install.sh'
 
 
-alias ll='ls -laFh --color=tty --group-directories-first'
-alias ls='ls -F --color=tty'
 
 # Can't remember all those aliases? Use this to search through them
 alias ag='alias | grep'
