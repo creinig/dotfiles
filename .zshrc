@@ -11,7 +11,9 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     zplug "themes/kardan",   from:oh-my-zsh, as:theme
     zplug "lib/completion", from:oh-my-zsh
 
-#    zplug "laurenkt/zsh-vimto" # good, but messes with right prompt
+    # has to be sourced after the theme to avoid destroying RPROMPT
+    zplug "laurenkt/zsh-vimto", defer:1 
+
     ENHANCD_FILTER=fzf
     zplug "b4b4r07/enhancd", use:init.sh
 
