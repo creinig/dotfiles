@@ -49,16 +49,8 @@ Plugin 'honza/vim-snippets'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" https://vim.fandom.com/wiki/Indenting_source_code
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-" Fix indenting for some filetypes where it is not enabled
-autocmd FileType groovy setlocal smartindent
-autocmd FileType conf   setlocal smartindent
 
-" https://vim.fandom.com/wiki/Toggle_auto-indenting_for_code_paste
-set pastetoggle=<F2>
+
 
 " https://vim.fandom.com/wiki/Page_up/down_and_keep_cursor_position
 map <PageDown> :set scroll=0<CR>:set scroll^=2<CR>:set scroll-=1<CR><C-D>:set scroll=0<CR>
@@ -67,7 +59,7 @@ map <PageUp> :set scroll=0<CR>:set scroll^=2<CR>:set scroll-=1<CR><C-U>:set scro
 " From 'Practical Vim' p101
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" Start interactive EasyAlign in visual mode (e.g. vipga)
+" Start interactive EasyAlign in visual mode (e.g. vipea)
 xmap ea <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
@@ -136,19 +128,59 @@ nmap <c [c
 syntax on
 colo creinig
 
+" from https://github.com/mhinz/vim-galore/blob/master/static/minimal-vimrc.vim
+set autoindent             " Indent according to previous line.
+set expandtab              " Use spaces instead of tabs.
+set softtabstop =4         " Tab key indents by 4 spaces.
+set shiftwidth  =4         " >> indents by 4 spaces.
+set shiftround             " >> indents to next multiple of 'shiftwidth'.
+
+" Fix indenting for some filetypes where it is not enabled
+autocmd FileType groovy setlocal smartindent
+autocmd FileType conf   setlocal smartindent
+
+" https://vim.fandom.com/wiki/Toggle_auto-indenting_for_code_paste
+set pastetoggle=<F2>
+
 set nowrap  "a more sensible default for me
 set showcmd "Useful e.g. for seeing that the leader is active
-set nobackup
 set encoding=utf-8
-set ttyfast
-"set relativenumber " slows down vim. See leader mapping for toggle above
+set ttyfast                " Faster redrawing.
+set lazyredraw             " Only redraw when necessary.
+
 set colorcolumn=80
 set history=200
+set backspace   =indent,eol,start  " Make backspace work as you would expect.
+set hidden                 " Switch between buffers without having to save first.
 
-" let ex completion behave similar to zs
+set splitbelow             " Open new windows below the current window.
+set splitright             " Open new windows right of the current window.
+
+set cursorline             " Find the current line quickly.
+set wrapscan               " Searches wrap around end-of-file.
+set incsearch              " Highlight while searching with / or ?.
+set hlsearch               " Keep matches highlighted.
+
+set report      =0         " Always report changed lines.
+set synmaxcol   =200       " Only highlight the first 200 columns.
+
+
+" let ex completion behave similar to zsh
 set wildmenu 
 set wildmode=full
 
 set ignorecase
 set smartcase
 set formatoptions=crql
+
+" Put all temporary files under the same directory.
+" https://github.com/mhinz/vim-galore#handling-backup-swap-undo-and-viminfo-files
+set backup
+set backupdir   =$HOME/.vim/files/backup/
+set backupext   =-vimbackup
+set backupskip  =
+set directory   =$HOME/.vim/files/swap//
+set updatecount =100
+set undofile
+set undodir     =$HOME/.vim/files/undo/
+set viminfo     ='100,n$HOME/.vim/files/info/viminfo

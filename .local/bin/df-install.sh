@@ -119,6 +119,16 @@ if [[ -d ~/.oh-my-zsh ]] ; then
 fi
 
 #
+# (3a) Create temp dirs for vim
+#
+echo
+logDo 'creating temp dirs for vim if they do not exist yet'
+mkdir -p ~/.vim/files/backup
+mkdir -p ~/.vim/files/swap
+mkdir -p ~/.vim/files/undo
+mkdir -p ~/.vim/files/info
+
+#
 # (3) install Vundle if it's not installed yet
 #
 echo
@@ -208,6 +218,7 @@ if [[ ! -d ~/.zsh/zplug ]] ; then
 else
   logOk 'zplug is already installed'
 fi
+
 
 #
 # (x) Final things
