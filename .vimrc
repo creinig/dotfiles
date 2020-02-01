@@ -16,34 +16,25 @@ Plugin 'tpope/vim-repeat'
 Plugin 'Raimondi/delimitMate'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'mtdl9/vim-log-highlighting'
-Plugin 'martinda/Jenkinsfile-vim-syntax'
-Plugin 'hashivim/vim-terraform'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'tpope/vim-sleuth'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'scrooloose/nerdtree'
 Plugin 'preservim/nerdcommenter'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-syntastic/syntastic'
-
-" ultisnips requires python3, which is not supported in vim under termux
-if has("python3")
-    " Track the engine.
-    Plugin 'SirVer/ultisnips'
-else
-    Plugin 'MarcWeber/vim-addon-mw-utils'
-    Plugin 'tomtom/tlib_vim'
-    Plugin 'garbas/vim-snipmate'
-endif
+Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 
-"Plugin 'altercation/vim-colors-solarized'
+" language / syntax plugins
+Plugin 'mtdl9/vim-log-highlighting'
+Plugin 'martinda/Jenkinsfile-vim-syntax'
+Plugin 'hashivim/vim-terraform'
+Plugin 'mustache/vim-mustache-handlebars'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -102,16 +93,17 @@ nnoremap <leader>fh :History<CR>
 nnoremap <leader>fs :Snippets<CR>
 nnoremap <leader>fc :Commits<CR>
 nnoremap <leader>fC :BCommits<CR>
-nnoremap <leader>fm :Maps<CR>
+nnoremap <leader>fm :Marks<CR>
+nnoremap <leader>fM :Maps<CR>
 
 " Mappings for fugitive.vim
 nnoremap <leader>gg :Gstatus<CR>
-nnoremap <leader>gc :Gcommit
-nnoremap <leader>gp :Gpush
-nnoremap <leader>gf :Gfetch
-nnoremap <leader>gl :Gpull
+nnoremap <leader>gc :Gcommit<space>
+nnoremap <leader>gp :Gpush<space>
+nnoremap <leader>gf :Gfetch<space>
+nnoremap <leader>gl :Gpull<space>
 nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>gd :Gdiffsplit
+nnoremap <leader>gd :Gdiffsplit<space>
 
 " utility shortcuts
 "   remove all trailing whitespace in the file
