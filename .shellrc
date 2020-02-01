@@ -33,8 +33,8 @@ fi
 
 if command -v exa >/dev/null 2>&1 ; then
     alias ls='exa'
-    alias ll='exa -lbGFagh --git --time-style=iso --group-directories-first --color-scale'
-    alias llm='exa -lbGdagh --git --time-style=iso --sort=modified --color-scale'
+    alias ll='exa -lbGFagh --git --group-directories-first --color-scale'
+    alias llm='exa -lbGFagh --git --sort=modified --color-scale'
     alias tree='exa --tree --level=2'
 else
     alias ls='ls -F --color=tty'
