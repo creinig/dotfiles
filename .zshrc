@@ -8,8 +8,10 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     zplug "plugins/gitfast", from:oh-my-zsh
     zplug "plugins/kubectl", from:oh-my-zsh
     zplug "plugins/mosh",    from:oh-my-zsh
-    zplug "themes/kardan",   from:oh-my-zsh, as:theme
     zplug "lib/completion", from:oh-my-zsh
+
+    zplug mafredri/zsh-async
+    zplug sindresorhus/pure, use:pure.zsh, as:theme
 
     # has to be sourced after the theme to avoid destroying RPROMPT
     zplug "laurenkt/zsh-vimto", defer:1 
