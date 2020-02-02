@@ -96,12 +96,14 @@ nnoremap <leader>fC :BCommits<CR>
 nnoremap <leader>fm :Marks<CR>
 nnoremap <leader>fM :Maps<CR>
 
-" Mappings for fugitive.vim ('g' as in 'git')
+" Mappings for git (mainly fugitive.vim)
 nnoremap <leader>gg :Gstatus<CR>
 nnoremap <leader>gc :Gcommit<space>
+nnoremap <leader>gh :Commits<space>
 nnoremap <leader>gp :Gpush<space>
 nnoremap <leader>gf :Gfetch<space>
 nnoremap <leader>gl :Gpull<space>
+nnoremap <leader>gL :Glog<space>
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gd :Gdiffsplit<space>
 
