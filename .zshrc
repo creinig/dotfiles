@@ -34,6 +34,7 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
         printf "Install missing plugins? [y/N]: "
         if read -q; then
             echo; zplug install
+            chmod -R 0755 ~/.zsh/ # satisfy compaudit
         fi
     fi
 
