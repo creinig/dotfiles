@@ -96,7 +96,7 @@ nnoremap <leader>fC :BCommits<CR>
 nnoremap <leader>fm :Marks<CR>
 nnoremap <leader>fM :Maps<CR>
 
-" Mappings for fugitive.vim
+" Mappings for fugitive.vim ('g' as in 'git')
 nnoremap <leader>gg :Gstatus<CR>
 nnoremap <leader>gc :Gcommit<space>
 nnoremap <leader>gp :Gpush<space>
@@ -108,7 +108,8 @@ nnoremap <leader>gd :Gdiffsplit<space>
 " utility shortcuts
 "   remove all trailing whitespace in the file
 nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
-nnoremap <leader>un :set invrelativenumber<CR>
+nnoremap <leader>ur :set invrelativenumber<CR>
+nnoremap <leader>un :set invnumber<CR>
 
 
 " Some remappings for better accessibility
