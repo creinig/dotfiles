@@ -20,7 +20,7 @@ fetching the install/update script and running it.
 
 # What's included?
 
-* A .zshrc with oh-my-zsh and some custom stuff
+* A .zshrc with zplug and some custom stuff
 * A .shellrc with custom stuff for both zsh and bash
 * A .vimrc with Vundle and some custom settings
 * A .tmuxrc with some custom settings
