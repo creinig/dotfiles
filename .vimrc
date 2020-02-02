@@ -8,27 +8,30 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'lifepillar/vim-cheat40'
-Plugin 'kana/vim-textobj-user'
-Plugin 'beloglazov/vim-textobj-quotes'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'Raimondi/delimitMate'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ConradIrwin/vim-bracketed-paste'
-Plugin 'tpope/vim-sleuth'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'scrooloose/nerdtree'
-Plugin 'preservim/nerdcommenter'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'SirVer/ultisnips'
+" under the hood / automatic behavior / libraries
+Plugin 'tpope/vim-repeat'      " make complex operations repeatable
+Plugin 'tpope/vim-sleuth'      " auto-detect indent settings
+Plugin 'kana/vim-textobj-user' " define custom textobjects
+Plugin 'Raimondi/delimitMate'  " auto-close quotes, brackets etc
 
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+" UI modules
+Plugin 'lifepillar/vim-cheat40'  " show foldable cheatsheet with <leader>?
+Plugin 'vim-airline/vim-airline' " status bar
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdtree'     " file manager
+Plugin 'tpope/vim-fugitive'      " git integration
+
+" commands / operations / motions
+Plugin 'tpope/vim-surround'      " surround text with quotes etc
+Plugin 'junegunn/vim-easy-align' " vertically align text
+Plugin 'junegunn/fzf'            " fuzzy finder and commands making use of it
+Plugin 'junegunn/fzf.vim'
+
+" Coding helpers
+Plugin 'SirVer/ultisnips'        " snippet engine
+Plugin 'honza/vim-snippets'      " snippet collection
+Plugin 'vim-syntastic/syntastic' " syntax checking + linting
+Plugin 'preservim/nerdcommenter' " (un) comment lines
 
 " language / syntax plugins
 Plugin 'mtdl9/vim-log-highlighting'
@@ -172,7 +175,7 @@ set synmaxcol   =200       " Only highlight the first 200 columns.
 
 
 " let ex completion behave similar to zsh
-set wildmenu 
+set wildmenu
 set wildmode=full
 
 set ignorecase
