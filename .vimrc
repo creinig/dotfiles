@@ -110,9 +110,11 @@ nnoremap <leader>gd :Gdiffsplit<space>
 " utility shortcuts
 "   remove all trailing whitespace in the file
 nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
+" toggle relative / absolute line numbers
 nnoremap <leader>ur :set invrelativenumber<CR>
 nnoremap <leader>un :set invnumber<CR>
-
+" redraw screen, de-highlight searches, fix syntax highlighting
+nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 
 " Some remappings for better accessibility
 nmap >c ]c
@@ -143,6 +145,12 @@ set encoding=utf-8
 set ttyfast                " Faster redrawing.
 set lazyredraw             " Only redraw when necessary.
 
+" set timeout for escape seqs very small to make vim more responsive
+set timeout           " for mappings
+set timeoutlen=1000   " default value
+set ttimeout          " for key codes
+set ttimeoutlen=10    " unnoticeable small value
+
 set colorcolumn=80
 set history=200
 set backspace   =indent,eol,start  " Make backspace work as you would expect.
@@ -151,7 +159,10 @@ set hidden                 " Switch between buffers without having to save first
 set splitbelow             " Open new windows below the current window.
 set splitright             " Open new windows right of the current window.
 
-set cursorline             " Find the current line quickly.
+" highlight current line in active window, but not in insert mode
+autocmd InsertLeave,WinEnter * set cursorline
+autocmd InsertEnter,WinLeave * set nocursorline
+
 set wrapscan               " Searches wrap around end-of-file.
 set incsearch              " Highlight while searching with / or ?.
 set hlsearch               " Keep matches highlighted.
