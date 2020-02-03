@@ -1,3 +1,5 @@
+export SHELL=$(which zsh)
+
 # zplug configuration
 
 if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
@@ -14,6 +16,7 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     zplug sindresorhus/pure, use:pure.zsh, as:theme
 
     ENHANCD_FILTER=fzf
+    ENHANCD_DISABLE_HOME=1
     zplug "b4b4r07/enhancd", use:init.sh
 
     forgit_log=gilo
