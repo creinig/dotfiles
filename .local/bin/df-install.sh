@@ -121,12 +121,13 @@ fi
 #
 # (3a) Create temp dirs for vim
 #
-echo
-logDo 'creating temp dirs for vim if they do not exist yet'
-mkdir -p ~/.vim/files/backup
-mkdir -p ~/.vim/files/swap
-mkdir -p ~/.vim/files/undo
-mkdir -p ~/.vim/files/info
+#echo
+#logDo 'creating temp dirs for vim if they do not exist yet'
+#mkdir -p ~/.vim/files/backup
+#mkdir -p ~/.vim/files/swap
+#mkdir -p ~/.vim/files/undo
+#mkdir -p ~/.vim/files/info
+
 
 #
 # (3) install Vundle if it's not installed yet
@@ -176,8 +177,14 @@ if ! command -v zsh >/dev/null ; then
 elif [[ ${SHELL##*/} != 'zsh' ]] && command -v zsh >/dev/null ; then
   logDo 'zsh is installed, but not the login shell'
   if [[ -f /etc/shells ]] ; then
-    chsh -s $(grep zsh /etc/shells | head -n 1)
-    logDo '... fixed that'
+    zshfqn=$(grep zsh /etc/shells | head -n 1)
+    if [[ -t 0 ]] ; then
+      chsh -s $zshfqn 
+      logDo '... fixed that'
+      HINTS+=("Your login shell has been changed. You'll want to re-login to use it")
+    else
+      HINTS+=("To make zsh your login shell, run: chsh -s $zshfqn")
+    fi
   elif [[ $PREFIX =~ 'termux' ]] ; then
     chsh -s zsh
     logDo '... fixed that'
