@@ -92,17 +92,24 @@ let mapleader = " "
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fg :GFiles<CR>
 nnoremap <leader>fb :Buffers<CR>
-nnoremap <leader>fh :History<CR>
 nnoremap <leader>fs :Snippets<CR>
-nnoremap <leader>fc :Commits<CR>
-nnoremap <leader>fC :BCommits<CR>
+nnoremap <leader>fc :Commands<CR>
 nnoremap <leader>fm :Marks<CR>
 nnoremap <leader>fM :Maps<CR>
+nnoremap <leader>fl :BLines<CR>
+nnoremap <leader>fL :Lines<CR>
+nnoremap <leader>fw :Windows<CR>
+nnoremap <leader>fh :History<CR>
+nnoremap <leader>f/ :History/<CR>
+nnoremap <leader>f: :History:<CR>
+nnoremap <leader>f? :Helptags<CR>
+
 
 " Mappings for git (mainly fugitive.vim)
 nnoremap <leader>gg :Gstatus<CR>
 nnoremap <leader>gc :Gcommit<space>
 nnoremap <leader>gh :Commits<space>
+nnoremap <leader>gH :BCommits<space>
 nnoremap <leader>gp :Gpush<space>
 nnoremap <leader>gf :Gfetch<space>
 nnoremap <leader>gl :Gpull<space>
