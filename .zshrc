@@ -16,7 +16,7 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     zplug sindresorhus/pure, use:pure.zsh, as:theme
 
     ENHANCD_FILTER=fzf
-    ENHANCD_DISABLE_HOME=1
+    #ENHANCD_COMMAND=ecd
     zplug "b4b4r07/enhancd", use:init.sh
 
     forgit_log=gilo
