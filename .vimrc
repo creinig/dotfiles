@@ -127,6 +127,10 @@ nnoremap <leader>un :set invnumber<CR>
 " redraw screen, de-highlight searches, fix syntax highlighting
 nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 
+" open tiddlywiki in a split window
+nnoremap <leader>ew :vs<cr>:lcd<space>~/wiki/<cr>:e<space>Main.tid<cr>
+
+
 " Some remappings for better accessibility
 nmap >c ]c
 nmap <c [c
@@ -144,17 +148,19 @@ set shiftwidth  =4         " >> indents by 4 spaces.
 set shiftround             " >> indents to next multiple of 'shiftwidth'.
 
 " Fix indenting for some filetypes where it is not enabled
-autocmd FileType groovy setlocal smartindent
-autocmd FileType conf   setlocal smartindent
+autocmd FileType groovy     setlocal smartindent
+autocmd FileType conf       setlocal smartindent
+autocmd FileType tiddlywiki setlocal wrap
 
 " https://vim.fandom.com/wiki/Toggle_auto-indenting_for_code_paste
 set pastetoggle=<F2>
 
-set nowrap  "a more sensible default for me
-set showcmd "Useful e.g. for seeing that the leader is active
+set nowrap     " a more sensible default for me
+set linebreak  " where wrappung is used, do it right
+set showcmd    " Useful e.g. for seeing that the leader is active
 set encoding=utf-8
-set ttyfast                " Faster redrawing.
-set lazyredraw             " Only redraw when necessary.
+set ttyfast    " Faster redrawing.
+set lazyredraw " Only redraw when necessary.
 
 " set timeout for escape seqs very small to make vim more responsive
 set timeout           " for mappings
