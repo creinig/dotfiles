@@ -128,7 +128,8 @@ nnoremap <leader>un :set invnumber<CR>
 nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 
 " open tiddlywiki in a split window
-nnoremap <leader>te :vs<cr>:lcd<space>~/wiki/<cr>:Files<cr>
+nnoremap <leader>tv :vs<cr>:lcd<space>~/wiki/<cr>:Files<cr>
+nnoremap <leader>te :lcd<space>~/wiki/<cr>:Files<cr>
 
 
 " Some remappings for better accessibility
