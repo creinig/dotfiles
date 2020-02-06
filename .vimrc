@@ -201,11 +201,11 @@ set formatoptions=crql
 " https://github.com/mhinz/vim-galore#handling-backup-swap-undo-and-viminfo-files
 " create directory if needed
 if !isdirectory($HOME.'/.vim/files/backup') && exists('*mkdir')
-  call mkdir($HOME.'/.vim/files')
-  call mkdir($HOME.'/.vim/files/backup')
-  call mkdir($HOME.'/.vim/files/swap')
-  call mkdir($HOME.'/.vim/files/undo')
-  call mkdir($HOME.'/.vim/files/info')
+  call mkdir($HOME.'/.vim/files', 'p')
+  call mkdir($HOME.'/.vim/files/backup', 'p')
+  call mkdir($HOME.'/.vim/files/swap', 'p')
+  call mkdir($HOME.'/.vim/files/undo', 'p')
+  call mkdir($HOME.'/.vim/files/info', 'p')
 endif
 set backup
 set backupdir   =$HOME/.vim/files/backup/
