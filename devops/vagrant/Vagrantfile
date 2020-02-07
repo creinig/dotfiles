@@ -41,6 +41,11 @@ Vagrant.configure(2) do |config|
     'centos-blank' => {
       :box => 'centos/7',
       :blank => true
+    },
+    'docker' => {
+      :box => 'ubuntu/eoan64',
+      :ram => 16384,
+      :cpu => 4
     }
   }
 
@@ -105,13 +110,13 @@ Vagrant.configure(2) do |config|
       end
       node.vm.provision "ssh-passwd",   type: :shell, inline: "sed -re 's/PasswordAuthentication *no/PasswordAuthentication yes/g' </etc/ssh/sshd_config  > /tmp/sshd_config && cat /tmp/sshd_config > /etc/ssh/sshd_config && systemctl restart sshd"
 
-      #if(name.start_with?('docker')) then
-      #  node.vm.provision "docker", type: :shell, inline: "sudo -i /vagrant/bootstrap/install-docker.sh"
+      if(name.start_with?('docker')) then
+        node.vm.provision "docker", type: :shell, inline: "sudo -i /vagrant/install-docker.sh"
       #elsif(name.start_with?('microk8s')) then
       #  node.vm.provision "microk8s", type: :shell, inline: "sudo snap install microk8s --classic && sleep 5 && microk8s.enable dns storage ingress"
       #elsif(name.start_with?('solvatio')) then
       #  node.vm.provision "solvatio", type: :shell, inline: "sudo -i /vagrant/bootstrap/install-solvatio.sh"
-      #end 
+      end 
     end
   end
 end
