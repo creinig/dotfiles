@@ -15,9 +15,7 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     zplug mafredri/zsh-async
     zplug sindresorhus/pure, use:pure.zsh, as:theme
 
-    ENHANCD_FILTER=fzf
-    #ENHANCD_COMMAND=ecd
-    zplug "b4b4r07/enhancd", use:init.sh
+    zplug "rupa/z", use:z.sh
 
     forgit_log=gilo
     forgit_diff=gid
