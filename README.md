@@ -42,7 +42,7 @@ The environments I regularly use them on are:
 * native ubuntu 18
 * native CentOS 7
 * termux (android)
-* cygwin (babun)
+* cygwin (babun, only a little)
 
 
 # Want more?
@@ -96,19 +96,11 @@ The environments I regularly use them on are:
 * [fzf](https://github.com/junegunn/fzf) : fuzzy finder with great integration into bash/zsh and vim
   * [video intro](https://www.youtube.com/watch?v=qgG5Jhi_Els) giving a great overview of fzf's capabilities
 * [Vundle](https://github.com/VundleVim/Vundle.vim) : Plugin manager for vim
-* [oh-my-zsh](https://ohmyz.sh/) : huge collection of zsh configs, plugins, themes etc
 
 
 # TODO
 
 * Add ansible bootstrapping to vagrant stuff
-* Add installers and/or install+config docs for useful extra tooling
-  * https://kubernetes.io/docs/tasks/tools/install-minikube/
-  * https://www.vagrantup.com/
-  * https://www.ansible.com/
-  * https://github.com/cbucher/console
-    * Cfg: unbind ctrl-R, ctrl-W; Fix size (view -> show console -> settigns -> set font size to tiny)
 * Better environment detection (linux vs WSL vs cygwin)
-* Personal documentation / notes and links to good doc resources
 
 
