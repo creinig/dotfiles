@@ -15,7 +15,8 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     zplug mafredri/zsh-async
     zplug sindresorhus/pure, use:pure.zsh, as:theme
 
-    zplug "rupa/z", use:z.sh
+    ZSHZ_DATA=~/.zsh/.z
+    zplug "agkozak/zsh-z"
 
     forgit_log=gilo
     forgit_diff=gid
