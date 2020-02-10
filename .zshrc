@@ -66,6 +66,25 @@ alias share_history="setopt share_history"
 
 zstyle ':completion:*' special-dirs true
 
+# Set the default keybindings to emacs (just to make sure)
+bindkey -e
+
+# If zkbd keycode definitions exist, apply the most important ones
+# This means, if some of the keys listed here don't work in your terminal,
+# you can 'autoload zkbd ; zkbd', follow the instructions and re-login
+# to make it work.
+if [[ -f ~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE} ]] ; then
+    source ~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}
+    [[ -n ${key[Left]}      ]] && bindkey "${key[Left]}"      backward-char
+    [[ -n ${key[Right]}     ]] && bindkey "${key[Right]}"     forward-char
+    [[ -n ${key[Up]}        ]] && bindkey "${key[Up]}"        up-line-or-history
+    [[ -n ${key[Down]}      ]] && bindkey "${key[Down]}"      down-line-or-history
+    [[ -n ${key[Home]}      ]] && bindkey "${key[Home]}"      beginning-of-line
+    [[ -n ${key[End]}       ]] && bindkey "${key[End]}"       end-of-line
+    [[ -n ${key[Delete]}    ]] && bindkey "${key[Delete]}"    delete-char
+    [[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
+fi
+
 # ^v will edit the current cmdline in the default editor
 autoload -Uz edit-command-line
 zle -N edit-command-line
