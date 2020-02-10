@@ -28,7 +28,9 @@ Plugin 'junegunn/fzf'            " fuzzy finder and commands making use of it
 Plugin 'junegunn/fzf.vim'
 
 " Coding helpers
-Plugin 'SirVer/ultisnips'        " snippet engine
+if has("python3") " cygwin / babun has some problems there"
+  Plugin 'SirVer/ultisnips'        " snippet engine
+endif
 Plugin 'honza/vim-snippets'      " snippet collection
 Plugin 'vim-syntastic/syntastic' " syntax checking + linting
 Plugin 'preservim/nerdcommenter' " (un) comment lines
@@ -124,6 +126,7 @@ nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
 " toggle relative / absolute line numbers
 nnoremap <leader>ur :set invrelativenumber<CR>
 nnoremap <leader>un :set invnumber<CR>
+nnoremap <leader>uc :set invcursorline<CR>
 " redraw screen, de-highlight searches, fix syntax highlighting
 nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 
