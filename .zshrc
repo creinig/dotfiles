@@ -6,11 +6,12 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     export ZPLUG_HOME=~/.zsh/zplug
     . $ZPLUG_HOME/init.zsh
 
-    zplug "plugins/git",     from:oh-my-zsh
-    zplug "plugins/gitfast", from:oh-my-zsh
-    zplug "plugins/kubectl", from:oh-my-zsh
-    zplug "plugins/mosh",    from:oh-my-zsh
-    zplug "lib/completion", from:oh-my-zsh
+    zplug "plugins/git",      from:oh-my-zsh
+    zplug "plugins/gitfast",  from:oh-my-zsh
+    zplug "plugins/kubectl",  from:oh-my-zsh
+    zplug "plugins/mosh",     from:oh-my-zsh
+    zplug "lib/completion",   from:oh-my-zsh
+    zplug "lib/key-bindings", from:oh-my-zsh
 
     zplug mafredri/zsh-async
     zplug sindresorhus/pure, use:pure.zsh, as:theme
@@ -66,9 +67,9 @@ alias share_history="setopt share_history"
 
 zstyle ':completion:*' special-dirs true
 
-# Set the default keybindings to emacs (just to make sure)
-bindkey -e
-
+# In the plugins section above the key bindings from oh-my-zsh are loaded.
+# In almost all cases that should be perfectly fine, but here's an additional
+# mechanism to fix bad bindings:
 # If zkbd keycode definitions exist, apply the most important ones
 # This means, if some of the keys listed here don't work in your terminal,
 # you can 'autoload zkbd ; zkbd', follow the instructions and re-login
@@ -86,6 +87,8 @@ if [[ -f ~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE} ]] ; then
 fi
 
 # ^v will edit the current cmdline in the default editor
+# Note: C-xC-e also does this (defined in omz key bindings). Maybe I'll remove
+# this mapping here (^v) in the future, but for now it's at least useful documentation.
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^v' edit-command-line
