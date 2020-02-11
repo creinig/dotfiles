@@ -181,8 +181,9 @@ set splitbelow             " Open new windows below the current window.
 set splitright             " Open new windows right of the current window.
 
 " highlight current line in active window, but not in insert mode
-autocmd InsertLeave,WinEnter * set cursorline
-autocmd InsertEnter,WinLeave * set nocursorline
+" update: disabled because this makes the ui very sluggish
+"autocmd InsertLeave,WinEnter * set cursorline
+"autocmd InsertEnter,WinLeave * set nocursorline
 
 set wrapscan               " Searches wrap around end-of-file.
 set incsearch              " Highlight while searching with / or ?.
