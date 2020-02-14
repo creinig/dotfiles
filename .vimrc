@@ -120,15 +120,17 @@ nnoremap <leader>gL :Glog<space>
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gd :Gdiffsplit<space>
 
-" utility shortcuts
+" utility functions / macros
 "   remove all trailing whitespace in the file
 nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
-" toggle relative / absolute line numbers
-nnoremap <leader>ur :set invrelativenumber<CR>
-nnoremap <leader>un :set invnumber<CR>
-nnoremap <leader>uc :set invcursorline<CR>
 " redraw screen, de-highlight searches, fix syntax highlighting
 nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
+
+" option toggles / changes
+"   toggle relative / absolute line numbers
+nnoremap <leader>or :set invrelativenumber<CR>
+nnoremap <leader>on :set invnumber<CR>
+nnoremap <leader>oc :set invcursorline<CR>
 
 " open tiddlywiki in a split window
 nnoremap <leader>tv :vs<cr>:lcd<space>~/wiki/<cr>:Files<cr>
