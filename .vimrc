@@ -130,7 +130,13 @@ nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l
 "   toggle relative / absolute line numbers
 nnoremap <leader>or :set invrelativenumber<CR>
 nnoremap <leader>on :set invnumber<CR>
+"   toggle current line highlighting
 nnoremap <leader>oc :set invcursorline<CR>
+"   switch between folding styles
+nnoremap <leader>ofn :set foldmethod=manual<CR>zR
+nnoremap <leader>ofm :set foldmethod=manual<CR>zR
+nnoremap <leader>ofi :set foldmethod=indent<CR>zM
+nnoremap <leader>ofs :set foldmethod=syntax<CR>zM
 
 " open tiddlywiki in a split window
 nnoremap <leader>tv :vs<cr>:lcd<space>~/wiki/<cr>:Files<cr>
