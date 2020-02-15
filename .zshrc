@@ -29,6 +29,8 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     forgit_stash_show=giss
     zplug 'wfxr/forgit'
 
+    zstyle ":zplug:tag" depth 1
+
     # Install plugins if there are plugins that have not been installed
     if ! zplug check --verbose; then
         printf "Install missing plugins? [y/N]: "
