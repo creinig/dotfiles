@@ -47,6 +47,10 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 
+" source ~/.vim/.local.pre.vim , typically containing variable definitions
+" that influence things here in the main .vimrc (see individual comments)
+runtime .local.pre.vim
+
 
 
 " https://vim.fandom.com/wiki/Page_up/down_and_keep_cursor_position
@@ -144,7 +148,6 @@ nnoremap <leader>ofs :set foldmethod=syntax<CR>zM
 " open tiddlywiki in a split window
 nnoremap <leader>tv :vs<cr>:lcd<space>~/wiki/<cr>:Files<cr>
 nnoremap <leader>te :lcd<space>~/wiki/<cr>:Files<cr>
-
 
 " Some remappings for better accessibility
 nmap >c ]c
@@ -244,3 +247,8 @@ autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   execute "normal! g`\"" |
     \ endif
+
+" source ~/.vim/.local.post.vim , typically containing things that overwrite
+" settings of this main .vimrc
+runtime .local.post.vim
+
