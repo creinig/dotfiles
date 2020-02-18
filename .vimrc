@@ -1,3 +1,5 @@
+" vim: foldmethod=marker
+
 set nocompatible
 filetype off                  " required
 
