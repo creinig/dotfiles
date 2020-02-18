@@ -1,6 +1,7 @@
 set nocompatible
 filetype off                  " required
 
+" Plugins {{{
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -45,11 +46,7 @@ Plugin 'sukima/vim-tiddlywiki'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-
-" source ~/.vim/.local.pre.vim , typically containing variable definitions
-" that influence things here in the main .vimrc (see individual comments)
-runtime .local.pre.vim
+" }}}
 
 
 
@@ -98,7 +95,7 @@ let g:tiddlywiki_autoupdate = 1
 "
 let mapleader = " "
 
-" Mappings for fzf.vim
+" Mappings for fzf.vim {{{
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fg :GFiles<CR>
 nnoremap <leader>fb :Buffers<CR>
@@ -113,9 +110,10 @@ nnoremap <leader>fh :History<CR>
 nnoremap <leader>f/ :History/<CR>
 nnoremap <leader>f: :History:<CR>
 nnoremap <leader>f? :Helptags<CR>
+" }}}
 
 
-" Mappings for git (mainly fugitive.vim)
+" Mappings for git (mainly fugitive.vim) {{{
 nnoremap <leader>gg :Gstatus<CR>
 nnoremap <leader>gc :Gcommit<space>
 nnoremap <leader>gh :Commits<space>
@@ -126,19 +124,22 @@ nnoremap <leader>gl :Gpull<space>
 nnoremap <leader>gL :Glog<space>
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gd :Gdiffsplit<space>
+" }}}
 
-" utility functions / macros
+" utility functions / macros {{{
 "   remove all trailing whitespace in the file
 nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
 " redraw screen, de-highlight searches, fix syntax highlighting
 nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
+" }}}
 
-" Shortcuts for editing common files in a vsplit
+" Shortcuts for editing common files in a vsplit {{{
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>ez :vsplit ~/.zshrc<cr>
 nnoremap <leader>es :vsplit ~/.shellrc<cr>
+" }}}
 
-" option toggles / changes
+" option toggles / changes {{{
 "   toggle relative / absolute line numbers
 nnoremap <leader>or :set invrelativenumber<CR>
 nnoremap <leader>on :set invnumber<CR>
@@ -146,9 +147,10 @@ nnoremap <leader>on :set invnumber<CR>
 nnoremap <leader>oc :set invcursorline<CR>
 "   switch between folding styles
 nnoremap <leader>ofn :set foldmethod=manual<CR>zR
-nnoremap <leader>ofm :set foldmethod=manual<CR>zR
+nnoremap <leader>ofm :set foldmethod=marker<CR>zR
 nnoremap <leader>ofi :set foldmethod=indent<CR>zM
 nnoremap <leader>ofs :set foldmethod=syntax<CR>zM
+" }}}
 
 " open tiddlywiki in a split window
 nnoremap <leader>tv :vs<cr>:lcd<space>~/wiki/<cr>:Files<cr>
@@ -162,6 +164,8 @@ nmap <c [c
 
 syntax on
 colo creinig
+
+" Options {{{
 
 " from https://github.com/mhinz/vim-galore/blob/master/static/minimal-vimrc.vim
 set autoindent             " Indent according to previous line.
@@ -219,8 +223,9 @@ set wildmode=full
 set ignorecase
 set smartcase
 set formatoptions=crql
+" }}}
 
-" Put all temporary files under the same directory.
+" Put all temporary files under the same directory. {{{
 " https://github.com/mhinz/vim-galore#handling-backup-swap-undo-and-viminfo-files
 " create directory if needed
 if !isdirectory($HOME.'/.vim/files/backup') && exists('*mkdir')
@@ -244,7 +249,7 @@ set updatecount =100
 set undofile
 set undodir     =$HOME/.vim/files/undo/
 set viminfo     ='100,n$HOME/.vim/files/info/viminfo
-
+" }}}
 
 
 " Return to last cursor position when opening a file
@@ -255,5 +260,5 @@ autocmd BufReadPost *
 
 " source ~/.vim/.local.post.vim , typically containing things that overwrite
 " settings of this main .vimrc
-runtime .local.post.vim
+runtime .local.vim
 
