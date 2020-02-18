@@ -133,6 +133,11 @@ nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
 " redraw screen, de-highlight searches, fix syntax highlighting
 nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 
+" Shortcuts for editing common files in a vsplit
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ez :vsplit ~/.zshrc<cr>
+nnoremap <leader>es :vsplit ~/.shellrc<cr>
+
 " option toggles / changes
 "   toggle relative / absolute line numbers
 nnoremap <leader>or :set invrelativenumber<CR>
