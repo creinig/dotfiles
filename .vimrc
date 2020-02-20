@@ -43,7 +43,7 @@ Plugin 'mtdl9/vim-log-highlighting'
 Plugin 'martinda/Jenkinsfile-vim-syntax'
 Plugin 'hashivim/vim-terraform'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'sukima/vim-tiddlywiki'
+Plugin 'creinig/vim-tiddlywiki'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
