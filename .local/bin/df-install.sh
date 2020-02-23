@@ -130,18 +130,11 @@ fi
 
 
 #
-# (3) install Vundle if it's not installed yet
+# (3) install vim plugins
 #
 echo
-if [[ ! -d ~/.vim/bundle/Vundle.vim ]] ; then
-  logDo 'Installing Vundle (vim plugin manager)'
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-else
-  logOk "Vundle is already installed."
-fi
-
 if [[ -t 0 ]] ; then
-  logDo 'Installing missing plugins'
+  logDo 'Installing missing vim plugins'
   vim +PluginInstall +qall
 else
   logDo 'Input is not a tty - installing missing plugins in the background.'

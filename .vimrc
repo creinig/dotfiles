@@ -1,53 +1,53 @@
 " vim: foldmethod=marker
 
 set nocompatible
-filetype off                  " required
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 
 " Plugins {{{
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/bundle')
 
 " under the hood / automatic behavior / libraries
-Plugin 'tpope/vim-repeat'      " make complex operations repeatable
-Plugin 'tpope/vim-sleuth'      " auto-detect indent settings
-Plugin 'kana/vim-textobj-user' " define custom textobjects
-Plugin 'Raimondi/delimitMate'  " auto-close quotes, brackets etc
+Plug 'tpope/vim-repeat'      " make complex operations repeatable
+Plug 'tpope/vim-sleuth'      " auto-detect indent settings
+Plug 'kana/vim-textobj-user' " define custom textobjects
+Plug 'Raimondi/delimitMate'  " auto-close quotes, brackets etc
 
 " UI modules
-Plugin 'lifepillar/vim-cheat40'  " show foldable cheatsheet with <leader>?
-Plugin 'vim-airline/vim-airline' " status bar
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'     " file manager
-Plugin 'tpope/vim-fugitive'      " git integration
+Plug 'lifepillar/vim-cheat40'  " show foldable cheatsheet with <leader>?
+Plug 'vim-airline/vim-airline' " status bar
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree'     " file manager
+Plug 'tpope/vim-fugitive'      " git integration
 
 " commands / operations / motions
-Plugin 'tpope/vim-surround'      " surround text with quotes etc
-Plugin 'junegunn/vim-easy-align' " vertically align text
-Plugin 'junegunn/fzf'            " fuzzy finder and commands making use of it
-Plugin 'junegunn/fzf.vim'
+Plug 'tpope/vim-surround'      " surround text with quotes etc
+Plug 'junegunn/vim-easy-align' " vertically align text
+Plug 'junegunn/fzf'            " fuzzy finder and commands making use of it
+Plug 'junegunn/fzf.vim'
 
 " Coding helpers
 if has("python3") " cygwin / babun has some problems there"
-  Plugin 'SirVer/ultisnips'        " snippet engine
+  Plug 'SirVer/ultisnips'        " snippet engine
 endif
-Plugin 'honza/vim-snippets'      " snippet collection
-Plugin 'vim-syntastic/syntastic' " syntax checking + linting
-Plugin 'preservim/nerdcommenter' " (un) comment lines
+Plug 'honza/vim-snippets'      " snippet collection
+Plug 'vim-syntastic/syntastic' " syntax checking + linting
+Plug 'preservim/nerdcommenter' " (un) comment lines
 
 " language / syntax plugins
-Plugin 'mtdl9/vim-log-highlighting'
-Plugin 'martinda/Jenkinsfile-vim-syntax'
-Plugin 'hashivim/vim-terraform'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'creinig/vim-tiddlywiki'
+Plug 'mtdl9/vim-log-highlighting'
+Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'hashivim/vim-terraform'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'creinig/vim-tiddlywiki'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()            " required
 " }}}
 
 
