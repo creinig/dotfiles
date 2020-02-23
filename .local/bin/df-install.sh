@@ -140,7 +140,7 @@ else
   logDo 'Input is not a tty - installing missing plugins in the background.'
   logDo 'This may take a few minutes'
   # credits: unhashable on https://github.com/VundleVim/Vundle.vim/issues/511 
-  echo | echo | vim +PluginInstall +qall &>/dev/null
+  echo | vim +PluginInstall +qall &>/dev/null
 fi
 
 #
