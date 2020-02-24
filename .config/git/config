@@ -7,6 +7,7 @@
         editor = vim
         filemode = false
         autocrlf = true
+        safecrlf = true
 [color]
         ui = true
 [credential]
