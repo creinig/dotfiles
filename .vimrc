@@ -152,6 +152,9 @@ nnoremap <leader>ofn :set foldmethod=manual<CR>zR
 nnoremap <leader>ofm :set foldmethod=marker<CR>zR
 nnoremap <leader>ofi :set foldmethod=indent<CR>zM
 nnoremap <leader>ofs :set foldmethod=syntax<CR>zM
+" increase / decrease split width  to 5/4 / 4/5
+nnoremap <silent> <leader>o+ :exe "vertical resize " . (winwidth(0) * 5/4)<CR>
+nnoremap <silent> <leader>o- :exe "vertical resize " . (winwidth(0) * 4/5)<CR>
 " }}}
 
 " open tiddlywiki in a split window
