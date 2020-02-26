@@ -164,6 +164,7 @@ nnoremap <leader>te :lcd<space>~/wiki/<cr>:Files<cr>
 " Some remappings for better accessibility
 nmap >c ]c
 nmap <c [c
+inoremap jj <ESC>
 
 
 
