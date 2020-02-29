@@ -254,7 +254,12 @@ set directory   =$HOME/.vim/files/swap//
 set updatecount =100
 set undofile
 set undodir     =$HOME/.vim/files/undo/
-set viminfo     ='100,n$HOME/.vim/files/info/viminfo
+" configure .viminfo handling. Used settings:
+" ': number of files for which marks are stored
+" n: file name
+" <: Max number of lines per stored register
+" s: max size of registers in kbyte
+set viminfo     ='100,<50,s20,n$HOME/.vim/files/info/viminfo
 " }}}
 
 
