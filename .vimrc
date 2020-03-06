@@ -92,6 +92,9 @@ let g:syntastic_check_on_wq = 0
 " tiddlywiki syntax settings
 let g:tiddlywiki_autoupdate = 1
 
+" settings for taboo.vim
+let g:taboo_tab_format = ' %N: %f%m '
+let g:taboo_renamed_tab_format = ' [%N: %l]%m '
 
 "
 " Use "<Space>" as Leader and define a bunch of mappings for it
