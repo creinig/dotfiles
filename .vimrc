@@ -163,7 +163,6 @@ nnoremap <silent> <leader>o- :exe "vertical resize " . (winwidth(0) * 4/5)<CR>
 
 " open tiddlywiki in a split window
 nnoremap <leader>tv :vs<cr>:lcd<space>~/wiki/<cr>:Files<cr>
-nnoremap <leader>te :lcd<space>~/wiki/<cr>:Files<cr>
 
 " Some remappings for better accessibility
 nmap >c ]c
