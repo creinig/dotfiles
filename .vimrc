@@ -45,7 +45,7 @@ Plug 'mtdl9/vim-log-highlighting'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'hashivim/vim-terraform'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'creinig/vim-tiddlywiki'
+Plug 'sukima/vim-tiddlywiki'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
