@@ -66,6 +66,8 @@ setopt interactivecomments
 # to its own tasks
 setopt no_share_history
 alias share_history="setopt share_history"
+# dupes in the history are just annoying
+setopt hist_ignore_all_dups
 
 zstyle ':completion:*' special-dirs true
 
