@@ -87,3 +87,9 @@ alias cpv='rsync -ah --info=progress2'
 alias tf="terraform"
 
 
+# Options for shellcheck (https://github.com/koalaman/shellcheck)
+# --check-sourced: Include warnings from sourced files
+# --external-sources: Allow 'source' outside of FILES
+# -e SC1090: ignore "Cannot follow dynamically sourced file"
+export SHELLCHECK_OPTS="--check-sourced --external-sources -e SC1090"
+
