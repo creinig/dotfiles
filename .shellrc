@@ -86,6 +86,7 @@ alias cpv='rsync -ah --info=progress2'
 
 alias tf="terraform"
 
+alias sshvm='ssh -o stricthostkeychecking=no'
 
 # Options for shellcheck (https://github.com/koalaman/shellcheck)
 # --check-sourced: Include warnings from sourced files
