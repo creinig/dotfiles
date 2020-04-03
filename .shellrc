@@ -92,5 +92,6 @@ alias sshvm='ssh -o stricthostkeychecking=no'
 # --check-sourced: Include warnings from sourced files
 # --external-sources: Allow 'source' outside of FILES
 # -e SC1090: ignore "Cannot follow dynamically sourced file"
-export SHELLCHECK_OPTS="--check-sourced --external-sources -e SC1090"
+# -e SC2034: ignore "Variable X seems unused"
+export SHELLCHECK_OPTS="--check-sourced --external-sources -e SC1090 -e SC2034"
 
