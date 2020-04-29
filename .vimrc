@@ -133,10 +133,12 @@ nnoremap <leader>gd :Gdiffsplit<space>
 " }}}
 
 " utility functions / macros {{{
-"   remove all trailing whitespace in the file
+" remove all trailing whitespace in the file
 nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
 " redraw screen, de-highlight searches, fix syntax highlighting
 nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
+" pipe the current selection into xclip
+vnoremap <leader>uc :w !xclip
 " }}}
 
 " Shortcuts for editing common files in a vsplit {{{
