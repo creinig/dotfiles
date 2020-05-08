@@ -264,7 +264,11 @@ set undodir     =$HOME/.vim/files/undo/
 " n: file name
 " <: Max number of lines per stored register
 " s: max size of registers in kbyte
-set viminfo     ='100,<50,s20,n$HOME/.vim/files/info/viminfo
+if !has('nvim')
+  set viminfo     ='100,<50,s20,n$HOME/.vim/files/info/viminfo
+else
+  set viminfo     ='100,<50,s20,n$HOME/.vim/files/info/shada
+endif
 " }}}
 
 
