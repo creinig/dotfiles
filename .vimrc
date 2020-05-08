@@ -138,7 +138,7 @@ nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
 " redraw screen, de-highlight searches, fix syntax highlighting
 nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 " pipe the current selection into xclip
-vnoremap <leader>uc :w !xclip<cr>
+vnoremap <leader>uc "yy <Bar> :call system('xclip', @y)<Cr>
 " }}}
 
 " Shortcuts for editing common files in a vsplit {{{
