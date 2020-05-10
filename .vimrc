@@ -37,7 +37,7 @@ if has("python3") " cygwin / babun has some problems there"
   Plug 'SirVer/ultisnips'        " snippet engine
 endif
 Plug 'honza/vim-snippets'      " snippet collection
-Plug 'vim-syntastic/syntastic' " syntax checking + linting
+Plug 'neomake/neomake'         " syntax checking + linting (async)
 Plug 'preservim/nerdcommenter' " (un) comment lines
 
 " language / syntax plugins
@@ -83,11 +83,8 @@ if has("python3")
 endif
 
 
-" basic settings for syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+" When reading a buffer (after 1s), and when writing (no delay).
+call neomake#configure#automake('rw', 1000)
 
 " tiddlywiki syntax settings
 let g:tiddlywiki_autoupdate = 1
