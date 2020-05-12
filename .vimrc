@@ -37,7 +37,7 @@ if has("python3") " cygwin / babun has some problems there"
   Plug 'SirVer/ultisnips'        " snippet engine
 endif
 Plug 'honza/vim-snippets'      " snippet collection
-Plug 'neomake/neomake'         " syntax checking + linting (async)
+Plug 'dense-analysis/ale'      " syntax checking + linting (async)
 Plug 'preservim/nerdcommenter' " (un) comment lines
 
 " language / syntax plugins
@@ -83,8 +83,11 @@ if has("python3")
 endif
 
 
-" When reading a buffer (after 1s), and when writing (no delay).
-call neomake#configure#automake('rw', 1000)
+" ale integration for airline
+let g:airline#extensions#ale#enabled = 1
+" ale navigation shortcuts
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " tiddlywiki syntax settings
 let g:tiddlywiki_autoupdate = 1

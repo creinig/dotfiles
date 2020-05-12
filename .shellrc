@@ -46,6 +46,11 @@ else
     alias llm='ls -laFh --color=tty --sort=time'
 fi
 
+if command -v nvim >/dev/null 2>&1 ; then
+    alias vim='nvim'
+fi
+
+
 # Workaround for 'vagrant ssh' in cygwin
 export VAGRANT_PREFER_SYSTEM_BIN=1
 
