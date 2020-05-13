@@ -46,7 +46,7 @@ else
     alias llm='ls -laFh --color=tty --sort=time'
 fi
 
-if command -v nvim >/dev/null 2>&1 ; then
+if command -v nvim >/dev/null 2>&1 && (nvim --version | head -n 1 | grep -v -q -E '0\.[123]\.') ; then
     alias vim='nvim'
 fi
 
