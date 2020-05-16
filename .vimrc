@@ -31,6 +31,7 @@ Plug 'tpope/vim-surround'      " surround text with quotes etc
 Plug 'junegunn/vim-easy-align' " vertically align text
 Plug 'junegunn/fzf'            " fuzzy finder and commands making use of it
 Plug 'junegunn/fzf.vim'
+Plug 'creinig/ListToggle'      " commands to toggle location & quickfix list
 
 " Coding helpers
 if has("python3") " cygwin / babun has some problems there"
@@ -161,6 +162,13 @@ nnoremap <leader>ofs :set foldmethod=syntax<CR>zM
 " increase / decrease split width  to 5/4 / 4/5
 nnoremap <silent> <leader>o+ :exe "vertical resize " . (winwidth(0) * 5/4)<CR>
 nnoremap <silent> <leader>o- :exe "vertical resize " . (winwidth(0) * 4/5)<CR>
+" toggles and navigation for quickfix and location list
+nnoremap <leader>ll :LToggle<Cr>
+nnoremap <leader>ln :lnext<Cr>
+nnoremap <leader>lp :lprev<Cr>
+nnoremap <leader>cl :QToggle<Cr>
+nnoremap <leader>cn :cnext<Cr>
+nnoremap <leader>cp :cprev<Cr>
 " }}}
 
 " open tiddlywiki in a split window
