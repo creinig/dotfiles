@@ -47,6 +47,7 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'hashivim/vim-terraform'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'sukima/vim-tiddlywiki'
+Plug 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
