@@ -22,7 +22,7 @@ fetching the install/update script and running it.
 
 * A .zshrc with zplug and some custom stuff
 * A .shellrc with custom stuff for both zsh and bash
-* A .vimrc with Vundle and some custom settings
+* A .vimrc with vim-plug and some custom settings
 * A .tmuxrc with some custom settings
 * [termux](https://wiki.termux.com/wiki/Main_Page) settings
 * A default git config (`.config/git/config`) with settings that can be overridden by the "normal" .gitconfig
@@ -38,11 +38,10 @@ for my personal use I don't worry about doing explicit QA.
 
 The environments I regularly use them on are:
 
-* WSL 1 with ubuntu 18
+* WSL 1 with ubuntu 19
 * native ubuntu 18
 * native CentOS 7
 * termux (android)
-* cygwin (babun, only a little)
 
 
 # Want more?
@@ -95,12 +94,11 @@ The environments I regularly use them on are:
 
 * [fzf](https://github.com/junegunn/fzf) : fuzzy finder with great integration into bash/zsh and vim
   * [video intro](https://www.youtube.com/watch?v=qgG5Jhi_Els) giving a great overview of fzf's capabilities
-* [Vundle](https://github.com/VundleVim/Vundle.vim) : Plugin manager for vim
 
 
 # TODO
 
 * Add ansible bootstrapping to vagrant stuff
-* Better environment detection (linux vs WSL vs cygwin)
+* Better environment detection (linux vs WSL)
 
 
