@@ -98,6 +98,9 @@ let g:tiddlywiki_autoupdate = 1
 let g:taboo_tab_format = ' %N: %f%m '
 let g:taboo_renamed_tab_format = ' [%N: %l]%m '
 
+" settings for NERDCommenter
+let g:NERDCreateDefaultMappings=0
+
 "
 " Use "<Space>" as Leader and define a bunch of mappings for it
 "
@@ -141,6 +144,13 @@ nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 " pipe the current selection into xclip
 vnoremap <leader>uc "yy <Bar> :call system('xclip', @y)<Cr>
+
+" the NERDCommenter mappings I actually use
+nmap <leader>c<space> <plug>NERDCommenterToggle
+xmap <leader>c<space> <plug>NERDCommenterToggle
+nmap <leader>cs <plug>NERDCommenterSexy
+xmap <leader>cs <plug>NERDCommenterSexy
+nmap <leader>c$ <plug>NERDCommenterEOL
 " }}}
 
 " Shortcuts for editing common files in a vsplit {{{
@@ -167,7 +177,7 @@ nnoremap <silent> <leader>o- :exe "vertical resize " . (winwidth(0) * 4/5)<CR>
 nnoremap <leader>ll :LToggle<Cr>
 nnoremap <leader>ln :lnext<Cr>
 nnoremap <leader>lp :lprev<Cr>
-nnoremap <leader>cl :QToggle<Cr>
+nnoremap <leader>cc :QToggle<Cr>
 nnoremap <leader>cn :cnext<Cr>
 nnoremap <leader>cp :cprev<Cr>
 " }}}
