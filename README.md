@@ -38,7 +38,7 @@ for my personal use I don't worry about doing explicit QA.
 
 The environments I regularly use them on are:
 
-* WSL 1 with ubuntu 19
+* WSL 1 with ubuntu 19 (tip: [MobaXTerm](https://mobaxterm.mobatek.net/) works great for this)
 * native ubuntu 18
 * native CentOS 7
 * termux (android)
