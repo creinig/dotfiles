@@ -76,7 +76,7 @@ function config() {
 # Copied & adapted from https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/ 
 #
 function install() {
-  git clone --bare "$GIT_REPO" .dotfiles
+  git clone --bare "$GIT_REPO" .dotfiles || exit 1
 
   git config --global core.eol lf
   git config --global core.autocrlf input
