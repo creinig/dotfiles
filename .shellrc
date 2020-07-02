@@ -30,6 +30,12 @@ if command -v bat >/dev/null 2>&1; then
     export BAT_PAGER=less # 'most' has some problems with the escape sequences
 fi
 
+if (command -v delta && command -v git) >/dev/null 2>&1 ; then
+    git config --global core.pager delta
+    git config --global interactive.diffFilter delta --color-only
+fi
+
+
 if command -v rg >/dev/null 2>&1; then
     export FZF_DEFAULT_COMMAND='rg --files --hidden'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
