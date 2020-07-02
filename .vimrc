@@ -101,6 +101,8 @@ let g:taboo_renamed_tab_format = ' [%N: %l]%m '
 " settings for NERDCommenter
 let g:NERDCreateDefaultMappings=0
 
+
+
 "
 " Use "<Space>" as Leader and define a bunch of mappings for it
 "
@@ -249,6 +251,9 @@ set synmaxcol   =200       " Only highlight the first 200 columns.
 " let ex completion behave similar to zsh
 set wildmenu
 set wildmode=full
+
+" Better completion menu settings
+set completeopt=menuone,preview,noinsert
 
 set ignorecase
 set smartcase
