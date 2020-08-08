@@ -16,7 +16,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'tpope/vim-repeat'      " make complex operations repeatable
 Plug 'tpope/vim-sleuth'      " auto-detect indent settings
 Plug 'kana/vim-textobj-user' " define custom textobjects
-Plug 'Raimondi/delimitMate'  " auto-close quotes, brackets etc
+"Plug 'Raimondi/delimitMate'  " auto-close quotes, brackets etc
 
 " UI modules
 Plug 'lifepillar/vim-cheat40'  " show foldable cheatsheet with <leader>?
