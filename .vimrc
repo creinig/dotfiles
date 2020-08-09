@@ -25,6 +25,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'     " file manager
 Plug 'tpope/vim-fugitive'      " git integration
 Plug 'gcmt/taboo.vim'          " tab handling
+Plug 'mhinz/vim-startify'      " start screen
 
 " commands / operations / motions
 Plug 'tpope/vim-surround'      " surround text with quotes etc
