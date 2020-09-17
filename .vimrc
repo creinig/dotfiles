@@ -24,6 +24,8 @@ Plug 'vim-airline/vim-airline' " status bar
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'     " file manager
 Plug 'tpope/vim-fugitive'      " git integration
+Plug 'junegunn/gv.vim'         " better git history browser
+Plug 'airblade/vim-gitgutter'  " git info in the gutter
 Plug 'gcmt/taboo.vim'          " tab handling
 Plug 'mhinz/vim-startify'      " start screen
 
