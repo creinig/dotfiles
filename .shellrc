@@ -125,7 +125,7 @@ alias tf="terraform"
 alias yta='youtubeDownloadAudio'
 
 # SSH to a VM that might have the IP of a previous connection, but a different host key
-alias sshvm='ssh -o stricthostkeychecking=no'
+alias sshvm='ssh -o stricthostkeychecking=no -o addkeystoagent=no'
 
 # Options for shellcheck (https://github.com/koalaman/shellcheck)
 # --check-sourced: Include warnings from sourced files
