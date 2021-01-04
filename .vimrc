@@ -213,6 +213,7 @@ set shiftround             " >> indents to next multiple of 'shiftwidth'.
 autocmd FileType groovy     setlocal smartindent
 autocmd FileType conf       setlocal smartindent
 autocmd FileType tiddlywiki setlocal wrap
+autocmd FileType yaml       setlocal smartindent shiftwidth=2 softtabstop=2
 
 " https://vim.fandom.com/wiki/Toggle_auto-indenting_for_code_paste
 set pastetoggle=<F2>
@@ -230,7 +231,7 @@ set timeoutlen=1000   " default value
 set ttimeout          " for key codes
 set ttimeoutlen=10    " unnoticeable small value
 
-set colorcolumn=80
+" set colorcolumn=80 " Not actually useful for me
 set history=200
 set backspace   =indent,eol,start  " Make backspace work as you would expect.
 set hidden                 " Switch between buffers without having to save first.
