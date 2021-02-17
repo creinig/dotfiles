@@ -21,7 +21,7 @@ hi Function	term=bold		ctermfg=White guifg=White
 hi Repeat	term=underline	ctermfg=White		guifg=white
 hi Operator				ctermfg=Red			guifg=Red
 hi Ignore				ctermfg=black		guifg=bg
-hi Error	term=reverse ctermbg=Red ctermfg=White guibg=Red guifg=White
+hi Error	term=reverse ctermbg=DarkRed ctermfg=White guibg=DarkRed guifg=White
 hi Todo	term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
 
 " Common groups that link to default highlighting.

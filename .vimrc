@@ -51,6 +51,8 @@ Plug 'hashivim/vim-terraform'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'sukima/vim-tiddlywiki'
 Plug 'fatih/vim-go'
+Plug 'rust-lang/rust.vim'
+Plug 'preservim/tagbar'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -104,6 +106,8 @@ let g:taboo_renamed_tab_format = ' [%N: %l]%m '
 " settings for NERDCommenter
 let g:NERDCreateDefaultMappings=0
 
+" settings for rust.vim
+let g:rustfmt_autosave = 1
 
 
 "
@@ -195,6 +199,7 @@ nmap >c ]c
 nmap <c [c
 inoremap jj <ESC>
 
+nmap <F8> :TagbarOpenAutoClose<CR>
 
 
 syntax on
