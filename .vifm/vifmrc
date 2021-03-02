@@ -1,0 +1,4 @@
+:filetype *.sshfs FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR
+
+set vimhelp
+set syscalls
