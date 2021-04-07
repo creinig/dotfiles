@@ -109,7 +109,7 @@ let g:NERDCreateDefaultMappings=0
 " settings for rust.vim
 let g:rustfmt_autosave = 1
 
-let loaded_vifm=1
+"let loaded_vifm=1
 
 "
 " Use "<Space>" as Leader and define a bunch of mappings for it
