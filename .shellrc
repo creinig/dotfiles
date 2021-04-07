@@ -24,6 +24,8 @@ if command -v bat >/dev/null 2>&1; then
     alias cat="bat"
     export BAT_STYLE=changes
     export BAT_PAGER=less # 'most' has some problems with the escape sequences
+    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    export PAGER="bat"
 fi
 
 if (command -v delta && command -v git) >/dev/null 2>&1 ; then
