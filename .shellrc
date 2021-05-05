@@ -115,8 +115,10 @@ alias gce='git credential-cache exit'
 alias s="sudo"
 alias se="sudoedit"
 alias psa="ps auxf"
-# df listing only physical volumes (TODO: also filter out snap and docker loop mounts)
-alias dfp="df -h | grep -v -E -w '^(tmpfs|none)'"
+
+# df+mount listing only physical volumes (TODO: also filter out snap and docker loop mounts)
+alias dfp="df -h | grep -v -E '^(tmpfs|none|udev|/dev/loop)'"
+alias mountp="mount | grep -E '^(/|\w+:)' | grep -v -E 'type (squashfs)'"
 
 alias cpv='rsync -ah --info=progress2'
 
