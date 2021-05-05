@@ -115,6 +115,8 @@ alias gce='git credential-cache exit'
 alias s="sudo"
 alias se="sudoedit"
 alias psa="ps auxf"
+# df listing only physical volumes (TODO: also filter out snap and docker loop mounts)
+alias dfp="df -h | grep -v -E -w '^(tmpfs|none)'"
 
 alias cpv='rsync -ah --info=progress2'
 
