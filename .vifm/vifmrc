@@ -143,6 +143,17 @@ command! mkcd :mkdir %a | cd %a
 command! vgrep vim "+grep %a"
 command! reload :write | restart
 
+command! FZFfile : set noquickview
+                \| let $FZF_PICK = term('find -type f | fzf --height 10 2>/dev/tty')
+                \| if $FZF_PICK != ''
+                \|     execute 'goto' fnameescape($FZF_PICK)
+                \| endif
+
+command! FZFdir : set noquickview
+                \| let $FZF_PICK = term('find -type d | fzf --height 10 2>/dev/tty')
+                \| if $FZF_PICK != ''
+                \|     execute 'goto' fnameescape($FZF_PICK)
+                \| endif
 " ------------------------------------------------------------------------------
 
 " The file type is for the default programs to be used with
@@ -457,6 +468,10 @@ nnoremap <f5> :copy<cr>
 nnoremap <f6> :move<cr>
 nnoremap <f7> :mkdir<space>
 nnoremap <f8> :delete<cr>
+
+nnoremap ,f :FZFfile<CR>
+nnoremap ,d :FZFdir<CR>
+
 
 " ------------------------------------------------------------------------------
 
