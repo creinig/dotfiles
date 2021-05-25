@@ -125,6 +125,7 @@ alias cpv='rsync -ah --info=progress2'
 alias tf="terraform"
 
 alias yta='youtubeDownloadAudio'
+alias vw='vim +TiddlyWikiEditTiddler'
 
 # SSH to a VM that might have the IP of a previous connection, but a different host key
 alias sshvm='ssh -o stricthostkeychecking=no -o addkeystoagent=no'
