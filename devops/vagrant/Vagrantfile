@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
   ipAddr = "192.168.55.50"
 
   hostDefaults = {
-    :box => 'ubuntu/bionic64',
+    :box => 'ubuntu/focal64',
     :cpu => 1,
     :ram => 2048,
     :ip  => ipAddr,
@@ -22,12 +22,9 @@ Vagrant.configure(2) do |config|
   # Configuration for all machines 
   hosts = {
 	  'ubuntu' => {},
-    'ubuntu19' => {
-      :box => 'ubuntu/eoan64'
-    },
     'microk8s' => {
       :ram => 16384,
-      :cpu => 2
+      :cpu => 4
     },
     'centos' => {
       :box => 'centos/7'
@@ -35,15 +32,8 @@ Vagrant.configure(2) do |config|
     'centos8' => {
       :box => 'centos/8'
     },
-    'ubuntu-blank' => {
-      :blank => true
-    },
-    'centos-blank' => {
-      :box => 'centos/7',
-      :blank => true
-    },
     'docker' => {
-      :box => 'ubuntu/bionic64',
+      :box => 'ubuntu/focal64',
       :ram => 16384,
       :cpu => 4
     }
@@ -108,15 +98,16 @@ Vagrant.configure(2) do |config|
       elsif(name.start_with?('centos')) then
         node.vm.provision "install-base", type: :shell, inline: "yum -y install bc vim tmux git"
       end
+
+      # Change sshd to allow normal SSH connections with user "vagrant", passwd "vagrant"
       node.vm.provision "ssh-passwd",   type: :shell, inline: "sed -re 's/PasswordAuthentication *no/PasswordAuthentication yes/g' </etc/ssh/sshd_config  > /tmp/sshd_config && cat /tmp/sshd_config > /etc/ssh/sshd_config && systemctl restart sshd"
       node.vm.provision "passwd",       type: :shell, inline: "echo -e 'vagrant:vagrant' | chpasswd"
 
+      # Install custom software
       if(name.start_with?('docker')) then
         node.vm.provision "docker", type: :shell, inline: "sudo -i /vagrant/install-docker.sh"
-      #elsif(name.start_with?('microk8s')) then
-      #  node.vm.provision "microk8s", type: :shell, inline: "sudo snap install microk8s --classic && sleep 5 && microk8s.enable dns storage ingress"
-      #elsif(name.start_with?('solvatio')) then
-      #  node.vm.provision "solvatio", type: :shell, inline: "sudo -i /vagrant/bootstrap/install-solvatio.sh"
+      elsif(name.start_with?('microk8s')) then
+        node.vm.provision "microk8s", type: :shell, inline: "sudo snap install microk8s --classic && sleep 5 && microk8s.enable dns storage ingress"
       end 
     end
   end
