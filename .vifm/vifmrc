@@ -397,7 +397,7 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 
 " Customize view columns a bit (enable ellipsis for truncated file names)
 "
-" set viewcolumns=-{name}..,6{}.
+set viewcolumns=-{name}..,{mtime}.
 
 " Filter-out build and temporary files
 "
