@@ -12,10 +12,6 @@ fi
 # Integrate useful tools if they are present
 #
 
-if command -v most > /dev/null 2>&1; then
-    export PAGER="most"
-fi
-
 if command -v vim > /dev/null 2>&1; then
     export EDITOR="vim"
 fi

@@ -17,7 +17,7 @@ function usage() {
 function install_basics() {
 	PKG="     curl ntp"                         # Basic system stuff
 	PKG="$PKG vim tmux git zsh unzip multitail" # basic convenience tools
-	PKG="$PKG most bc pinfo tree mosh ncdu"
+	PKG="$PKG bc tree mosh ncdu"
 	PKG="$PKG dstat sysstat htop atop iftop"    # System Info
 	PKG="$PKG pigz lbzip2 parallel"             # parallel processing
 	PKG="$PKG zstd"                             # other

@@ -86,10 +86,10 @@ The environments I regularly use them on are:
 ### Installed by `df-tools.sh basics`
 
 * [bat](https://github.com/sharkdp/bat) : a better replacement for cat(1)
-* [most](https://linux.die.net/man/1/most) : a better replacement for less(1)
-* [pinfo](https://linux.die.net/man/1/pinfo) : a better replacement for both info(1) and man(1)
 * [multitail](https://www.vanheusden.com/multitail/) : a much better replacement for tail(1)
 * [zsh](https://en.m.wikipedia.org/wiki/Z_shell) : my shell of choice
+* [exa](https://the.exa.website/) : a better replacement for ls(1)
+* [ripgrep](https://github.com/BurntSushi/ripgrep) : fast and powerful recursive grep(1). Note: [ugrep](https://github.com/Genivia/ugrep) also looks great.
 
 ### Installed by `df-install.sh`
 
