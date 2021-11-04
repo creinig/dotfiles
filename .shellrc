@@ -133,3 +133,10 @@ alias sshvm='ssh -o stricthostkeychecking=no -o addkeystoagent=no'
 # -e SC2034: ignore "Variable X seems unused"
 export SHELLCHECK_OPTS="--check-sourced --external-sources -e SC1090 -e SC2034"
 
+
+
+# Fix for tilix (see https://gnunn1.github.io/tilix-web/manual/vteconfig/)
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+    source /etc/profile.d/vte.sh
+fi
+
