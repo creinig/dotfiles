@@ -61,7 +61,7 @@ function youtubeDownloadAudio {
     local url="$1"
     url=$(echo -n "$url" | sed -r 's#^(https?://)m\.(youtube)#\1www.\2#')
 
-    youtube-dl --format bestaudio "$url"
+    youtube-dl --extract-audio --audio-format mp3 "$url"
 }
 
 
@@ -140,3 +140,6 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte.sh
 fi
 
+if [[ -f home/linuxbrew/.linuxbrew/bin/brew ]] ; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
