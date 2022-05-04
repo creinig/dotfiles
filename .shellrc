@@ -123,6 +123,9 @@ alias tf="terraform"
 alias yta='youtubeDownloadAudio'
 alias vw='vim +TiddlyWikiEditTiddler'
 
+alias httpbin="docker run -p 80:80 kennethreitz/httpbin"
+alias httpbin_with_log="docker run -p 80:80 -e GUNICORN_CMD_ARGS=\"--capture-output --error-logfile - --access-logfile - --access-logformat '%(h)s %(t)s %(r)s %(s)s Host: %({Host}i)s'\" kennethreitz/httpbin"
+
 # SSH to a VM that might have the IP of a previous connection, but a different host key
 alias sshvm='ssh -o stricthostkeychecking=no -o addkeystoagent=no'
 
