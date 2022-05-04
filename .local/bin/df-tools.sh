@@ -20,7 +20,7 @@ function install_basics() {
 	PKG="$PKG bc tree mosh ncdu"
 	PKG="$PKG dstat sysstat htop atop iftop"    # System Info
 	PKG="$PKG pigz lbzip2 parallel"             # parallel processing
-	PKG="$PKG zstd"                             # other
+	PKG="$PKG zstd httpie"                      # other
 
 	if [[ $DF_OS == 'termux' ]] ; then
 		pkg install \
