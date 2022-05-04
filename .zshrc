@@ -16,6 +16,10 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     zplug mafredri/zsh-async
     zplug sindresorhus/pure, use:pure.zsh, as:theme
 
+    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#505050"
+    ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+    zplug "zsh-users/zsh-autosuggestions"
+
     ZSHZ_DATA=~/.zsh/.z
     zplug "agkozak/zsh-z"
 
