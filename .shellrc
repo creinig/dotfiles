@@ -111,6 +111,7 @@ alias gce='git credential-cache exit'
 alias s="sudo"
 alias se="sudoedit"
 alias psa="ps auxf"
+alias open="xdg-open"
 
 # df+mount listing only physical volumes (TODO: also filter out snap and docker loop mounts)
 alias dfp="df -h | grep -v -E '^(tmpfs|none|udev|/dev/loop)'"
