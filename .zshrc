@@ -58,20 +58,30 @@ setopt no_complete_aliases
 # whenever a command completion is attempted, make sure the entire command path
 # is hashed first.
 setopt hash_list_all
-# save each command's beginning timestamp and the duration to the history file
-setopt extended_history
 # display PID when suspending processes as well
 setopt longlistjobs
 # report the status of backgrounds jobs immediately
 setopt notify
 # allow use of comments in interactive code
 setopt interactivecomments
+
 # useful when having parallel sessions, each dedicated
 # to its own tasks
 setopt no_share_history
+# We can manually enabling sharing for a session on demand
 alias share_history="setopt share_history"
-# dupes in the history are just annoying
+# use a history file neatly tucked away
+export HISTFILE="$HOME/.zsh/history"
+export SAVEHIST=10000
+# save each command's beginning timestamp and the duration to the history file
+setopt extended_history
+# dupes in the history are just annoying. also remove extra blanks.
 setopt hist_ignore_all_dups
+setopt hist_save_no_dupS
+setopt hist_reduce_blanks
+# still save the history of after the shell exits, so that we don't lose it
+# completely. Append so that sessions don't overwrite each other.
+setopt append_history
 
 zstyle ':completion:*' special-dirs true
 
