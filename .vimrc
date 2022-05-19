@@ -173,6 +173,8 @@ nnoremap <leader>es :vsplit ~/.shellrc<cr>
 "   toggle relative / absolute line numbers
 nnoremap <leader>or :set invrelativenumber<CR>
 nnoremap <leader>on :set invnumber<CR>
+"   toggle soft wrapping
+nnoremap <leader>ow :set invwrap<CR>
 "   toggle current line highlighting
 nnoremap <leader>oc :set invcursorline<CR>
 "   switch between folding styles
@@ -225,7 +227,7 @@ autocmd FileType yaml       setlocal smartindent shiftwidth=2 softtabstop=2
 set pastetoggle=<F2>
 
 set nowrap     " a more sensible default for me
-set linebreak  " where wrappung is used, do it right
+set linebreak  " where wrapping is used, do it right
 set showcmd    " Useful e.g. for seeing that the leader is active
 set encoding=utf-8
 set ttyfast    " Faster redrawing.
