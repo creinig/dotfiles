@@ -28,9 +28,6 @@ function install_basics() {
 			bat ripgrep man perl exa ncurses-utils \
 			zstd
 		# perl is needed for the enhancd zsh plugin
-	elif [[ $DF_OS == 'rhel' ]] ; then
-		sudo yum install epel-release bind-utils
-		sudo yum install $PKG ShellCheck
 	elif [[ $DF_OS == 'ubuntu' ]] ; then
 		sudo apt update
 		sudo apt install $PKG \

@@ -38,9 +38,7 @@ for my personal use I don't worry about doing explicit QA.
 
 The environments I regularly use them on are:
 
-* WSL 1 with ubuntu 19 (tip: [MobaXTerm](https://mobaxterm.mobatek.net/) works great for this)
-* native ubuntu 18
-* native CentOS 7
+* native ubuntu 20
 * termux (android)
 
 
@@ -99,7 +97,5 @@ The environments I regularly use them on are:
 
 # TODO
 
-* Add ansible bootstrapping to vagrant stuff
-* Better environment detection (linux vs WSL)
 
 
