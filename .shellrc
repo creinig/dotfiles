@@ -62,7 +62,7 @@ function youtubeDownloadAudio {
     local url="$1"
     url=$(echo -n "$url" | sed -r 's#^(https?://)m\.(youtube)#\1www.\2#')
 
-    youtube-dl --extract-audio --audio-format mp3 "$url"
+    youtube-dl --extract-audio --audio-format best "$url"
 }
 
 
