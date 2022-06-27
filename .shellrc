@@ -26,8 +26,8 @@ if command -v bat >/dev/null 2>&1; then
 fi
 
 if (command -v delta && command -v git) >/dev/null 2>&1 ; then
-    git config --global core.pager delta
-    git config --global interactive.diffFilter delta --color-only
+    git config --global --replace-all core.pager delta
+    git config --global --replace-all interactive.diffFilter "delta --color-only"
 fi
 
 
