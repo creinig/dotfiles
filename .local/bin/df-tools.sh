@@ -48,7 +48,7 @@ function install_basics() {
 			curl -L https://github.com/sharkdp/bat/releases/download/v0.15.4/bat_0.15.4_amd64.deb >/tmp/bat.deb && sudo dpkg --install /tmp/bat.deb
 		fi
 
-		curl -L https://github.com/dandavison/delta/releases/download/0.2.0/git-delta_0.2.0_amd64.deb >/tmp/delta.deb && sudo dpkg --install /tmp/delta.deb
+		curl -L https://github.com/dandavison/delta/releases/download/0.13.0/git-delta_0.13.0_amd64.deb >/tmp/delta.deb && sudo dpkg --install /tmp/delta.deb
 	else
 		echo "OS '$DF_OS' not supported"
 	fi

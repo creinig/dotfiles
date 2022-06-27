@@ -27,7 +27,7 @@ fi
 
 if (command -v delta && command -v git) >/dev/null 2>&1 ; then
     git config --global --replace-all core.pager delta
-    git config --global --replace-all interactive.diffFilter "delta --color-only"
+    git config --global --replace-all interactive.diffFilter "delta --color-only --features=interactive"
 fi
 
 
