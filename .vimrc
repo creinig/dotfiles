@@ -35,6 +35,7 @@ Plug 'junegunn/vim-easy-align' " vertically align text
 Plug 'junegunn/fzf'            " fuzzy finder and commands making use of it
 Plug 'junegunn/fzf.vim'
 Plug 'creinig/ListToggle'      " commands to toggle location & quickfix list
+Plug 'AndrewRadev/linediff.vim' " editable diff between two arbitrary regions
 
 " Coding helpers
 if has("python3") " cygwin / babun has some problems there"
