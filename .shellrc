@@ -99,7 +99,21 @@ alias cfgu='curl -Lks https://git.io/crdotfiles | bash' # Update installation
 alias cfgei='vim ~/.local/bin/df-install.sh'
 alias cfgai='cfg add ~/.local/bin/df-install.sh'
 
-
+if [[ "$FORGIT_INSTALL_DIR" != "" ]] ; then
+  alias cfgilog='cfg forgit log'
+  alias cfgid='cfg forgit diff'
+  alias cfgia='cfg forgit add'
+  alias cfgii='cfg forgit ignore'
+  
+  alias gilo='git forgit log'
+  alias gid='git forgit diff'
+  alias gia='git forgit add'
+  alias girh='git forgit reset_head'
+  alias gi='gir forgit ignore'
+  alias gicf='git forgit restore'
+  alias giclean='git forgit clean'
+  alias giss='git forgit stash_show'
+fi
 
 # Can't remember all those aliases? Use this to search through them
 alias ag='alias | grep'

@@ -23,15 +23,8 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     ZSHZ_DATA=~/.zsh/.z
     zplug "agkozak/zsh-z"
 
-    forgit_log=gilo
-    forgit_diff=gid
-    forgit_add=gia
-    forgit_reset_head=girh
-    forgit_ignore=gi
-    forgit_restore=gicf
-    forgit_clean=giclean
-    forgit_stash_show=giss
-    zplug 'wfxr/forgit'
+    zplug 'wfxr/forgit', as:command, use:"bin/git-forgit"
+    export FORGIT_INSTALL_DIR=$(zplug info wfxr/forgit | grep -E 'dir' | sed -E 's#[^"]*"([^"]+)".*#\1#')
 
     zstyle ":zplug:tag" depth 1
 
