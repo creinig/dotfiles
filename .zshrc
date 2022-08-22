@@ -65,7 +65,8 @@ setopt no_share_history
 alias share_history="setopt share_history"
 # use a history file neatly tucked away
 export HISTFILE="$HOME/.zsh/history"
-export SAVEHIST=10000
+export HISTSIZE=10000
+export SAVEHIST=$HISTSIZE
 # save each command's beginning timestamp and the duration to the history file
 setopt extended_history
 # dupes in the history are just annoying. also remove extra blanks.
