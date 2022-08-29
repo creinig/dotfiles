@@ -154,6 +154,19 @@ alias sshvm='ssh -o stricthostkeychecking=no -o addkeystoagent=no'
 # -e SC2034: ignore "Variable X seems unused"
 export SHELLCHECK_OPTS="--check-sourced --external-sources -e SC1090 -e SC2034"
 
+# Spin up a simple web server serving the current directory statically on port 8000
+function htserve() {
+  if command -v ruby >/dev/null 2>&1 ; then
+    ruby -run -ehttpd . -p8000
+  elif command -v python3 >/dev/null 2>&1 ; then
+    python3 -m http.server 8000
+  elif command -v python >/dev/null 2>&1 ; then
+    python -m http.server 8000
+# busybox didn't work for me
+#  elif command -v busybox >/dev/null 2>&1 ; then
+#    busybox httpd -f -p 8000
+  fi
+}
 
 
 # Fix for tilix (see https://gnunn1.github.io/tilix-web/manual/vteconfig/)
