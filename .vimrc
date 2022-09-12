@@ -13,37 +13,39 @@ endif
 call plug#begin('~/.vim/bundle')
 
 " under the hood / automatic behavior / libraries
-Plug 'tpope/vim-repeat'      " make complex operations repeatable
-Plug 'tpope/vim-sleuth'      " auto-detect indent settings
-Plug 'kana/vim-textobj-user' " define custom textobjects
-"Plug 'Raimondi/delimitMate'  " auto-close quotes, brackets etc
+Plug 'tpope/vim-repeat'          " make complex operations repeatable
+Plug 'tpope/vim-sleuth'          " auto-detect indent settings
+Plug 'kana/vim-textobj-user'     " define custom textobjects
+" Plug 'Raimondi/delimitMate'    " auto-close quotes, brackets etc
 
 " UI modules
-Plug 'lifepillar/vim-cheat40'  " show foldable cheatsheet with <leader>?
-Plug 'vim-airline/vim-airline' " status bar
+Plug 'lifepillar/vim-cheat40'    " show foldable cheatsheet with <leader>?
+Plug 'vim-airline/vim-airline'   " status bar
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree'     " file manager
-Plug 'tpope/vim-fugitive'      " git integration
-Plug 'junegunn/gv.vim'         " better git history browser
-Plug 'airblade/vim-gitgutter'  " git info in the gutter
-Plug 'gcmt/taboo.vim'          " tab handling
-Plug 'mhinz/vim-startify'      " start screen
+Plug 'scrooloose/nerdtree'       " file manager
+Plug 'tpope/vim-fugitive'        " git integration
+Plug 'junegunn/gv.vim'           " better git history browser
+Plug 'airblade/vim-gitgutter'    " git info in the gutter
+Plug 'gcmt/taboo.vim'            " tab handling
+Plug 'mhinz/vim-startify'        " start screen
 
 " commands / operations / motions
-Plug 'tpope/vim-surround'      " surround text with quotes etc
-Plug 'junegunn/vim-easy-align' " vertically align text
-Plug 'junegunn/fzf'            " fuzzy finder and commands making use of it
+Plug 'tpope/vim-surround'        " surround text with quotes etc
+Plug 'junegunn/vim-easy-align'   " vertically align text
+Plug 'junegunn/fzf'              " fuzzy finder and commands making use of it
 Plug 'junegunn/fzf.vim'
-Plug 'creinig/ListToggle'      " commands to toggle location & quickfix list
-Plug 'AndrewRadev/linediff.vim' " editable diff between two arbitrary regions
+Plug 'creinig/ListToggle'        " commands to toggle location & quickfix list
+Plug 'AndrewRadev/linediff.vim'  " editable diff between two arbitrary regions
+Plug 'easymotion/vim-easymotion' " powerful extension of motions
+Plug 'unblevable/quick-scope'    " Highlight good candidates for f/t motions
 
 " Coding helpers
 if has("python3") " cygwin / babun has some problems there"
   Plug 'SirVer/ultisnips'        " snippet engine
 endif
-Plug 'honza/vim-snippets'      " snippet collection
-Plug 'dense-analysis/ale'      " syntax checking + linting (async)
-Plug 'preservim/nerdcommenter' " (un) comment lines
+Plug 'honza/vim-snippets'        " snippet collection
+Plug 'dense-analysis/ale'        " syntax checking + linting (async)
+Plug 'preservim/nerdcommenter'   " (un) comment lines
 
 " language / syntax plugins
 Plug 'mtdl9/vim-log-highlighting'
@@ -109,6 +111,10 @@ let g:NERDCreateDefaultMappings=0
 
 " settings for rust.vim
 let g:rustfmt_autosave = 1
+
+" settings for quick-scope
+" Trigger a highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 "let loaded_vifm=1
 
