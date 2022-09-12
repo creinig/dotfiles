@@ -202,7 +202,9 @@ elif [[ ! -f ~/.fzf.zsh ]] && command -v zsh >/dev/null ; then
   logDo '.fzf.zsh missing - re-running installer'
   ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish 
 else
-  logOk 'fzf is already installed'
+  logDo 'upgrading fzf'
+  cd ~/.fzf && git pull && cd 
+  ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish 
 fi
 
 
