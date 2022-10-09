@@ -52,6 +52,13 @@ if command -v nvim >/dev/null 2>&1 && (nvim --version | head -n 1 | grep -v -q -
 fi
 
 
+if command -v yt-dlp >/dev/null 2>&1 ; then
+    alias ytdl='yt-dlp'
+elif command -v youtube-dl >/dev/null 2>&1 ; then
+    alias ytdl='youtube-dl'
+else
+    alias ytdl='echo yt-dlp not installed'
+fi
 
 
 #
@@ -62,13 +69,7 @@ function youtubeDownloadAudio {
     local url="$1"
     url=$(echo -n "$url" | sed -r 's#^(https?://)m\.(youtube)#\1www.\2#')
 
-    if command -v yt-dlp >/dev/null 2>&1 ; then
-        DL_CMD=yt-dlp
-    else
-        DL_CMD=youtube-dl
-    fi
-
-    $DL_CMD --extract-audio --audio-format best "$url"
+    ytdl --extract-audio --audio-format best "$url"
 }
 
 
