@@ -15,6 +15,7 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
 
     zplug mafredri/zsh-async
     zplug sindresorhus/pure, use:pure.zsh, as:theme
+    export PURE_GIT_PULL=0 # don't automatically fetch from remote - can be expensive on a mobile hotspot
 
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#505050"
     ZSH_AUTOSUGGEST_STRATEGY=(history completion)
