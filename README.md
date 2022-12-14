@@ -38,7 +38,7 @@ for my personal use I don't worry about doing explicit QA.
 
 The environments I regularly use them on are:
 
-* native ubuntu 20
+* native ubuntu 22.04
 * termux (android)
 
 
