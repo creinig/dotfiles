@@ -18,11 +18,17 @@ if command -v vim > /dev/null 2>&1; then
 fi
 
 if command -v bat >/dev/null 2>&1; then
-    alias cat="bat"
+    BAT_CMD=bat
+elif command -v batcat >/dev/null 2>&1; then
+    BAT_CMD=batcat
+fi
+
+if [[ -n $BAT_CMD ]]; then
+    alias cat="$BAT_CMD"
     export BAT_STYLE=changes
     export BAT_PAGER=less # 'most' has some problems with the escape sequences
-    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-    export PAGER="bat"
+    export MANPAGER="sh -c 'col -bx | $BAT_CMD -l man -p'"
+    export PAGER="$BAT_CMD"
 fi
 
 if (command -v delta && command -v git) >/dev/null 2>&1 ; then
@@ -112,7 +118,7 @@ if [[ "$FORGIT_INSTALL_DIR" != "" ]] ; then
   alias cfgid='cfg forgit diff'
   alias cfgia='cfg forgit add'
   alias cfgii='cfg forgit ignore'
-  
+
   alias gilo='git forgit log'
   alias gid='git forgit diff'
   alias gia='git forgit add'
