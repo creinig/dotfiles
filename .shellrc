@@ -98,6 +98,7 @@ alias kgall="kubectl get all,ing,pv,pvc"
 alias kgallw="kubectl get all,ing,pv,pvc -o wide"
 alias mydstat="dstat -lcdfmnp -C total --disk-util"
 alias sk="screenkey --font 'DejaVu Sans Mono Bold' --timeout 4 --mouse"
+alias ugi="ug -Q"
 
 # Aliases for managing this dotfile collection
 alias cfg='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
