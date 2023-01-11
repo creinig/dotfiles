@@ -37,10 +37,10 @@ if command -v rg >/dev/null 2>&1; then
 fi
 
 if command -v exa >/dev/null 2>&1 ; then
-    alias ls='exa'
-    alias ll='exa -lbFagh --extended --git --group-directories-first --color-scale'
-    alias llm='exa -lbFagh --extended --git --sort=modified --reverse --color-scale'
-    alias tree='exa --tree --level=2'
+    alias ls='exa --color=auto'
+    alias ll='exa -lbFagh --extended --git --group-directories-first --color=auto --color-scale'
+    alias llm='exa -lbFagh --extended --git --sort=modified --reverse --color=auto --color-scale'
+    alias tree='exa --tree --level=2 --color=auto'
 else
     alias ls='ls -F --color=tty'
     alias ll='ls -laFh --color=tty --group-directories-first'
@@ -91,6 +91,7 @@ alias watch="watch "
 alias kgall="kubectl get all,ing,pv,pvc"
 alias kgallw="kubectl get all,ing,pv,pvc -o wide"
 alias mydstat="dstat -lcdfmnp -C total --disk-util"
+alias sk="screenkey --font 'DejaVu Sans Mono Bold' --timeout 4 --mouse"
 
 # Aliases for managing this dotfile collection
 alias cfg='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
