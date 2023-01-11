@@ -23,6 +23,7 @@ hi Operator				ctermfg=Red			guifg=Red
 hi Ignore				ctermfg=black		guifg=bg
 hi Error	term=reverse ctermbg=DarkRed ctermfg=White guibg=DarkRed guifg=White
 hi Todo	term=standout ctermbg=Yellow ctermfg=Black guifg=Blue guibg=Yellow
+hi Folded                   ctermbg=Grey ctermfg=Black
 
 " Common groups that link to default highlighting.
 " You can specify other highlighting easily.
