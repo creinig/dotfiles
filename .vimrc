@@ -56,6 +56,7 @@ Plug 'sukima/vim-tiddlywiki'
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
 Plug 'preservim/tagbar'
+Plug 'habamax/vim-asciidoctor'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
