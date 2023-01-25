@@ -169,6 +169,9 @@ alias sshvm='ssh -o stricthostkeychecking=no -o addkeystoagent=no'
 # -e SC2034: ignore "Variable X seems unused"
 export SHELLCHECK_OPTS="--check-sourced --external-sources -e SC1090 -e SC2034"
 
+# Default settings for bc
+export BC_ENV_ARGS="$HOME/.bc"
+
 # Spin up a simple web server serving the current directory statically on port 8000
 function htserve() {
   if command -v ruby >/dev/null 2>&1 ; then
