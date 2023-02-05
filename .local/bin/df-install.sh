@@ -33,7 +33,7 @@ function logError() {
 
 if command -v git &>/dev/null ; then
   logOk "git installed. that's good."
-else 
+else
   logError "git not found"
   exit 1
 fi
@@ -68,12 +68,12 @@ if ! $DO_UPDATE ; then
 fi
 
 function config() {
-  /usr/bin/git "--git-dir=$HOME/.dotfiles/" --work-tree=$HOME $@
+  /usr/bin/git "--git-dir=$HOME/.dotfiles/" --work-tree="$HOME" "$@"
 }
 
 #
 # Function: Install the dotfiles repo in the current home dir.
-# Copied & adapted from https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/ 
+# Copied & adapted from https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
 #
 function install() {
   git clone --bare "$GIT_REPO" .dotfiles || exit 1
@@ -139,7 +139,7 @@ if [[ -t 0 ]] ; then
 else
   logDo 'Input is not a tty - installing missing plugins in the background.'
   logDo 'This may take a few minutes'
-  # credits: unhashable on https://github.com/VundleVim/Vundle.vim/issues/511 
+  # credits: unhashable on https://github.com/VundleVim/Vundle.vim/issues/511
   echo | vim +PlugInstall +PlugUpdate +qall &>/dev/null
 fi
 
@@ -172,7 +172,7 @@ elif [[ ${SHELL##*/} != 'zsh' ]] && command -v zsh >/dev/null ; then
   if [[ -f /etc/shells ]] ; then
     zshfqn=$(grep zsh /etc/shells | head -n 1)
     if [[ -t 0 ]] ; then
-      chsh -s $zshfqn 
+      chsh -s "$zshfqn"
       logDo '... fixed that'
       HINTS+=("Your login shell has been changed. You'll want to re-login to use it")
     else
@@ -197,14 +197,14 @@ echo
 if [[ ! -d ~/.fzf ]] ; then
   logDo 'installing fzf'
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-  ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish 
+  ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish
 elif [[ ! -f ~/.fzf.zsh ]] && command -v zsh >/dev/null ; then
   logDo '.fzf.zsh missing - re-running installer'
-  ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish 
+  ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish
 else
   logDo 'upgrading fzf'
-  cd ~/.fzf && git pull && cd 
-  ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish 
+  cd ~/.fzf && git pull && cd
+  ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish
 fi
 
 
@@ -240,3 +240,5 @@ if (( ${#HINTS[@]} > 0 )); then
     echo '*' "$hint"
   done
 fi
+
+
