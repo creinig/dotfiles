@@ -6,6 +6,8 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     export ZPLUG_HOME=~/.zsh/zplug
     . $ZPLUG_HOME/init.zsh
 
+    zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+
     zplug "plugins/git",      from:oh-my-zsh
     zplug "plugins/gitfast",  from:oh-my-zsh
     zplug "plugins/kubectl",  from:oh-my-zsh
