@@ -51,11 +51,13 @@ if cmdExists exa; then
     alias ll='exa -lbFagh --extended --git --group-directories-first --color=auto --color-scale'
     alias llm='exa -lbFagh --extended --git --sort=modified --reverse --color=auto --color-scale'
     alias tree='exa --tree --level=2 --color=auto'
+    alias llw='watch --color --d exa -lbFagh --extended --git --group-directories-first --color=auto --color-scale'
     alias watch='watch --color'
 else
     alias ls='ls -F --color=tty'
     alias ll='ls -laFh --color=tty --group-directories-first'
     alias llm='ls -laFh --color=tty --sort=time'
+    alias llw='watch --color -d ls -laFh --color=tty --group-directories-first'
 fi
 
 if cmdExists nvim && (nvim --version | head -n 1 | grep -v -q -E '0\.[123]\.') ; then
