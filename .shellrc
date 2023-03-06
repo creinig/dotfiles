@@ -51,6 +51,7 @@ if cmdExists exa; then
     alias ll='exa -lbFagh --extended --git --group-directories-first --color=auto --color-scale'
     alias llm='exa -lbFagh --extended --git --sort=modified --reverse --color=auto --color-scale'
     alias tree='exa --tree --level=2 --color=auto'
+    alias watch='watch --color'
 else
     alias ls='ls -F --color=tty'
     alias ll='ls -laFh --color=tty --group-directories-first'
@@ -97,7 +98,6 @@ export LS_COLORS="no=00:fi=00:di=01;37:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40
 #
 
 
-alias watch="watch "
 alias kgall="kubectl get all,ing,pv,pvc"
 alias kgallw="kubectl get all,ing,pv,pvc -o wide"
 alias mydstat="dstat -lcdfmnp -C total --disk-util"
