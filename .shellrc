@@ -47,18 +47,21 @@ if cmdExists rg; then
 fi
 
 if cmdExists exa; then
-    alias ls='exa --color=auto'
-    alias ll='exa -lbFagh --extended --git --group-directories-first --color=auto --color-scale'
-    alias llm='exa -lbFagh --extended --git --sort=modified --reverse --color=auto --color-scale'
+    LS_CMD='exa --color=auto'
+    LL_CMD="$LS_CMD -lbFagh --extended --git --group-directories-first --color-scale"
+    LLM_CMD="$LS_CMD -lbFagh --extended --git --sort=modified --reverse --color-scale"
     alias tree='exa --tree --level=2 --color=auto'
-    alias llw='watch --color --d exa -lbFagh --extended --git --group-directories-first --color=auto --color-scale'
-    alias watch='watch --color'
 else
-    alias ls='ls -F --color=tty'
-    alias ll='ls -laFh --color=tty --group-directories-first'
-    alias llm='ls -laFh --color=tty --sort=time'
-    alias llw='watch --color -d ls -laFh --color=tty --group-directories-first'
+    LS_CMD='ls -F --color=tty'
+    LL_CMD="$LS_CMD -lah --group-directories-first" 
+    LLM_CMD="$LS_CMD -lah --sort=time"
 fi
+alias ls="$LS_CMD"
+alias ll="$LL_CMD" 
+alias llm="$LLM_CMD"
+alias wll="watch --color -d $LL_CMD"
+alias wllm="watch --color -d $LLM_CMD"
+
 
 if cmdExists nvim && (nvim --version | head -n 1 | grep -v -q -E '0\.[123]\.') ; then
     alias vim='nvim'
