@@ -31,7 +31,11 @@ if [[ -n $BAT_CMD ]]; then
     alias cat="$BAT_CMD"
     export BAT_STYLE=changes
     export BAT_PAGER=less # 'most' has some problems with the escape sequences
-    export MANPAGER="$HOME/.local/bin/df-batman.sh"
+    if man --help 2>&1 | grep -q mandoc ; then                
+        export MANPAGER="$HOME/.local/bin/df-batman.sh"       
+    else                                                      
+        export MANPAGER="sh -c 'col -bx | $BAT_CMD -l man -p'"
+    fi                                                        
     export PAGER="$BAT_CMD"
 fi
 
