@@ -171,6 +171,15 @@ xmap <leader>cs <plug>NERDCommenterSexy
 nmap <leader>c$ <plug>NERDCommenterEOL
 " }}}
 
+" Shortcuts for inserting text snippets {{{
+" Just the date
+nnoremap <leader>add "=strftime('\%F')<CR>p
+" Just the time (HH:MM)
+nnoremap <leader>adt "=strftime('\%H:\%M')<CR>p
+" Everything for a journal entry
+nnoremap <leader>adj "=strftime('%a, %F, %H:%M')<CR>p
+" }}}
+
 " Shortcuts for editing common files in a vsplit {{{
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>ez :vsplit ~/.zshrc<cr>
