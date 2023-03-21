@@ -91,6 +91,9 @@ if has("python3")
 
     " If you want :UltiSnipsEdit to split your window.
     let g:UltiSnipsEditSplit="vertical"
+
+    " Add my custom snippets
+    let g:UltiSnipsSnippetDirectories=["UltiSnips", $HOME.'/.vim/df-snippets']
 endif
 
 
