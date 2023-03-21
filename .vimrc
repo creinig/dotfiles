@@ -180,6 +180,10 @@ nnoremap <leader>adt "=strftime('%H:%M')<CR>p
 nnoremap <leader>adj "=strftime('%a, %F, %H:%M')<CR>p
 " Format for my event log
 nnoremap <leader>ade "=strftime('%a, %F')<CR>p
+" Date/Time header in journal
+nnoremap <leader>awj "=strftime('! %a, %F, %H:%M, ')<CR>pa
+" Date header in Event Log
+nnoremap <leader>awe "=strftime('* %a, %F')<CR>po
 " }}}
 
 " Shortcuts for editing common files in a vsplit {{{
