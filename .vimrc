@@ -173,11 +173,13 @@ nmap <leader>c$ <plug>NERDCommenterEOL
 
 " Shortcuts for inserting text snippets {{{
 " Just the date
-nnoremap <leader>add "=strftime('\%F')<CR>p
+nnoremap <leader>add "=strftime('%F')<CR>p
 " Just the time (HH:MM)
-nnoremap <leader>adt "=strftime('\%H:\%M')<CR>p
+nnoremap <leader>adt "=strftime('%H:%M')<CR>p
 " Everything for a journal entry
 nnoremap <leader>adj "=strftime('%a, %F, %H:%M')<CR>p
+" Format for my event log
+nnoremap <leader>ade "=strftime('%a, %F')<CR>p
 " }}}
 
 " Shortcuts for editing common files in a vsplit {{{
