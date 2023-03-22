@@ -118,6 +118,7 @@ alias cfg='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cfgf='cfg fetch origin'
 alias cfgl='cfg pull origin'
 alias cfgs='cfg status --branch'
+alias cfgls="cfg ls-tree -r HEAD --name-status --full-tree $HOME"
 alias cfga='cfg add'
 alias cfgd='cfg diff'
 alias cfgc='cfg commit -v'
