@@ -54,11 +54,13 @@ if cmdExists exa; then
     LS_CMD='exa --color=auto'
     LL_CMD="$LS_CMD -lbFagh --extended --git --group-directories-first --color-scale"
     LLM_CMD="$LS_CMD -lbFagh --extended --git --sort=modified --reverse --color-scale"
+    LL_UNSORTED_CMD="$LS_CMD -lbFagh --extended --git --sort=none --color-scale"
     alias tree='exa --tree --level=2 --color=auto'
 else
     LS_CMD='ls -F --color=tty'
     LL_CMD="$LS_CMD -lah --group-directories-first" 
     LLM_CMD="$LS_CMD -lah --sort=time"
+    LL_UNSORTED_CMD="$LS_CMD -lah -U"
 fi
 alias ls="$LS_CMD"
 alias ll="$LL_CMD" 
@@ -118,7 +120,7 @@ alias cfg='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cfgf='cfg fetch origin'
 alias cfgl='cfg pull origin'
 alias cfgs='cfg status --branch'
-alias cfgls="cfg ls-tree -r HEAD --name-status --full-tree $HOME"
+alias cfgls="cfg ls-tree --name-only -r --full-tree HEAD $HOME | xargs $LL_UNSORTED_CMD"
 alias cfga='cfg add'
 alias cfgd='cfg diff'
 alias cfgc='cfg commit -v'
