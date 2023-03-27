@@ -71,11 +71,11 @@ map <PageUp> :set scroll=0<CR>:set scroll^=2<CR>:set scroll-=1<CR><C-U>:set scro
 " From 'Practical Vim' p101
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" Start interactive EasyAlign in visual mode (e.g. vipea)
-xmap ea <Plug>(EasyAlign)
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ea <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " Open NERDTree if vim is started with a directory as parameter
 autocmd StdinReadPre * let s:std_in=1
