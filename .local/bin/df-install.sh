@@ -203,7 +203,7 @@ elif [[ ! -f ~/.fzf.zsh ]] && command -v zsh >/dev/null ; then
   ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish
 else
   logDo 'upgrading fzf'
-  cd ~/.fzf && git pull && cd
+  cd ~/.fzf && git pull --quiet --stat && cd
   ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish
 fi
 
