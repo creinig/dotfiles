@@ -156,6 +156,11 @@ alias gch='git commit -v -c HEAD'
 # Exit the credential cache to make it forget the bad password I just entered
 alias gce='git credential-cache exit'
 
+# Search for the given String in all branches (HEAD commits)
+function ggrepa() {
+    git branch -a --format "%(refname)" | xargs git grep "$1" | grep --color=auto "$1"
+}
+
 alias s="sudo"
 alias se="sudoedit"
 alias psa="ps auxf"
