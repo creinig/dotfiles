@@ -11,7 +11,7 @@ declare HINTS=()
 
 DF_CHANGED=false
 
-if [[ -t 0 ]]; then
+if [[ -t 1 ]]; then
   LOG_START='\e[1m'
   LOG_OK='\e[32m'
   LOG_DO='\e[33m'
