@@ -11,24 +11,36 @@ declare HINTS=()
 
 DF_CHANGED=false
 
+if [[ -t 0 ]]; then
+  LOG_START='\e[1m'
+  LOG_OK='\e[32m'
+  LOG_DO='\e[33m'
+  LOG_ERR='\e[31m'
+  LOG_END='\e[0m'
+fi
+
 function log() {
-  echo -n '== '
-  echo "$@"
+  echo -ne "${LOG_START}== "
+  echo -n "$@"
+  echo -e "${LOG_END}"
 }
 
 function logOk() {
-  echo -n '=/ '
-  echo "$@"
+  echo -ne "${LOG_START}${LOG_OK}=/ "
+  echo -n "$@"
+  echo -e "${LOG_END}"
 }
 
 function logDo() {
-  echo -n '=> '
-  echo "$@"
+  echo -ne "${LOG_START}${LOG_DO}=> "
+  echo -n "$@"
+  echo -e "${LOG_END}"
 }
 
 function logError() {
-  echo -n '!! '
-  echo "$@"
+  echo -ne "${LOG_START}${LOG_ERR}!! "
+  echo -n "$@"
+  echo -e "${LOG_END}"
 }
 
 if command -v git &>/dev/null ; then
