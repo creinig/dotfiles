@@ -13,6 +13,7 @@ DF_CHANGED=false
 
 if [[ -t 1 ]]; then
   LOG_START='\e[1m'
+  LOG_INFO='\e[96m'
   LOG_OK='\e[32m'
   LOG_DO='\e[33m'
   LOG_ERR='\e[31m'
@@ -20,7 +21,7 @@ if [[ -t 1 ]]; then
 fi
 
 function log() {
-  echo -ne "${LOG_START}== "
+  echo -ne "${LOG_START}${LOG_INFO}== "
   echo -n "$@"
   echo -e "${LOG_END}"
 }
