@@ -247,9 +247,9 @@ fi
 
 if (( ${#HINTS[@]} > 0 )); then
   echo
-  echo '== Some issues you might want to take care of:'
+  log 'Some issues you might want to take care of:'
   for hint in "${HINTS[@]}" ; do
-    echo '*' "$hint"
+    log '*' "$hint"
   done
 fi
 
