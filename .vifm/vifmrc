@@ -155,6 +155,12 @@ command! FZFdir : set noquickview
                 \| if $FZF_PICK != ''
                 \|     execute 'goto' fnameescape($FZF_PICK)
                 \| endif
+
+command! FZFfind : set noquickview
+                \| let $FZF_PICK = term('sh -c $FZF_DEFAULT_COMMAND | fzf --height 10 2>/dev/tty')
+                \| if $FZF_PICK != ''
+                \|     execute system('[ -f "$FZF_PICK" ] && echo goto || echo cd') fnameescape($FZF_PICK)
+                \| endif
 " ------------------------------------------------------------------------------
 
 " The file type is for the default programs to be used with
@@ -473,7 +479,7 @@ nnoremap <f8> :delete<cr>
 
 nnoremap ,f :FZFfile<CR>
 nnoremap ,d :FZFdir<CR>
-
+nnoremap <c-f> :FZFfind<CR>
 
 " ------------------------------------------------------------------------------
 
