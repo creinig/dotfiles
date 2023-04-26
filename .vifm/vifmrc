@@ -112,6 +112,7 @@ endif
 
 set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 
+
 " ------------------------------------------------------------------------------
 
 " :mark mark /full/directory/path [filename]
@@ -397,7 +398,8 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 
 " Customize view columns a bit (enable ellipsis for truncated file names)
 "
-set viewcolumns=-{name}..,{mtime}.
+"set viewcolumns=-{name}..,{mtime}.
+set viewcolumns="-{name}..,,6{size},11{perms},16{mtime}"
 
 " Filter-out build and temporary files
 "
