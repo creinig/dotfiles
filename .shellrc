@@ -12,9 +12,7 @@ fi
 # Integrate useful tools if they are present
 #
 
-function cmdExists() {
-    command -v "$1" >/dev/null 2>&1
-}
+function cmdExists { command -v "$1" >/dev/null 2>&1 }
 
 if cmdExists vim; then
     export EDITOR="vim"
@@ -161,9 +159,7 @@ alias gch='git commit -v -c HEAD'
 alias gce='git credential-cache exit'
 
 # Search for the given String in all branches (HEAD commits)
-function ggrepa() {
-    git branch -a --format "%(refname)" | xargs git grep "$1" | grep --color=auto "$1"
-}
+function ggrepa { git branch -a --format "%(refname)" | xargs git grep "$1" | grep --color=auto "$1" }
 
 alias s="sudo"
 alias se="sudoedit"
