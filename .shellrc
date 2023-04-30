@@ -165,7 +165,13 @@ alias s="sudo"
 alias se="sudoedit"
 alias psa="ps auxf"
 alias open="xdg-open"
-alias splitstr="sed -r 's/\s+/\n/g'"
+function splitstr {
+    SEP=$1
+    if [[ -z $1 ]] then
+        SEP='\s'
+    fi
+    sed -r "s%$SEP%\n%g"
+}
 
 # df+mount listing only physical volumes (TODO: also filter out snap and docker loop mounts)
 alias dfp="df -h | grep -v -E '^(tmpfs|none|udev|/dev/loop)'"
