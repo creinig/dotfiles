@@ -57,6 +57,8 @@ Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
 Plug 'preservim/tagbar'
 Plug 'habamax/vim-asciidoctor'
+Plug 'tomtom/tlib_vim'           " required for ttodo_vim
+Plug 'tomtom/ttodo_vim'          " todo.txt support
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -120,12 +122,14 @@ let g:rustfmt_autosave = 1
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
+let g:ttodo#dirs = ['~/']
 "let loaded_vifm=1
 
 "
 " Use "<Space>" as Leader and define a bunch of mappings for it
 "
 let mapleader = " "
+let maplocalleader = "-"
 
 " Mappings for fzf.vim {{{
 nnoremap <leader>ff :Files<CR>
