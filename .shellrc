@@ -116,6 +116,7 @@ alias kgallw="kubectl get all,ing,pv,pvc -o wide"
 alias mydstat="dstat -lcdfmnp -C total --disk-util"
 alias sk="screenkey --font 'DejaVu Sans Mono Bold' --timeout 4 --mouse"
 alias ugi="ug -Q"
+alias apts='sudo apt install -d $(apt-cache pkgnames | fzf -m --preview="apt info {}" --preview-window=:hidden --bind=space:toggle-preview)' # credit: http://ix.io/2hgn
 
 # Aliases for managing this dotfile collection
 alias cfg='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
