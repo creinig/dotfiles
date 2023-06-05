@@ -168,7 +168,8 @@ nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
 " redraw screen, de-highlight searches, fix syntax highlighting
 nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 " pipe the current selection into xclip
-vnoremap <leader>uc "yy <Bar> :call system('xclip', @y)<Cr>
+vnoremap <leader>uy "yy <Bar> :call system('xclip -selection primary', @y)<Cr>
+vnoremap <leader>uc "yy <Bar> :call system('xclip -selection clipboard', @y)<Cr>
 
 " the NERDCommenter mappings I actually use
 nmap <leader>c<space> <plug>NERDCommenterToggle
