@@ -34,6 +34,7 @@ Plug 'tpope/vim-surround'        " surround text with quotes etc
 Plug 'junegunn/vim-easy-align'   " vertically align text
 Plug 'junegunn/fzf'              " fuzzy finder and commands making use of it
 Plug 'junegunn/fzf.vim'
+Plug 'dyng/ctrlsf.vim'           " comprehensive search over directory hierarchies
 Plug 'creinig/ListToggle'        " commands to toggle location & quickfix list
 Plug 'AndrewRadev/linediff.vim'  " editable diff between two arbitrary regions
 Plug 'easymotion/vim-easymotion' " powerful extension of motions
@@ -115,6 +116,10 @@ let g:taboo_renamed_tab_format = ' [%N: %l]%m '
 " settings for NERDCommenter
 let g:NERDCreateDefaultMappings=0
 
+" settings for ctrlsf.vim
+let g:ctrlsf_auto_focus = { "at": "start" }
+let g:ctrlsf_default_root = 'project'
+
 " settings for rust.vim
 let g:rustfmt_autosave = 1
 
@@ -131,7 +136,7 @@ let g:ttodo#dirs = ['~/']
 let mapleader = " "
 let maplocalleader = "-"
 
-" Mappings for fzf.vim {{{
+" Mappings for fzf.vim -- prefix f{{{
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fg :GFiles<CR>
 nnoremap <leader>fb :Buffers<CR>
@@ -148,8 +153,14 @@ nnoremap <leader>f: :History:<CR>
 nnoremap <leader>f? :Helptags<CR>
 " }}}
 
+" Mappings for Search (crtlsf etc) -- prefix s {{{
+nmap <leader>sf <Plug>CtrlSFPrompt
+vmap <leader>sf <Plug>CtrlSFVwordPath
+vmap <leader>sF <Plug>CtrlSFVwordExec
+nmap <leader>st :CtrlSFToggle<CR>
+" }}}
 
-" Mappings for git (mainly fugitive.vim) {{{
+" Mappings for git (mainly fugitive.vim) -- prefix g {{{
 nnoremap <leader>gg :Gstatus<CR>
 nnoremap <leader>gc :Gcommit<space>
 nnoremap <leader>gh :Commits<space>
@@ -162,7 +173,7 @@ nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gd :Gdiffsplit<space>
 " }}}
 
-" utility functions / macros {{{
+" utility functions / macros  -- prefix u {{{
 " remove all trailing whitespace in the file
 nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
 " redraw screen, de-highlight searches, fix syntax highlighting
@@ -179,7 +190,7 @@ xmap <leader>cs <plug>NERDCommenterSexy
 nmap <leader>c$ <plug>NERDCommenterEOL
 " }}}
 
-" Shortcuts for inserting text snippets {{{
+" Shortcuts for inserting text snippets -- perfix a {{{
 " Just the date
 nnoremap <leader>add "=strftime('%F')<CR>p
 " Just the time (HH:MM)
@@ -194,13 +205,13 @@ nnoremap <leader>awj "=strftime('! %a, %F, %H:%M, ')<CR>pa
 nnoremap <leader>awe "=strftime('* %a, %F')<CR>po
 " }}}
 
-" Shortcuts for editing common files in a vsplit {{{
+" Shortcuts for editing common files in a vsplit -- prefix e {{{
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>ez :vsplit ~/.zshrc<cr>
 nnoremap <leader>es :vsplit ~/.shellrc<cr>
 " }}}
 
-" option toggles / changes {{{
+" option toggles / changes -- prefix o {{{
 "   toggle relative / absolute line numbers
 nnoremap <leader>or :set invrelativenumber<CR>
 nnoremap <leader>on :set invnumber<CR>
