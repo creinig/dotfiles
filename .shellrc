@@ -38,10 +38,12 @@ if [[ -n $BAT_CMD ]]; then
 fi
 
 DIFF_PAGER=less
+DIFF_PAGER_OPTS=""
 if (cmdExists delta && cmdExists git); then
     git config --global --replace-all core.pager delta
     git config --global --replace-all interactive.diffFilter "delta --color-only --features=interactive"
-    DIFF_PAGER="delta --side-by-side"
+    DIFF_PAGER="delta"
+    DIFF_PAGER_OPTS="--side-by-side"
 fi
 
 
@@ -126,7 +128,7 @@ alias cfgs='cfg status --branch'
 alias cfgls="cfg ls-tree --name-only -r --full-tree HEAD $HOME"
 alias cfgll="cfg ls-tree --name-only -r --full-tree HEAD $HOME | xargs $LL_UNSORTED_CMD"
 alias cfga='cfg add'
-alias cfgd="cfg diff | $DIFF_PAGER"
+function cfgd() { cfg diff "$@" | $DIFF_PAGER $DIFF_PAGER_OPTS }
 alias cfgc='cfg commit -v'
 alias cfgp='cfg push origin'
 alias cfglog='cfg log --oneline --decorate --graph --all'
