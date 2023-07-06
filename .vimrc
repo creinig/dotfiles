@@ -236,8 +236,12 @@ nnoremap <leader>cn :cnext<Cr>
 nnoremap <leader>cp :cprev<Cr>
 " }}}
 
+" Other shortcuts (different prefixes) {{{
 " open tiddlywiki in a split window
 nnoremap <leader>tv :vs<cr>:lcd<space>~/wiki/<cr>:Files<cr>
+" Change window-local directory to the one of the file being edite
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+" }}}
 
 " Some remappings for better accessibility
 nmap >c ]c
