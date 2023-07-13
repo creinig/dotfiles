@@ -70,7 +70,7 @@ alias ls="$LS_CMD"
 alias ll="$LL_CMD" 
 alias llm="$LLM_CMD"
 alias wll="watch --color -d $LL_CMD"
-alias wllm="watch --color -d $LLM_CMD"
+alias wllm="watch --color -d $LLM_CMD --reverse"
 
 
 if cmdExists nvim && (nvim --version | head -n 1 | grep -v -q -E '0\.[123]\.') ; then
