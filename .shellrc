@@ -57,7 +57,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 if cmdExists exa; then
     LS_CMD='exa --color=auto'
     LL_CMD="$LS_CMD -lbFagh --extended --git --group-directories-first --color-scale"
-    LLM_CMD="$LS_CMD -lbFagh --extended --git --sort=modified --reverse --color-scale"
+    LLM_CMD="$LS_CMD -lbFagh --extended --git --sort=modified  --color-scale"
     LL_UNSORTED_CMD="$LS_CMD -lbFagh --extended --git --sort=none --color-scale"
     alias tree='exa --tree --level=2 --color=auto'
 else
