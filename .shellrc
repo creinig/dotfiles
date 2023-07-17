@@ -12,7 +12,7 @@ fi
 # Integrate useful tools if they are present
 #
 
-function cmdExists { command -v "$1" >/dev/null 2>&1 }
+function cmdExists { command -v "$1" >/dev/null 2>&1 ; }
 
 if cmdExists vim; then
     export EDITOR="vim"
@@ -131,7 +131,7 @@ alias cfgs='cfg status --branch'
 alias cfgls="cfg ls-tree --name-only -r --full-tree HEAD $HOME"
 alias cfgll="cfg ls-tree --name-only -r --full-tree HEAD $HOME | xargs $LL_UNSORTED_CMD"
 alias cfga='cfg add'
-function cfgd() { cfg diff "$@" | $DIFF_PAGER $DIFF_PAGER_OPTS }
+function cfgd() { cfg diff "$@" | $DIFF_PAGER $DIFF_PAGER_OPTS ; }
 alias cfgc='cfg commit -v'
 alias cfgp='cfg push origin'
 alias cfglog='cfg log --oneline --decorate --graph --all'
@@ -168,13 +168,13 @@ alias gch='git commit -v -c HEAD'
 alias gce='git credential-cache exit'
 
 # Search for the given String in all branches (HEAD commits)
-function ggrepa { git branch -a --format "%(refname)" | xargs git grep "$1" | grep --color=auto "$1" }
+function ggrepa { git branch -a --format "%(refname)" | xargs git grep "$1" | grep --color=auto "$1" ; }
 
 alias s="sudo"
 alias se="sudoedit"
 alias psa="ps auxf"
 alias open="xdg-open"
-function splitstr { sed -r "s%${1:-\s}+%\n%g" }
+function splitstr { sed -r "s%${1:-\s}+%\n%g" ; }
 
 # df+mount listing only physical volumes (TODO: also filter out snap and docker loop mounts)
 alias dfp="df -h | grep -v -E '^(tmpfs|none|udev|/dev/loop)'"
