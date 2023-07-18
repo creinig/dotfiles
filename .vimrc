@@ -37,6 +37,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'dyng/ctrlsf.vim'           " comprehensive search over directory hierarchies
 Plug 'creinig/ListToggle'        " commands to toggle location & quickfix list
 Plug 'AndrewRadev/linediff.vim'  " editable diff between two arbitrary regions
+Plug 'will133/vim-dirdiff'       " diff two directory trees
 Plug 'easymotion/vim-easymotion' " powerful extension of motions
 Plug 'unblevable/quick-scope'    " Highlight good candidates for f/t motions
 
