@@ -158,8 +158,9 @@ if [[ "$FORGIT_INSTALL_DIR" != "" ]] ; then
   alias giss='git forgit stash_show'
 fi
 
-# Can't remember all those aliases? Use this to search through them
-alias AG='alias | grep'
+# Can't remember all those aliases / environment vars? Use this to search through them
+alias AG='alias | grep --colour=auto'
+alias EG='env | grep --colour=auto'
 
 # Commit, defaulting to the message of the previous commit
 # Useful for multiple commits on the same ticket/issue
