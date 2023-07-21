@@ -159,7 +159,7 @@ if [[ "$FORGIT_INSTALL_DIR" != "" ]] ; then
 fi
 
 # Can't remember all those aliases? Use this to search through them
-alias ag='alias | grep'
+alias AG='alias | grep'
 
 # Commit, defaulting to the message of the previous commit
 # Useful for multiple commits on the same ticket/issue
