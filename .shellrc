@@ -160,7 +160,9 @@ fi
 
 # Can't remember all those aliases / environment vars? Use this to search through them
 alias AG='alias | grep --colour=auto'
+alias AF='alias | fzf'
 alias EG='env | grep --colour=auto'
+alias EF='env | fzf'
 
 # Commit, defaulting to the message of the previous commit
 # Useful for multiple commits on the same ticket/issue
