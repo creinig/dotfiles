@@ -44,16 +44,16 @@ function install_basics() {
 		if apt-cache search '^ripgrep$' | grep -q ripgrep ; then
 			sudo apt $APT_OPTS install ripgrep
 		else
-			curl -L https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb >/tmp/ripgrep.deb && sudo dpkg --install /tmp/ripgrep.deb
+			curl -L https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb >/tmp/ripgrep.deb && sudo dpkg --install /tmp/ripgrep.deb
 		fi
 
 		if apt-cache search '^bat$'  | grep -q bat ; then
 			sudo apt $APT_OPTS install bat
 		else
-			curl -L https://github.com/sharkdp/bat/releases/download/v0.15.4/bat_0.15.4_amd64.deb >/tmp/bat.deb && sudo dpkg --install /tmp/bat.deb
+			curl -L https://github.com/sharkdp/bat/releases/download/v0.23.0/bat_0.23.0_amd64.deb >/tmp/bat.deb && sudo dpkg --install /tmp/bat.deb
 		fi
 
-		curl -L https://github.com/dandavison/delta/releases/download/0.13.0/git-delta_0.13.0_amd64.deb >/tmp/delta.deb && sudo dpkg --install /tmp/delta.deb
+		curl -L https://github.com/dandavison/delta/releases/download/0.16.5/git-delta_0.16.5_amd64.deb >/tmp/delta.deb && sudo dpkg --install /tmp/delta.deb
 	else
 		echo "OS '$DF_OS' not supported"
 	fi
