@@ -2,6 +2,14 @@
 
 . $HOME/.local/bin/.df-common.sh
 
+if [[ -t 0 ]] ; then
+	echo "Terminal detected - apt will ask for confirmation"
+	APT_OPTS=""
+else
+	echo "No terminal detected - apt will automatically install everything"
+	APT_OPTS="-y"
+fi
+
 function usage() {
 	echo "Usage: df-tools.sh <bundle>"
 	echo "  Installs the specified bundle of packages / tools"
@@ -30,17 +38,17 @@ function install_basics() {
 		# perl is needed for the enhancd zsh plugin
 	elif [[ $DF_OS == 'ubuntu' ]] ; then
 		sudo apt update
-		sudo apt install $PKG \
+		sudo apt $APT_OPTS install $PKG \
 			dnsutils shellcheck
 
 		if apt-cache search '^ripgrep$' | grep -q ripgrep ; then
-			sudo apt install ripgrep
+			sudo apt $APT_OPTS install ripgrep
 		else
 			curl -L https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb >/tmp/ripgrep.deb && sudo dpkg --install /tmp/ripgrep.deb
 		fi
 
 		if apt-cache search '^bat$'  | grep -q bat ; then
-			sudo apt install bat
+			sudo apt $APT_OPTS install bat
 		else
 			curl -L https://github.com/sharkdp/bat/releases/download/v0.15.4/bat_0.15.4_amd64.deb >/tmp/bat.deb && sudo dpkg --install /tmp/bat.deb
 		fi
