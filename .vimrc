@@ -182,8 +182,11 @@ nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l
 " pipe the current selection into xclip
 vnoremap <leader>uy "yy <Bar> :call system('xclip -selection primary', @y)<Cr>
 vnoremap <leader>uc "yy <Bar> :call system('xclip -selection clipboard', @y)<Cr>
+" change the window-local directory to that of the current file
+nnoremap <leader>ud :lcd %:p:h<Cr>
+" }}}
 
-" the NERDCommenter mappings I actually use
+" the NERDCommenter mappings I actually use -- prefix c {{{
 nmap <leader>c<space> <plug>NERDCommenterToggle
 xmap <leader>c<space> <plug>NERDCommenterToggle
 nmap <leader>cs <plug>NERDCommenterSexy
