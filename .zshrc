@@ -68,19 +68,20 @@ setopt interactivecomments
 setopt no_share_history
 # We can manually enabling sharing for a session on demand
 alias share_history="setopt share_history"
+# still save the history incrementally. Append so that sessions don't overwrite each other.
+# We need the incremental saving, since save-on-exit doesn't reliably trigger when killing
+# tmux on system shutdown
+setopt inc_append_history_time
 # use a history file neatly tucked away
 export HISTFILE="$HOME/.zsh/history"
-export HISTSIZE=10000
+export HISTSIZE=50000
 export SAVEHIST=$HISTSIZE
 # save each command's beginning timestamp and the duration to the history file
 setopt extended_history
 # dupes in the history are just annoying. also remove extra blanks.
 setopt hist_ignore_all_dups
-setopt hist_save_no_dupS
+setopt hist_save_no_dups
 setopt hist_reduce_blanks
-# still save the history of after the shell exits, so that we don't lose it
-# completely. Append so that sessions don't overwrite each other.
-setopt append_history
 
 zstyle ':completion:*' special-dirs true
 
