@@ -26,7 +26,7 @@ color
 confirm
 
 # Enable/disable query UI file viewing command with CTRL-Y, default: view
-view
+view=vim
 
 # Enable/disable or specify a pager for terminal output, default: no-pager
 no-pager
