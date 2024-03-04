@@ -40,6 +40,7 @@ Plug 'AndrewRadev/linediff.vim'  " editable diff between two arbitrary regions
 Plug 'will133/vim-dirdiff'       " diff two directory trees
 Plug 'easymotion/vim-easymotion' " powerful extension of motions
 Plug 'unblevable/quick-scope'    " Highlight good candidates for f/t motions
+Plug 'svermeulen/vim-yoink'      " better access to the yank / delete history
 
 " Coding helpers
 if has("python3") " cygwin / babun has some problems there"
@@ -106,6 +107,8 @@ let g:airline#extensions#ale#enabled = 1
 " ale navigation shortcuts
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_ruby_rubocop_options = '-l'
 
 " tiddlywiki syntax settings
 let g:tiddlywiki_autoupdate = 1
@@ -131,7 +134,19 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 let g:ttodo#dirs = ['~/']
 "let loaded_vifm=1
 
-"
+" Mappings for vim-yoink
+nmap <c-n> <plug>(YoinkPostPasteSwapBack)
+nmap <c-p> <plug>(YoinkPostPasteSwapForward)
+
+nmap p <plug>(YoinkPaste_p)
+nmap P <plug>(YoinkPaste_P)
+
+" Also replace the default gp with yoink paste so we can toggle paste in this
+" case too
+ nmap gp <plug>(YoinkPaste_gp)
+ nmap gP <plug>(YoinkPaste_gP)
+
+
 " Use "<Space>" as Leader and define a bunch of mappings for it
 "
 let mapleader = " "
