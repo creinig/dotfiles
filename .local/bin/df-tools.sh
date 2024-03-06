@@ -33,7 +33,7 @@ function install_basics() {
 	if [[ $DF_OS == 'termux' ]] ; then
 		pkg install \
 			mosh nodejs zsh vim-python multitail \
-			bat ripgrep man perl exa ncurses-utils \
+			bat ripgrep man perl eza ncurses-utils \
 			zstd
 		# perl is needed for the enhancd zsh plugin
 	elif [[ $DF_OS == 'ubuntu' ]] ; then
