@@ -119,7 +119,7 @@ export LS_COLORS="no=00:fi=00:di=01;37:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40
 alias kgall="kubectl get all,ing,pv,pvc"
 alias kgallw="kubectl get all,ing,pv,pvc -o wide"
 alias mydstat="dstat -lcdfmnp -C total --disk-util"
-alias sk="screenkey --font 'DejaVu Sans Mono Bold' --timeout 4 --mouse -p top -s small --opacity 0.3"
+alias sk="screenkey"
 alias ugi="ug -Q"
 alias apts='sudo apt install $(apt-cache pkgnames | fzf -m --preview="apt info {}" --preview-window=:hidden --bind=space:toggle-preview)' # credit: http://ix.io/2hgn
 
