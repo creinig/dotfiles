@@ -159,10 +159,13 @@ fi
 #
 # (3.1) install tmux plugins
 #
-echo
-logDo 'Installing missing tmux plugins'
-~/.tmux/plugins/tpm/bin/install_plugins && \
-  ~/.tmux/plugins/tpm/bin/update_plugins all
+if command -v tmux >/dev/null && [[ -f ~/.tmux/plugins/tpm/bin/install_plugins ]] ; then
+  echo
+  logDo 'Installing missing tmux plugins'
+  ~/.tmux/plugins/tpm/bin/install_plugins && \
+    ~/.tmux/plugins/tpm/bin/update_plugins all
+  tmux source-file ~/.tmux.conf
+fi
 
 #
 # (4) source .shellrc in .bashrc if not done already
