@@ -157,6 +157,14 @@ else
 fi
 
 #
+# (3.1) install tmux plugins
+#
+echo
+logDo 'Installing missing tmux plugins'
+~/.tmux/plugins/tpm/bin/install_plugins && \
+  ~/.tmux/plugins/tpm/bin/update_plugins all
+
+#
 # (4) source .shellrc in .bashrc if not done already
 #
 echo
