@@ -13,6 +13,10 @@
 # - Copy mode: The mode when text is being copied. By default this is triggered
 #   by pressing the prefix key followed by '['; see `man tmux` for more details.
 #
+# - Suspend mode: A custom mode by https://github.com/MunifTanjim/tmux-suspend/
+#   This suspends prefix processing, allowing prefix keys to directly reach a
+#   nested tmux.
+#
 # Normal & prefix modes toggle between each other, so they occupy the same
 # section of this segment. The other modes are independent of each other, so
 # they each have their own part of the segment. By default, all modes are
