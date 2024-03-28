@@ -158,6 +158,14 @@ if [[ "$FORGIT_INSTALL_DIR" != "" ]] ; then
   alias giss='git forgit stash_show'
 fi
 
+alias aws.ec2.list="aws ec2 describe-instances \
+    --query \"Reservations[*].Instances[*].{PrivateIP:PrivateIpAddress,PublicIP:PublicIpAddress,InstanceType:InstanceType,Name:Tags[?Key=='Name']|[0].Value,Status:State.Name}\" \
+    --output table"
+alias aws.rds.list="aws rds describe-db-instances \
+    --query \"DBInstances[*].{Class:DBInstanceClass,A_Id:DBInstanceIdentifier,Engine:Engine,Version:EngineVersion,StorageGB:AllocatedStorage,Endpoint:Endpoint.Address}\" \
+    --output table"
+
+
 # Can't remember all those aliases / environment vars? Use this to search through them
 alias AG='alias | grep --colour=auto'
 alias AF='alias | fzf'
