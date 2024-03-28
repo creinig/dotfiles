@@ -159,12 +159,14 @@ if [[ "$FORGIT_INSTALL_DIR" != "" ]] ; then
 fi
 
 alias aws.ec2.list="aws ec2 describe-instances \
-    --query \"Reservations[*].Instances[*].{PrivateIP:PrivateIpAddress,PublicIP:PublicIpAddress,InstanceType:InstanceType,Name:Tags[?Key=='Name']|[0].Value,Status:State.Name}\" \
+    --query \"Reservations[*].Instances[*].{PrivateIP:PrivateIpAddress,PublicIP:PublicIpAddress,InstanceType:InstanceType,A_Name:Tags[?Key=='Name']|[0].Value,Status:State.Name}\" \
     --output table"
 alias aws.rds.list="aws rds describe-db-instances \
     --query \"DBInstances[*].{Class:DBInstanceClass,A_Id:DBInstanceIdentifier,Engine:Engine,Version:EngineVersion,StorageGB:AllocatedStorage,Endpoint:Endpoint.Address}\" \
     --output table"
-
+alias aws.fsx.list="aws fsx describe-file-systems \
+    --query \"FileSystems[*].{A_Name:Tags[?Key=='Name']|[0].Value,CapacityGB:StorageCapacity,Type:StorageType,FS:FileSystemType,DnsName:DNSName}\" \
+    --output table"
 
 # Can't remember all those aliases / environment vars? Use this to search through them
 alias AG='alias | grep --colour=auto'
