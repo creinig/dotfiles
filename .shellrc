@@ -159,13 +159,13 @@ if [[ "$FORGIT_INSTALL_DIR" != "" ]] ; then
 fi
 
 alias aws.ec2.list="aws ec2 describe-instances \
-    --query \"Reservations[*].Instances[*].{PrivateIP:PrivateIpAddress,PublicIP:PublicIpAddress,InstanceType:InstanceType,A_Name:Tags[?Key=='Name']|[0].Value,Status:State.Name}\" \
+    --query \"sort_by(Reservations[*].Instances[*].{A_Name:Tags[?Key=='Name']|[0].Value,PrivateIP:PrivateIpAddress,PublicIP:PublicIpAddress,InstanceType:InstanceType,Status:State.Name,Started:LaunchTime}[], &A_Name)\" \
     --output table"
 alias aws.rds.list="aws rds describe-db-instances \
-    --query \"DBInstances[*].{Class:DBInstanceClass,A_Id:DBInstanceIdentifier,Engine:Engine,Version:EngineVersion,StorageGB:AllocatedStorage,Endpoint:Endpoint.Address}\" \
+    --query \"sort_by(DBInstances[*].{Class:DBInstanceClass,A_Id:DBInstanceIdentifier,Engine:Engine,Version:EngineVersion,StorageGB:AllocatedStorage,Endpoint:Endpoint.Address}[], &A_Id)\" \
     --output table"
 alias aws.fsx.list="aws fsx describe-file-systems \
-    --query \"FileSystems[*].{A_Name:Tags[?Key=='Name']|[0].Value,CapacityGB:StorageCapacity,Type:StorageType,FS:FileSystemType,DnsName:DNSName}\" \
+    --query \"sort_by(FileSystems[*].{A_Name:Tags[?Key=='Name']|[0].Value,CapacityGB:StorageCapacity,Type:StorageType,FS:FileSystemType,DnsName:DNSName}[], &A_Name)\" \
     --output table"
 
 # Can't remember all those aliases / environment vars? Use this to search through them
