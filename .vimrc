@@ -28,6 +28,7 @@ Plug 'junegunn/gv.vim'           " better git history browser
 Plug 'airblade/vim-gitgutter'    " git info in the gutter
 Plug 'gcmt/taboo.vim'            " tab handling
 Plug 'mhinz/vim-startify'        " start screen
+Plug 'liuchengxu/vim-which-key'  " online help for leader based mappings
 
 " commands / operations / motions
 Plug 'tpope/vim-surround'        " surround text with quotes etc
@@ -143,16 +144,21 @@ nmap P <plug>(YoinkPaste_P)
 
 " Also replace the default gp with yoink paste so we can toggle paste in this
 " case too
- nmap gp <plug>(YoinkPaste_gp)
- nmap gP <plug>(YoinkPaste_gP)
+nmap gp <plug>(YoinkPaste_gp)
+nmap gP <plug>(YoinkPaste_gP)
 
 
 " Use "<Space>" as Leader and define a bunch of mappings for it
 "
 let mapleader = " "
 let maplocalleader = "-"
+nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  '-'<CR>
+let g:which_key_map = {}
+call which_key#register('<Space>', "g:which_key_map")
 
 " Mappings for fzf.vim -- prefix f{{{
+let g:which_key_map['f'] = {'name' : 'FZF'}
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fg :GFiles<CR>
 nnoremap <leader>fb :Buffers<CR>
@@ -170,6 +176,7 @@ nnoremap <leader>f? :Helptags<CR>
 " }}}
 
 " Mappings for Search (crtlsf etc) -- prefix s {{{
+let g:which_key_map['s'] = {'name' : 'Search'}
 nmap <leader>sf <Plug>CtrlSFPrompt
 vmap <leader>sf <Plug>CtrlSFVwordPath
 vmap <leader>sF <Plug>CtrlSFVwordExec
@@ -177,6 +184,7 @@ nmap <leader>st :CtrlSFToggle<CR>
 " }}}
 
 " Mappings for git (mainly fugitive.vim) -- prefix g {{{
+let g:which_key_map['g'] = {'name' : 'Git'}
 nnoremap <leader>gg :Gstatus<CR>
 nnoremap <leader>gc :Gcommit<space>
 nnoremap <leader>gh :Commits<space>
@@ -190,6 +198,7 @@ nnoremap <leader>gd :Gdiffsplit<space>
 " }}}
 
 " utility functions / macros  -- prefix u {{{
+let g:which_key_map['u'] = {'name' : 'Utility'}
 " remove all trailing whitespace in the file
 nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
 " redraw screen, de-highlight searches, fix syntax highlighting
@@ -202,6 +211,7 @@ nnoremap <leader>ud :lcd %:p:h<Cr>
 " }}}
 
 " the NERDCommenter mappings I actually use -- prefix c {{{
+let g:which_key_map['c'] = {'name' : 'Comments'}
 nmap <leader>c<space> <plug>NERDCommenterToggle
 xmap <leader>c<space> <plug>NERDCommenterToggle
 nmap <leader>cs <plug>NERDCommenterSexy
@@ -210,6 +220,7 @@ nmap <leader>c$ <plug>NERDCommenterEOL
 " }}}
 
 " Shortcuts for inserting text snippets -- perfix a {{{
+let g:which_key_map['a'] = {'name' : 'Insert text snippets'}
 " Just the date
 nnoremap <leader>add "=strftime('%F')<CR>p
 " Just the time (HH:MM)
@@ -225,12 +236,14 @@ nnoremap <leader>awe "=strftime('* %a, %F')<CR>po
 " }}}
 
 " Shortcuts for editing common files in a vsplit -- prefix e {{{
+let g:which_key_map['e'] = {'name' : 'Edit common files in vsplit'}
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>ez :vsplit ~/.zshrc<cr>
 nnoremap <leader>es :vsplit ~/.shellrc<cr>
 " }}}
 
 " option toggles / changes -- prefix o {{{
+let g:which_key_map['o'] = {'name' : 'Options'}
 "   toggle relative / absolute line numbers
 nnoremap <leader>or :set invrelativenumber<CR>
 nnoremap <leader>on :set invnumber<CR>
@@ -261,6 +274,9 @@ nnoremap <leader>tv :vs<cr>:lcd<space>~/wiki/<cr>:Files<cr>
 " Change window-local directory to the one of the file being edite
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 " }}}
+
+" Cheat sheet
+nnoremap <unique> <leader>? :<c-u>Cheat40<cr>
 
 " Some remappings for better accessibility
 nmap >c ]c
