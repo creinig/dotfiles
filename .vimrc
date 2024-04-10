@@ -152,10 +152,13 @@ nmap gP <plug>(YoinkPaste_gP)
 "
 let mapleader = " "
 let maplocalleader = "-"
+
+" setup which_key for all leader mappings
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  '-'<CR>
 let g:which_key_map = {}
 call which_key#register('<Space>', "g:which_key_map")
+autocmd FileType which_key highlight WhichKeyFloating ctermbg=Black
 
 " Mappings for fzf.vim -- prefix f{{{
 let g:which_key_map['f'] = {'name' : 'FZF'}
