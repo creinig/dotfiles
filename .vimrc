@@ -204,13 +204,18 @@ nnoremap <leader>gd :Gdiffsplit<space>
 let g:which_key_map['u'] = {'name' : 'Utility'}
 " remove all trailing whitespace in the file
 nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
+let g:which_key_map.u.w = 'Remove trailing WS'
 " redraw screen, de-highlight searches, fix syntax highlighting
 nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
+let g:which_key_map.u.l = 'Redraw and clean up'
 " pipe the current selection into xclip
 vnoremap <leader>uy "yy <Bar> :call system('xclip -selection primary', @y)<Cr>
+let g:which_key_map.u.y = 'Copy to primary'
 vnoremap <leader>uc "yy <Bar> :call system('xclip -selection clipboard', @y)<Cr>
+let g:which_key_map.u.c = 'Copy to clipboard'
 " change the window-local directory to that of the current file
 nnoremap <leader>ud :lcd %:p:h<Cr>
+let g:which_key_map.u.d = 'cd (local) to current file'
 " }}}
 
 " the NERDCommenter mappings I actually use -- prefix c {{{
@@ -224,18 +229,26 @@ nmap <leader>c$ <plug>NERDCommenterEOL
 
 " Shortcuts for inserting text snippets -- perfix a {{{
 let g:which_key_map['a'] = {'name' : 'Insert text snippets'}
+let g:which_key_map.a.d = {'name' : 'Dates / Timestamps'}
+let g:which_key_map.a.w = {'name' : 'Words / Phrases'}
 " Just the date
 nnoremap <leader>add "=strftime('%F')<CR>p
+let g:which_key_map.a.d.d = 'Date'
 " Just the time (HH:MM)
 nnoremap <leader>adt "=strftime('%H:%M')<CR>p
+let g:which_key_map.a.d.t = 'Time'
 " Everything for a journal entry
 nnoremap <leader>adj "=strftime('%a, %F, %H:%M')<CR>p
+let g:which_key_map.a.d.j = 'Journal entry timestamp'
 " Format for my event log
 nnoremap <leader>ade "=strftime('%a, %F')<CR>p
+let g:which_key_map.a.d.e = 'Event log timestamp'
 " Date/Time header in journal
 nnoremap <leader>awj "=strftime('! %a, %F, %H:%M, ')<CR>pa
+let g:which_key_map.a.w.j = 'Journal header'
 " Date header in Event Log
 nnoremap <leader>awe "=strftime('* %a, %F')<CR>po
+let g:which_key_map.a.w.e = 'Event log header'
 " }}}
 
 " Shortcuts for editing common files in a vsplit -- prefix e {{{
@@ -261,7 +274,9 @@ nnoremap <leader>ofi :set foldmethod=indent<CR>zM
 nnoremap <leader>ofs :set foldmethod=syntax<CR>zM
 " increase / decrease split width  to 5/4 / 4/5
 nnoremap <silent> <leader>o+ :exe "vertical resize " . (winwidth(0) * 5/4)<CR>
+let g:which_key_map.o['+'] = 'Increase split width'
 nnoremap <silent> <leader>o- :exe "vertical resize " . (winwidth(0) * 4/5)<CR>
+let g:which_key_map.o['-'] = 'Decrease split width'
 " toggles and navigation for quickfix and location list
 nnoremap <leader>ll :LToggle<Cr>
 nnoremap <leader>ln :lnext<Cr>
