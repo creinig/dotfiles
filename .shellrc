@@ -175,6 +175,8 @@ alias AG='alias | grep --colour=auto'
 alias AF='alias | fzf'
 alias EG='env | grep --colour=auto'
 alias EF='env | fzf'
+alias PG='ps auxf | grep --colour=auto'
+alias PF='ps auxf | fzf'
 
 # Commit, defaulting to the message of the previous commit
 # Useful for multiple commits on the same ticket/issue
