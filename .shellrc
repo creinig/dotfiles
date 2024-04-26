@@ -161,7 +161,8 @@ if [[ "$FORGIT_INSTALL_DIR" != "" ]] ; then
 fi
 
 alias aws.ec2.list="aws ec2 describe-instances \
-    --query \"sort_by(Reservations[*].Instances[*].{A_Name:Tags[?Key=='Name']|[0].Value,PrivateIP:PrivateIpAddress,PublicIP:PublicIpAddress,InstanceType:InstanceType,Status:State.Name,Started:LaunchTime}[], &A_Name)\" \
+    --query \"sort_by(Reservations[*].Instances[*].{A_Name:Tags[?Key=='Name']|[0].Value,PrivateIP:PrivateIpAddress,PublicIP:PublicIpAddress,\
+              InstanceType:InstanceType,Status:State.Name,Started:LaunchTime}[], &A_Name)\" \
     --output table"
 alias aws.rds.list="aws rds describe-db-instances \
     --query \"sort_by(DBInstances[*].{Class:DBInstanceClass,A_Id:DBInstanceIdentifier,Engine:Engine,Version:EngineVersion,StorageGB:AllocatedStorage,Endpoint:Endpoint.Address}[], &A_Id)\" \
@@ -191,6 +192,8 @@ alias s="sudo"
 alias se="sudoedit"
 alias psa="ps auxf"
 alias open="xdg-open"
+alias myip.public=" curl -4 ifconfig.co"
+alias myip.local="ip -4 -j a | jq '.[] | {name: .ifname, ip: .addr_info[0].local}'"
 function splitstr { sed -r "s%${1:-\s}+%\n%g" ; }
 
 # df+mount listing only physical volumes (TODO: also filter out snap and docker loop mounts)
