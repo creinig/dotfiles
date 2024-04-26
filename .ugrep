@@ -65,6 +65,9 @@ zmax=2
 # Enable/disable ignore files, default: no-ignore-files
 ignore-files
 
+# recursively descend by default
+recursive
+
 ### OUTPUT ###
 
 # Enable/disable sorted output, default: no-sort
