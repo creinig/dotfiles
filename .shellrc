@@ -173,11 +173,11 @@ alias aws.fsx.list="aws fsx describe-file-systems \
     --output table"
 
 # Can't remember all those aliases / environment vars? Use this to search through them
-alias AG='alias | grep --colour=auto'
+alias AG='alias | grep -i --colour=auto'
 alias AF='alias | fzf'
-alias EG='env | grep --colour=auto'
+alias EG='env | grep -i --colour=auto'
 alias EF='env | fzf'
-alias PG='ps auxf | grep --colour=auto'
+alias PG='ps auxf | grep -i --colour=auto'
 alias PF='ps auxf | fzf'
 
 # Commit, defaulting to the message of the previous commit
