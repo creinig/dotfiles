@@ -203,7 +203,7 @@ nnoremap <leader>gd :Gdiffsplit<space>
 " utility functions / macros  -- prefix u {{{
 let g:which_key_map['u'] = {'name' : 'Utility'}
 " remove all trailing whitespace in the file
-nnoremap <leader>uw :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <leader>uw mw:%s/\s\+$//<cr>:let @/=''<CR>`w
 let g:which_key_map.u.w = 'Remove trailing WS'
 " redraw screen, de-highlight searches, fix syntax highlighting
 nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
