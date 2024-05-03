@@ -195,6 +195,10 @@ alias psa="ps auxf"
 alias open="xdg-open"
 alias myip.public=" curl -4 ifconfig.co"
 alias myip.local="ip -4 -j a | jq '.[] | {name: .ifname, ip: .addr_info[0].local}'"
+alias ipa="ip -o --color=auto addr"
+function ipas { ip -o addr | awk '!/temporary/ {printf "%-20s : %-10s %-30s\n", $2, $3, $4}' ; }
+alias ipl="ip -o --color=auto link"
+function ipls { ip -o link | awk 'match($0, /(link\/[^ ]+)/, groups) {printf "%-20s : %-10s %-10s %-20s\n", $2, $9, $11, groups[1]}' ; }
 function splitstr { sed -r "s%${1:-\s}+%\n%g" ; }
 
 # df+mount listing only physical volumes (TODO: also filter out snap and docker loop mounts)
@@ -225,6 +229,9 @@ export SHELLCHECK_OPTS="--check-sourced --external-sources -e SC1090 -e SC2034"
 
 # Default settings for bc
 export BC_ENV_ARGS="$HOME/.bc"
+
+# Default options for mtr
+export MTR_OPTIONS="-t"
 
 # Spin up a simple web server serving the current directory statically on port 8000
 function htserve() {
