@@ -193,12 +193,16 @@ alias s="sudo"
 alias se="sudoedit"
 alias psa="ps auxf"
 alias open="xdg-open"
+
 alias myip.public=" curl -4 ifconfig.co"
 alias myip.local="ip -4 -j a | jq '.[] | {name: .ifname, ip: .addr_info[0].local}'"
 alias ipa="ip -o --color=auto addr"
 function ipas { ip -o addr | awk '!/temporary/ {printf "%-20s : %-10s %-30s\n", $2, $3, $4}' ; }
 alias ipl="ip -o --color=auto link"
 function ipls { ip -o link | awk 'match($0, /(link\/[^ ]+)/, groups) {printf "%-20s : %-10s %-10s %-20s\n", $2, $9, $11, groups[1]}' ; }
+alias ipr="ip -o --color=auto route"
+alias ipinfo="echo \"== Links ==\" && ipl && echo -e \"\n== Addresses ==\" && ipa && echo -e \"\n== DNS ==\" && resolvectl dns && echo -e \"\n== Routes ==\" && ipr"
+
 function splitstr { sed -r "s%${1:-\s}+%\n%g" ; }
 
 # df+mount listing only physical volumes (TODO: also filter out snap and docker loop mounts)
