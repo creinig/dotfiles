@@ -135,9 +135,9 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 let g:ttodo#dirs = ['~/']
 "let loaded_vifm=1
 
-" Mappings for vim-yoink
-nmap <c-n> <plug>(YoinkPostPasteSwapBack)
-nmap <c-p> <plug>(YoinkPostPasteSwapForward)
+" Mappings for vim-yoink (Note: the default "c-n" clashes with NERDTree
+nmap <c-ä> <plug>(YoinkPostPasteSwapBack)
+nmap <c-ö> <plug>(YoinkPostPasteSwapForward)
 
 nmap p <plug>(YoinkPaste_p)
 nmap P <plug>(YoinkPaste_P)
@@ -356,7 +356,7 @@ set incsearch              " Highlight while searching with / or ?.
 set hlsearch               " Keep matches highlighted.
 
 set report      =0         " Always report changed lines.
-set synmaxcol   =200       " Only highlight the first 200 columns.
+set synmaxcol   =400       " Only highlight the first 400 columns.
 
 
 " let ex completion behave similar to zsh
