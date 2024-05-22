@@ -88,6 +88,6 @@ if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 		"date_day 235 136" \
 		"date 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 		"time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-		"mode_indicator_suspend 165 0" \
+		"mode_indicator 165 0" \
 	)
 fi
