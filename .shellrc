@@ -169,7 +169,7 @@ alias aws.ec2.list="aws ec2 describe-instances \
 alias aws.ec2.show="aws ec2 describe-instances --output table --instance"
 alias aws.rds.list="aws rds describe-db-instances \
     --query \"sort_by(DBInstances[*].{Class:DBInstanceClass,A_Id:DBInstanceIdentifier,Engine:Engine,Version:EngineVersion,\
-              StorageGB:AllocatedStorage,Endpoint:Endpoint.Address}[], &A_Id)\" \
+              StorageGB:AllocatedStorage,Status:DBInstanceStatus,Endpoint:Endpoint.Address}[], &A_Id)\" \
     --output table"
 alias aws.rds.show="aws rds describe-db-instances --output table --db-instance-identifier"
 alias aws.fsx.list="aws fsx describe-file-systems \
