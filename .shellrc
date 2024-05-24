@@ -166,17 +166,21 @@ alias aws.ec2.list="aws ec2 describe-instances \
               InstanceId:InstanceId,PrivateIP:PrivateIpAddress,PublicIP:PublicIpAddress,\
               InstanceType:InstanceType,Status:State.Name,Started:LaunchTime}[], &A_Name)\" \
     --output table"
+alias aws.ec2.show="aws ec2 describe-instances --output table --instance"
 alias aws.rds.list="aws rds describe-db-instances \
     --query \"sort_by(DBInstances[*].{Class:DBInstanceClass,A_Id:DBInstanceIdentifier,Engine:Engine,Version:EngineVersion,\
               StorageGB:AllocatedStorage,Endpoint:Endpoint.Address}[], &A_Id)\" \
     --output table"
+alias aws.rds.show="aws rds describe-db-instances --output table --db-instance-identifier"
 alias aws.fsx.list="aws fsx describe-file-systems \
-    --query \"sort_by(FileSystems[*].{A_Name:Tags[?Key=='Name']|[0].Value,CapacityGB:StorageCapacity,Type:StorageType,\
+    --query \"sort_by(FileSystems[*].{A_Name:Tags[?Key=='Name']|[0].Value,Id:FileSystemId,CapacityGB:StorageCapacity,Type:StorageType,\
               FS:FileSystemType,DnsName:DNSName}[], &A_Name)\" \
     --output table"
+alias aws.fsx.show="aws fsx describe-file-systems --output table --file-system-id"
 alias aws.efs.list="aws efs describe-file-systems \
     --query \"sort_by(FileSystems[*].{A_Name:Name,xARN:FileSystemArn,Id:FileSystemId,Mounts:NumberOfMountTargets,Size:SizeInBytes.Value}, &A_Name)\" \
     --output table"
+alias aws.efs.show="aws efs describe-file-systems --output table --file-system-id"
 
 alias aws.ssm="aws ssm start-session --target"
 
