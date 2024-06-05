@@ -183,6 +183,7 @@ alias aws.efs.list="aws efs describe-file-systems \
 alias aws.efs.show="aws efs describe-file-systems --output table --file-system-id"
 
 alias aws.ssm="aws ssm start-session --target"
+alias aws.tunnelssh="aws ssm start-session --document-name AWS-StartPortForwardingSession --parameters '{\"portNumber\":[\"22\"], \"localPortNumber\":[\"4222\"]}' --target"
 
 # Can't remember all those aliases / environment vars? Use this to search through them
 alias AG='alias | grep -i --colour=auto'
