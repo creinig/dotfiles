@@ -129,8 +129,8 @@ alias cfg='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cfgf='cfg fetch origin'
 alias cfgl='cfg pull origin'
 alias cfgs='cfg status --branch'
-alias cfgls="cfg ls-tree --name-only -r --full-tree HEAD $HOME"
-alias cfgll="cfg ls-tree --name-only -r --full-tree HEAD $HOME | xargs $LL_UNSORTED_CMD"
+alias cfgls="(cd $HOME && cfg ls-tree --name-only -r --full-tree HEAD $HOME)"
+alias cfgll="(cd $HOME && cfg ls-tree --name-only -r --full-tree HEAD $HOME | xargs $LL_UNSORTED_CMD)"
 alias cfga='cfg add'
 function cfgd() { cfg diff "$@" | $DIFF_PAGER $DIFF_PAGER_OPTS ; }
 alias cfgc='cfg commit -v'
