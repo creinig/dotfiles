@@ -338,6 +338,10 @@ set timeoutlen=1000   " default value
 set ttimeout          " for key codes
 set ttimeoutlen=10    " unnoticeable small value
 
+" make mouse work in tmux
+set ttymouse=xterm2
+set mouse=a
+
 " set colorcolumn=80 " Not actually useful for me
 set history=200
 set backspace   =indent,eol,start  " Make backspace work as you would expect.
