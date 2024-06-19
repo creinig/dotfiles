@@ -204,6 +204,7 @@ function ggrepa { git branch -a --format "%(refname)" | xargs git grep "$1" | gr
 
 alias s="sudo"
 alias se="sudoedit"
+alias sv="SUDO_EDITOR=view sudoedit"
 alias psa="ps auxf"
 alias open="xdg-open"
 
