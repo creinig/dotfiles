@@ -45,6 +45,9 @@ no-pretty
 # Enable/disable smart case, default: no-smart-case
 smart-case
 
+# Use Perl syntax
+perl-regexp
+
 # Enable/disable empty pattern matches, default: no-empty
 # no-empty
 
