@@ -208,11 +208,20 @@ let g:which_key_map.u.w = 'Remove trailing WS'
 " redraw screen, de-highlight searches, fix syntax highlighting
 nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 let g:which_key_map.u.l = 'Redraw and clean up'
-" pipe the current selection into xclip
-vnoremap <leader>uy "yy <Bar> :call system('xclip -selection primary', @y)<Cr>
+
+
+" pipe the current selection into xclip/pbcopy
+if executable("pbcopy")
+  vnoremap <leader>uy "yy <Bar> :call system('pbcopy', @y)<Cr>
+  vnoremap <leader>uc "yy <Bar> :call system('pbcopy', @y)<Cr>
+else
+  vnoremap <leader>uy "yy <Bar> :call system('xclip -selection primary', @y)<Cr>
+  vnoremap <leader>uc "yy <Bar> :call system('xclip -selection clipboard', @y)<Cr>
+endif
 let g:which_key_map.u.y = 'Copy to primary'
-vnoremap <leader>uc "yy <Bar> :call system('xclip -selection clipboard', @y)<Cr>
 let g:which_key_map.u.c = 'Copy to clipboard'
+
+
 " change the window-local directory to that of the current file
 nnoremap <leader>ud :lcd %:p:h<Cr>
 let g:which_key_map.u.d = 'cd (local) to current file'
