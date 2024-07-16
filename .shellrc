@@ -110,7 +110,11 @@ export VAGRANT_PREFER_SYSTEM_BIN=1
 
 #export LSCOLORS="Hxfxcxdxbxegedabagacad"
 #export LS_COLORS="di=1;37:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
-export LS_COLORS="no=00:fi=00:di=01;37:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=41;33;01:ex=00;32:*.cmd=00;32:*.exe=01;32:*.com=01;32:*.bat=01;32:*.btm=01;32:*.dll=01;32:*.tar=00;31:*.tbz=00;31:*.tgz=00;31:*.rpm=00;31:*.deb=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.lzma=00;31:*.zip=00;31:*.zoo=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.tb2=00;31:*.tz2=00;31:*.tbz2=00;31:*.avi=01;35:*.bmp=01;35:*.fli=01;35:*.gif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mng=01;35:*.mov=01;35:*.mpg=01;35:*.pcx=01;35:*.pbm=01;35:*.pgm=01;35:*.png=01;35:*.ppm=01;35:*.tga=01;35:*.tif=01;35:*.xbm=01;35:*.xpm=01;35:*.dl=01;35:*.gl=01;35:*.wmv=01;35:*.aiff=00;32:*.au=00;32:*.mid=00;32:*.mp3=00;32:*.ogg=00;32:*.voc=00;32:*.wav=00;32:"
+export LS_COLORS="no=00:fi=00:di=01;37:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=41;33;01:ex=00;32:*.cmd=00;32:*.exe=01;32:*.com=01;32:\
+    *.bat=01;32:*.btm=01;32:*.dll=01;32:*.tar=00;31:*.tbz=00;31:*.tgz=00;31:*.rpm=00;31:*.deb=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.lzma=00;31:*.zip=00;31:\
+    *.zoo=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.tb2=00;31:*.tz2=00;31:*.tbz2=00;31:*.avi=01;35:*.bmp=01;35:*.fli=01;35:*.gif=01;35:*.jpg=01;35:\
+    *.jpeg=01;35:*.mng=01;35:*.mov=01;35:*.mpg=01;35:*.pcx=01;35:*.pbm=01;35:*.pgm=01;35:*.png=01;35:*.ppm=01;35:*.tga=01;35:*.tif=01;35:*.xbm=01;35:*.xpm=01;35:\
+    *.dl=01;35:*.gl=01;35:*.wmv=01;35:*.aiff=00;32:*.au=00;32:*.mid=00;32:*.mp3=00;32:*.ogg=00;32:*.voc=00;32:*.wav=00;32:"
 
 #
 # aliases ---------
@@ -186,13 +190,20 @@ alias aws.efs.show="aws efs describe-file-systems --output table --file-system-i
 alias aws.ssm="aws ssm start-session --target"
 alias aws.tunnelssh="aws ssm start-session --document-name AWS-StartPortForwardingSession --parameters '{\"portNumber\":[\"22\"], \"localPortNumber\":[\"4222\"]}' --target"
 
+# ps on mac doesn't support the "f" option
+if ps auxf >/dev/null 2>&1 ; then
+    PS_CMD="ps auxf"
+else
+    PS_CMD="ps auxw"
+fi
+
 # Can't remember all those aliases / environment vars? Use this to search through them
 alias AG='alias | grep -i --colour=auto'
 alias AF='alias | fzf'
 alias EG='env | grep -i --colour=auto'
 alias EF='env | fzf'
-alias PG='ps auxf | grep -i --colour=auto'
-alias PF='ps auxf | fzf'
+alias PG="$PS_CMD | grep -i --colour=auto"
+alias PF="$PS_CMD | fzf"
 
 # Commit, defaulting to the message of the previous commit
 # Useful for multiple commits on the same ticket/issue
@@ -206,7 +217,7 @@ function ggrepa { git branch -a --format "%(refname)" | xargs git grep "$1" | gr
 alias s="sudo"
 alias se="sudoedit"
 alias sv="SUDO_EDITOR=view sudoedit"
-alias psa="ps auxf"
+alias psa="$PS_CMD"
 alias open="xdg-open"
 
 alias myip.public=" curl -4 ifconfig.co"
