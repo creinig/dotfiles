@@ -235,6 +235,7 @@ function splitstr { sed -r "s%${1:-\s}+%\n%g" ; }
 alias dfp="df -h | grep -v -E '^(tmpfs|none|udev|/dev/loop)'"
 alias mountp="mount | grep -E '^(/|\w+:)' | grep -v -E 'type (squashfs)'"
 
+alias brew.list="brew list --installed-on-request"
 alias cpv='rsync -ah --info=progress2'
 
 alias tf="terraform"
