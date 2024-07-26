@@ -49,7 +49,10 @@ fi
 
 # User configuration
 
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+. "$HOME/.local/bin/.df-common.sh"
+
+prependToPath "/usr/local/bin"
+prependToPath "$HOME/.local/bin"
 
 
 setopt no_complete_aliases
@@ -110,7 +113,6 @@ fi
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^v' edit-command-line
-
 
 . ~/.shellrc
 

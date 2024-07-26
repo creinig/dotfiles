@@ -1,11 +1,8 @@
 #!/bin/bash
+prependToPath "$HOME/.local/bin"
 
-if ! echo "$PATH" | grep -q ".local/bin" ; then
-    export PATH=$HOME/.local/bin:$PATH
-fi
-
-if ! echo "$PATH" | grep -q ".krew/bin" && [[ -d ${HOME}/.krew/bin ]] ; then
-    export PATH="${PATH}:${HOME}/.krew/bin"
+if [[ -d ${HOME}/.krew/bin ]] ; then
+    appendToPath "${HOME}/.krew/bin"
 fi
 
 #
