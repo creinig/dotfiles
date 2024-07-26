@@ -251,6 +251,13 @@ alias vs='vim ~/.shellrc'
 
 alias srcz='source ~/.zshrc'
 alias srcs='source ~/.shellrc'
+srcl() {
+    if [[ -d ~/.zsh/local ]] ; then
+        for script in ~/.zsh/local/*.zsh ; do
+            source $script
+        done
+    fi
+}
 
 alias httpbin="docker run -p 80:80 kennethreitz/httpbin"
 alias httpbin_with_log="docker run -p 80:80 -e GUNICORN_CMD_ARGS=\"--capture-output --error-logfile - --access-logfile - --access-logformat '%(h)s %(t)s %(r)s %(s)s Host: %({Host}i)s'\" kennethreitz/httpbin"
@@ -291,6 +298,23 @@ function md2pdf() {
     pandoc -t pdf -V papersize:a4 -V geometry:a4paper -V fontfamily:sans -V fontsize:12pt -o "${INFILE%.md}.pdf" "$INFILE" && xdg-open "${INFILE%.md}.pdf"
 }
 
+# Send a command to all TMUX panes in the current session
+# Only affects panes where nothing (except for the shell) is running.
+# Adapted from https://stackoverflow.com/a/51049964/1814922
+sendToAllPanes() {
+    if [[ $# -eq 0 || "$1" = "--help" ]] ; then
+        echo 'Usage: sendToAllPanes <command>'
+        return
+    fi
+    input_command="${@}"
+    for _pane in $(tmux list-panes -s -F '#{window_index}.#{pane_index}'); do
+        # only apply the command in bash or zsh panes.
+        _current_command=$(tmux display-message -p -t ${_pane} '#{pane_current_command}')
+        if [ ${_current_command} = zsh ] || [ ${_current_command} = bash ] ; then
+            tmux send-keys -t ${_pane} "${input_command}" Enter
+        fi
+    done
+}
 
 # Fix for tilix (see https://gnunn1.github.io/tilix-web/manual/vteconfig/)
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
