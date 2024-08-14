@@ -84,10 +84,6 @@ else
     alias ytdl='echo yt-dlp not installed'
 fi
 
-if cmdExists assh; then
-    alias ssh="assh wrapper ssh --"
-fi
-
 #
 # functions -------
 #
