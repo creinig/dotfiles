@@ -235,8 +235,8 @@ alias ipinfo="echo \"== Links ==\" && ipl && echo -e \"\n== Addresses ==\" && ip
 
 function splitstr { sed -r "s%${1:-\s}+%\n%g" ; }
 
-# df+mount listing only physical volumes (TODO: also filter out snap and docker loop mounts)
-alias dfp="df -h | grep -v -E '^(tmpfs|none|udev|/dev/loop)'"
+# df+mount listing only physical volumes (TODO: also filter out snap mounts)
+alias dfp="df -h | grep -v -E '^\b(tmpfs|none|udev|/dev/loop|overlay|shm)\b'"
 alias mountp="mount | grep -E '^(/|\w+:)' | grep -v -E 'type (squashfs)'"
 
 alias brew.list="brew list --installed-on-request"
