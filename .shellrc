@@ -233,6 +233,18 @@ function ipls { ip -o link | awk 'match($0, /(link\/[^ ]+)/, groups) {printf "%-
 alias ipr="ip -o --color=auto route"
 alias ipinfo="echo \"== Links ==\" && ipl && echo -e \"\n== Addresses ==\" && ipa && echo -e \"\n== DNS ==\" && resolvectl dns && echo -e \"\n== Routes ==\" && ipr"
 
+# List processes listening on TCP ports
+# From https://stackoverflow.com/a/30029855/1814922
+listening() {
+    if [ $# -eq 0 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P +c 15
+    elif [ $# -eq 1 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P +c 15 | grep -i -E --color $1
+    else
+        echo "Usage: listening [pattern]"
+    fi
+}
+
 function splitstr { sed -r "s%${1:-\s}+%\n%g" ; }
 
 # df+mount listing only physical volumes (TODO: also filter out snap mounts)
