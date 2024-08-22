@@ -182,6 +182,25 @@ alias aws.efs.list="aws efs describe-file-systems \
     --output table"
 alias aws.efs.show="aws efs describe-file-systems --output table --file-system-id"
 
+aws.tunnelLocal() {
+    PROFILE=$1
+    INSTANCE=$2
+    REMOTEPORT=$3
+    LOCALPORT=$4
+    echo "Forwarding $REMOTEPORT to localhost:$LOCALPORT"
+    aws ssm start-session "--profile=$PROFILE" --target "$INSTANCE" --document-name AWS-StartPortForwardingSession --parameters "{\"portNumber\":[\"$REMOTEPORT\"], \"localPortNumber\":[\"$LOCALPORT\"]}"
+}
+
+aws.tunnelRemote() {
+    PROFILE=$1
+    INSTANCE=$2
+    REMOTEHOST=$3
+    REMOTEPORT=$4
+    LOCALPORT=$5
+    echo "Forwarding $REMOTEHOST:$REMOTEPORT to localhost:$LOCALPORT"
+    aws ssm start-session "--profile=$PROFILE" --target "$INSTANCE" --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters "{\"portNumber\":[\"$REMOTEPORT\"], \"localPortNumber\":[\"$LOCALPORT\"], \"host\":[\"$REMOTEHOST\"]}"
+}
+
 alias aws.ssm="aws ssm start-session --target"
 alias aws.tunnelssh="aws ssm start-session --document-name AWS-StartPortForwardingSession --parameters '{\"portNumber\":[\"22\"], \"localPortNumber\":[\"4222\"]}' --target"
 
