@@ -212,10 +212,15 @@ else
 fi
 
 # Can't remember all those aliases / environment vars? Use this to search through them
+if [[ -n $BAT_CMD ]]; then
+    FZF_SHELL_PREVIEW="echo {} | bat --color=always --language=zsh"
+else
+    FZF_SHELL_PREVIEW='echo {}'
+fi
 alias AG='alias | grep -i --colour=auto'
-alias AF="alias | fzf --layout=reverse --preview='echo {}' --preview-window=down,3,wrap | awk -F= '{print \$1}'"
+alias AF="alias | fzf --layout=reverse --preview='$FZF_SHELL_PREVIEW' --ansi --preview-window=down,3,wrap | awk -F= '{print \$1}'"
 alias EG='env | grep -i --colour=auto'
-alias EF="env | fzf --layout=reverse --preview='echo {}' --preview-window=down,3,wrap | awk -F= '{print \$1}'"
+alias EF="env | fzf --layout=reverse --preview='$FZF_SHELL_PREVIEW' --preview-window=down,3,wrap | awk -F= '{print \$1}'"
 alias PG="$PS_CMD | grep -i --colour=auto"
 alias PF="$PS_CMD | fzf --header-lines=1 --layout=reverse --preview='echo {}' --preview-window=down,3,wrap | awk '{print \$2}'"
 
