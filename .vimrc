@@ -108,8 +108,14 @@ let g:airline#extensions#ale#enabled = 1
 " ale navigation shortcuts
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
-let g:ale_ruby_rubocop_executable = 'bundle'
-let g:ale_ruby_rubocop_options = '-l'
+
+" Use standardrb instead of plain rubocop
+let g:ale_linters = {'ruby': ['standardrb']}
+let g:ale_fixers = {'ruby': ['standardrb']}
+
+" Change vim-ruby indent to match standardrb
+let g:ruby_indent_assignment_style = 'variable'
+let g:ruby_indent_hanging_elements = 0
 
 " tiddlywiki syntax settings
 let g:tiddlywiki_autoupdate = 1
