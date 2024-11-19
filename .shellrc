@@ -286,6 +286,7 @@ alias vj='vim +TiddlyWikiEditJournal'
 alias vt='vim ~/todo.txt'
 alias vs='vim ~/.shellrc'
 alias vl='vim ~/.zsh/local/*'
+alias vv='vim ~/.vimrc'
 
 alias srcz='source ~/.zshrc'
 alias srcs='source ~/.shellrc'
