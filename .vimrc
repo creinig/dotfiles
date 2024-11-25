@@ -139,6 +139,8 @@ let g:rustfmt_autosave = 1
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 let g:ttodo#dirs = ['~/']
+let g:ttodo#sort = 'done,-next,-overdue,pri,due,lists,tags,idx'
+let g:ttodo#ftplugin#add_at_eof = 'false'
 "let loaded_vifm=1
 
 " Mappings for vim-yoink (Note: the default "c-n" clashes with NERDTree
