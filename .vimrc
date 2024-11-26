@@ -29,6 +29,9 @@ Plug 'airblade/vim-gitgutter'    " git info in the gutter
 Plug 'gcmt/taboo.vim'            " tab handling
 Plug 'mhinz/vim-startify'        " start screen
 Plug 'liuchengxu/vim-which-key'  " online help for leader based mappings
+Plug 'tpope/vim-dadbod'          " database query helper
+Plug 'kristijanhusak/vim-dadbod-ui' " database client UI
+Plug 'kristijanhusak/vim-dadbod-completion'
 
 " commands / operations / motions
 Plug 'tpope/vim-surround'        " surround text with quotes etc
