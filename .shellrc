@@ -301,6 +301,9 @@ srcl() {
 alias httpbin="docker run -p 80:80 kennethreitz/httpbin"
 alias httpbin_with_log="docker run -p 80:80 -e GUNICORN_CMD_ARGS=\"--capture-output --error-logfile - --access-logfile - --access-logformat '%(h)s %(t)s %(r)s %(s)s Host: %({Host}i)s'\" kennethreitz/httpbin"
 
+# Set better pager for psql (credit: Luciano Andress Martini in https://stackoverflow.com/a/14474666/1814922)
+alias psql="PAGER=\"view -c 'set nomod nolist syntax=sql' -\" psql"
+
 # SSH to a VM that might have the IP of a previous connection, but a different host key
 alias sshvm='ssh -o stricthostkeychecking=no -o addkeystoagent=no'
 
