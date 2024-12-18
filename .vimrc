@@ -22,6 +22,7 @@ Plug 'kana/vim-textobj-user'     " define custom textobjects
 Plug 'lifepillar/vim-cheat40'    " show foldable cheatsheet with <leader>?
 Plug 'vim-airline/vim-airline'   " status bar
 Plug 'vim-airline/vim-airline-themes'
+Plug 'szw/vim-maximizer'         " Toggle to maximize/restore split windows (<F3>)
 Plug 'scrooloose/nerdtree'       " file manager
 Plug 'tpope/vim-fugitive'        " git integration
 Plug 'junegunn/gv.vim'           " better git history browser
