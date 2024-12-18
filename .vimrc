@@ -346,12 +346,13 @@ autocmd FileType yaml       setlocal smartindent shiftwidth=2 softtabstop=2
 " https://vim.fandom.com/wiki/Toggle_auto-indenting_for_code_paste
 set pastetoggle=<F2>
 
-set nowrap     " a more sensible default for me
-set linebreak  " where wrapping is used, do it right
-set showcmd    " Useful e.g. for seeing that the leader is active
+set nowrap          " a more sensible default for me
+set linebreak       " where wrapping is used, do it right
+set startofline=off " Keep cursor in the same column when scrolling vertically (PgUp/PgDown etc)
+set showcmd         " Useful e.g. for seeing that the leader is active
 set encoding=utf-8
-set ttyfast    " Faster redrawing.
-set lazyredraw " Only redraw when necessary.
+set ttyfast         " Faster redrawing.
+set lazyredraw      " Only redraw when necessary.
 
 " set timeout for escape seqs very small to make vim more responsive
 set timeout           " for mappings
@@ -365,7 +366,7 @@ set mouse=a
 
 " set colorcolumn=80 " Not actually useful for me
 set history=200
-set backspace   =indent,eol,start  " Make backspace work as you would expect.
+set backspace=indent,eol,start  " Make backspace work as you would expect.
 set hidden                 " Switch between buffers without having to save first.
 
 set splitbelow             " Open new windows below the current window.
