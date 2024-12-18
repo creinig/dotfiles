@@ -348,7 +348,7 @@ set pastetoggle=<F2>
 
 set nowrap          " a more sensible default for me
 set linebreak       " where wrapping is used, do it right
-set startofline=off " Keep cursor in the same column when scrolling vertically (PgUp/PgDown etc)
+set nostartofline   " Keep cursor in the same column when scrolling vertically (PgUp/PgDown etc)
 set showcmd         " Useful e.g. for seeing that the leader is active
 set encoding=utf-8
 set ttyfast         " Faster redrawing.
