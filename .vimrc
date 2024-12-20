@@ -361,7 +361,6 @@ set ttimeout          " for key codes
 set ttimeoutlen=10    " unnoticeable small value
 
 " make mouse work in tmux
-set ttymouse=xterm2
 set mouse=a
 
 " set colorcolumn=80 " Not actually useful for me
