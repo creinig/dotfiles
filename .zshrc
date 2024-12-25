@@ -16,8 +16,9 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     zplug "lib/key-bindings", from:oh-my-zsh
 
     zplug "lincheney/fzf-tab-completion", use:zsh/fzf-zsh-completion.sh
-    zplug mafredri/zsh-async
-    zplug sindresorhus/pure, use:pure.zsh, as:theme
+    zplug "mafredri/zsh-async"
+
+    zplug "sindresorhus/pure", use:pure.zsh, as:theme
     export PURE_GIT_PULL=0 # don't automatically fetch from remote - can be expensive on a mobile hotspot
     zstyle ":prompt:pure:host" color red       # highlight when on remote host
     zstyle ":prompt:pure:user:root" color red  # highlight when root
