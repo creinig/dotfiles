@@ -12,9 +12,10 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     zplug "plugins/gitfast",  from:oh-my-zsh
     zplug "plugins/kubectl",  from:oh-my-zsh
     zplug "plugins/mosh",     from:oh-my-zsh
-    zplug "lib/completion",   from:oh-my-zsh
+    #zplug "lib/completion",   from:oh-my-zsh
     zplug "lib/key-bindings", from:oh-my-zsh
 
+    zplug "lincheney/fzf-tab-completion", use:zsh/fzf-zsh-completion.sh
     zplug mafredri/zsh-async
     zplug sindresorhus/pure, use:pure.zsh, as:theme
     export PURE_GIT_PULL=0 # don't automatically fetch from remote - can be expensive on a mobile hotspot
