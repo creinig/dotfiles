@@ -56,6 +56,7 @@ fi
 prependToPath "/usr/local/bin"
 prependToPath "$HOME/.local/bin"
 
+. ~/.shellrc
 
 setopt no_complete_aliases
 # whenever a command completion is attempted, make sure the entire command path
@@ -89,6 +90,10 @@ setopt hist_save_no_dups
 setopt hist_reduce_blanks
 
 zstyle ':completion:*' special-dirs true
+# special settings for fzf-tab
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # set list-colors to enable filename colorizing
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath' # preview directory's content with eza when completing cd
+
 
 # In the plugins section above the key bindings from oh-my-zsh are loaded.
 # In almost all cases that should be perfectly fine, but here's an additional
@@ -116,7 +121,6 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^v' edit-command-line
 
-. ~/.shellrc
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
