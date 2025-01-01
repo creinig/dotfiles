@@ -92,7 +92,11 @@ setopt hist_reduce_blanks
 zstyle ':completion:*' special-dirs true
 # special settings for fzf-tab
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # set list-colors to enable filename colorizing
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath' # preview directory's content with eza when completing cd
+if cmdExists eza ; then
+    zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath' # preview directory's content with eza when completing cd
+else
+    zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath' # preview directory's content with eza when completing cd
+fi
 
 
 # In the plugins section above the key bindings from oh-my-zsh are loaded.
