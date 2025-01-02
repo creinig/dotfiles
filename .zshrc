@@ -33,6 +33,8 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     zplug 'wfxr/forgit', as:command, use:"bin/git-forgit"
     export FORGIT_INSTALL_DIR=$(zplug info wfxr/forgit | grep -E 'dir' | sed -E 's#[^"]*"([^"]+)".*#\1#')
 
+    zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
     zstyle ":zplug:tag" depth 1
 
     # Install plugins if there are plugins that have not been installed
