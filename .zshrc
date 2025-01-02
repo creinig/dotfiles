@@ -12,7 +12,7 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     zplug "plugins/gitfast",  from:oh-my-zsh
     zplug "plugins/kubectl",  from:oh-my-zsh
     zplug "plugins/mosh",     from:oh-my-zsh
-    #zplug "lib/completion",   from:oh-my-zsh
+    zplug "lib/completion",   from:oh-my-zsh
     zplug "lib/key-bindings", from:oh-my-zsh
 
     zplug "Aloxaf/fzf-tab"
