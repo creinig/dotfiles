@@ -19,6 +19,12 @@
         keepbackups = false
         prompt = false
         trustexitcode = false
+[diff]
+        tool = vimdiff
+
+[difftool]
+        prompt = false
+
 [alias]
         last = log -1 --stat
         cp = cherry-pick
@@ -30,6 +36,11 @@
         unstage = reset HEAD --
         dc = diff --cached
         lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
+
+	# Difftastic aliases, so `git dlog` is `git log` with difftastic and so on.
+	dlog = -c diff.external=difft log --ext-diff
+	dshow = -c diff.external=difft show --ext-diff
+	ddiff = -c diff.external=difft diff
 
 [protocol]
         version = 2
