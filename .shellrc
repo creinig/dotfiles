@@ -206,8 +206,8 @@ alias aws.ssm="aws ssm start-session --target"
 alias aws.tunnelssh="aws ssm start-session --document-name AWS-StartPortForwardingSession --parameters '{\"portNumber\":[\"22\"], \"localPortNumber\":[\"4222\"]}' --target"
 
 # ps on mac doesn't support the "f" option
-if ps auxf >/dev/null 2>&1 ; then
-    PS_CMD="ps auxf"
+if ps -eFwH >/dev/null 2>&1 ; then
+    PS_CMD="ps -eFwH"
 else
     PS_CMD="ps auxw"
 fi
