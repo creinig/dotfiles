@@ -183,6 +183,13 @@ alias aws.efs.list="aws efs describe-file-systems \
     --output table"
 alias aws.efs.show="aws efs describe-file-systems --output table --file-system-id"
 
+alias aws.stopdb="aws rds stop-db-instance --output=table \
+    --query \"DBInstance.{Class:DBInstanceClass,A_Id:DBInstanceIdentifier,Engine:Engine,Version:EngineVersion,\
+              StorageGB:AllocatedStorage,Status:DBInstanceStatus,Endpoint:Endpoint.Address}\" --db-instance-identifier" 
+alias aws.startdb="aws rds start-db-instance --output=table \
+    --query \"DBInstance.{Class:DBInstanceClass,A_Id:DBInstanceIdentifier,Engine:Engine,Version:EngineVersion,\
+              StorageGB:AllocatedStorage,Status:DBInstanceStatus,Endpoint:Endpoint.Address}\" --db-instance-identifier"
+
 aws.tunnelLocal() {
     PROFILE=$1
     INSTANCE=$2
