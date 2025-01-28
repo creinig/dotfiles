@@ -40,7 +40,7 @@ The environments I regularly use them on are:
 
 * native ubuntu 22.04
 * termux (android)
-
+* MacOS
 
 # Want more?
 
@@ -48,54 +48,7 @@ The environments I regularly use them on are:
 * https://github.com/tony/.dot-config got me started with this idea
 * https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/ has a cool idea on how to integrate the versioned dotfiles into your home dir (used by the `df-install.sh` in here)
 
-# Resources
-
-## bash
-
-* [BashGuide](http://mywiki.wooledge.org/BashGuide) : good guide aimed at beginners. I found the [Practices](http://mywiki.wooledge.org/BashGuide/Practices) chapter especially useful
-* [Bash Scripting Cheatsheet](https://devhints.io/bash) : concise overview of all (or most) constructs
-* [Adanced Bash-Scriptig Guide](http://www.tldp.org/LDP/abs/html/) : all the details
-* [Bash Error Handling](https://linuxhint.com/bash_error_handling/)
-
-## vim
-
-(vim is installed by `df-tools.sh basics`)
-
-* [A Byte of Vim](https://vim.swaroopch.com/) : good introduction to vim
-* [Vim Galore](https://github.com/mhinz/vim-galore#readme) : concise but complete and well-written overview
-* [Vim Tips Wiki](https://vim.fandom.com/wiki/Vim_Tips_Wiki)
-* [VimCasts](http://vimcasts.org/) : screencasts about vim. also check out the author's book "[Practical vim](https://pragprog.com/book/dnvim2/practical-vim-second-edition)"!
-* [Vim Awesome](https://vimawesome.com/) : awesome vim plugins
-* [Learn Vimscript the Hard Way](https://learnvimscriptthehardway.stevelosh.com/) : how to extend and customize vim
-
-## tmux
-
-(tmux is installed by `df-tools.sh basics`)
-
-* [The Tao of tmux](https://leanpub.com/the-tao-of-tmux/read) : basically everythig you need to know about tmux
-* tmux cheat sheets: [one](https://gist.github.com/MohamedAlaa/2961058), [two](http://atkinsam.com/documents/tmux.pdf), [three](https://www.cheatography.com/thecultofkaos/cheat-sheets/tmux-basics/)
-
-## Other Tools
-
-### General
-
-* [Sed - An Introduction and Tutorial](http://www.grymoire.com/Unix/Sed.html)
-
-### Installed by `df-tools.sh basics`
-
-* [bat](https://github.com/sharkdp/bat) : a better replacement for cat(1)
-* [multitail](https://www.vanheusden.com/multitail/) : a much better replacement for tail(1)
-* [zsh](https://en.m.wikipedia.org/wiki/Z_shell) : my shell of choice
-* [exa](https://the.exa.website/) : a better replacement for ls(1)
-* [ripgrep](https://github.com/BurntSushi/ripgrep) : fast and powerful recursive grep(1). Note: [ugrep](https://github.com/Genivia/ugrep) also looks great.
-
-### Installed by `df-install.sh`
-
-* [fzf](https://github.com/junegunn/fzf) : fuzzy finder with great integration into bash/zsh and vim
-  * [video intro](https://www.youtube.com/watch?v=qgG5Jhi_Els) giving a great overview of fzf's capabilities
-
-
-# TODO
-
+See also [creinig/technotes](https://github.com/creinig/technotes/)
+for documentation, tips and more.
 
 
