@@ -1,0 +1,15 @@
+# "global" defaults
+#
+# Install prettier: 
+# npm install --save-dev --save-exact prettier prettier-plugin-sql
+#
+plugins: 
+  - "prettier-plugin-sql"
+overrides:
+  - files: "*.sql"
+    options:
+      language: "postgresql"
+      keywordCase: "upper"
+      dataTypeCase: "upper"
+
+

@@ -51,6 +51,7 @@ endif
 Plug 'honza/vim-snippets'        " snippet collection
 Plug 'dense-analysis/ale'        " syntax checking + linting (async)
 Plug 'preservim/nerdcommenter'   " (un) comment lines
+Plug 'prettier/vim-prettier'     " code formatter. default setup skipped - we install prettier ourself. See ~/.prettierrc.yaml
 
 " language / syntax plugins
 Plug 'mtdl9/vim-log-highlighting'
@@ -117,6 +118,13 @@ let g:ale_fixers = {'ruby': ['standardrb']}
 " Change vim-ruby indent to match standardrb
 let g:ruby_indent_assignment_style = 'variable'
 let g:ruby_indent_hanging_elements = 0
+
+" vim-prettier settings
+let g:prettier#partial_format=0
+let g:prettier#quickfix_auto_focus = 0
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 1
+let g:prettier#config#config_precedence='prefer-file'
 
 " tiddlywiki syntax settings
 let g:tiddlywiki_autoupdate = 1
@@ -218,6 +226,9 @@ let g:which_key_map.u.w = 'Remove trailing WS'
 nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 let g:which_key_map.u.l = 'Redraw and clean up'
 
+" vim-prettier 
+vnoremap <Leader>up :Prettier<CR>
+nnoremap <Leader>up :Prettier<CR>
 
 " pipe the current selection into xclip/pbcopy
 if executable("pbcopy")
