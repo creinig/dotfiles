@@ -218,10 +218,6 @@ let g:which_key_map.u.w = 'Remove trailing WS'
 nnoremap <leader>ul :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 let g:which_key_map.u.l = 'Redraw and clean up'
 
-" formatting sql files and fragments via https://github.com/nrempel/sleek
-autocmd FileType sql nnoremap <buffer> <localleader>f :%!sleek<cr>
-autocmd FileType sql vnoremap <buffer> <localleader>f :!sleek<cr>
-
 " pipe the current selection into xclip/pbcopy
 if executable("pbcopy")
   vnoremap <leader>uy "yy <Bar> :call system('pbcopy', @y)<Cr>
@@ -235,7 +231,7 @@ let g:which_key_map.u.c = 'Copy to clipboard'
 
 
 " change the window-local directory to that of the current file
-nnoremap <leader>ud :lcd %:p:h<Cr>
+nnoremap <leader>ud :lcd %:p:h<Cr>:pwd<Cr>
 let g:which_key_map.u.d = 'cd (local) to current file'
 " }}}
 
@@ -272,11 +268,11 @@ nnoremap <leader>awe "=strftime('* %a, %F')<CR>po
 let g:which_key_map.a.w.e = 'Event log header'
 " }}}
 
-" Shortcuts for editing common files in a vsplit -- prefix e {{{
-let g:which_key_map['e'] = {'name' : 'Edit common files in vsplit'}
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>ez :vsplit ~/.zshrc<cr>
-nnoremap <leader>es :vsplit ~/.shellrc<cr>
+" Shortcuts for editing common files -- prefix e {{{
+let g:which_key_map['e'] = {'name' : 'Edit common files'}
+nnoremap <leader>ev :e $MYVIMRC<cr>
+nnoremap <leader>ez :e ~/.zshrc<cr>
+nnoremap <leader>es :e ~/.shellrc<cr>
 " }}}
 
 " option toggles / changes -- prefix o {{{
@@ -293,6 +289,7 @@ nnoremap <leader>ofn :set foldmethod=manual<CR>zR
 nnoremap <leader>ofm :set foldmethod=marker<CR>zR
 nnoremap <leader>ofi :set foldmethod=indent<CR>zM
 nnoremap <leader>ofs :set foldmethod=syntax<CR>zM
+let g:which_key_map.o['f'] = {'name' : 'foldmethod'}
 " increase / decrease split width  to 5/4 / 4/5
 nnoremap <silent> <leader>o+ :exe "vertical resize " . (winwidth(0) * 5/4)<CR>
 let g:which_key_map.o['+'] = 'Increase split width'
@@ -302,16 +299,18 @@ let g:which_key_map.o['-'] = 'Decrease split width'
 nnoremap <leader>ll :LToggle<Cr>
 nnoremap <leader>ln :lnext<Cr>
 nnoremap <leader>lp :lprev<Cr>
+let g:which_key_map['l'] = {'name' : 'location list'}
 nnoremap <leader>cc :QToggle<Cr>
 nnoremap <leader>cn :cnext<Cr>
 nnoremap <leader>cp :cprev<Cr>
+let g:which_key_map['c'] = {'name' : 'quickfix list'}
 " }}}
 
 " Other shortcuts (different prefixes) {{{
-" open tiddlywiki in a split window
-nnoremap <leader>tv :vs<cr>:lcd<space>~/wiki/<cr>:Files<cr>
-" Change window-local directory to the one of the file being edite
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+" formatting sql files and fragments via https://github.com/nrempel/sleek
+autocmd FileType sql nnoremap <buffer> <localleader>f :%!sleek<cr>
+autocmd FileType sql vnoremap <buffer> <localleader>f :!sleek<cr>
+
 " }}}
 
 " Cheat sheet
