@@ -5,6 +5,10 @@ if [[ -d ${HOME}/.krew/bin ]] ; then
     appendToPath "${HOME}/.krew/bin"
 fi
 
+if [[ -d ${HOME}/.cargo/bin ]] ; then
+    appendToPath "${HOME}/.cargo/bin"
+fi
+
 #
 # Integrate useful tools if they are present
 #
