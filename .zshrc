@@ -94,7 +94,10 @@ setopt hist_reduce_blanks
 zstyle ':completion:*' special-dirs true
 # special settings for fzf-tab
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # set list-colors to enable filename colorizing
-if cmdExists eza ; then
+if [[ $DF_OS == 'termux' ]] ; then
+    # fzf in termux crashes with preview enabled
+    zstyle -d ':fzf-tab:complete:cd:*' fzf-preview 
+elif cmdExists eza ; then
     zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath' # preview directory's content with eza when completing cd
 else
     zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath' # preview directory's content with eza when completing cd
@@ -135,3 +138,4 @@ if [[ -d ~/.zsh/local ]] ; then
         source $script
     done
 fi
+
