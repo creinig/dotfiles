@@ -14,7 +14,7 @@ call plug#begin('~/.vim/bundle')
 
 " under the hood / automatic behavior / libraries
 Plug 'tpope/vim-repeat'          " make complex operations repeatable
-Plug 'tpope/vim-sleuth'          " auto-detect indent settings
+"Plug 'tpope/vim-sleuth'          " auto-detect indent settings (included in vim-polyglot)
 Plug 'kana/vim-textobj-user'     " define custom textobjects
 " Plug 'Raimondi/delimitMate'    " auto-close quotes, brackets etc
 
@@ -36,7 +36,6 @@ Plug 'tpope/vim-surround'        " surround text with quotes etc
 Plug 'junegunn/vim-easy-align'   " vertically align text
 Plug 'junegunn/fzf'              " fuzzy finder and commands making use of it
 Plug 'junegunn/fzf.vim'
-Plug 'dyng/ctrlsf.vim'           " comprehensive search over directory hierarchies
 Plug 'creinig/ListToggle'        " commands to toggle location & quickfix list
 Plug 'AndrewRadev/linediff.vim'  " editable diff between two arbitrary regions
 Plug 'will133/vim-dirdiff'       " diff two directory trees
@@ -182,14 +181,6 @@ nnoremap <leader>fh :History<CR>
 nnoremap <leader>f/ :History/<CR>
 nnoremap <leader>f: :History:<CR>
 nnoremap <leader>f? :Helptags<CR>
-" }}}
-
-" Mappings for Search (crtlsf etc) -- prefix s {{{
-let g:which_key_map['s'] = {'name' : 'Search'}
-nmap <leader>sf <Plug>CtrlSFPrompt
-vmap <leader>sf <Plug>CtrlSFVwordPath
-vmap <leader>sF <Plug>CtrlSFVwordExec
-nmap <leader>st :CtrlSFToggle<CR>
 " }}}
 
 " Mappings for git (mainly fugitive.vim) -- prefix g {{{
