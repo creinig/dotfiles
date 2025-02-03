@@ -53,13 +53,10 @@ Plug 'dense-analysis/ale'        " syntax checking + linting (async)
 Plug 'preservim/nerdcommenter'   " (un) comment lines
 
 " language / syntax plugins
+Plug 'sheerun/vim-polyglot'      " huge language pack
 Plug 'mtdl9/vim-log-highlighting'
-Plug 'martinda/Jenkinsfile-vim-syntax'
-Plug 'hashivim/vim-terraform'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'sukima/vim-tiddlywiki'
-Plug 'rust-lang/rust.vim'
-Plug 'vim-ruby/vim-ruby'
 Plug 'preservim/tagbar'
 Plug 'habamax/vim-asciidoctor'
 Plug 'tomtom/tlib_vim'           " required for ttodo_vim
