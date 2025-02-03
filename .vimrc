@@ -140,6 +140,10 @@ let g:ttodo#sort = 'done,-next,-overdue,pri,due,lists,tags,idx'
 let g:ttodo#ftplugin#add_at_eof = 'false'
 "let loaded_vifm=1
 
+" settings for fzf.vim
+let g:fzf_vim = {}
+let g:fzf_vim.tags_command = 'rg --files | ctags -R --links=no -L -'
+
 " Mappings for vim-yoink (Note: the default "c-n" clashes with NERDTree
 nmap <c-ä> <plug>(YoinkPostPasteSwapBack)
 nmap <c-ö> <plug>(YoinkPostPasteSwapForward)
@@ -169,13 +173,24 @@ autocmd FileType which_key highlight WhichKeyFloating ctermbg=Black
 let g:which_key_map['f'] = {'name' : 'FZF'}
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fg :GFiles<CR>
+let g:which_key_map.f['g'] = 'GFiles (git ls-files)'
+nnoremap <leader>fG :GFiles?<CR>
+let g:which_key_map.f['G'] = 'GFiles? (git status)'
 nnoremap <leader>fb :Buffers<CR>
 nnoremap <leader>fs :Snippets<CR>
 nnoremap <leader>fc :Commands<CR>
 nnoremap <leader>fm :Marks<CR>
 nnoremap <leader>fM :Maps<CR>
 nnoremap <leader>fl :BLines<CR>
+let g:which_key_map.f['l'] = 'BLines (lines in buffer)'
 nnoremap <leader>fL :Lines<CR>
+let g:which_key_map.f['L'] = 'Lines (lines in loaded buffers)'
+nnoremap <leader>ft :BTags<CR>
+let g:which_key_map.f['t'] = 'BTags (tags in buffer)'
+nnoremap <leader>fT :Tags<CR>
+let g:which_key_map.f['T'] = 'Tags (tags in project)'
+nnoremap <leader>fr :Rg<CR>
+let g:which_key_map.f['r'] = 'Rg (search recursive)'
 nnoremap <leader>fw :Windows<CR>
 nnoremap <leader>fh :History<CR>
 nnoremap <leader>f/ :History/<CR>
