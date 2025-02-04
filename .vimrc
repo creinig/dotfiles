@@ -204,7 +204,7 @@ nnoremap <leader>f? :Helptags<CR>
 let g:which_key_map['g'] = {'name' : 'Git'}
 nnoremap <leader>gg :Git<CR>
 nnoremap <leader>ga :Git add<space>%
-nnoremap <leader>gf :GFiles<cr>
+nnoremap <leader>gF :GFiles<cr>
 nnoremap <leader>gs :GFiles?<cr>
 nnoremap <leader>gc :Git commit<cr>
 nnoremap <leader>gh :Commits<cr>
@@ -218,7 +218,7 @@ nnoremap <leader>gd :Gdiffsplit<space>
 
 let g:which_key_map.g['g'] = 'git status'
 let g:which_key_map.g['s'] = 'git status (fzf)'
-let g:which_key_map.g['f'] = 'git ls-files (fzf)'
+let g:which_key_map.g['F'] = 'git ls-files (fzf)'
 
 " }}}
 
