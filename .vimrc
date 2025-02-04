@@ -42,6 +42,7 @@ Plug 'will133/vim-dirdiff'       " diff two directory trees
 Plug 'easymotion/vim-easymotion' " powerful extension of motions
 Plug 'unblevable/quick-scope'    " Highlight good candidates for f/t motions
 Plug 'svermeulen/vim-yoink'      " better access to the yank / delete history
+Plug 'jmcantrell/vim-diffchanges' " view changes since last save
 
 " Coding helpers
 if has("python3") " cygwin / babun has some problems there"
@@ -232,6 +233,9 @@ endif
 let g:which_key_map.u.y = 'Copy to primary'
 let g:which_key_map.u.c = 'Copy to clipboard'
 
+" uc and ud are already taken
+nnoremap <leader>ui :DiffChangesDiffToggle<cr>
+let g:which_key_map.u.i = 'changes since last write'
 
 " change the window-local directory to that of the current file
 nnoremap <leader>ud :lcd %:p:h<Cr>:pwd<Cr>
