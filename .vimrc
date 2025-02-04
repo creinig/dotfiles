@@ -202,16 +202,24 @@ nnoremap <leader>f? :Helptags<CR>
 
 " Mappings for git (mainly fugitive.vim) -- prefix g {{{
 let g:which_key_map['g'] = {'name' : 'Git'}
-nnoremap <leader>gg :Gstatus<CR>
-nnoremap <leader>gc :Gcommit<space>
-nnoremap <leader>gh :Commits<space>
-nnoremap <leader>gH :BCommits<space>
-nnoremap <leader>gp :Gpush<space>
-nnoremap <leader>gf :Gfetch<space>
-nnoremap <leader>gl :Gpull<space>
-nnoremap <leader>gL :Glog<space>
-nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gg :Git<CR>
+nnoremap <leader>ga :Git add<space>%
+nnoremap <leader>gf :GFiles<cr>
+nnoremap <leader>gs :GFiles?<cr>
+nnoremap <leader>gc :Git commit<cr>
+nnoremap <leader>gh :Commits<cr>
+nnoremap <leader>gH :BCommits<cr>
+nnoremap <leader>gp :Git push<space>
+nnoremap <leader>gf :Git fetch<space>
+nnoremap <leader>gl :Git pull<space>
+nnoremap <leader>gL :Git log<space>
+nnoremap <leader>gb :Git blame<CR>
 nnoremap <leader>gd :Gdiffsplit<space>
+
+let g:which_key_map.g['g'] = 'git status'
+let g:which_key_map.g['s'] = 'git status (fzf)'
+let g:which_key_map.g['f'] = 'git ls-files (fzf)'
+
 " }}}
 
 " utility functions / macros  -- prefix u {{{
