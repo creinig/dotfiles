@@ -19,6 +19,7 @@ Plug 'kana/vim-textobj-user'     " define custom textobjects
 " Plug 'Raimondi/delimitMate'    " auto-close quotes, brackets etc
 
 " UI modules
+Plug 'nanotech/jellybeans.vim'   " nice color scheme
 Plug 'lifepillar/vim-cheat40'    " show foldable cheatsheet with <leader>?
 Plug 'vim-airline/vim-airline'   " status bar
 Plug 'vim-airline/vim-airline-themes'
@@ -332,7 +333,8 @@ nmap <F8> :TagbarOpenAutoClose<CR>
 
 
 syntax on
-colo creinig
+" colo creinig  " high contrast, colorful
+colo jellybeans " more refined, lower contrast
 
 " Options {{{
 
