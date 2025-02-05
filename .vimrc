@@ -343,7 +343,7 @@ nmap <F8> :TagbarOpenAutoClose<CR>
 syntax on
 " colo creinig  " high contrast, colorful
 colo jellybeans " more refined, lower contrast
-AirlineTheme wombat
+let g:airline_theme='wombat'
 
 " Options {{{
 
