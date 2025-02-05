@@ -131,16 +131,6 @@ if [[ -d ~/.oh-my-zsh ]] ; then
   HINTS+=("~/.oh-my-zsh exists. Since it's not used anymore you might want to remove it")
 fi
 
-#
-# (3a) Create temp dirs for vim
-#
-#echo
-#logDo 'creating temp dirs for vim if they do not exist yet'
-#mkdir -p ~/.vim/files/backup
-#mkdir -p ~/.vim/files/swap
-#mkdir -p ~/.vim/files/undo
-#mkdir -p ~/.vim/files/info
-
 
 #
 # (3) install vim plugins
@@ -245,6 +235,11 @@ else
   logOk 'zplug is already installed'
 fi
 
+#
+# (8) Ensure this acts as "normal" git repo
+#
+[[ ! -d ~/.git ]] && ln -s ~/.dotfiles ~/.git
+(cd ~ && git config core.bare false)
 
 #
 # (x) Final things
