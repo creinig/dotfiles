@@ -181,6 +181,7 @@ let g:which_key_map.f['G'] = 'GFiles? (git status)'
 nnoremap <leader>fb :Buffers<CR>
 nnoremap <leader>fs :Snippets<CR>
 nnoremap <leader>fc :Commands<CR>
+nnoremap <leader>fj :Jumps<CR>
 nnoremap <leader>fm :Marks<CR>
 nnoremap <leader>fM :Maps<CR>
 nnoremap <leader>fl :BLines<CR>
