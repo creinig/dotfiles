@@ -213,13 +213,17 @@ nnoremap <leader>gH :BCommits<cr>
 nnoremap <leader>gp :Git push<space>
 nnoremap <leader>gf :Git fetch<space>
 nnoremap <leader>gl :Git pull<space>
-nnoremap <leader>gL :Git log<space>
 nnoremap <leader>gb :Git blame<CR>
-nnoremap <leader>gd :Gdiffsplit<space>
+nnoremap <leader>gv :GV -n 1000<cr>
+vnoremap <leader>gv :GV -n 1000<cr>
+nnoremap <leader>gV :GV! -n 1000<cr>
+nnoremap <leader>gd :Gvdiffsplit<space>
 
 let g:which_key_map.g['g'] = 'git status'
 let g:which_key_map.g['s'] = 'git status (fzf)'
 let g:which_key_map.g['F'] = 'git ls-files (fzf)'
+let g:which_key_map.g['v'] = 'git log'
+let g:which_key_map.g['V'] = 'git log (this file)'
 
 " }}}
 
