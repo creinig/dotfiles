@@ -294,6 +294,7 @@ let g:which_key_map['e'] = {'name' : 'Edit common files'}
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>ez :e ~/.zshrc<cr>
 nnoremap <leader>es :e ~/.shellrc<cr>
+nnoremap <leader>et :e ~/todo.txt<cr>
 " }}}
 
 " option toggles / changes -- prefix o {{{
