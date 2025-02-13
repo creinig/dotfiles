@@ -8,10 +8,9 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
 
     zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
-    zplug "plugins/git",      from:oh-my-zsh
-    zplug "plugins/gitfast",  from:oh-my-zsh
-    zplug "plugins/kubectl",  from:oh-my-zsh
-    zplug "plugins/mosh",     from:oh-my-zsh
+    zplug "plugins/git",      from:oh-my-zsh # git aliases
+    zplug "plugins/gitfast",  from:oh-my-zsh # git completion
+    zplug "plugins/mosh",     from:oh-my-zsh # completion
     zplug "lib/completion",   from:oh-my-zsh
     zplug "lib/key-bindings", from:oh-my-zsh
 
@@ -60,6 +59,7 @@ prependToPath "$HOME/.local/bin"
 
 . ~/.shellrc
 
+# internally resolve aliases before completion
 setopt no_complete_aliases
 # whenever a command completion is attempted, make sure the entire command path
 # is hashed first.
