@@ -11,6 +11,7 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     zplug "plugins/git",      from:oh-my-zsh # git aliases
     zplug "plugins/gitfast",  from:oh-my-zsh # git completion
     zplug "plugins/mosh",     from:oh-my-zsh # completion
+    zplug "plugins/timer",    from:oh-my-zsh # command duration
     zplug "lib/completion",   from:oh-my-zsh
     zplug "lib/key-bindings", from:oh-my-zsh
 
