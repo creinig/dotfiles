@@ -207,7 +207,8 @@ nnoremap <leader>gg :Git<CR>
 nnoremap <leader>ga :Git add<space>%
 nnoremap <leader>gF :GFiles<cr>
 nnoremap <leader>gs :GFiles?<cr>
-nnoremap <leader>gc :Git commit<cr>
+nnoremap <leader>gc :Git commit -v -c HEAD<cr>
+nnoremap <leader>gC :Git commit<cr>
 nnoremap <leader>gh :Commits<cr>
 nnoremap <leader>gH :BCommits<cr>
 nnoremap <leader>gp :Git push<space>
@@ -219,6 +220,7 @@ vnoremap <leader>gv :GV -n 1000<cr>
 nnoremap <leader>gV :GV! -n 1000<cr>
 nnoremap <leader>gd :Gvdiffsplit<space>
 
+let g:which_key_map.g['c'] = 'git commit (prefill last msg)'
 let g:which_key_map.g['g'] = 'git status'
 let g:which_key_map.g['s'] = 'git status (fzf)'
 let g:which_key_map.g['F'] = 'git ls-files (fzf)'
