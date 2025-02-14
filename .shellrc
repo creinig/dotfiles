@@ -126,6 +126,7 @@ alias kgallw="kubectl get all,ing,pv,pvc -o wide"
 alias mydstat="dstat -lcdfmnp -C total --disk-util"
 alias sk="screenkey"
 alias ugi="ug -Q"
+alias ta="tmux a || tmux"
 alias apts='sudo apt install $(apt-cache pkgnames | fzf -m --preview="apt info {}" --preview-window=:hidden --bind=space:toggle-preview)' # credit: http://ix.io/2hgn
 function snap.installed() { snap list --all | awk '/-/{print $1}' | sort | uniq | grep -vhF "$(grep "default-provider:\|base:" /snap/*/current/meta/snap.yaml | awk '{print $NF}')" ; }
 
