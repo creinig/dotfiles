@@ -77,11 +77,6 @@ alias wll="watch --color -d $LL_CMD"
 alias wllm="watch --color -d $LLM_CMD --reverse"
 
 
-if cmdExists nvim && (nvim --version | head -n 1 | grep -v -q -E '0\.[123]\.') ; then
-    alias vim='nvim'
-fi
-
-
 if cmdExists yt-dlp; then
     alias ytdl='yt-dlp'
 elif cmdExists youtube-dl; then
