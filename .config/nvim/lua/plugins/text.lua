@@ -8,5 +8,14 @@ return {
             -- Configuration here, or leave empty to use defaults
         })
     end
-  }
+  },
+
+  {
+    "junegunn/vim-easy-align",
+    config = function()
+      vim.keymap.set("x", "ga", "<Plug>(EasyAlign)", {desc = "EasyAlign"} )
+      vim.keymap.set("v", "ga", "<Plug>(EasyAlign)", {desc = "EasyAlign"} )
+      vim.keymap.set("n", "ga", "<Plug>(EasyAlign)", {desc = "EasyAlign"} )
+    end
+  },
 }
