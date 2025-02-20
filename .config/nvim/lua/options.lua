@@ -1,4 +1,4 @@
--- vim: ts=s:sw=2:et
+-- vim: ts=2:sw=2:et
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
@@ -18,12 +18,12 @@ vim.schedule(function()
 end)
 
 -- Indendation & Format
-vim.opt.autoindent = true
-vim.opt.expandtab = true
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.shiftround = true
-vim.opt.breakindent = true
+vim.opt.autoindent    = true
+vim.opt.expandtab     = true
+vim.opt.softtabstop   = 2
+vim.opt.shiftwidth    = 2
+vim.opt.shiftround    = true
+vim.opt.breakindent   = true
 vim.opt.formatoptions = "crqlj"
 
 -- Cursor & Wrapping
