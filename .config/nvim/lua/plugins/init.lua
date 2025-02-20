@@ -1,6 +1,8 @@
 return {
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
+  'jmcantrell/vim-diffchanges', -- diff changesvto buffer since last write
+
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
