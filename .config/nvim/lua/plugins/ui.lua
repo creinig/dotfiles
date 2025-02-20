@@ -9,6 +9,13 @@ return {
     end,
   },
 
+  {
+    "szw/vim-maximizer",
+    keys = {
+      { "<F3>", "<cmd>MaximizerToggle<CR>", desc = "Maximize/minimize a split" },
+    },
+  },
+
   -- Highlight todo, notes, etc in comments
   {
     "folke/todo-comments.nvim",
