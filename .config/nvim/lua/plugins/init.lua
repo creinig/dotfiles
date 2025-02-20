@@ -5,6 +5,14 @@ return {
   'will133/vim-dirdiff', -- diff directory hierarchies
 
   {
+    'unblevable/quick-scope', -- hints for f/t motions
+    init = function()
+      -- Trigger a highlight in the appropriate direction when pressing these keys:
+      vim.g.qs_highlight_on_keys = {'f', 'F', 't', 'T'}
+    end
+  },
+
+  {
     'tomtom/ttodo_vim',          -- todo.txt support
     dependencies = {
       'tomtom/tlib_vim'           -- required for ttodo_vim
