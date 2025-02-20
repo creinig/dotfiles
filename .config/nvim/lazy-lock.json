@@ -33,6 +33,7 @@
   "tlib_vim": { "branch": "master", "commit": "d3bdad7b5e4253dc7ce6793342d7b8755c67ff0c" },
   "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },
   "ttodo_vim": { "branch": "master", "commit": "6fee1de346eb5dd81765f9a39e38ff0be7bc13de" },
+  "undotree": { "branch": "master", "commit": "2556c6800b210b2096b55b66e74b4cc1d9ebbe4f" },
   "vim-diffchanges": { "branch": "master", "commit": "3b70ddb38fd743d7d7a3603068646617a8432eb8" },
   "vim-dirdiff": { "branch": "master", "commit": "84bc8999fde4b3c2d8b228b560278ab30c7ea4c9" },
   "vim-easy-align": { "branch": "master", "commit": "9815a55dbcd817784458df7a18acacc6f82b1241" },

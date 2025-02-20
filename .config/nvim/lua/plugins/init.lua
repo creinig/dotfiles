@@ -26,6 +26,17 @@ return {
     end
   },
 
+  { -- easily access & handle undo history
+    'mbbill/undotree',
+    init = function()
+      vim.keymap.set("n", "<leader>uu", vim.cmd.UndotreeToggle, { desc = "Toggle [U]ndo history" })
+      vim.g.undotree_WindowLayout = 2
+      vim.g.unditree_ShortIndicators = 1
+      vim.g.undotree_DiffpanelHeight = 15
+      vim.g.undotree_SetFocusWhenToggle = 1
+    end
+  },
+
   { -- easier motion
     'smoka7/hop.nvim',
     version = "*",
