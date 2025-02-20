@@ -277,7 +277,15 @@ listening() {
     fi
 }
 
-function splitstr { sed -r "s%${1:-\s}+%\n%g" ; }
+splitstr() { sed -r "s%${1:-\s}+%\n%g" ; }
+
+dirdiff()
+{
+    # Shell-escape each path:
+    DIR1=$(printf '%q' "$1"); shift
+    DIR2=$(printf '%q' "$1"); shift
+    vim $@ -c "DirDiff $DIR1 $DIR2"
+}
 
 # df+mount listing only physical volumes (TODO: also filter out snap mounts)
 alias dfp="df -h | grep -v -E '^\b(tmpfs|none|udev|/dev/loop|overlay|shm)\b'"

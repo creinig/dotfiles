@@ -2,7 +2,13 @@ return {
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   'jmcantrell/vim-diffchanges', -- diff changes to buffer since last write
   'AndrewRadev/linediff.vim', -- diff two visual selections
-  'will133/vim-dirdiff', -- diff directory hierarchies
+  
+  {
+    'will133/vim-dirdiff', -- diff directory hierarchies
+    init = function()
+      vim.g.DirDiffExcludes = "CVS,.git,node_modules,*.class,*.exe,.*.swp,*.war,*.jar"
+    end
+  },
 
   {
     'unblevable/quick-scope', -- hints for f/t motions
