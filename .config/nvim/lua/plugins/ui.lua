@@ -78,6 +78,7 @@ return {
         { "<leader>f", group = "[F]ind" },
         { "<leader>w", group = "[W]orkspace" },
         { "<leader>t", group = "[T]oggle" },
+        { "<leader>o", group = "[O]ptions" },
         { "<leader>u", group = "[U]tility" },
         { "<leader>g", group = "[G]it", mode = { "n", "v" } },
         { "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },

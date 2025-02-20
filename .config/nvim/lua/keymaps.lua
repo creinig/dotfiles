@@ -56,3 +56,18 @@ else
   kms("v", "<leader>uy", '"yy <Bar> :call system("xclip -selection primary", @y)<Cr>', { desc = "Copy to primary" })
   kms("v", "<leader>uc", '"yy <Bar> :call system("xclip -selection clipboard", @y)<Cr>', { desc = "Copy to clipboard" })
 end
+
+
+-- [[Options]]
+
+
+kms("n", "<leader>or", ":set invrelativenumber<CR>", { desc = "Toggle relative numbering" })
+kms("n", "<leader>on", ":set invnumber<CR>", { desc = "Toggle absolute numbering" })
+kms("n", "<leader>ow", ":set invwrap<CR>", { desc = "Toggle soft wrap" })
+kms("n", "<leader>oc", ":set invcursorline<CR>", { desc = "Toggle cursor line highligt" })
+kms("n", "<leader>ofn", ":set foldmethod=manual<CR>zR", { desc = "Foldmethod manual" })
+kms("n", "<leader>ofm", ":set foldmethod=marker<CR>zR", { desc = "Foldmethod marker" })
+kms("n", "<leader>ofi", ":set foldmethod=indent<CR>zM", { desc = "Foldmethod indent" })
+kms("n", "<leader>ofs", ":set foldmethod=syntax<CR>zM", { desc = "Foldmethod syntax" })
+kms("n", "<leader>o+", ":exe 'vertical resize ' . (winwidth(0) * 5/4)<CR>", { desc = "Increase split width", silent = true })
+kms("n", "<leader>o-", ":exe 'vertical resize ' . (winwidth(0) * 4/5)<CR>", { desc = "Decrease split width", silent = true })
