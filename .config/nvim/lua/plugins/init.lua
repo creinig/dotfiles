@@ -1,9 +1,11 @@
 return {
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
-  'jmcantrell/vim-diffchanges', -- diff changesvto buffer since last write
+  'jmcantrell/vim-diffchanges', -- diff changes to buffer since last write
 
-  'AndrewRadev/linediff.vim', -- diff two selections
+  'AndrewRadev/linediff.vim', -- diff two visual selections
+
+  'will133/vim-dirdiff', -- diff directory hierarchies
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
