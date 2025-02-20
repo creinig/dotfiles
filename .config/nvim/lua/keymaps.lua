@@ -12,6 +12,11 @@ local kms = vim.keymap.set
 --  See `:help hlsearch`
 kms("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+-- Insert path of current buffer in command mode by typing "%%". Adapted from 'Practical Vim' p101
+kms("c", "%%", function()
+	return vim.fn.getcmdtype() == ":" and (vim.fn.expand("%:h") .. "/") or "%%"
+end, { expr = true })
+
 -- Diagnostic keymaps
 kms("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
