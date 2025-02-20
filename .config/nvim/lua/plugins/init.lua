@@ -3,6 +3,7 @@ return {
 
   'jmcantrell/vim-diffchanges', -- diff changesvto buffer since last write
 
+  'AndrewRadev/linediff.vim', -- diff two selections
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
