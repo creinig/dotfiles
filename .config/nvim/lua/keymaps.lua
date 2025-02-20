@@ -8,6 +8,9 @@ vim.g.maplocalleader = "-"
 --  See `:help vim.keymap.set()`
 local kms = vim.keymap.set
 
+--NOTE: Keymaps for specific plugins are defined in the respective
+--      plugin spec
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 kms("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -36,3 +39,20 @@ kms("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 kms("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 kms("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 kms("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
+
+-- [[ Utilities (<leader>u) ]]
+-- remove all trailing whitespace in the file
+kms("n", "<leader>uw", "mw:%s/\\s\\+$//<cr>`w", { desc = "Remove all trailing whitespace"})
+
+kms("n", "<leader>ui", ":DiffChangesDiffToggle<cr>", { desc = "changes since last write" })
+kms("n", "<leader>ud", ":lcd %:p:h<Cr>:pwd<Cr>", { desc = 'cd (local) to current file' })
+
+-- pipe the current selection into xclip/pbcopy
+if vim.fn.executable("pbcopy") then
+  kms("v", "<leader>uy", '"yy <Bar> :call system("pbcopy", @y)<Cr>', { desc = "Copy to clipboard" })
+  kms("v", "<leader>uc", '"yy <Bar> :call system("pbcopy", @y)<Cr>', { desc = "Copy to clipboard" })
+else
+  kms("v", "<leader>uy", '"yy <Bar> :call system("xclip -selection primary", @y)<Cr>', { desc = "Copy to primary" })
+  kms("v", "<leader>uc", '"yy <Bar> :call system("xclip -selection clipboard", @y)<Cr>', { desc = "Copy to clipboard" })
+end
