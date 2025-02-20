@@ -295,6 +295,7 @@ alias vt='vim ~/todo.txt'
 alias vs='vim ~/.shellrc'
 alias vl='vim ~/.zsh/local/*'
 alias vv='vim ~/.vimrc'
+alias vn='nvim ~/.config/nvim'
 alias vz='vim ~/.zshrc'
 
 alias srcz='source ~/.zshrc'
