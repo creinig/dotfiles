@@ -88,6 +88,7 @@ return {
       vim.keymap.set("n", "<leader>wf", "<cmd>Telekasten find_notes<CR>", { desc = "[F]ind notes by name"})
       vim.keymap.set("n", "<leader>wg", "<cmd>Telekasten search_notes<CR>", { desc = "[G]rep in all notes"})
       vim.keymap.set("n", "<leader>wt", "<cmd>Telekasten show_tags<CR>", { desc = "Look up by [T]ag"})
+      vim.keymap.set("n", "<leader>wT", "<cmd>Telekasten toggle_todo<CR>", { desc = "Toggle [T]odo checkbox"})
       vim.keymap.set("n", "<leader>wj", "<cmd>Telekasten goto_today<CR>", { desc = "Open [J]ournal for today"})
       vim.keymap.set("n", "<leader>wo", "<cmd>Telekasten follow_link<CR>", { desc = "[O]pen link"})
       vim.keymap.set("n", "<leader>wn", "<cmd>Telekasten new_note<CR>", { desc = "[N]ew note"})
