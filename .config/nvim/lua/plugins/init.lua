@@ -72,7 +72,9 @@ return {
     'renerocksai/telekasten.nvim',
     dependencies = {'nvim-telescope/telescope.nvim'},
     opts = {
-      home = vim.fn.expand("~/zettelkasten"), -- Put the name of your notes directory here
+      home = vim.fn.expand("~/wiki/zettelkasten"), -- Put the name of your notes directory here
+      template_new_note = vim.fn.expand("~/wiki/zettelkasten/_new_note.template"),
+      template_new_daily = vim.fn.expand("~/wiki/zettelkasten/_new_daily.template"),
     },
     init = function()
       -- Most used functions
