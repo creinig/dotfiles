@@ -187,6 +187,7 @@ return {
       vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[F]ind [D]iagnostics" })
       vim.keymap.set("n", "<leader>fe", builtin.resume, { desc = "[F]ind resum[e]" })
       vim.keymap.set("n", "<leader>fr", builtin.registers, { desc = "[F]ind [r]egisters" })
+      vim.keymap.set("n", "<leader>fy", builtin.registers, { desc = "[F]ind [y]ank history" })
       vim.keymap.set("n", "<leader>fm", builtin.marks, { desc = "[F]ind [M]arks" })
       vim.keymap.set("n", "<leader>fj", builtin.jumplist, { desc = "[F]ind [J]umps" })
       vim.keymap.set("n", "<leader>f:", builtin.command_history, { desc = "[F]ind [:] command history" })
