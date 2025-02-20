@@ -1,4 +1,4 @@
--- vim: ts=s:sw=2:et
+-- vim: ts=2:sw=2:et
 return {
   -- LSP Plugins
   {
