@@ -15,6 +15,13 @@ return {
   },
 
   {
+    'junegunn/gv.vim',
+    dependencies = {
+      "tpope/vim-fugitive"
+    }
+  },
+
+  {
     "tpope/vim-fugitive",
     config = function()
       vim.keymap.set("n", "<leader>gg", ":Git<cr>", { desc = "[G]it status" })
@@ -27,9 +34,10 @@ return {
       vim.keymap.set("n", "<leader>gB", ":Gitsigns blame<cr>", { desc = "[G]it [b]lame" })
       vim.keymap.set("n", "<leader>gb", ":Gitsigns blame_line<cr>", { desc = "[G]it [b]lame (line)" })
       vim.keymap.set("n", "<leader>gd", ":Gvdiffsplit<cr>", { desc = "[G]it [d]iff" })
+      vim.keymap.set("n", "<leader>gv", ":GV -n 1000<cr>", {desc = "Git [v]iew log" })
+      vim.keymap.set("v", "<leader>gv", ":GV -n 1000<cr>", {desc = "Git [v]iew log" })
+      vim.keymap.set("n", "<leader>gV", ":GV! -n 1000<cr>", {desc = "Git [v]iew log (this file)" })
       -- TODO: add bindings for hunk operations
-      -- TODO: add bindings for GV or similar
-
     end
   },
 
