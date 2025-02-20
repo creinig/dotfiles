@@ -12,6 +12,8 @@ return {
       --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
       --  - ci'  - [C]hange [I]nside [']quote
       require('mini.ai').setup { n_lines = 500 }
+      
+      require('mini.align').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
