@@ -101,6 +101,12 @@ return {
               require("luasnip.loaders.from_snipmate").lazy_load()
             end
           },
+          {
+            'benfowler/telescope-luasnip.nvim',
+            config = function()
+              require('telescope').load_extension('luasnip')
+            end
+          },
         },
       },
       "saadparwaiz1/cmp_luasnip",
