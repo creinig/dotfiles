@@ -4,6 +4,20 @@ return {
   'AndrewRadev/linediff.vim', -- diff two visual selections
   'will133/vim-dirdiff', -- diff directory hierarchies
 
+  {
+    'tomtom/ttodo_vim',          -- todo.txt support
+    dependencies = {
+      'tomtom/tlib_vim'           -- required for ttodo_vim
+    },
+    config = function()
+      vim.cmd [[
+        let g:ttodo#dirs = ['~/']
+        let g:ttodo#sort = 'done,-next,-overdue,pri,due,lists,tags,idx'
+        let g:ttodo#ftplugin#add_at_eof = 'false'
+        ]]
+    end
+  },
+
   { -- easier motion
     'smoka7/hop.nvim',
     version = "*",
