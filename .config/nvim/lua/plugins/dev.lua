@@ -246,8 +246,8 @@ return {
       local lint = require("lint")
 
       lint.linters_by_ft = {
-        bash = { "shellcheck" },
-        sh = { "shellcheck" },
+        -- bash = { "shellcheck" },
+        sh = { "bash", "shellcheck" },
         ruby = { "standardrb" },
         javascript = { "eslint_d" },
         typescript = { "eslint_d" },
