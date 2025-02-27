@@ -29,12 +29,17 @@ if [[ -n $BAT_CMD ]]; then
     export BAT_STYLE=changes
     export BAT_THEME="Coldark-Dark"
     export BAT_PAGER=less # 'most' has some problems with the escape sequences
+    export PAGER="$BAT_CMD"
+fi
+
+if cmdExists nvim ; then
+    export MANPAGER='nvim +Man!'
+elif [[ -n $BAT_CMD ]]; then
     if man --help 2>&1 | grep -q mandoc ; then                
         export MANPAGER="$HOME/.local/bin/df-batman.sh"       
     else                                                      
         export MANPAGER="sh -c 'col -bx | $BAT_CMD -l man -p'"
     fi                                                        
-    export PAGER="$BAT_CMD"
 fi
 
 DIFF_PAGER=less
