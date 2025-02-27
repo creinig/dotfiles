@@ -1,4 +1,6 @@
 #!/bin/bash
+source "$HOME/.local/bin/.df-common.sh"
+
 prependToPath "$HOME/.local/bin"
 
 if [[ -d ${HOME}/.krew/bin ]] ; then
@@ -7,6 +9,10 @@ fi
 
 if [[ -d ${HOME}/.cargo/bin ]] ; then
     appendToPath "${HOME}/.cargo/bin"
+fi
+
+if [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] ; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 #
@@ -290,7 +296,7 @@ alias tf="terraform"
 
 alias yta='youtubeDownloadAudio'
 
-if cmdExists nvim; then
+if cmdExists nvim ; then
     alias vw='nvim -c "Telekasten find_notes"'
     alias vj='nvim -c "Telekasten goto_today"'
     alias vc='echo -n " fc" | nvim -s -'
@@ -383,6 +389,3 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte.sh
 fi
 
-if [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] ; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
