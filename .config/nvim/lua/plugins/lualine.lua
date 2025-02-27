@@ -7,8 +7,8 @@ return {
         options = {
           icons_enabled = vim.g.have_nerd_font,
           theme = 'dracula',
-          component_separators = { left = '>', right = '<'},
-          section_separators = { left = '|', right = '|'},
+          component_separators = { left = '', right = ''},
+          section_separators = { left = '', right = ''},
           always_divide_middle = true,
           always_show_tabline = true,
           globalstatus = false,
