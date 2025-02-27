@@ -106,5 +106,19 @@ return {
       vim.keymap.set("n", "ga", "<Plug>(EasyAlign)", {desc = "EasyAlign"} )
     end
   },
+  
+  {
+    'MagicDuck/grug-far.nvim',
+    config = function()
+      require('grug-far').setup({
+        -- options, see Configuration section below
+        -- there are no required options atm
+        -- engine = 'ripgrep' is default, but 'astgrep' or 'astgrep-rules' can
+        -- be specified
+        vim.keymap.set("n", "<leader>ur", "<cmd>GrugFar<cr>", { desc = "Search / [R]eplace in files" } )
+      });
+    end
+  },
+
 }
 
