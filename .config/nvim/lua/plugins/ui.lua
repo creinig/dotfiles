@@ -184,6 +184,7 @@ return {
 
       -- See `:help telescope.builtin`
       local builtin = require("telescope.builtin")
+      
       vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp" })
       vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[F]ind [K]eymaps" })
       vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
@@ -226,6 +227,13 @@ return {
       vim.keymap.set("n", "<leader>fn", function()
         builtin.find_files({ cwd = vim.fn.stdpath("config") })
       end, { desc = "[F]ind [N]eovim files" })
+
+      vim.keymap.set("n", "<leader>fc", function()
+        local utils = require("telescope.utils")
+        local home = vim.fn.expand("~")
+        local cfgls_cmd = utils.__git_command({"--git-dir=" .. home .. "/.dotfiles/", "--work-tree=" .. home, "-c", "core.quotepath=false", "ls-files", "--exclude-standard", "--cached"})
+        builtin.git_files({ git_command = cfgls_cmd })
+      end, { desc = "[F]ind [C]onfig files" })
     end,
   },
 }
