@@ -35,11 +35,11 @@ fi
 if cmdExists nvim ; then
     export MANPAGER='nvim +Man!'
 elif [[ -n $BAT_CMD ]]; then
-    if man --help 2>&1 | grep -q mandoc ; then                
-        export MANPAGER="$HOME/.local/bin/df-batman.sh"       
-    else                                                      
+    if man --help 2>&1 | grep -q mandoc ; then
+        export MANPAGER="$HOME/.local/bin/df-batman.sh"
+    else
         export MANPAGER="sh -c 'col -bx | $BAT_CMD -l man -p'"
-    fi                                                        
+    fi
 fi
 
 DIFF_PAGER=less
@@ -69,12 +69,12 @@ if cmdExists eza; then
     alias tree='eza --tree --level=2 --color=auto'
 else
     LS_CMD='ls -F --color=tty'
-    LL_CMD="$LS_CMD -lAh --group-directories-first" 
+    LL_CMD="$LS_CMD -lAh --group-directories-first"
     LLM_CMD="$LS_CMD -lAh --sort=time"
     LL_UNSORTED_CMD="$LS_CMD -lAh -U"
 fi
 alias ls="$LS_CMD"
-alias ll="$LL_CMD" 
+alias ll="$LL_CMD"
 alias llm="$LLM_CMD"
 alias wll="watch --color -d $LL_CMD"
 alias wllm="watch --color -d $LLM_CMD --reverse"
@@ -188,7 +188,7 @@ alias aws.efs.show="aws efs describe-file-systems --output table --file-system-i
 
 alias aws.stopdb="aws rds stop-db-instance --output=table \
     --query \"DBInstance.{Class:DBInstanceClass,A_Id:DBInstanceIdentifier,Engine:Engine,Version:EngineVersion,\
-              StorageGB:AllocatedStorage,Status:DBInstanceStatus,Endpoint:Endpoint.Address}\" --db-instance-identifier" 
+              StorageGB:AllocatedStorage,Status:DBInstanceStatus,Endpoint:Endpoint.Address}\" --db-instance-identifier"
 alias aws.startdb="aws rds start-db-instance --output=table \
     --query \"DBInstance.{Class:DBInstanceClass,A_Id:DBInstanceIdentifier,Engine:Engine,Version:EngineVersion,\
               StorageGB:AllocatedStorage,Status:DBInstanceStatus,Endpoint:Endpoint.Address}\" --db-instance-identifier"
@@ -337,7 +337,7 @@ export PSQL_PAGER="view -c 'set nomod nolist syntax=sql' -"
 
 # More a template for multiple db "aliases"
 pg_local() { psql -h localhost -p 5432 -U "${1:-postgres}" postgres "${@:2}" ; }
-  
+
 # Options for shellcheck (https://github.com/koalaman/shellcheck)
 # --check-sourced: Include warnings from sourced files
 # --external-sources: Allow 'source' outside of FILES
