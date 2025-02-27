@@ -262,6 +262,7 @@ return {
         'eslint_d',
         'bash-language-server',
         'ruby-lsp',
+        'sqlfluff',
         -- stylua is not available in termux, resulting in startup errors
         -- 'stylua', -- Used to format Lua code
       })

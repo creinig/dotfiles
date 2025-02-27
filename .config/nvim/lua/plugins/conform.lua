@@ -13,18 +13,23 @@ return {
         desc = "[F]ormat buffer",
       },
     },
-    opts = {
-      notify_on_error = false,
-      format_on_save = nil,
-      formatters_by_ft = {
+    opts = function(_, opts)
+      opts.notify_on_error = false
+      opts.format_on_save = nil
+      opts.formatters = opts.formatters or {}
+      opts.formatters.sqlfluff = {
+        args = { "format", "--dialect=ansi", "-" },
+      }
+      opts.formatters_by_ft = {
         -- lua = { "stylua" },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         ruby = { "standardrb" },
+        sql = { "sqlfluff" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
-      },
-    },
+      }
+    end,
   },
 }
