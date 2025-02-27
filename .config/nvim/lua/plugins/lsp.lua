@@ -222,8 +222,11 @@ return {
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+      }
 
-        lua_ls = {
+      -- lua-ls and stylua are not available for termux
+      if(os.getenv("DF_OS") ~= "termux") then
+        servers.lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
           -- capabilities = {},
@@ -236,8 +239,8 @@ return {
               -- diagnostics = { disable = { 'missing-fields' } },
             },
           },
-        },
-      }
+        }
+      end
 
       -- Ensure the servers and tools above are installed
       --
@@ -262,6 +265,11 @@ return {
         -- stylua is not available in termux, resulting in startup errors
         -- 'stylua', -- Used to format Lua code
       })
+      
+      if(os.getenv("DF_OS") ~= "termux") then
+        vim.list_extend(ensure_installed, { 'stylua' })
+      end
+
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
