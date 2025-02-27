@@ -7,7 +7,7 @@ return {
 
       lint.linters_by_ft = {
         -- bash = { "shellcheck" },
-        sh = { "bash", "shellcheck" },
+        sh = { "shellcheck" },
         ruby = { "standardrb" },
         javascript = { "eslint_d" },
         typescript = { "eslint_d" },
