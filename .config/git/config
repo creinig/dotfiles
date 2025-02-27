@@ -4,7 +4,7 @@
 	rebase = true
 [core]
         trustctime = false
-        editor = vim
+        editor = nvim
         filemode = false
         autocrlf = true
         safecrlf = warn
@@ -13,14 +13,14 @@
 [credential]
         helper = cache --timeout=3600
 [merge]
-        tool = vimdiff
+        tool = nvim -d
 [mergetool]
         keeptemporaries = false
         keepbackups = false
         prompt = false
         trustexitcode = false
 [diff]
-        tool = vimdiff
+        tool = nvim -d
 
 [difftool]
         prompt = false
