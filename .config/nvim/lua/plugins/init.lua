@@ -5,6 +5,7 @@ return {
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   'jmcantrell/vim-diffchanges', -- diff changes to buffer since last write
   'AndrewRadev/linediff.vim', -- diff two visual selections
+  'nvim-tree/nvim-web-devicons', -- dependency for others. Hopefully specifying it here will stop it from updating despite the lock
 
   {
     'will133/vim-dirdiff', -- diff directory hierarchies
