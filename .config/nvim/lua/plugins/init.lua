@@ -73,6 +73,13 @@ return {
   },
 
   {
+    'junegunn/gv.vim',
+    dependencies = {
+      "tpope/vim-fugitive"
+    }
+  },
+
+  {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     ---@module "ibl"

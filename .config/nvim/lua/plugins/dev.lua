@@ -1,12 +1,5 @@
 -- vim: ts=2:sw=2:et
 return {
-  {
-    'junegunn/gv.vim',
-    dependencies = {
-      "tpope/vim-fugitive"
-    }
-  },
-
   { -- Autocompletion
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
