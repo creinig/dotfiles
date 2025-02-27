@@ -52,15 +52,6 @@ kms("n", "<leader>ui", ":DiffChangesDiffToggle<cr>", { desc = "changes since las
 kms("n", "<leader>ud", ":lcd %:p:h<Cr>:pwd<Cr>", { desc = 'cd (local) to current file' })
 kms("n", "<leader>un", ":Neotree<cr>", { desc = "Show [N]eotree" })
 
--- pipe the current selection into xclip/pbcopy
-if vim.fn.executable("pbcopy") then
-  kms("v", "<leader>uy", '"yy <Bar> :call system("pbcopy", @y)<Cr>', { desc = "Copy to clipboard" })
-  kms("v", "<leader>uc", '"yy <Bar> :call system("pbcopy", @y)<Cr>', { desc = "Copy to clipboard" })
-else
-  kms("v", "<leader>uy", '"yy <Bar> :call system("xclip -selection primary", @y)<Cr>', { desc = "Copy to primary" })
-  kms("v", "<leader>uc", '"yy <Bar> :call system("xclip -selection clipboard", @y)<Cr>', { desc = "Copy to clipboard" })
-end
-
 
 -- [[Options]]
 
