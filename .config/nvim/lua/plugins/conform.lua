@@ -16,6 +16,8 @@ return {
     opts = function(_, opts)
       opts.notify_on_error = false
       opts.format_on_save = nil
+      -- opts.log_level = vim.log.levels.DEBUG
+
       opts.formatters = opts.formatters or {}
       opts.formatters.sqlfluff = {
         args = { "format", "--dialect=ansi", "-" },

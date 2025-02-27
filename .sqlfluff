@@ -1,0 +1,10 @@
+[sqlfluff]
+
+[sqlfluff:rules:capitalisation.keywords]
+# Keywords
+capitalisation_policy = upper
+
+[sqlfluff:rules:capitalisation.identifiers]
+# Keywords
+capitalisation_policy = upper
+
