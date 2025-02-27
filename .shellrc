@@ -304,6 +304,8 @@ alias yta='youtubeDownloadAudio'
 if cmdExists nvim; then
     alias vw='nvim -c "Telekasten find_notes"'
     alias vj='nvim -c "Telekasten goto_today"'
+    alias vc='echo -n " fc" | nvim -s -'
+    alias vn='nvim ~/.config/nvim'
 fi
 
 alias v="$EDITOR"
@@ -311,7 +313,6 @@ alias vt='$EDITOR ~/todo.txt'
 alias vs='$EDITOR ~/.shellrc'
 alias vl='$EDITOR ~/.zsh/local/*'
 alias vv='$EDITOR ~/.vimrc'
-alias vn='nvim ~/.config/nvim'
 alias vz='$EDITOR ~/.zshrc'
 
 alias srcz='source ~/.zshrc'
