@@ -21,3 +21,15 @@ appendToPath() {
     (echo "$PATH" | grep -q -F "$1") || export PATH="$PATH:$1"
 }
 
+cmdExists() { 
+    command -v "$1" >/dev/null 2>&1 ; 
+}
+
+firstCmdOf() {
+    for cmd in "$@"; do
+	if cmdExists "$cmd" ; then
+	    echo -n "$cmd"
+	    return
+	fi
+    done
+}

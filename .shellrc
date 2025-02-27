@@ -13,21 +13,10 @@ fi
 # Integrate useful tools if they are present
 #
 
-function cmdExists { command -v "$1" >/dev/null 2>&1 ; }
+export EDITOR="$(firstCmdOf nvim vim)"
+export VISUAL="$(firstCmdOf nvim vim)"
 
-if cmdExists nvim; then
-    export EDITOR="nvim"
-    export VISUAL="nvim"
-elif cmdExists vim; then
-    export EDITOR="vim"
-    export VISUAL="vim"
-fi
-
-if cmdExists bat; then
-    BAT_CMD=bat
-elif cmdExists batcat; then
-    BAT_CMD=batcat
-fi
+BAT_CMD="$(firstCmdOf bat batcat)"
 
 if [[ -n $BAT_CMD ]]; then
     alias cat="$BAT_CMD"
@@ -305,7 +294,6 @@ if cmdExists nvim; then
     alias vw='nvim -c "Telekasten find_notes"'
     alias vj='nvim -c "Telekasten goto_today"'
     alias vc='echo -n " fc" | nvim -s -'
-    alias vn='nvim ~/.config/nvim'
 fi
 
 alias v="$EDITOR"
@@ -334,10 +322,10 @@ alias sshvm='ssh -o stricthostkeychecking=no -o addkeystoagent=no'
 alias oxker="docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock:ro mrjackwills/oxker"
 
 # Set better pager for psql (credit: Luciano Andress Martini in https://stackoverflow.com/a/14474666/1814922)
-export PSQL_PAGER="$EDITOR -R -c 'set nomod nolist syntax=sql' -"
+export PSQL_PAGER="view -c 'set nomod nolist syntax=sql' -"
 
 # More a template for multiple db "aliases"
-pg_local() { psql -h localhost -p 5432 -U ${1:-postgres} postgres "${@[@]:2}" }
+pg_local() { psql -h localhost -p 5432 -U ${1:-postgres} postgres "${@[@]:2}" } #"
   
 # Options for shellcheck (https://github.com/koalaman/shellcheck)
 # --check-sourced: Include warnings from sourced files
