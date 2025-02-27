@@ -282,7 +282,7 @@ dirdiff()
     # Shell-escape each path:
     DIR1=$(printf '%q' "$1"); shift
     DIR2=$(printf '%q' "$1"); shift
-    $EDITOR $@ -c "DirDiff $DIR1 $DIR2"
+    $EDITOR "$@" -c "DirDiff $DIR1 $DIR2"
 }
 
 # df+mount listing only physical volumes (TODO: also filter out snap mounts)
@@ -331,7 +331,7 @@ alias oxker="docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock:ro
 export PSQL_PAGER="view -c 'set nomod nolist syntax=sql' -"
 
 # More a template for multiple db "aliases"
-pg_local() { psql -h localhost -p 5432 -U ${1:-postgres} postgres "${@[@]:2}" } #"
+pg_local() { psql -h localhost -p 5432 -U "${1:-postgres}" postgres "${@:2}" ; }
   
 # Options for shellcheck (https://github.com/koalaman/shellcheck)
 # --check-sourced: Include warnings from sourced files
@@ -374,12 +374,12 @@ sendToAllPanes() {
         echo 'Usage: sendToAllPanes <command>'
         return
     fi
-    input_command="${@}"
+    input_command=("${@}")
     for _pane in $(tmux list-panes -s -F '#{window_index}.#{pane_index}'); do
         # only apply the command in bash or zsh panes.
         _current_command=$(tmux display-message -p -t ${_pane} '#{pane_current_command}')
         if [ ${_current_command} = zsh ] || [ ${_current_command} = bash ] ; then
-            tmux send-keys -t ${_pane} "${input_command}" Enter
+            tmux send-keys -t ${_pane} "${input_command[@]}" Enter
         fi
     done
 }
