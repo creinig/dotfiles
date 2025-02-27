@@ -50,6 +50,7 @@ kms("n", "<leader>uw", "mw:%s/\\s\\+$//<cr>`w", { desc = "Remove all trailing wh
 
 kms("n", "<leader>ui", ":DiffChangesDiffToggle<cr>", { desc = "changes since last write" })
 kms("n", "<leader>ud", ":lcd %:p:h<Cr>:pwd<Cr>", { desc = 'cd (local) to current file' })
+kms("n", "<leader>un", ":Neotree<cr>", { desc = "Show [N]eotree" })
 
 -- pipe the current selection into xclip/pbcopy
 if vim.fn.executable("pbcopy") then
