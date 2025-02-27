@@ -9,6 +9,7 @@ return {
         "bash",
         "c",
         "diff",
+        "git_config",
         "html",
         "lua",
         "luadoc",
@@ -49,6 +50,20 @@ return {
           },
         },
       }
+
+      vim.filetype.add({
+        filename = {
+          [".sqlfluff"] = "dosini",
+        },
+        pattern = {
+          [".*/waybar/config"] = "jsonc",
+          [".*/mako/config"] = "dosini",
+          [".*/kitty/.+%.conf"] = "kitty",
+          ["%.env%.[%w_.-]+"] = "sh",
+        },
+      })
+      vim.treesitter.language.register("bash", "kitty")
+
     end,
   }
 }
