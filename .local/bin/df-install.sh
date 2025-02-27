@@ -252,6 +252,10 @@ if [[ -e $(config config user.email) ]] && config remote -v | grep -q 'git@' ; t
   HINTS+=('git: user.email is not set. You might want to run "cfg config --local user.email my@mail.org"')
 fi
 
+if ! command -v nvim &>/dev/null ; then
+  HINTS+=("neovim is not installed. The vim config you'll use instead may be outdated")
+fi
+
 if (( ${#HINTS[@]} > 0 )); then
   echo
   log 'Some issues you might want to take care of:'
