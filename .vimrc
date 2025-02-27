@@ -1,5 +1,10 @@
 " vim: foldmethod=marker
 
+"
+" IMPORTANT: I now use vim (and this config) only as fallback for when
+"            neovim is not available. This means maintenance of this file 
+"            will be rather neglected in the future!
+
 set nocompatible
 
 if empty(glob('~/.vim/autoload/plug.vim'))
