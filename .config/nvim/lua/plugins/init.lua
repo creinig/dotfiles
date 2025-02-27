@@ -2,7 +2,7 @@ return {
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   'jmcantrell/vim-diffchanges', -- diff changes to buffer since last write
   'AndrewRadev/linediff.vim', -- diff two visual selections
-  
+
   {
     'will133/vim-dirdiff', -- diff directory hierarchies
     init = function()
@@ -111,7 +111,8 @@ return {
       --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
       --  - ci'  - [C]hange [I]nside [']quote
       require('mini.ai').setup { n_lines = 500 }
-      
+      require('mini.move').setup()
+
       -- require('mini.align').setup()
 
       -- Simple and easy statusline.
