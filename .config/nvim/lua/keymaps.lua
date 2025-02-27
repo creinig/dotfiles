@@ -15,6 +15,9 @@ local kms = vim.keymap.set
 --  See `:help hlsearch`
 kms("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+-- Exit insert mode via "jj" combo. Useful especially when typing longer passages
+kms("i", "jj", "<esc>");
+
 -- Insert path of current buffer in command mode by typing "%%". Adapted from 'Practical Vim' p101
 kms("c", "%%", function()
 	return vim.fn.getcmdtype() == ":" and (vim.fn.expand("%:h") .. "/") or "%%"
