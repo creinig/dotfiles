@@ -15,7 +15,10 @@ fi
 
 function cmdExists { command -v "$1" >/dev/null 2>&1 ; }
 
-if cmdExists vim; then
+if cmdExists nvim; then
+    export EDITOR="nvim"
+    export VISUAL="nvim"
+elif cmdExists vim; then
     export EDITOR="vim"
     export VISUAL="vim"
 fi
@@ -138,7 +141,7 @@ alias cfgc='cfg commit -v'
 alias cfgp='cfg push origin'
 alias cfglog='cfg log --oneline --decorate --graph --all'
 alias cfgu='curl -Lks https://git.io/crdotfiles | bash' # Update installation
-alias cfgei='vim ~/.local/bin/df-install.sh'
+alias cfgei='$EDITOR ~/.local/bin/df-install.sh'
 alias cfgai='cfg add ~/.local/bin/df-install.sh'
 
 if [[ "$FORGIT_INSTALL_DIR" != "" ]] ; then
@@ -284,7 +287,7 @@ dirdiff()
     # Shell-escape each path:
     DIR1=$(printf '%q' "$1"); shift
     DIR2=$(printf '%q' "$1"); shift
-    vim $@ -c "DirDiff $DIR1 $DIR2"
+    $EDITOR $@ -c "DirDiff $DIR1 $DIR2"
 }
 
 # df+mount listing only physical volumes (TODO: also filter out snap mounts)
@@ -297,14 +300,19 @@ alias cpv='rsync -ah --info=progress2'
 alias tf="terraform"
 
 alias yta='youtubeDownloadAudio'
-alias vw='vim +TiddlyWikiEditTiddler'
-alias vj='vim +TiddlyWikiEditJournal'
-alias vt='vim ~/todo.txt'
-alias vs='vim ~/.shellrc'
-alias vl='vim ~/.zsh/local/*'
-alias vv='vim ~/.vimrc'
+
+if cmdExists nvim; then
+    alias vw='nvim -c "Telekasten find_notes"'
+    alias vj='nvim -c "Telekasten goto_today"'
+fi
+
+alias v="$EDITOR"
+alias vt='$EDITOR ~/todo.txt'
+alias vs='$EDITOR ~/.shellrc'
+alias vl='$EDITOR ~/.zsh/local/*'
+alias vv='$EDITOR ~/.vimrc'
 alias vn='nvim ~/.config/nvim'
-alias vz='vim ~/.zshrc'
+alias vz='$EDITOR ~/.zshrc'
 
 alias srcz='source ~/.zshrc'
 alias srcs='source ~/.shellrc'
