@@ -14,8 +14,8 @@ indent_size = 2
 # Matches multiple files with brace expansion notation
 #[*.{js,py}]
 
-# 4 space indentation
-[{.*,*.sh}]
+# 4 space indentation for shell scripts
+[{.*rc,*.sh}]
 indent_size = 4
 
 # Tab indentation (no size specified)
