@@ -8,6 +8,11 @@ return {
   'nvim-tree/nvim-web-devicons', -- dependency for others. Hopefully specifying it here will stop it from updating despite the lock
 
   {
+    'prichrd/netrw.nvim', -- small file manager improvements
+    opts = {},
+  },
+
+  {
     'will133/vim-dirdiff', -- diff directory hierarchies
     init = function()
       vim.g.DirDiffExcludes = "CVS,.git,node_modules,*.class,*.exe,.*.swp,*.war,*.jar"
