@@ -51,6 +51,17 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.scrolloff = 10 -- Minimal number of screen lines to keep above and below the cursor.
 
+-- diffing
+vim.opt.diffopt = {
+  "algorithm:histogram",
+  "closeoff",
+  "filler",
+  "indent-heuristic",
+  "internal",
+  "linematch:200",
+  "vertical",
+}
+
 -- Undo and swap files
 vim.opt.undofile = true  -- Save undo history
 vim.opt.updatetime = 250 -- Decrease update time
