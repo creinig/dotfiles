@@ -14,11 +14,15 @@ fi
 
 
 prependToPath() {
-    (echo "$PATH" | grep -q -F "$1") || export PATH="$1:$PATH"
+    if [[ -d "$1" ]] ; then
+        (echo "$PATH" | grep -q -F "$1") || export PATH="$1:$PATH"
+    fi
 }
 
 appendToPath() {
-    (echo "$PATH" | grep -q -F "$1") || export PATH="$PATH:$1"
+    if [[ -d "$1" ]] ; then
+        (echo "$PATH" | grep -q -F "$1") || export PATH="$PATH:$1"
+    fi
 }
 
 cmdExists() { 
@@ -27,9 +31,9 @@ cmdExists() {
 
 firstCmdOf() {
     for cmd in "$@"; do
-	if cmdExists "$cmd" ; then
-	    echo -n "$cmd"
-	    return
-	fi
+        if cmdExists "$cmd" ; then
+            echo -n "$cmd"
+            return
+        fi
     done
 }

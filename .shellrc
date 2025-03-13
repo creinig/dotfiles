@@ -3,13 +3,8 @@ source "$HOME/.local/bin/.df-common.sh"
 
 prependToPath "$HOME/.local/bin"
 
-if [[ -d ${HOME}/.krew/bin ]] ; then
-    appendToPath "${HOME}/.krew/bin"
-fi
-
-if [[ -d ${HOME}/.cargo/bin ]] ; then
-    appendToPath "${HOME}/.cargo/bin"
-fi
+appendToPath "${HOME}/.krew/bin"
+appendToPath "${HOME}/.cargo/bin"
 
 if [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] ; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -393,4 +388,3 @@ sendToAllPanes() {
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte.sh
 fi
-
