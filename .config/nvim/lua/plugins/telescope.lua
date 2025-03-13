@@ -86,6 +86,7 @@ return {
       vim.keymap.set("n", "<leader>f:", builtin.command_history, { desc = "[F]ind [:] command history" })
       vim.keymap.set("n", "<leader>ft", builtin.current_buffer_tags, { desc = "[F]ind [T]ags in current buffer" })
       vim.keymap.set("n", "<leader>fT", builtin.tags, { desc = "[F]ind [T]ags in project" })
+      vim.keymap.set("n", "<leader>fo", ':Telescope aerial<cr>', { desc = "[F]ind in [O]utline" })
       vim.keymap.set("n", "<leader>f.", builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
       vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
