@@ -55,10 +55,14 @@ return {
   {
     "wtfox/jellybeans.nvim",
     priority = 1000,
-    config = function()
-      require("jellybeans").setup()
-      vim.cmd.colorscheme("jellybeans")
-    end,
+    opts = {
+      on_highlights = function(hl, _)
+        hl.DiffAdd = { bold = true,   fg = "#87d700", bg = "#005f00" }
+        hl.DiffDelete = { bold = true, fg = "#af005f", bg = "#5f0000" }
+        hl.DiffText = { reverse = true,  fg = "#5fffff", bg = "#008787" }
+        hl.DiffChange = { bold = true, fg = "#d0d0d0", bg = "#005f5f" }
+      end
+    }
   },
 
   {
@@ -127,4 +131,3 @@ return {
   },
 
 }
-
