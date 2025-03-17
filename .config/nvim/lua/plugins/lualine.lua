@@ -14,7 +14,7 @@ return {
           globalstatus = false,
         },
         tabline = {
-          lualine_a = {'buffers'},
+          lualine_a = {},
           lualine_b = {'branch'},
           lualine_c = {'filename'},
           lualine_x = {},

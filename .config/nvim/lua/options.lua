@@ -55,6 +55,10 @@ vim.opt.diffopt = {
   "vertical",
 }
 
+-- Sessions
+
+vim.opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 -- Undo and swap files
 vim.opt.undofile = true  -- Save undo history
 vim.opt.updatetime = 250 -- Decrease update time
