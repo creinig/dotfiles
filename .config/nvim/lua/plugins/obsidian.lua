@@ -78,5 +78,6 @@ return {
     vim.keymap.set("n", "<leader>wj", "<cmd>ObsidianToday<CR>", { desc = "Open [J]ournal for today"})
     vim.keymap.set("n", "<leader>wn", "<cmd>ObsidianNew", { desc = "[N]ew note"})
     vim.keymap.set("n", "<leader>wb", "<cmd>ObsidianBacklinks<CR>", { desc = "Show [B]acklinks"})
+    vim.keymap.set("n", "<leader>wt", "<cmd>ObsidianTOC<CR>", { desc = "Show [T]OC"})
   end
 }
