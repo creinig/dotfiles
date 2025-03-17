@@ -227,7 +227,7 @@ return {
       }
 
       -- lua-ls and stylua are not available for termux
-      if(os.getenv("DF_OS") ~= "termux") then
+      if(not string.find(vim.fn.stdpath("config"), "termux")) then
         servers.lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -274,7 +274,7 @@ return {
         -- 'stylua', -- Used to format Lua code
       })
 
-      if(os.getenv("DF_OS") ~= "termux") then
+      if(not string.find(vim.fn.stdpath("config"), "termux")) then
         vim.list_extend(ensure_installed, { 'stylua' })
       end
 
