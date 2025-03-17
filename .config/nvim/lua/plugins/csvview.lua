@@ -21,10 +21,10 @@ return {
     },
     cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
     keys = {
-      { "<leader>tc,", 'CsvViewToggle delimiter=, display_mode=border header_lnum=1 quote_char="', desc = "Toggle [C]SV View with [,] separator" },
-      { "<leader>tc;", 'CsvViewToggle delimiter=; display_mode=border header_lnum=1 quote_char="', desc = "Toggle [C]SV View with [;] separator" },
-      { "<leader>tct", 'CsvViewToggle delimiter=\t display_mode=border header_lnum=1 quote_char="', desc = "Toggle [C]SV View with [T]ab separator" },
-      { "<leader>tcc", 'CsvViewToggle', desc = "Toggle [C]SV View" },
+      { "<leader>tc,", ':CsvViewToggle delimiter=, display_mode=border header_lnum=1 quote_char="<cr>', desc = "Toggle [C]SV View with [,] separator" },
+      { "<leader>tc;", ':CsvViewToggle delimiter=; display_mode=border header_lnum=1 quote_char="<cr>', desc = "Toggle [C]SV View with [;] separator" },
+      { "<leader>tct", ':CsvViewToggle delimiter=\t display_mode=border header_lnum=1 quote_char="<cr>', desc = "Toggle [C]SV View with [T]ab separator" },
+      { "<leader>tcc", ':CsvViewToggle<cr>', desc = "Toggle [C]SV View" },
     },
   }
 }
