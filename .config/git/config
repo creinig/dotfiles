@@ -13,12 +13,16 @@
 [credential]
         helper = cache --timeout=3600
 [merge]
-        tool = nvim -d
+        tool = nvimdiff
 [mergetool]
         keeptemporaries = false
         keepbackups = false
         prompt = false
         trustexitcode = false
+
+[mergetool "nvimdiff"]
+        layout = LOCAL,REMOTE/MERGED
+
 [diff]
         tool = nvim -d
 
