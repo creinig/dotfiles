@@ -93,7 +93,16 @@ setopt hist_reduce_blanks
 
 zstyle ':completion:*' special-dirs true
 # special settings for fzf-tab
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} # set list-colors to enable filename colorizing
+# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ':completion:*' menu no
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} 
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+# set descriptions format to enable group support
+# NOTE: don't use escape sequences (like '%F{red}%d%f') here, fzf-tab will ignore them
+zstyle ':completion:*:descriptions' format '[%d]'
+# switch group using `<` and `>`
+zstyle ':fzf-tab:*' switch-group '<' '>'
 if [[ $DF_OS == 'termux' ]] ; then
     # fzf in termux crashes with preview enabled
     zstyle -d ':fzf-tab:complete:cd:*' fzf-preview 
@@ -102,7 +111,6 @@ elif cmdExists eza ; then
 else
     zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath' # preview directory's content with eza when completing cd
 fi
-
 
 # In the plugins section above the key bindings from oh-my-zsh are loaded.
 # In almost all cases that should be perfectly fine, but here's an additional
@@ -138,4 +146,3 @@ if [[ -d ~/.zsh/local ]] ; then
         source $script
     done
 fi
-
