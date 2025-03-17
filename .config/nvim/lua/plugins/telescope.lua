@@ -68,7 +68,7 @@ return {
 
       -- See `:help telescope.builtin`
       local builtin = require("telescope.builtin")
-      
+
       vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp" })
       vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[F]ind [K]eymaps" })
       vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[F]ind [F]iles" })
@@ -89,7 +89,11 @@ return {
       vim.keymap.set("n", "<leader>fT", builtin.tags, { desc = "[F]ind [T]ags in project" })
       vim.keymap.set("n", "<leader>fo", ':Telescope aerial<cr>', { desc = "[F]ind in [O]utline" })
       vim.keymap.set("n", "<leader>f.", builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
-      vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+
+      -- Find buffers
+      vim.keymap.set("n", "<leader><leader>", function()
+        builtin.buffers({ sort_lastused = true, })
+      end, { desc = "[ ] Find existing buffers" })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set("n", "<leader>/", function()
