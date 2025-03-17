@@ -80,9 +80,9 @@ return {
     vim.keymap.set("n", "<leader>wn", "<cmd>ObsidianNew", { desc = "[N]ew note"})
     vim.keymap.set("n", "<leader>wb", "<cmd>ObsidianBacklinks<CR>", { desc = "Show [B]acklinks"})
     vim.keymap.set("n", "<leader>wt", "<cmd>ObsidianTOC<CR>", { desc = "Show [T]OC"})
-    vim.keymap.set("n", "<leader>wA", [[:.,.s/\v^(- \[.\] )(\(.\))?/\1(A)/<cr>]], { desc = "Set Priority A" })
-    vim.keymap.set("n", "<leader>wB", [[:.,.s/\v^(- \[.\] )(\(.\))?/\1(B)/<cr>]], { desc = "Set Priority B" })
-    vim.keymap.set("n", "<leader>wC", [[:.,.s/\v^(- \[.\] )(\(.\))?/\1(C)/<cr>]], { desc = "Set Priority C" })
-    vim.keymap.set("n", "<leader>wD", [[:.,.s/\v^(- \[.\] )(\(.\))?/\1/<cr>]], { desc = "Clear Priority" })
+    vim.keymap.set({"n", "x"}, "<leader>wA", [[:s/\v^(- \[.\] )(\(.\) )?/\1(A) /<cr>]], { desc = "Set Priority A" })
+    vim.keymap.set({"n", "x"}, "<leader>wB", [[:s/\v^(- \[.\] )(\(.\) )?/\1(B) /<cr>]], { desc = "Set Priority B" })
+    vim.keymap.set({"n", "x"}, "<leader>wC", [[:s/\v^(- \[.\] )(\(.\) )?/\1(C) /<cr>]], { desc = "Set Priority C" })
+    vim.keymap.set({"n", "x"}, "<leader>wD", [[:s/\v^(- \[.\] )(\(.\) )?/\1/<cr>]], { desc = "Clear Priority" })
   end
 }
