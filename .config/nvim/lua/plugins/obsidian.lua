@@ -32,7 +32,7 @@ return {
     },
 
     completion = {
-      nvim_vmp = true,
+      nvim_cmp = true,
     },
 
     mappings = {
