@@ -34,6 +34,10 @@ kms("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]ui
 -- or just use <C-\><C-n> to exit terminal mode
 kms("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
+-- keybinds for diff mode
+kms("n", "<F7>", "]c", { desc = "Move to next change" })
+kms("n", "<S-F7>", "[c", { desc = "Move to previous change" })
+
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
