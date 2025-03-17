@@ -3,8 +3,11 @@
 # top-most EditorConfig file
 root = true
 
-# Unix-style newlines with a newline ending every file
-[*]
+# No global settings because e.g. intellij applies editorconfig
+# over its configured settings
+
+# "normal" sources
+[*.{rb,lua,vim,js,sed,json,snippets}]
 end_of_line = lf
 insert_final_newline = false
 charset = utf-8
@@ -16,8 +19,15 @@ indent_size = 2
 
 # 4 space indentation for shell scripts
 [{.*rc,*.sh}]
+end_of_line = lf
+insert_final_newline = false
+charset = utf-8
+indent_style = space
 indent_size = 4
 
 # Tab indentation (no size specified)
 [Makefile]
+end_of_line = lf
+insert_final_newline = false
+charset = utf-8
 indent_style = tab
