@@ -17,7 +17,12 @@ return {
         merge_tool = {
           layout = "diff3_mixed",
         }
-      }
+      },
+      keymaps = {
+        file_history_panel = {
+          { "n", "gd", "y:DiffviewOpen <C-R>*<cr>", { desc = "Open a DiffView from HEAD to the commit under the cursor" }},
+        },
+      },
     },
     keys = {
       {
@@ -51,4 +56,3 @@ return {
     },
   }
 }
-
