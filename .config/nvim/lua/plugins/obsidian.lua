@@ -32,7 +32,7 @@ return {
     },
 
     completion = {
-      nvim_cmp = true,
+      blink = true,
     },
 
     mappings = {
