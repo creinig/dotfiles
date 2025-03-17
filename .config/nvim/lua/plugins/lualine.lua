@@ -13,7 +13,15 @@ return {
           always_show_tabline = true,
           globalstatus = false,
         },
-        extensions = {}
+        tabline = {
+          lualine_a = {'buffers'},
+          lualine_b = {'branch'},
+          lualine_c = {'filename'},
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = {'tabs'}
+        },
+        extensions = {},
       }
     end
   },
