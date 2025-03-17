@@ -75,6 +75,7 @@ return {
   init = function()
     -- Most used functions
     vim.keymap.set("n", "<leader>wf", "<cmd>ObsidianQuickSwitch<CR>", { desc = "[F]ind notes by name"})
+    vim.keymap.set("n", "<leader>fw", "<cmd>ObsidianQuickSwitch<CR>", { desc = "[F]ind wiki page by name"})
     vim.keymap.set("n", "<leader>wg", "<cmd>ObsidianSearch<CR>", { desc = "[G]rep in all notes"})
     vim.keymap.set("n", "<leader>wj", "<cmd>ObsidianToday<CR>", { desc = "Open [J]ournal for today"})
     vim.keymap.set("n", "<leader>wn", "<cmd>ObsidianNew", { desc = "[N]ew note"})
