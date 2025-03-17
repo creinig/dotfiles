@@ -34,7 +34,7 @@ vim.opt.hlsearch = true   -- Keep matches highlighted.
 -- UI tuning
 vim.opt.showcmd = true     -- Useful e.g. for seeing that the leader is active
 vim.opt.ttyfast = true     -- Faster redrawing.
-vim.opt.lazyredraw = true  -- Only redraw when necessary.
+vim.opt.lazyredraw = false  -- Only redraw when necessary.
 vim.opt.number = true      -- Make line numbers default
 vim.opt.signcolumn = "yes" -- Keep signcolumn on by default
 vim.opt.showmode = false   -- Don't show the mode, since it's already in the status line
