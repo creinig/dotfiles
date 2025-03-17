@@ -245,13 +245,9 @@ return {
       end
 
       -- Set up blink.cmp extra capabilities for all servers
-      local lspconfig = require('lspconfig')
-      for server, config in pairs(servers) do
-        -- passing config.capabilities to blink.cmp merges with the capabilities in your
-        -- `opts[server].capabilities, if you've defined it
-        config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-        lspconfig[server].setup(config)
-      end
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = vim.tbl_deep_extend('force', capabilities, 
+        require('blink.cmp').get_lsp_capabilities({}, false))
 
       -- Ensure the servers and tools above are installed
       --
