@@ -54,10 +54,12 @@ kms("n", "<leader>uw", "mw:%s/\\s\\+$//<cr>`w", { desc = "Remove all trailing wh
 
 kms("n", "<leader>ui", ":DiffChangesDiffToggle<cr>", { desc = "changes since last write" })
 kms("n", "<leader>ud", ":lcd %:p:h<Cr>:pwd<Cr>", { desc = 'cd (local) to current file' })
-kms("n", "<leader>un", ":Neotree<cr>", { desc = "Show [N]eotree" })
 kms("x", "<leader>us", ":sort<cr>", { desc = "Sort selection" })
 kms("n", "<leader>uS", "vip:sort<cr>", { desc = "Sort paragraph" })
 
+kms("n", "<leader>un", function()
+  require("notify").dismiss({ pending = false, silent = false })
+end, { desc = "Dismiss all [N]otifications" })
 
 -- [[Options]]
 
