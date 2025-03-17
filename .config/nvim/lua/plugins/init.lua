@@ -27,20 +27,6 @@ return {
     end
   },
 
-  {
-    'tomtom/ttodo_vim',          -- todo.txt support
-    dependencies = {
-      'tomtom/tlib_vim'           -- required for ttodo_vim
-    },
-    config = function()
-      vim.cmd [[
-        let g:ttodo#dirs = ['~/']
-        let g:ttodo#sort = 'done,-next,-overdue,pri,due,lists,tags,idx'
-        let g:ttodo#ftplugin#add_at_eof = 'false'
-        ]]
-    end
-  },
-
   { -- easily access & handle undo history
     'mbbill/undotree',
     init = function()

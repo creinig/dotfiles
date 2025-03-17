@@ -79,5 +79,8 @@ return {
     vim.keymap.set("n", "<leader>wn", "<cmd>ObsidianNew", { desc = "[N]ew note"})
     vim.keymap.set("n", "<leader>wb", "<cmd>ObsidianBacklinks<CR>", { desc = "Show [B]acklinks"})
     vim.keymap.set("n", "<leader>wt", "<cmd>ObsidianTOC<CR>", { desc = "Show [T]OC"})
+    vim.keymap.set("n", "<leader>wA", [[:.,.s/\v^(- \[.\] )(\(.\))?/\1(A)/<cr>]], { desc = "Set Priority A" })
+    vim.keymap.set("n", "<leader>wB", [[:.,.s/\v^(- \[.\] )(\(.\))?/\1(B)/<cr>]], { desc = "Set Priority B" })
+    vim.keymap.set("n", "<leader>wC", [[:.,.s/\v^(- \[.\] )(\(.\))?/\1(C)/<cr>]], { desc = "Set Priority V" })
   end
 }
