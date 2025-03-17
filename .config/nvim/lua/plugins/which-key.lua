@@ -55,6 +55,7 @@ return {
         { "<leader>tc", group = "[T]ools / [C]SV" },
         { "<leader>o", group = "[O]ptions" },
         { "<leader>u", group = "[U]tility" },
+        { "<leader>R", group = "[R]EST client" },
         { "<leader>g", group = "[G]it", mode = { "n", "v" } },
         { "<leader>gh", group = "[G]it [H]unk", mode = { "n", "v" } },
       },

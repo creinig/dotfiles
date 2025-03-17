@@ -81,3 +81,10 @@ vim.opt.inccommand = "split" -- Preview substitutions live, as you type!
 -- Command mode
 vim.opt.report = 0 -- Always report changed lines.
 vim.opt.completeopt = "menuone,preview,noinsert"
+
+
+vim.filetype.add( {
+  extension = {
+    ['http'] = 'http',
+  },
+})
