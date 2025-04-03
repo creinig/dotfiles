@@ -91,7 +91,8 @@ return {
 
       -- Find buffers
       vim.keymap.set("n", "<leader><leader>", function()
-        builtin.buffers({ sort_lastused = true, })
+        -- the ignore_current_buffer is a workaround. See https://github.com/nvim-telescope/telescope.nvim/issues/3262
+        builtin.buffers({ sort_lastused = true, ignore_current_buffer = true,})
       end, { desc = "[ ] Find existing buffers" })
 
       -- Slightly advanced example of overriding default behavior and theme
