@@ -232,7 +232,7 @@ alias PF="$PS_CMD | fzf --header-lines=1 --layout=reverse --preview='echo {}' --
 
 # Commit, defaulting to the message of the previous commit
 # Useful for multiple commits on the same ticket/issue
-alias gch='git commit -v -c HEAD'
+alias gch='git commit -v -c HEAD --reset-author'
 # Exit the credential cache to make it forget the bad password I just entered
 alias gce='git credential-cache exit'
 
