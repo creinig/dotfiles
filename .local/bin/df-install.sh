@@ -240,6 +240,7 @@ fi
 #
 [[ ! -d ~/.git ]] && ln -s ~/.dotfiles ~/.git
 (cd ~ && git config core.bare false)
+(cd ~ && git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*')
 
 #
 # (x) Final things
@@ -263,5 +264,4 @@ if (( ${#HINTS[@]} > 0 )); then
     log '*' "$hint"
   done
 fi
-
 
