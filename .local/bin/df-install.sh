@@ -257,6 +257,10 @@ if ! command -v nvim &>/dev/null ; then
   HINTS+=("neovim is not installed. The vim config you'll use instead may be outdated")
 fi
 
+if ! command -v which &>/dev/null ; then
+  HINTS+=("'which' is not installed. forgit may crash without it")
+fi
+
 if (( ${#HINTS[@]} > 0 )); then
   echo
   log 'Some issues you might want to take care of:'
@@ -264,4 +268,3 @@ if (( ${#HINTS[@]} > 0 )); then
     log '*' "$hint"
   done
 fi
-
