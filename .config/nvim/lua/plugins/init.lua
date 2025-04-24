@@ -43,10 +43,10 @@ return {
     priority = 1000,
     opts = {
       on_highlights = function(hl, _)
-        hl.DiffAdd = { bold = true,   fg = "#87d700", bg = "#005f00" }
-        hl.DiffDelete = { bold = true, fg = "#af005f", bg = "#5f0000" }
-        hl.DiffText = { reverse = true,  fg = "#5fffff", bg = "#008787" }
-        hl.DiffChange = { bold = true, fg = "#d0d0d0", bg = "#005f5f" }
+        hl.DiffAdd = { bold = true,   fg = "none", bg = "#2e4b2e" }
+        hl.DiffDelete = { bold = true, fg = "none", bg = "#4c1e15" }
+        hl.DiffText = { reverse = true,  fg = "none", bg = "#996d74" }
+        hl.DiffChange = { bold = true, fg = "none", bg = "#45565c" }
       end
     }
   },
