@@ -121,7 +121,8 @@ alias sk="screenkey"
 alias ugi="ug -Q"
 alias ta="tmux a || tmux"
 alias apts='sudo apt install $(apt-cache pkgnames | fzf -m --preview="apt info {}" --preview-window=:hidden --bind=space:toggle-preview)' # credit: http://ix.io/2hgn
-function snap.installed() { snap list --all | awk '/-/{print $1}' | sort | uniq | grep -vhF "$(grep "default-provider:\|base:" /snap/*/current/meta/snap.yaml | awk '{print $NF}')" ; }
+snap.list() { snap list --all | awk '/-/{print $1}' | sort | uniq | grep -vhF "$(grep "default-provider:\|base:" /snap/*/current/meta/snap.yaml | awk '{print $NF}')" ; }
+alias brew.list="brew list --installed-on-request"
 
 # Aliases for managing this dotfile collection
 alias cfg='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
@@ -289,7 +290,6 @@ dirdiff()
 alias dfp="df -h | grep -v -E '^\b(tmpfs|none|udev|/dev/loop|overlay|shm)\b'"
 alias mountp="mount | grep -E '^(/|\w+:)' | grep -v -E 'type (squashfs)'"
 
-alias brew.list="brew list --installed-on-request"
 alias cpv='rsync -ah --info=progress2'
 
 alias tf="terraform"
