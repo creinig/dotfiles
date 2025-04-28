@@ -49,7 +49,7 @@ return {
       {
         "<leader>gH",
         function()
-          toggle_diffview("DiffviewFileHistory % --max-parents=1")
+          toggle_diffview("DiffviewFileHistory --no-merges %")
         end,
         desc = "[G]it [H]istory for current file (without merge commits)",
       },
