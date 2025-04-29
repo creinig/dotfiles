@@ -86,5 +86,6 @@ vim.opt.completeopt = "menuone,preview,noinsert"
 vim.filetype.add( {
   extension = {
     ['http'] = 'http',
+    ['g4'] = 'antlr',
   },
 })
