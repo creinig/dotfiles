@@ -88,5 +88,23 @@ return {
     vim.keymap.set({"n", "x"}, "<leader>wB", [[:s/\v^(- \[.\] )(\(.\) )?/\1(B) /<cr>]], { desc = "Set Priority B" })
     vim.keymap.set({"n", "x"}, "<leader>wC", [[:s/\v^(- \[.\] )(\(.\) )?/\1(C) /<cr>]], { desc = "Set Priority C" })
     vim.keymap.set({"n", "x"}, "<leader>wD", [[:s/\v^(- \[.\] )(\(.\) )?/\1/<cr>]], { desc = "Clear Priority" })
+
+    vim.api.nvim_create_autocmd(
+      { "BufRead", "BufNewFile" },
+      {
+        group = vim.api.nvim_create_augroup("ObsidianTodo", {}),
+        pattern = "Todo.md",
+        callback = function(ev)
+          local groupNameTodoA = "TodoItemA"
+          vim.fn.matchadd(groupNameTodoA, [[- \[ \] (A).*]]) 
+          vim.api.nvim_set_hl(0, groupNameTodoA, { bg = "#441010" })
+
+          local groupNameTodoB = "TodoItemB"
+          vim.fn.matchadd(groupNameTodoB, [[- \[ \] (B).*]]) 
+          vim.api.nvim_set_hl(0, groupNameTodoB, { bg = "#333310" })
+
+        end
+      }
+    )
   end
 }
