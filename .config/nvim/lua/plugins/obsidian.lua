@@ -29,11 +29,17 @@ return {
 
     daily_notes = {
       folder = "journal",
-      default_tags = { "journal" },
+      template = "templates/daily",
     },
 
     completion = {
       blink = true,
+    },
+
+    templates = {
+      folder = "templates",
+      date_format = "%Y-%m-%d",
+      time_format = "%H:%M",
     },
 
     mappings = {
