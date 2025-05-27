@@ -326,7 +326,9 @@ alias httpbin_with_log="docker run -p 80:80 -e GUNICORN_CMD_ARGS=\"--capture-out
 # SSH to a VM that might have the IP of a previous connection, but a different host key
 alias sshvm='ssh -o stricthostkeychecking=no -o addkeystoagent=no'
 
-alias oxker="docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock:ro mrjackwills/oxker"
+if ! cmdExists oxker ; then
+    alias oxker="docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock:ro mrjackwills/oxker"
+fi
 
 # Set better pager for psql (credit: Luciano Andress Martini in https://stackoverflow.com/a/14474666/1814922)
 export PSQL_PAGER="$EDITOR -R -c 'set nomod nolist syntax=sql' -"
