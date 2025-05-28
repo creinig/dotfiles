@@ -245,6 +245,8 @@ alias s="sudo"
 alias se="sudoedit"
 alias sv="SUDO_EDITOR=view sudoedit"
 alias psa="$PS_CMD"
+alias ff="fastfetch --logo none"
+alias ffa="fastfetch --logo none --config all.jsonc"
 
 if cmdExists xdg-open ; then
     alias open="xdg-open"
