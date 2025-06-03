@@ -86,6 +86,7 @@ fi
 
 # Disk Usage Interactive
 if cmdExists dua ; then
+    # source: `brew install dua-cli`
     alias dui="dua interactive"
 elif cmdExists ncdu ; then
     alias dui="ncdu"
