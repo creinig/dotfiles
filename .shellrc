@@ -84,6 +84,16 @@ else
     alias ytdl='echo yt-dlp not installed'
 fi
 
+# Disk Usage Interactive
+if cmdExists dua ; then
+    alias dui="dua interactive"
+elif cmdExists ncdu ; then
+    alias dui="ncdu"
+else
+    alias dui="du -sch"
+fi
+
+
 #
 # functions -------
 #
