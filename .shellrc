@@ -18,7 +18,7 @@ fi
 export EDITOR="$(firstCmdOf nvim vim)"
 export VISUAL="$(firstCmdOf nvim vim)"
 
-BAT_CMD="$(firstCmdOf bat batcat)"
+BAT_CMD="$(firstCmdOf bat batcat)" # https://github.com/sharkdp/bat
 
 if [[ -n $BAT_CMD ]]; then
     alias cat="$BAT_CMD"
@@ -28,7 +28,7 @@ if [[ -n $BAT_CMD ]]; then
     export PAGER="$BAT_CMD"
 fi
 
-if cmdExists nvim ; then
+if cmdExists nvim ; then # https://neovim.io/
     export MANPAGER='nvim +Man!'
 elif [[ -n $BAT_CMD ]]; then
     if man --help 2>&1 | grep -q mandoc ; then
@@ -40,7 +40,7 @@ fi
 
 DIFF_PAGER=less
 DIFF_PAGER_OPTS=""
-if (cmdExists delta && cmdExists git); then
+if (cmdExists delta && cmdExists git); then # https://github.com/dandavison/delta
     git config --global --replace-all core.pager delta
     git config --global --replace-all interactive.diffFilter "delta --color-only --features=interactive"
     DIFF_PAGER="delta"
@@ -50,14 +50,14 @@ if (cmdExists delta && cmdExists git); then
 fi
 
 
-if cmdExists rg; then
+if cmdExists rg; then # https://github.com/BurntSushi/ripgrep
     export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git/"'
 else
     export FZF_DEFAULT_COMMAND='find'
 fi
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-if cmdExists eza; then
+if cmdExists eza; then # https://github.com/eza-community/eza
     LS_CMD='eza --color=auto'
     LL_CMD="$LS_CMD -lbagh --classify --group-directories-first --color-scale all"
     LLM_CMD="$LS_CMD -lbagh --classify --sort=modified  --color-scale all"
@@ -76,7 +76,7 @@ alias wll="watch --color -d $LL_CMD"
 alias wllm="watch --color -d $LLM_CMD --reverse"
 
 
-if cmdExists yt-dlp; then
+if cmdExists yt-dlp; then # https://github.com/yt-dlp/yt-dlp
     alias ytdl='yt-dlp'
 elif cmdExists youtube-dl; then
     alias ytdl='youtube-dl'
@@ -85,8 +85,7 @@ else
 fi
 
 # Disk Usage Interactive
-if cmdExists dua ; then
-    # source: `brew install dua-cli`
+if cmdExists dua ; then # `brew install dua-cli` / https://github.com/Byron/dua-cli
     alias dui="dua interactive"
 elif cmdExists ncdu ; then
     alias dui="ncdu"
@@ -236,12 +235,14 @@ if [[ -n $BAT_CMD ]]; then
 else
     FZF_SHELL_PREVIEW='echo {}'
 fi
+
 alias AG='alias | grep -i --colour=auto'
 alias AF="alias | fzf --layout=reverse --preview='$FZF_SHELL_PREVIEW' --ansi --preview-window=down,3,wrap | awk -F= '{print \$1}'"
 alias EG='env | grep -i --colour=auto'
 alias EF="env | fzf --layout=reverse --preview='$FZF_SHELL_PREVIEW' --preview-window=down,3,wrap | awk -F= '{print \$1}'"
 alias PG="$PS_CMD | grep -i --colour=auto"
 alias PF="$PS_CMD | fzf --header-lines=1 --layout=reverse --preview='echo {}' --preview-window=down,3,wrap | awk '{print \$2}'"
+alias df-extratools="grep -E 'cmdExists|firstCmdOf' ~/.shellrc | grep '#' | grep -v df-extratools | sed -r -e 's/^.*(cmdExists|firstCmdOf) +([a-zA-Z0-9_-]+).*# +(.*)/\2\t\3/' | sort"
 
 # Commit, defaulting to the message of the previous commit
 # Useful for multiple commits on the same ticket/issue
@@ -339,7 +340,7 @@ alias httpbin_with_log="docker run -p 80:80 -e GUNICORN_CMD_ARGS=\"--capture-out
 # SSH to a VM that might have the IP of a previous connection, but a different host key
 alias sshvm='ssh -o stricthostkeychecking=no -o addkeystoagent=no'
 
-if ! cmdExists oxker ; then
+if ! cmdExists oxker ; then # https://github.com/mrjackwills/oxker
     alias oxker="docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock:ro mrjackwills/oxker"
 fi
 
