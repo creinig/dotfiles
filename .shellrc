@@ -100,6 +100,12 @@ elif cmdExists sloccount ; then # https://dwheeler.com/sloccount/
     alias sloc="sloccount"
 fi
 
+# Comprehensive system information
+if cmdExists fastfetch ; then # https://github.com/fastfetch-cli/fastfetch
+    alias ff="fastfetch --logo none"
+    alias ffa="fastfetch --logo none --config all.jsonc"
+fi
+
 #
 # functions -------
 #
@@ -242,12 +248,16 @@ else
     FZF_SHELL_PREVIEW='echo {}'
 fi
 
+# Search in aliases
 alias AG='alias | grep -i --colour=auto'
 alias AF="alias | fzf --layout=reverse --preview='$FZF_SHELL_PREVIEW' --ansi --preview-window=down,3,wrap | awk -F= '{print \$1}'"
+# Search in environment
 alias EG='env | grep -i --colour=auto'
 alias EF="env | fzf --layout=reverse --preview='$FZF_SHELL_PREVIEW' --preview-window=down,3,wrap | awk -F= '{print \$1}'"
+# Search in running processes
 alias PG="$PS_CMD | grep -i --colour=auto"
 alias PF="$PS_CMD | fzf --header-lines=1 --layout=reverse --preview='echo {}' --preview-window=down,3,wrap | awk '{print \$2}'"
+# List optional but useful tools
 alias df-extratools="grep -E 'cmdExists|firstCmdOf' ~/.shellrc | grep '#' | grep -v df-extratools | sed -r -e 's/^.*(cmdExists|firstCmdOf) +([a-zA-Z0-9_-]+).*# +(.*)/\2\t\3/' | sort"
 
 # Commit, defaulting to the message of the previous commit
@@ -263,8 +273,6 @@ alias s="sudo"
 alias se="sudoedit"
 alias sv="SUDO_EDITOR=view sudoedit"
 alias psa="$PS_CMD"
-alias ff="fastfetch --logo none"
-alias ffa="fastfetch --logo none --config all.jsonc"
 
 if cmdExists xdg-open ; then
     alias open="xdg-open"
