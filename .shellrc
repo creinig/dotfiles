@@ -93,6 +93,12 @@ else
     alias dui="du -sch"
 fi
 
+# Counting (Source) Lines of Code
+if cmdExists tokei ; then # https://github.com/XAMPPRocky/tokei
+    alias sloc="tokei --sort code"
+elif cmdExists sloccount ; then # https://dwheeler.com/sloccount/
+    alias sloc="sloccount"
+fi
 
 #
 # functions -------
