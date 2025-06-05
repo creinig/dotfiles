@@ -106,6 +106,7 @@ if cmdExists fastfetch ; then # https://github.com/fastfetch-cli/fastfetch
     alias ffa="fastfetch --logo none --config all.jsonc"
 fi
 
+
 #
 # functions -------
 #
@@ -316,7 +317,11 @@ dirdiff()
 }
 
 # df+mount listing only physical volumes (TODO: also filter out snap mounts)
-alias dfp="df -h | grep -v -E '^\b(tmpfs|none|udev|/dev/loop|overlay|shm)\b'"
+if cmdExists dysk ; then # https://github.com/Canop/dysk
+    alias dfp="dysk"
+else
+    alias dfp="df -h | grep -v -E '^\b(tmpfs|none|udev|/dev/loop|overlay|shm)\b'"
+fi
 alias mountp="mount | grep -E '^(/|\w+:)' | grep -v -E 'type (squashfs)'"
 
 alias cpv='rsync -ah --info=progress2'
