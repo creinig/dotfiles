@@ -252,7 +252,8 @@ export FZF_CTRL_T_OPTS="
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target
-  --preview '$TREE_CMD {} | head -200'"
+  --preview '$TREE_CMD {} | head -200'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 _fzf_comprun() {
   local command=$1
   shift
