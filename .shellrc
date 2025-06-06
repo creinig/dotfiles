@@ -62,18 +62,20 @@ if cmdExists eza; then # https://github.com/eza-community/eza
     LL_CMD="$LS_CMD -lbagh --classify --group-directories-first --color-scale all"
     LLM_CMD="$LS_CMD -lbagh --classify --sort=modified  --color-scale all"
     LL_UNSORTED_CMD="$LS_CMD -lbagh --classify --sort=none --color-scale all"
-    alias tree='eza --tree --level=2 --color=auto'
+    TREE_CMD='eza --tree --level=2 --color=always'
 else
     LS_CMD='ls -F --color=tty'
     LL_CMD="$LS_CMD -lAh --group-directories-first"
     LLM_CMD="$LS_CMD -lAh --sort=time"
     LL_UNSORTED_CMD="$LS_CMD -lAh -U"
+    TREE_CMD='tree -C -L 2'
 fi
 alias ls="$LS_CMD"
 alias ll="$LL_CMD"
 alias llm="$LLM_CMD"
 alias wll="watch --color -d $LL_CMD"
 alias wllm="watch --color -d $LLM_CMD --reverse"
+alias tree="$TREE_CMD"
 
 
 if cmdExists yt-dlp; then # https://github.com/yt-dlp/yt-dlp
@@ -242,13 +244,21 @@ else
     PS_CMD="ps auxw"
 fi
 
-# Can't remember all those aliases / environment vars? Use this to search through them
-if [[ -n $BAT_CMD ]]; then
-    FZF_SHELL_PREVIEW="echo {} | bat --color=always --language=zsh"
-else
-    FZF_SHELL_PREVIEW='echo {}'
-fi
+# Customize fzf shell completion
+export FZF_COMPLETION_DIR_OPTS='--walker dir,follow,hidden'
+_fzf_comprun() {
+  local command=$1
+  shift
 
+  case "$command" in
+    cd)           fzf --preview "$TREE_CMD {} | head -200"   "$@" ;;
+    export|unset) fzf --preview "eval 'echo \$'{}"         "$@" ;;
+    ssh)          fzf --preview 'comm -13 <(ssh -G non-existing-host | sort) <(ssh -G {} | sort)' "$@" ;;
+    *)            fzf --preview 'fzf-preview.sh {}' "$@" ;;
+  esac
+}
+
+# Can't remember all those aliases / environment vars? Use this to search through them
 # Search in aliases
 alias AG='alias | grep -i --colour=auto'
 alias AF="alias | fzf --layout=reverse --preview='$FZF_SHELL_PREVIEW' --ansi --preview-window=down,3,wrap | awk -F= '{print \$1}'"
