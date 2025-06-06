@@ -14,7 +14,6 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     zplug "lib/completion",   from:oh-my-zsh
     zplug "lib/key-bindings", from:oh-my-zsh
 
-    # zplug "Aloxaf/fzf-tab"
     zplug "mafredri/zsh-async"
 
     zplug "sindresorhus/pure", use:pure.zsh, as:theme

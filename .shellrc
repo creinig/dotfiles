@@ -246,6 +246,13 @@ fi
 
 # Customize fzf shell completion
 export FZF_COMPLETION_DIR_OPTS='--walker dir,follow,hidden'
+export FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'fzf-preview.sh {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+export FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview '$TREE_CMD {} | head -200'"
 _fzf_comprun() {
   local command=$1
   shift
