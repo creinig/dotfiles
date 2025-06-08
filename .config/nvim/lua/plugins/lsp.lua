@@ -206,9 +206,11 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         bashls = {},
-        ruby_lsp = {
---          enabled = lsp == "ruby_lsp",
+        solargraph = {
         },
+--         ruby_lsp = {
+-- --          enabled = lsp == "ruby_lsp",
+--         },
         standardrb = {
 --          enabled = formatter == "standardrb",
         }
@@ -268,7 +270,8 @@ return {
         'shellcheck',
         'eslint_d',
         'bash-language-server',
-        'ruby-lsp',
+        -- 'ruby-lsp',
+        'solargraph',
         'sqlfluff',
         -- stylua is not available in termux, resulting in startup errors
         -- 'stylua', -- Used to format Lua code
