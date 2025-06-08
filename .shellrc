@@ -383,6 +383,9 @@ fi
 
 # Set better pager for psql (credit: Luciano Andress Martini in https://stackoverflow.com/a/14474666/1814922)
 export PSQL_PAGER="$EDITOR -R -c 'set nomod nolist syntax=sql' -"
+# Set better pager for ri (ruby docs)
+export RI="--format=markdown"
+export RI_PAGER="$EDITOR -R -c 'set nomod nolist syntax=markdown'"
 
 # More a template for multiple db "aliases"
 pg_local() { psql -h localhost -p 5432 -U "${1:-postgres}" postgres "${@:2}" ; }
