@@ -207,10 +207,11 @@ return {
       local servers = {
         bashls = {},
         solargraph = {
+          init_options = {
+            -- we use standardrb
+            formatting = false,
+          },
         },
---         ruby_lsp = {
--- --          enabled = lsp == "ruby_lsp",
---         },
         standardrb = {
 --          enabled = formatter == "standardrb",
         }
@@ -270,7 +271,6 @@ return {
         'shellcheck',
         'eslint_d',
         'bash-language-server',
-        -- 'ruby-lsp',
         'solargraph',
         'sqlfluff',
         -- stylua is not available in termux, resulting in startup errors
