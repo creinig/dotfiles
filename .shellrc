@@ -335,7 +335,9 @@ dirdiff()
 }
 
 # df+mount listing only physical volumes (TODO: also filter out snap mounts)
-if cmdExists dysk ; then # https://github.com/Canop/dysk
+if cmdExists duf ; then # https://github.com/muesli/duf
+    alias dfp="duf --only local --sort usage"
+elif cmdExists dysk ; then # https://github.com/Canop/dysk
     alias dfp="dysk"
 else
     alias dfp="df -h | grep -v -E '^\b(tmpfs|none|udev|/dev/loop|overlay|shm)\b'"
