@@ -207,6 +207,10 @@ return {
       local servers = {
         bashls = {},
         ruby_lsp = {
+          init_options = {
+            formatter = 'standard',
+            linters = { 'standard' },
+          },
         },
         standardrb = {
 --          enabled = formatter == "standardrb",
