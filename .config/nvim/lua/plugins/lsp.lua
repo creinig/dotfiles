@@ -195,14 +195,15 @@ return {
       local servers = {
         bashls = {},
         ruby_lsp = {
+          filetypes = {'ruby'},
           init_options = {
             formatter = 'standard',
             linters = { 'standard' },
           },
         },
-        standardrb = {
---          enabled = formatter == "standardrb",
-        }
+--         standardrb = {
+-- --          enabled = formatter == "standardrb",
+--         }
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
