@@ -245,6 +245,7 @@ fi
 #
 # (9) Set up yazi packages
 #
+echo
 if command -v yazi >/dev/null 2>&1 ; then
   logDo 'installig yazi packages'
   ya pkg install
