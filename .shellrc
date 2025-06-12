@@ -425,6 +425,16 @@ function md2pdf() {
     pandoc -t pdf -V papersize:a4 -V geometry:a4paper -V fontfamily:sans -V fontsize:12pt -o "${INFILE%.md}.pdf" "$INFILE" && xdg-open "${INFILE%.md}.pdf"
 }
 
+# I always forget the "bundle exec"
+rake() {
+    if [[ -f "Rakefile" ]] && grep -E -q "require[^\w]+bundler" Rakefile ; then
+        echo "Executing 'bundle exec rake' instead"
+        bundle exec rake "$@"
+    else
+        command rake "$@"
+    fi
+}
+
 # Send a command to all TMUX panes in the current session
 # Only affects panes where nothing (except for the shell) is running.
 # Adapted from https://stackoverflow.com/a/51049964/1814922
