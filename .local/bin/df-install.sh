@@ -243,6 +243,17 @@ fi
 (cd ~ && git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*')
 
 #
+# (9) Set up yazi packages
+#
+if command -v yazi >/dev/null 2>&1 ; then
+  logDo 'installig yazi packages'
+  ya pkg install
+else
+  logOk 'yazi is not installed -- skipping setup'
+  HINTS+=("yazi is not installed. No problem, but it's a cool tool")
+fi
+
+#
 # (x) Final things
 #
 if [[ $DF_CHANGED == true ]] ; then
