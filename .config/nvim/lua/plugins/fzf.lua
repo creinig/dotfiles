@@ -2,7 +2,6 @@ return {
   "ibhagwan/fzf-lua",
   -- optional for icon support
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  lazy = false,
   opts = {
     fzf_opts = {
       -- nullify fzf-lua's settings to inherit from FZF_DEFAULT_OPTS
