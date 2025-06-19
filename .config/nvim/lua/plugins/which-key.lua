@@ -49,6 +49,7 @@ return {
         { "<leader>d", group = "[D]iagnostics" },
         { "<leader>r", group = "[R]ename" },
         { "<leader>f", group = "[F]ind" },
+        { "<leader>fd", group = "[F]ind [D]ocumentation" },
         { "<leader>m", group = "[M]ove around" },
         { "<leader>w", group = "[W]iki" },
         { "<leader>t", group = "[T]ools" },
