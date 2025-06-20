@@ -9,9 +9,9 @@ end
 return {
   {
     "sindrets/diffview.nvim",
-    -- command = "DiffviewOpen",
+    cmd = "DiffviewOpen",
     -- cond = is_git_root,
-    lazy = false,
+    -- lazy = false,
     opts = {
       view = {
         merge_tool = {
