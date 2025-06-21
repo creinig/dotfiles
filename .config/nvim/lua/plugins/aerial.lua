@@ -12,8 +12,8 @@ return {
       "nvim-tree/nvim-web-devicons"
     },
     keys = {
-      { "<leader>co", "<cmd>AerialNavToggle<cr>", desc = "Toggle Quick [O]utline" },
-      { "<leader>cO", "<cmd>AerialToggle<cr>", desc = "Toggle [O]utline" },
+      { "<leader>vo", "<cmd>AerialNavToggle<cr>", desc = "[V]iew: Toggle Quick [O]utline" },
+      { "<leader>vO", "<cmd>AerialToggle<cr>", desc = "[V]iew: Toggle [O]utline" },
     }
   }
 }

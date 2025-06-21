@@ -9,5 +9,8 @@ return {
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
+    keys = {
+      { "<leader>vf", "<cmd>Oil<cr>", desc = "[V]iew: [F]ile explorer" },
+    },
   }
 }
