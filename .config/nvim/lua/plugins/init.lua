@@ -4,12 +4,11 @@
 return {
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   'jmcantrell/vim-diffchanges', -- diff changes to buffer since last write
-  'AndrewRadev/linediff.vim', -- diff two visual selections
   'nvim-tree/nvim-web-devicons', -- dependency for others. Hopefully specifying it here will stop it from updating despite the lock
 
   {
-    'prichrd/netrw.nvim', -- small file manager improvements
-    opts = {},
+    'AndrewRadev/linediff.vim', -- diff two visual selections
+    cmd = "Linediff",
   },
 
   {
@@ -72,7 +71,8 @@ return {
     'junegunn/gv.vim',
     dependencies = {
       "tpope/vim-fugitive"
-    }
+    },
+    cmd = "GV",
   },
 
   {
