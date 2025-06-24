@@ -15,6 +15,7 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
     zplug "lib/key-bindings", from:oh-my-zsh
 
     zplug "mafredri/zsh-async"
+    zplug "jeffreytse/zsh-vi-mode"
 
     zplug "sindresorhus/pure", use:pure.zsh, as:theme
     export PURE_GIT_PULL=0 # don't automatically fetch from remote - can be expensive on a mobile hotspot
