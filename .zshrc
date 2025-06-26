@@ -16,6 +16,7 @@ if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
 
     zplug "mafredri/zsh-async"
     zplug "jeffreytse/zsh-vi-mode"
+    zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh') # Fix fzf keybinds
 
     zplug "sindresorhus/pure", use:pure.zsh, as:theme
     export PURE_GIT_PULL=0 # don't automatically fetch from remote - can be expensive on a mobile hotspot
@@ -120,7 +121,7 @@ zle -N edit-command-line
 bindkey '^v' edit-command-line
 
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [[ -d ~/.zsh/local ]] ; then
     for script in ~/.zsh/local/*.zsh ; do
