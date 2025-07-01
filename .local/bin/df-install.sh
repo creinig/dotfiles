@@ -223,8 +223,17 @@ fi
 
 
 #
-# (7) (obsolete, removed) Install zplug
+# (7) Clone / update oh-my-zsh to work around https://github.com/zdharma-continuum/zinit/discussions/651
 #
+echo
+OMZ_DIR="${HOME}/.zsh/ohmyzsh"
+if [[ ! -d "$OMZ_DIR" ]] ; then
+  logDo 'cloning oh-my-zsh'
+  git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git "$OMZ_DIR"
+else
+  logDo 'updating oh-my-zsh'
+  (cd "$OMZ_DIR" && git pull)
+fi
 
 #
 # (8) Ensure this acts as "normal" git repo

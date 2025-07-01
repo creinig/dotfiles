@@ -12,19 +12,21 @@ export PURE_GIT_PULL=0 # don't automatically fetch from remote - can be expensiv
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#505050"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSHZ_DATA=~/.zsh/.z
+OMZ_DIR="$HOME/.zsh/ohmyzsh"
 zstyle ":prompt:pure:host" color red       # highlight when on remote host
 zstyle ":prompt:pure:user:root" color red  # highlight when root
-zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh') # Fix fzf keybinds
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh') # Fix fzf keybinds that may be broken by zsh-vi-mode
 
-# disabled; see https://github.com/zdharma-continuum/zinit/discussions/651
-# zinit ice pick:"*.zsh" pick:"*.sh"
-# zinit snippet OMZP::gitfast
-
-zinit wait lucid for \
-    OMZP::git  \
-    OMZP::mosh \
+# OMZ references are handled a bit strange due to https://github.com/zdharma-continuum/zinit/discussions/651
+# We locally reference the plugins in the OMZ repo clone created by df-install.sh to work aroud the above bug.
+# But for the lib/*.zsh this somehow doesn't work, so we download these separately.
+# Ugly, but works.
+zinit wait for \
+    "$OMZ_DIR/plugins/git"  \
+    "$OMZ_DIR/plugins/gitfast"  \
+    "$OMZ_DIR/plugins/mosh" \
     OMZL::key-bindings.zsh \
-    as:completion OMZL::completion.zsh
+    OMZL::completion.zsh
 
 zinit ice pick:pure.zsh as:theme
 zinit light "sindresorhus/pure"
