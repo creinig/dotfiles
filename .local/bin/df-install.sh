@@ -223,17 +223,8 @@ fi
 
 
 #
-# (7) Install zplug
+# (7) (obsolete, removed) Install zplug
 #
-echo
-if [[ ! -d ~/.zsh/zplug ]] ; then
-  logDo 'installing zplug'
-  mkdir -p ~/.zsh
-  git clone https://github.com/zplug/zplug ~/.zsh/zplug
-  DF_CHANGED=true
-else
-  logOk 'zplug is already installed'
-fi
 
 #
 # (8) Ensure this acts as "normal" git repo
