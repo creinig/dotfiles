@@ -1,57 +1,47 @@
 export SHELL=$(which zsh)
 
-# zplug configuration
+# Plugins --------------------------
 
-if [[ -f ~/.zsh/zplug/init.zsh ]] ; then
-    export ZPLUG_HOME=~/.zsh/zplug
-    . $ZPLUG_HOME/init.zsh
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
-    zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+# settings (env)
+export PURE_GIT_PULL=0 # don't automatically fetch from remote - can be expensive on a mobile hotspot
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#505050"
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSHZ_DATA=~/.zsh/.z
+zstyle ":prompt:pure:host" color red       # highlight when on remote host
+zstyle ":prompt:pure:user:root" color red  # highlight when root
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh') # Fix fzf keybinds
 
-    zplug "plugins/git",      from:oh-my-zsh # git aliases
-    zplug "plugins/gitfast",  from:oh-my-zsh # git completion
-    zplug "plugins/mosh",     from:oh-my-zsh # completion
-    zplug "lib/completion",   from:oh-my-zsh
-    zplug "lib/key-bindings", from:oh-my-zsh
+# disabled; see https://github.com/zdharma-continuum/zinit/discussions/651
+# zinit ice pick:"*.zsh" pick:"*.sh"
+# zinit snippet OMZP::gitfast
 
-    zplug "mafredri/zsh-async"
-    zplug "jeffreytse/zsh-vi-mode"
-    zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh') # Fix fzf keybinds
+zinit wait lucid for \
+    OMZP::git  \
+    OMZP::mosh \
+    OMZL::key-bindings.zsh \
+    as:completion OMZL::completion.zsh
 
-    zplug "sindresorhus/pure", use:pure.zsh, as:theme
-    export PURE_GIT_PULL=0 # don't automatically fetch from remote - can be expensive on a mobile hotspot
-    zstyle ":prompt:pure:host" color red       # highlight when on remote host
-    zstyle ":prompt:pure:user:root" color red  # highlight when root
+zinit ice pick:pure.zsh as:theme
+zinit light "sindresorhus/pure"
 
-    ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#505050"
-    ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-    zplug "zsh-users/zsh-autosuggestions"
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" zdharma-continuum/fast-syntax-highlighting \
+ blockf                                                  zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start"                         zsh-users/zsh-autosuggestions \
+ depth:1                                                 agkozak/zsh-z \
+ depth:1                                                 mafredri/zsh-async \
+ depth:1                                                 jeffreytse/zsh-vi-mode \
 
-    ZSHZ_DATA=~/.zsh/.z
-    zplug "agkozak/zsh-z"
+zinit ice wait lucid as:command, use:"bin/git-forgit"
+zinit light 'wfxr/forgit'
+#export FORGIT_INSTALL_DIR=$(zplug info wfxr/forgit | grep -E 'dir' | sed -E 's#[^"]*"([^"]+)".*#\1#')
 
-    zplug 'wfxr/forgit', as:command, use:"bin/git-forgit"
-    export FORGIT_INSTALL_DIR=$(zplug info wfxr/forgit | grep -E 'dir' | sed -E 's#[^"]*"([^"]+)".*#\1#')
-
-    zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-    zstyle ":zplug:tag" depth 1
-
-    # Install plugins if there are plugins that have not been installed
-    if ! zplug check --verbose; then
-        printf "Install missing plugins? [y/N]: "
-        if read -q; then
-            echo; zplug install
-            chmod -R 0755 ~/.zsh/ # satisfy compaudit
-        fi
-    fi
-
-    # Then, source plugins and add commands to $PATH
-    zplug load # --verbose
-fi
-
-
-# User configuration
+# User configuration --------------------------
 
 . "$HOME/.local/bin/.df-common.sh"
 
@@ -120,6 +110,7 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^v' edit-command-line
 
+autoload -Uz compinit && compinit
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
