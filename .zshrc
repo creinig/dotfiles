@@ -40,9 +40,8 @@ zinit wait lucid depth:1 for \
  depth:1                                                 mafredri/zsh-async \
  depth:1                                                 jeffreytse/zsh-vi-mode \
 
-zinit ice wait lucid depth:1 as:command, use:"bin/git-forgit"
-zinit light 'wfxr/forgit'
-#export FORGIT_INSTALL_DIR=$(zplug info wfxr/forgit | grep -E 'dir' | sed -E 's#[^"]*"([^"]+)".*#\1#')
+# no "wait", because .shellrc checks for the FORGIT_INSTALL_DIR set by it
+zinit ice depth:1 for light-mode 'wfxr/forgit'
 
 # User configuration --------------------------
 
