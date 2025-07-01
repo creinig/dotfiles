@@ -115,7 +115,7 @@ bindkey '^v' edit-command-line
 
 autoload -Uz compinit && compinit
 
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [[ -d ~/.zsh/local ]] ; then
     for script in ~/.zsh/local/*.zsh ; do
