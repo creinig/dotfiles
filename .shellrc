@@ -18,7 +18,7 @@ fi
 export EDITOR="$(firstCmdOf nvim vim)"
 export VISUAL="$(firstCmdOf nvim vim)"
 
-BAT_CMD="$(firstCmdOf bat batcat)" # https://github.com/sharkdp/bat
+BAT_CMD="$(firstCmdOf bat batcat)" # tool: bat https://github.com/sharkdp/bat
 
 if [[ -n $BAT_CMD ]]; then
     alias cat="$BAT_CMD"
@@ -28,7 +28,7 @@ if [[ -n $BAT_CMD ]]; then
     export PAGER="$BAT_CMD"
 fi
 
-if cmdExists nvim ; then # https://neovim.io/
+if cmdExists nvim ; then # tool: neovim https://neovim.io/
     export MANPAGER='nvim +Man!'
 elif [[ -n $BAT_CMD ]]; then
     if man --help 2>&1 | grep -q mandoc ; then
@@ -40,7 +40,7 @@ fi
 
 DIFF_PAGER=less
 DIFF_PAGER_OPTS=""
-if (cmdExists delta && cmdExists git); then # https://github.com/dandavison/delta
+if (cmdExists delta && cmdExists git); then # tool: delta https://github.com/dandavison/delta
     git config --global --replace-all core.pager delta
     git config --global --replace-all interactive.diffFilter "delta --color-only --features=interactive"
     DIFF_PAGER="delta"
@@ -49,15 +49,16 @@ if (cmdExists delta && cmdExists git); then # https://github.com/dandavison/delt
     fancydiff() { diff "$@" -u | delta --side-by-side ; }
 fi
 
-
-if cmdExists rg; then # https://github.com/BurntSushi/ripgrep
+if cmdExists fd; then   # tool: fd https://github.com/sharkdp/fd
+    export FZF_DEFAULT_COMMAND='fd --type=file --hidden --exclude=".git/"'
+elif cmdExists rg; then # tool: ripgrep https://github.com/BurntSushi/ripgrep
     export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git/"'
 else
     export FZF_DEFAULT_COMMAND='find'
 fi
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-if cmdExists eza; then # https://github.com/eza-community/eza
+if cmdExists eza; then # tool: eza https://github.com/eza-community/eza
     LS_CMD='eza --color=auto'
     LL_CMD="$LS_CMD -lbagh --classify --group-directories-first --color-scale all"
     LLM_CMD="$LS_CMD -lbagh --classify --sort=modified  --color-scale all"
@@ -78,7 +79,7 @@ alias wllm="watch --color -d $LLM_CMD --reverse"
 alias tree="$TREE_CMD"
 
 
-if cmdExists yt-dlp; then # https://github.com/yt-dlp/yt-dlp
+if cmdExists yt-dlp; then # tool: yt-dlp https://github.com/yt-dlp/yt-dlp
     alias ytdl='yt-dlp'
 elif cmdExists youtube-dl; then
     alias ytdl='youtube-dl'
@@ -87,23 +88,23 @@ else
 fi
 
 # Disk Usage Interactive
-if cmdExists dua ; then # `brew install dua-cli` / https://github.com/Byron/dua-cli
+if cmdExists dua ; then # tool: dua https://github.com/Byron/dua-cli
     alias dui="dua interactive"
 elif cmdExists ncdu ; then
-    alias dui="ncdu"
+    alias dui="ncdu"    # tool: ncdu https://dev.yorhel.nl/ncdu
 else
     alias dui="du -sch"
 fi
 
 # Counting (Source) Lines of Code
-if cmdExists tokei ; then # https://github.com/XAMPPRocky/tokei
+if cmdExists tokei ; then # tool: tokei https://github.com/XAMPPRocky/tokei
     alias sloc="tokei --sort code"
-elif cmdExists sloccount ; then # https://dwheeler.com/sloccount/
+elif cmdExists sloccount ; then # tool: sloccount https://dwheeler.com/sloccount/
     alias sloc="sloccount"
 fi
 
 # Comprehensive system information
-if cmdExists fastfetch ; then # https://github.com/fastfetch-cli/fastfetch
+if cmdExists fastfetch ; then # tool: fastfetch https://github.com/fastfetch-cli/fastfetch
     alias ff="fastfetch --logo none"
     alias ffa="fastfetch --logo none --config all.jsonc"
 fi
@@ -144,7 +145,7 @@ alias kgall="kubectl get all,ing,pv,pvc"
 alias kgallw="kubectl get all,ing,pv,pvc -o wide"
 alias mydstat="dstat -lcdfmnp -C total --disk-util"
 alias sk="screenkey"
-alias ugi="ug -Q '--view=$EDITOR -R'"
+alias ugi="ug -Q '--view=$EDITOR -R'" # tool: ugrep https://github.com/Genivia/ugrep
 alias ta="tmux a || tmux"
 alias apts='sudo apt install $(apt-cache pkgnames | fzf -m --preview="apt info {}" --preview-window=:hidden --bind=space:toggle-preview)' # credit: http://ix.io/2hgn
 snap.list() { snap list --all | awk '/-/{print $1}' | sort | uniq | grep -vhF "$(grep "default-provider:\|base:" /snap/*/current/meta/snap.yaml | awk '{print $NF}')" ; }
@@ -277,7 +278,7 @@ alias EF="env | fzf --layout=reverse --preview='$FZF_SHELL_PREVIEW' --preview-wi
 alias PG="$PS_CMD | grep -i --colour=auto"
 alias PF="$PS_CMD | fzf --header-lines=1 --layout=reverse --preview='echo {}' --preview-window=down,3,wrap | awk '{print \$2}'"
 # List optional but useful tools
-alias df-extratools="grep -E 'cmdExists|firstCmdOf' ~/.shellrc | grep '#' | grep -v df-extratools | sed -r -e 's/^.*(cmdExists|firstCmdOf) +([a-zA-Z0-9_-]+).*# +(.*)/\2\t\3/' | sort"
+alias df-extratools="grep -v df-extratols ~/.shellrc | grep -E -o '# tool:.*\$' | awk '{ printf(\"%-20s %s\\n\", \$3, \$4) }' | sort"
 
 # Commit, defaulting to the message of the previous commit
 # Useful for multiple commits on the same ticket/issue
@@ -335,9 +336,9 @@ dirdiff()
 }
 
 # df+mount listing only physical volumes (TODO: also filter out snap mounts)
-if cmdExists duf ; then # https://github.com/muesli/duf
+if cmdExists duf ; then # tool: duf https://github.com/muesli/duf
     alias dfp="duf --only local --sort usage"
-elif cmdExists dysk ; then # https://github.com/Canop/dysk
+elif cmdExists dysk ; then # tool: dysk https://github.com/Canop/dysk
     alias dfp="dysk"
 else
     alias dfp="df -h | grep -v -E '^\b(tmpfs|none|udev|/dev/loop|overlay|shm)\b'"
@@ -379,7 +380,7 @@ alias httpbin_with_log="docker run -p 80:80 -e GUNICORN_CMD_ARGS=\"--capture-out
 # SSH to a VM that might have the IP of a previous connection, but a different host key
 alias sshvm='ssh -o stricthostkeychecking=no -o addkeystoagent=no'
 
-if ! cmdExists oxker ; then # https://github.com/mrjackwills/oxker
+if ! cmdExists oxker ; then # tool: oxker https://github.com/mrjackwills/oxker
     alias oxker="docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock:ro mrjackwills/oxker"
 fi
 
