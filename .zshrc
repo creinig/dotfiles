@@ -4,7 +4,7 @@ export SHELL=$(which zsh)
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+[ ! -d $ZINIT_HOME/.git ] && git clone --depth=1 https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
 # settings (env)
@@ -21,17 +21,18 @@ zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh') # Fix fzf ke
 # We locally reference the plugins in the OMZ repo clone created by df-install.sh to work aroud the above bug.
 # But for the lib/*.zsh this somehow doesn't work, so we download these separately.
 # Ugly, but works.
-zinit wait for \
+zinit wait lucid for \
     "$OMZ_DIR/plugins/git"  \
     "$OMZ_DIR/plugins/gitfast"  \
     "$OMZ_DIR/plugins/mosh" \
     OMZL::key-bindings.zsh \
     OMZL::completion.zsh
 
-zinit ice pick:pure.zsh as:theme
+zinit ice pick:pure.zsh as:theme depth:1
 zinit light "sindresorhus/pure"
 
-zinit wait lucid for \
+# The "depth:1 in the individual lines is just to allow for easier alignment
+zinit wait lucid depth:1 for \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" zdharma-continuum/fast-syntax-highlighting \
  blockf                                                  zsh-users/zsh-completions \
  atload"!_zsh_autosuggest_start"                         zsh-users/zsh-autosuggestions \
@@ -39,7 +40,7 @@ zinit wait lucid for \
  depth:1                                                 mafredri/zsh-async \
  depth:1                                                 jeffreytse/zsh-vi-mode \
 
-zinit ice wait lucid as:command, use:"bin/git-forgit"
+zinit ice wait lucid depth:1 as:command, use:"bin/git-forgit"
 zinit light 'wfxr/forgit'
 #export FORGIT_INSTALL_DIR=$(zplug info wfxr/forgit | grep -E 'dir' | sed -E 's#[^"]*"([^"]+)".*#\1#')
 
