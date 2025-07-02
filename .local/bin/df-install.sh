@@ -113,7 +113,7 @@ function install() {
 if $DO_UPDATE ; then
   last_commit=$(config log -n 1 --format=oneline)
   log "Updating the installation"
-  config pull
+  config pull || exit 1
   if [[ "$last_commit" != $(config log -n 1 --format=oneline) ]] ; then
     DF_CHANGED=true
   fi
