@@ -41,7 +41,7 @@ zinit wait lucid depth:1 for \
  depth:1                                                 jeffreytse/zsh-vi-mode \
 
 # no "wait", because .shellrc checks for the FORGIT_INSTALL_DIR set by it
-zinit ice depth:1 for light-mode 'wfxr/forgit'
+zinit depth:1 for light-mode 'wfxr/forgit'
 
 # User configuration --------------------------
 
