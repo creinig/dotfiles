@@ -13,9 +13,9 @@ DF_CHANGED=false
 
 if [[ -t 1 ]]; then
   LOG_START='\e[1m'
-  LOG_INFO='\e[96m'
+  LOG_INFO='\e[33m'
   LOG_OK='\e[32m'
-  LOG_DO='\e[33m'
+  LOG_DO='\e[96m'
   LOG_ERR='\e[31m'
   LOG_END='\e[0m'
 fi
