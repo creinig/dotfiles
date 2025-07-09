@@ -14,7 +14,7 @@ return {
   ---@module "neo-tree"
   ---@type neotree.Config?
   keys = {
-    { "<leader>vf", "<cmd>Neotree<cr>", desc = "[V]iew [F]ile navigator" },
+    { "<leader>vF", "<cmd>Neotree<cr>", desc = "[V]iew [F]ile navigator sidebar" },
   },
   opts = {
     filesystem = {
