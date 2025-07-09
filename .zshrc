@@ -28,20 +28,23 @@ zinit wait lucid for \
     OMZL::key-bindings.zsh \
     OMZL::completion.zsh
 
-zinit ice pick:pure.zsh as:theme depth:1
-zinit light "sindresorhus/pure"
 
 # The "depth:1 in the individual lines is just to allow for easier alignment
 zinit wait lucid depth:1 for \
- atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" zdharma-continuum/fast-syntax-highlighting \
- blockf                                                  zsh-users/zsh-completions \
- atload"!_zsh_autosuggest_start"                         zsh-users/zsh-autosuggestions \
- depth:1                                                 agkozak/zsh-z \
- depth:1                                                 mafredri/zsh-async \
- depth:1                                                 jeffreytse/zsh-vi-mode \
+  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" zdharma-continuum/fast-syntax-highlighting \
+  blockf                                                  zsh-users/zsh-completions \
+  atload"!_zsh_autosuggest_start"                         zsh-users/zsh-autosuggestions \
+  depth:1                                                 agkozak/zsh-z \
+  depth:1                                                 mafredri/zsh-async \
 
-# no "wait", because .shellrc checks for the FORGIT_INSTALL_DIR set by it
-zinit depth:1 for light-mode 'wfxr/forgit'
+# no "wait":
+# - .shellrc checks for the FORGIT_INSTALL_DIR set by it
+# - vi-mode init needs to happen right away to work on the first prompt
+# - pure defines the prompt
+zinit depth:1 for \
+  light-mode                        'wfxr/forgit' \
+  light-mode                        'jeffreytse/zsh-vi-mode' \
+  light-mode pick:pure.zsh as:theme 'sindresorhus/pure'
 
 # User configuration --------------------------
 
