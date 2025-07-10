@@ -15,7 +15,6 @@ ZSHZ_DATA=~/.zsh/.z
 OMZ_DIR="$HOME/.zsh/ohmyzsh"
 zstyle ":prompt:pure:host" color red       # highlight when on remote host
 zstyle ":prompt:pure:user:root" color red  # highlight when root
-zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh') # Fix fzf keybinds that may be broken by zsh-vi-mode
 
 # OMZ references are handled a bit strange due to https://github.com/zdharma-continuum/zinit/discussions/651
 # We locally reference the plugins in the OMZ repo clone created by df-install.sh to work aroud the above bug.
@@ -39,12 +38,10 @@ zinit wait lucid depth:1 for \
 # no "wait":
 # - .shellrc checks for the FORGIT_INSTALL_DIR set by it
 # - OMZL::key-bindings overwrites bindings for vi-mode, fzf etc if delayed
-# - vi-mode init needs to happen right away to work on the first prompt
 # - pure defines the prompt
 zinit depth:1 for \
   light-mode                        'wfxr/forgit' \
   light-mode                        'OMZL::key-bindings.zsh' \
-  light-mode                        'jeffreytse/zsh-vi-mode' \
   light-mode pick:pure.zsh as:theme 'sindresorhus/pure'
 
 # User configuration --------------------------
