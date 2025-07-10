@@ -15,7 +15,7 @@ ZSHZ_DATA=~/.zsh/.z
 OMZ_DIR="$HOME/.zsh/ohmyzsh"
 zstyle ":prompt:pure:host" color red       # highlight when on remote host
 zstyle ":prompt:pure:user:root" color red  # highlight when root
-zvm_after_init_commands+=('command -v fzf >/dev/null 2>&1 && source <(fzf --zsh)') # Fix fzf keybinds that may be broken by zsh-vi-mode
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh') # Fix fzf keybinds that may be broken by zsh-vi-mode
 
 # OMZ references are handled a bit strange due to https://github.com/zdharma-continuum/zinit/discussions/651
 # We locally reference the plugins in the OMZ repo clone created by df-install.sh to work aroud the above bug.
@@ -118,7 +118,7 @@ bindkey '^v' edit-command-line
 
 autoload -Uz compinit && compinit
 
-command -v fzf >/dev/null 2>&1 && source <(fzf --zsh)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [[ -d ~/.zsh/local ]] ; then
     for script in ~/.zsh/local/*.zsh ; do
