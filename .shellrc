@@ -360,6 +360,7 @@ if cmdExists nvim ; then
 fi
 
 alias v="$EDITOR"
+alias vd='$EDITOR -d'
 alias vs='$EDITOR ~/.shellrc'
 alias vl='$EDITOR ~/.zsh/local/*'
 alias vv='$EDITOR ~/.vimrc'
