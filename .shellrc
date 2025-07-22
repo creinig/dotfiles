@@ -41,8 +41,8 @@ fi
 DIFF_PAGER=less
 DIFF_PAGER_OPTS=""
 if (cmdExists delta && cmdExists git); then # tool: delta https://github.com/dandavison/delta
-    git config --global -f ~/.gitconfig --replace-all core.pager delta
-    git config --global -f ~/.gitconfig --replace-all interactive.diffFilter "delta --color-only --features=interactive"
+    git config -f ~/.gitconfig --replace-all core.pager delta
+    git config -f ~/.gitconfig --replace-all interactive.diffFilter "delta --color-only --features=interactive"
     DIFF_PAGER="delta"
     DIFF_PAGER_OPTS="--side-by-side"
 
