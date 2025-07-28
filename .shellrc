@@ -137,7 +137,7 @@ LS_COLORS="no=00:fi=00:di=01;37:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 export LS_COLORS=$(echo -n "$LS_COLORS" | tr -d '[:space:]')
 
 #
-# aliases ---------
+# aliases and alias-like functions ---------
 #
 
 
@@ -189,6 +189,8 @@ if [[ "$FORGIT_INSTALL_DIR" != "" ]] ; then
   alias giss='git forgit stash_show'
 fi
 
+# AWS
+
 alias aws.ec2.list="aws ec2 describe-instances \
     --query \"sort_by(Reservations[*].Instances[*].{A_Name:not_null(Tags[?Key=='Name']|[0].Value,Tags[?Key=='eks:nodegroup-name']|[0].Value, 'NO NAME'),\
               InstanceId:InstanceId,PrivateIP:PrivateIpAddress,PublicIP:PublicIpAddress,\
@@ -238,6 +240,16 @@ aws.tunnelRemote() {
 
 alias aws.ssm="aws ssm start-session --target"
 alias aws.tunnelssh="aws ssm start-session --document-name AWS-StartPortForwardingSession --parameters '{\"portNumber\":[\"22\"], \"localPortNumber\":[\"4222\"]}' --target"
+
+# Azure DevOps
+
+alias azdo.repo.list="az repos list --query '[].[name, sshUrl]' | jq -r '.[] | @tsv'"
+azdo.repo.clone() {
+    NAME=$1
+    SSHURL=$(azdo.repo.list | fzf --query "$NAME" | cut -f 2)
+    git clone "$SSHURL"
+}
+
 
 # ps on mac doesn't support the "F" option
 if ps -eFwH >/dev/null 2>&1 ; then
