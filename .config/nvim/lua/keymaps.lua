@@ -61,6 +61,22 @@ kms("n", "<leader>un", function()
   require("notify").dismiss({ pending = false, silent = false })
 end, { desc = "Dismiss all [N]otifications" })
 
+-- Based on https://www.reddit.com/r/neovim/comments/1m9iyem/comment/n58cnee/ by /u/Alarming_Oil5419
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"sh", "bash", "zsh"},
+  desc = "Set keymaps to format shell command",
+  callback = function(args)
+    vim.keymap.set("v", "<leader>uf",
+      [[:s/&&/\\\r\&\&/ge|'<,'>s/--/\\\r --/ge|'<,'>s/ -\(\w\w*\)/ \\\r -\1/ge<cr>]],
+      { buffer = args.buf,
+      desc = "[F]ormat shell command" })
+    vim.keymap.set("n", "<leader>uf",
+      [[V:s/&&/\\\r\&\&/ge|'<,'>s/--/\\\r --/ge|'<,'>s/ -\(\w\w*\)/ \\\r -\1/ge<cr>]],
+      { buffer = args.buf,
+      desc = "[F]ormat shell command" })
+  end,
+})
+
 -- [[Options]]
 
 
