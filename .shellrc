@@ -301,7 +301,7 @@ alias EG='env | grep -i --colour=auto'
 EF() { env -0 | fzf --read0 --preview="$FZF_ENV_PREVIEW" --preview-window=down,5,wrap | cut -d '=' -f 1 ; }
 # Search in running processes
 alias PG="$PS_CMD | grep -i --colour=auto"
-PF() { $PS_CMD | fzf --header-lines=1 --preview='echo {}' --preview-window=down,5,wrap | awk '{print \$2}' ; }
+PF() { eval $PS_CMD | fzf --header-lines=1 --preview='echo {}' --preview-window=down,5,wrap | awk '{print $2}' ; }
 # List optional but useful tools
 alias df-extratools="grep -v df-extratols ~/.shellrc | grep -E -o '# tool:.*\$' | awk '{ printf(\"%-20s %s\\n\", \$3, \$4) }' | sort"
 
