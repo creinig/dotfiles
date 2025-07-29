@@ -293,9 +293,9 @@ else
 fi
 # Search in aliases
 alias AG='alias | grep -i --colour=auto'
-AF() { eval "$(alias | fzf --layout=reverse --preview="$FZF_ALIAS_PREVIEW" --ansi --preview-window=down,5,wrap | cut -d '=' -f 1)" ; }
+AF() { eval "$(alias | fzf --layout=reverse --preview="$FZF_ALIAS_PREVIEW" --ansi --preview-window=down,5,wrap --info-command='echo "<enter>: run aliased command"' | cut -d '=' -f 1)" ; }
 # Search in commands, aliases, functions & execute the found one (only works in zsh)
-CF() { eval "$(compgen -c -a -A Function | fzf --preview="$FZF_CMD_PREVIEW" --ansi --preview-window=down,5,wrap )" ; }
+CF() { eval "$(compgen -c -a -A Function | fzf --preview="$FZF_CMD_PREVIEW" --ansi --preview-window=down,5,wrap --info-command='echo "<enter>: run selected command"' )" ; }
 # Search in environment
 alias EG='env | grep -i --colour=auto'
 EF() { env -0 | fzf --read0 --layout=reverse --preview="$FZF_ENV_PREVIEW" --preview-window=down,5,wrap | cut -d '=' -f 1 ; }
@@ -424,7 +424,7 @@ pg_local() { psql -h localhost -p 5432 -U "${1:-postgres}" postgres "${@:2}" ; }
 # --external-sources: Allow 'source' outside of FILES
 # -e SC1090: ignore "Cannot follow dynamically sourced file"
 # -e SC2034: ignore "Variable X seems unused"
-export SHELLCHECK_OPTS="--check-sourced --external-sources -e SC1090 -e SC2034"
+export SHELLCHECK_OPTS="--check-sourced --external-sources -e SC1090 -e SC2034 -e SC2139"
 
 # Default settings for bc
 export BC_ENV_ARGS="$HOME/.bc"
