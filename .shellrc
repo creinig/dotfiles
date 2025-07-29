@@ -243,10 +243,11 @@ alias aws.tunnelssh="aws ssm start-session --document-name AWS-StartPortForwardi
 
 # Azure DevOps
 
-alias azdo.repo.list="az repos list --query '[].[name, sshUrl]' | jq -r '.[] | @tsv'"
+azdo.project() { az devops configure --defaults project="$1" ; }
+alias azdo.repo.list="az repos list --query '[].{Name: name, sshUrl: sshUrl}' -o table"
 azdo.repo.clone() {
     NAME=$1
-    SSHURL=$(azdo.repo.list | fzf --query "$NAME" | cut -f 2)
+    SSHURL=$(az repos list --query '[].[name, sshUrl]' | jq -r '.[] | @tsv' | fzf --query "$NAME" | cut -f 2)
     git clone "$SSHURL"
 }
 
