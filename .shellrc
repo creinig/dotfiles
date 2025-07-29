@@ -281,16 +281,27 @@ _fzf_comprun() {
   esac
 }
 
-# Can't remember all those aliases / environment vars? Use this to search through them
+# Can't remember all those aliases / functions / environment vars? Use thhese to search through them
+if [[ -n $BAT_CMD ]]; then
+    export FZF_ALIAS_PREVIEW="echo {} | sed -r -e \"s/^[^=]+='?//\" -e \"s/'$//\" | $BAT_CMD --color=always --language=zsh"
+    export FZF_CMD_PREVIEW="source ~/.shellrc ; set -o pipefail ; (typeset -f {} || alias {} | cut -d '=' -f 2 | sed -r -e \"s/^[^=]+='?//\" -e \"s/'$//\" || command -v {}) | $BAT_CMD --color=always --language=zsh"
+    export FZF_ENV_PREVIEW="echo {} | $BAT_CMD --color=always --language=zsh"
+else
+    export FZF_ALIAS_PREVIEW="echo {} | sed -r -e \"s/^[^=]+='?//\" -e \"s/'$//\""
+    export FZF_CMD_PREVIEW="source ~/.shellrc ; set -o pipefail ; (typeset -f {} || alias {} | cut -d '=' -f 2 | sed -r -e \"s/^[^=]+='?//\" -e \"s/'$//\" || command -v {})"
+    export FZF_ENV_PREVIEW="echo {}"
+fi
 # Search in aliases
 alias AG='alias | grep -i --colour=auto'
-alias AF="alias | fzf --layout=reverse --preview='$FZF_SHELL_PREVIEW' --ansi --preview-window=down,3,wrap | awk -F= '{print \$1}'"
+AF() { eval "$(alias | fzf --layout=reverse --preview="$FZF_ALIAS_PREVIEW" --ansi --preview-window=down,5,wrap | cut -d '=' -f 1)" ; }
+# Search in commands, aliases, functions & execute the found one (only works in zsh)
+CF() { eval "$(compgen -c -a -A Function | fzf --preview="$FZF_CMD_PREVIEW" --ansi --preview-window=down,5,wrap )" ; }
 # Search in environment
 alias EG='env | grep -i --colour=auto'
-alias EF="env | fzf --layout=reverse --preview='$FZF_SHELL_PREVIEW' --preview-window=down,3,wrap | awk -F= '{print \$1}'"
+EF() { env -0 | fzf --read0 --layout=reverse --preview="$FZF_ENV_PREVIEW" --preview-window=down,5,wrap | cut -d '=' -f 1 ; }
 # Search in running processes
 alias PG="$PS_CMD | grep -i --colour=auto"
-alias PF="$PS_CMD | fzf --header-lines=1 --layout=reverse --preview='echo {}' --preview-window=down,3,wrap | awk '{print \$2}'"
+PF() { $PS_CMD | fzf --header-lines=1 --layout=reverse --preview='echo {}' --preview-window=down,5,wrap | awk '{print \$2}' ; }
 # List optional but useful tools
 alias df-extratools="grep -v df-extratols ~/.shellrc | grep -E -o '# tool:.*\$' | awk '{ printf(\"%-20s %s\\n\", \$3, \$4) }' | sort"
 
