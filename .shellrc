@@ -243,6 +243,12 @@ alias aws.tunnelssh="aws ssm start-session --document-name AWS-StartPortForwardi
 
 # Azure DevOps
 
+export AZDO_PIPELINE_COLORS='
+     /canceled/ { printf "\033[38;5;243m" }
+     /failed/ { printf "\033[38;5;124m" }
+     /succeeded/ {printf "\033[38;5;40m" }
+     // { print $0 "\033[0m"; }'
+alias azdo.pipeline.runs='az pipelines runs list --top 20 --output table | awk "$AZDO_PIPELINE_COLORS"'
 azdo.project() { az devops configure --defaults project="$1" ; }
 alias azdo.repo.list="az repos list --query '[].{Name: name, Size: size, Project: project.name, SSH: sshUrl}' -o table"
 azdo.repo.clone() {
