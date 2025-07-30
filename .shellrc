@@ -300,11 +300,11 @@ _fzf_comprun() {
 # Can't remember all those aliases / functions / environment vars? Use thhese to search through them
 if [[ -n $BAT_CMD ]]; then
     export FZF_ALIAS_PREVIEW="echo {} | sed -r -e \"s/^[^=]+='?//\" -e \"s/'$//\" | $BAT_CMD --color=always --language=zsh"
-    export FZF_CMD_PREVIEW="source ~/.shellrc ; set -o pipefail ; (typeset -f {} || alias {} | cut -d '=' -f 2 | sed -r -e \"s/^[^=]+='?//\" -e \"s/'$//\" || command -v {}) | $BAT_CMD --color=always --language=zsh"
+    export FZF_CMD_PREVIEW="source ~/.shellrc ; set -o pipefail ; (typeset -f {} || alias {} | sed -r -e \"s/^[^=]+='?//\" -e \"s/'$//\" || command -v {}) | $BAT_CMD --color=always --language=zsh"
     export FZF_ENV_PREVIEW="echo {} | $BAT_CMD --color=always --language=zsh"
 else
     export FZF_ALIAS_PREVIEW="echo {} | sed -r -e \"s/^[^=]+='?//\" -e \"s/'$//\""
-    export FZF_CMD_PREVIEW="source ~/.shellrc ; set -o pipefail ; (typeset -f {} || alias {} | cut -d '=' -f 2 | sed -r -e \"s/^[^=]+='?//\" -e \"s/'$//\" || command -v {})"
+    export FZF_CMD_PREVIEW="source ~/.shellrc ; set -o pipefail ; (typeset -f {} || alias {} | sed -r -e \"s/^[^=]+='?//\" -e \"s/'$//\" || command -v {})"
     export FZF_ENV_PREVIEW="echo {}"
 fi
 # Search in aliases
