@@ -248,7 +248,16 @@ export AZDO_PIPELINE_COLORS='
      /failed/ { printf "\033[38;5;124m" }
      /succeeded/ {printf "\033[38;5;40m" }
      // { print $0 "\033[0m"; }'
-alias azdo.pipeline.runs='az pipelines runs list --top 20 --query "[].{ID: id, Start: startTime, Finish: finishTime, Repo: repository.name, Branch: sourceBranch, Status: status, Result: result, Trigger: reason, TriggerBy: lastChangedBy.displayName}" -o table | awk "$AZDO_PIPELINE_COLORS"'
+     azdo.pipeline.runs() {
+         SELECTOR=""
+         if [[ -n $2 ]] ; then
+             SELECTOR="?repository.name == \`$1\` && contains(sourceBranch, \`$2\`)"
+         elif [[ -n $1 ]] ; then
+             SELECTOR="?repository.name == \`$1\`"
+         fi
+        
+         az pipelines runs list --top 20 --query "[$SELECTOR].{ID: id, Start: startTime, Finish: finishTime, Repo: repository.name, Branch: sourceBranch, Status: status, Result: result, Trigger: reason, TriggerBy: lastChangedBy.displayName}" -o table | awk "$AZDO_PIPELINE_COLORS"
+     }
 alias azdo.pipeline.openrun='az pipelines runs show --open -o table --id '
 azdo.project() { az devops configure --defaults project="$1" ; }
 alias azdo.repo.list="az repos list --query '[].{Name: name, Size: size, Project: project.name, SSH: sshUrl}' -o table"
