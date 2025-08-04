@@ -7,6 +7,10 @@ prependToPath "$HOME/.local/bin"
 appendToPath "${HOME}/.krew/bin"
 appendToPath "${HOME}/.cargo/bin"
 
+# Add my misctools if they are present
+appendToPath "$HOME/git/misctools/exe"
+appendToPath "$HOME/git/oss/misctools/exe"
+
 if [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] ; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
