@@ -247,37 +247,7 @@ alias aws.tunnelssh="aws ssm start-session --document-name AWS-StartPortForwardi
 
 # Azure DevOps
 
-azdo.pipeline.runs() {
-    if [[ $1 == "--help" ]] ; then
-        echo "Usage: $0 [repo [branch_substr]]"
-        echo
-        echo "Will list all matching pipeline runs, display them with fzf and open the selected one in the browser"
-        return
-    fi
-
-    AZDO_PIPELINE_COLORS='
-     /canceled/  { printf "\033[38;5;243m" }
-     /failed/    { printf "\033[38;5;124m" }
-     /succeeded/ { printf "\033[38;5;40m" }
-     //          { print $0 "\033[0m"; }'
-
-    SELECTOR=""
-    if [[ -n $2 ]] ; then
-        SELECTOR="?repository.name == \`$1\` && contains(sourceBranch, \`$2\`)"
-    elif [[ -n $1 ]] ; then
-        SELECTOR="?repository.name == \`$1\`"
-    fi
-
-    PIPELINE_ID=$(cat \
-        <(az pipelines runs list --top 20 --query "[$SELECTOR].{ID: id, Start: startTime, Finish: finishTime, Repo: repository.name, Branch: sourceBranch, Status: status, Result: result, Trigger: reason, TriggerBy: lastChangedBy.displayName}" -o table | awk "$AZDO_PIPELINE_COLORS") \
-        | fzf --ansi --info-command='echo "<enter>: open in browser / <ctrl-c>: exit"' \
-        | cut -d ' ' -f 1 \
-    )
-
-    if [[ -n $PIPELINE_ID ]] ; then
-        az pipelines runs show --open -o table --id "$PIPELINE_ID"
-    fi
-}
+# azdo.pipeline.runs has been moved to misctools
 azdo.project() { az devops configure --defaults project="$1" ; }
 alias azdo.repo.list="az repos list --query '[].{Name: name, Size: size, Project: project.name, SSH: sshUrl}' -o table"
 azdo.repo.clone() {
