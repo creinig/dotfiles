@@ -193,6 +193,12 @@ if [[ "$FORGIT_INSTALL_DIR" != "" ]] ; then
   alias giss='git forgit stash_show'
 fi
 
+if cmdExists fd; then
+    alias git.fetchall="fd --glob -t d -u .git --exec sh -c 'cd {//} ; git fetch'"
+else
+    alias git.fetchall="find -type d -name .git -exec sh -c 'cd {}/.. && pwd && git fetch' \;"
+fi
+
 # AWS
 
 alias aws.ec2.list="aws ec2 describe-instances \
