@@ -258,7 +258,7 @@ azdo.project() { az devops configure --defaults project="$1" ; }
 alias azdo.repo.list="az repos list --query '[].{Name: name, Size: size, Project: project.name, SSH: sshUrl}' -o table"
 azdo.repo.clone() {
     NAME=$1
-    SSHURL=$(az repos list --query '[].{Name: name, Size: size, Project: project.name, SSH: sshUrl}' -o table | fzf --header-lines=2 --query "$NAME" | cut -f 4)
+    SSHURL=$(az repos list --query '[].{Name: name, Size: size, Project: project.name, SSH: sshUrl}' -o table | fzf --header-lines=2 --nth=1 --accept-nth=4 --query "$NAME")
     git clone "$SSHURL"
 }
 
