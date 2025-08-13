@@ -57,6 +57,8 @@ kms("n", "<leader>ud", ":lcd %:p:h<Cr>:pwd<Cr>", { desc = 'cd (local) to current
 kms("x", "<leader>us", ":sort<cr>", { desc = "Sort selection" })
 kms("n", "<leader>uS", "vip:sort<cr>", { desc = "Sort paragraph" })
 
+kms("n", "<leader>uvp", "v'[']", { desc = "[V]isual select [P]asted text" })
+
 kms("n", "<leader>un", function()
   require("notify").dismiss({ pending = false, silent = false })
 end, { desc = "Dismiss all [N]otifications" })
