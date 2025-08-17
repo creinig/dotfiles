@@ -20,7 +20,7 @@ return {
       },
       keymaps = {
         file_history_panel = {
-          { "n", "gd", "y:DiffviewOpen <C-R>*<cr>", { desc = "Open a Workspace DiffView from HEAD to the commit under the cursor" }},
+          { "n", "gd", "y:DiffviewOpen <C-R>*<cr>", { desc = "Open a Workspace DiffView from HEAD to the commit under the cursor", remap = true }},
         },
       },
     },
