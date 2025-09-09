@@ -5,6 +5,7 @@ return {
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   'jmcantrell/vim-diffchanges', -- diff changes to buffer since last write
   'nvim-tree/nvim-web-devicons', -- dependency for others. Hopefully specifying it here will stop it from updating despite the lock
+  'b0o/schemastore.nvim', -- schema storage for LSPs
 
   {
     'AndrewRadev/linediff.vim', -- diff two visual selections

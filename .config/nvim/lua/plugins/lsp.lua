@@ -201,6 +201,15 @@ return {
             linters = { 'standard' },
           },
         },
+        yamlls = {
+          yaml = {
+            schemaStore = {
+              enabled = false,
+              url = "",
+            },
+            schemas = require('schemastore').yaml.schemas(),
+          },
+        },
 --         standardrb = {
 -- --          enabled = formatter == "standardrb",
 --         }
@@ -262,6 +271,7 @@ return {
         'bash-language-server',
         'ruby_lsp',
         'sqlfluff',
+        'yaml-language-server',
         -- stylua is not available in termux, resulting in startup errors
         -- 'stylua', -- Used to format Lua code
       })
