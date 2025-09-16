@@ -76,6 +76,35 @@ return {
         return tostring(os.time()) .. "-" .. suffix
       end
     end,
+
+    ui = {
+      checkboxes = {
+        -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
+        [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+        ["x"] = { char = "✔", hl_group = "ObsidianDone" },
+        [">"] = { char = "", hl_group = "ObsidianRightArrow" },
+        ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
+        ["!"] = { char = "", hl_group = "ObsidianImportant" },
+        -- Replace the above with this if you don't have a patched font:
+        -- [" "] = { char = "☐", hl_group = "ObsidianTodo" },
+        -- ["x"] = { char = "✔", hl_group = "ObsidianDone" },
+        -- You can also add more custom ones...
+      },
+      hl_groups = {
+        -- The options are passed directly to `vim.api.nvim_set_hl()`. See `:help nvim_set_hl`.
+        ObsidianTodo = { bold = true, fg = "#f78c6c" },
+        ObsidianDone = { bold = true, fg = "#55ff55" },
+        ObsidianRightArrow = { bold = true, fg = "#89ddff" },
+        ObsidianTilde = { bold = true, fg = "#ff5370" },
+        ObsidianImportant = { bold = true, fg = "#ffcc00" },
+        ObsidianBullet = { bold = true, fg = "#89ddff" },
+        ObsidianRefText = { underline = true, fg = "#c792ea" },
+        ObsidianExtLinkIcon = { fg = "#c792ea" },
+        ObsidianTag = { italic = true, fg = "#89ddff" },
+        ObsidianBlockID = { italic = true, fg = "#89ddff" },
+        ObsidianHighlightText = { bg = "#75662e" },
+      },
+    },
   },
 
   init = function()
