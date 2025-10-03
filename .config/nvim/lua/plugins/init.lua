@@ -74,6 +74,11 @@ return {
       "tpope/vim-fugitive"
     },
     cmd = "GV",
+    keys = {
+      { "<leader>gv", ":GV -n 1000<cr>", {desc = "[G]it [v]iew log" }},
+      { "<leader>gv", ":GV -n 1000<cr>", {desc = "[G]it [v]iew log", mode = "v" }},
+      { "<leader>gV", ":GV! -n 1000<cr>", {desc = "[G]it [v]iew log (this file)" }},
+    },
   },
 
   {
