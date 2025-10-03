@@ -8,6 +8,9 @@ return {
     "ibhagwan/fzf-lua",              -- optional
   },
   cmd = { "Neogit" },
+  keys = {
+    { "<leader>gg", ":Neogit cwd=%:p:h<cr>", { desc = "[G]it (neogit)" }},
+  },
   opts = {
     disable_insert_on_commit = true,
     graph_style = "unicode",
