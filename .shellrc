@@ -373,7 +373,7 @@ dirdiff()
 
 # df+mount listing only physical volumes (TODO: also filter out snap mounts)
 if cmdExists duf ; then # tool: duf https://github.com/muesli/duf
-    alias dfp="duf --only local --sort usage"
+    alias dfp="duf --only local"
 elif cmdExists dysk ; then # tool: dysk https://github.com/Canop/dysk
     alias dfp="dysk"
 else
