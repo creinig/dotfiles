@@ -388,9 +388,9 @@ alias tf="terraform"
 alias yta='youtubeDownloadAudio'
 
 if cmdExists nvim ; then
-    alias vw='nvim -c "ObsidianQuickSwitch"'
-    alias vt='nvim -c "ObsidianQuickSwitch Todo"'
-    alias vj='nvim -c "ObsidianToday"'
+    alias vw='nvim -c "Obsidian quick_switch"'
+    alias vt='nvim -c "Obsidian quick_switch Todo"'
+    alias vj='nvim -c "Obsidian today"'
     alias vc='(cd "$HOME" && echo -n " fc" | nvim -s -)'
 fi
 

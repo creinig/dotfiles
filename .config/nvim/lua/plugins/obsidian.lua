@@ -42,23 +42,6 @@ return {
       time_format = "%H:%M",
     },
 
-    mappings = {
-      -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-      ["gf"] = {
-        action = function()
-          return require("obsidian").util.gf_passthrough()
-        end,
-        opts = { noremap = false, expr = true, buffer = true },
-      },
-      -- Smart action depending on context, either follow link or toggle checkbox.
-      ["<cr>"] = {
-        action = function()
-          return require("obsidian").util.smart_action()
-        end,
-        opts = { buffer = true, expr = true },
-      }
-    },
-
     -- customize how note IDs are generated given an optional title.
     ---@param title string|?
     ---@return string
@@ -76,6 +59,10 @@ return {
         return tostring(os.time()) .. "-" .. suffix
       end
     end,
+
+    checkbox = {
+      order = { " ", "x", ">", "~", "!" },
+    },
 
     ui = {
       checkboxes = {
@@ -109,16 +96,16 @@ return {
 
   init = function()
     -- Most used functions
-    vim.keymap.set("n", "<leader>wf", "<cmd>ObsidianQuickSwitch<CR>", { desc = "[F]ind notes by name"})
-    vim.keymap.set("n", "<leader>fw", "<cmd>ObsidianQuickSwitch<CR>", { desc = "[F]ind wiki page by name"})
-    vim.keymap.set("x", "<leader>wl", "<cmd>ObsidianLink<CR>", { desc = "Turn selection into [L]ink"})
-    vim.keymap.set("n", "<leader>wg", "<cmd>ObsidianSearch<CR>", { desc = "[G]rep in all notes"})
-    vim.keymap.set("n", "<leader>wj", "<cmd>ObsidianToday<CR>", { desc = "Open [J]ournal for today"})
-    vim.keymap.set("n", "<leader>wn", "<cmd>ObsidianNew", { desc = "[N]ew note"})
-    vim.keymap.set("n", "<leader>wb", "<cmd>ObsidianBacklinks<CR>", { desc = "Show [B]acklinks"})
-    vim.keymap.set("n", "<leader>wt", "<cmd>ObsidianTOC<CR>", { desc = "Show [T]OC"})
-    vim.keymap.set("n", "<leader>wT", "<cmd>ObsidianTags<CR>", { desc = "Show [T]ags"})
-    vim.keymap.set("x", "<leader>wx", "<cmd>ObsidianExtractNote<CR>", { desc = "E[x]tract selection to new note"})
+    vim.keymap.set("n", "<leader>wf", "<cmd>Obsidian quick_switch<CR>", { desc = "[F]ind notes by name"})
+    vim.keymap.set("n", "<leader>fw", "<cmd>Obsidian quick_switch<CR>", { desc = "[F]ind wiki page by name"})
+    vim.keymap.set("x", "<leader>wl", "<cmd>Obsidian link<CR>", { desc = "Turn selection into [L]ink"})
+    vim.keymap.set("n", "<leader>wg", "<cmd>Obsidian search<CR>", { desc = "[G]rep in all notes"})
+    vim.keymap.set("n", "<leader>wj", "<cmd>Obsidian today<CR>", { desc = "Open [J]ournal for today"})
+    vim.keymap.set("n", "<leader>wn", "<cmd>Obsidian tew", { desc = "[N]ew note"})
+    vim.keymap.set("n", "<leader>wb", "<cmd>Obsidian backlinks<CR>", { desc = "Show [B]acklinks"})
+    vim.keymap.set("n", "<leader>wt", "<cmd>Obsidian toc<CR>", { desc = "Show [T]OC"})
+    vim.keymap.set("n", "<leader>wT", "<cmd>Obsidian tags<CR>", { desc = "Show [T]ags"})
+    vim.keymap.set("x", "<leader>wx", "<cmd>Obsidian extract_note<CR>", { desc = "E[x]tract selection to new note"})
     vim.keymap.set({"n", "x"}, "<leader>wA", [[:s/\v^(- \[.\] )(\(.\) )?/\1(A) /<cr>]], { desc = "Set Priority A" })
     vim.keymap.set({"n", "x"}, "<leader>wB", [[:s/\v^(- \[.\] )(\(.\) )?/\1(B) /<cr>]], { desc = "Set Priority B" })
     vim.keymap.set({"n", "x"}, "<leader>wC", [[:s/\v^(- \[.\] )(\(.\) )?/\1(C) /<cr>]], { desc = "Set Priority C" })
