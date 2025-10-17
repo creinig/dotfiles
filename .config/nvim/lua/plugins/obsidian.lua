@@ -42,6 +42,8 @@ return {
       time_format = "%H:%M",
     },
 
+    legacy_commands = false,
+
     -- customize how note IDs are generated given an optional title.
     ---@param title string|?
     ---@return string
@@ -93,8 +95,6 @@ return {
       },
     },
   },
-
-  legacy_commands = false,
 
   init = function()
     -- Most used functions
