@@ -2,7 +2,7 @@ return {
   "obsidian-nvim/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
   lazy = true,
-  cmd = { 'ObsidianToday', 'ObsidianQuickSwitch' },
+  cmd = { 'Obsidian' },
   ft = "markdown",
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
   -- event = {
@@ -94,6 +94,8 @@ return {
     },
   },
 
+  legacy_commands = false,
+
   init = function()
     -- Most used functions
     vim.keymap.set("n", "<leader>wf", "<cmd>Obsidian quick_switch<CR>", { desc = "[F]ind notes by name"})
@@ -101,7 +103,7 @@ return {
     vim.keymap.set("x", "<leader>wl", "<cmd>Obsidian link<CR>", { desc = "Turn selection into [L]ink"})
     vim.keymap.set("n", "<leader>wg", "<cmd>Obsidian search<CR>", { desc = "[G]rep in all notes"})
     vim.keymap.set("n", "<leader>wj", "<cmd>Obsidian today<CR>", { desc = "Open [J]ournal for today"})
-    vim.keymap.set("n", "<leader>wn", "<cmd>Obsidian tew", { desc = "[N]ew note"})
+    vim.keymap.set("n", "<leader>wn", "<cmd>Obsidian new", { desc = "[N]ew note"})
     vim.keymap.set("n", "<leader>wb", "<cmd>Obsidian backlinks<CR>", { desc = "Show [B]acklinks"})
     vim.keymap.set("n", "<leader>wt", "<cmd>Obsidian toc<CR>", { desc = "Show [T]OC"})
     vim.keymap.set("n", "<leader>wT", "<cmd>Obsidian tags<CR>", { desc = "Show [T]ags"})
