@@ -389,7 +389,7 @@ alias yta='youtubeDownloadAudio'
 
 if cmdExists nvim ; then
     alias vw='nvim -c "Obsidian quick_switch"'
-    alias vt='nvim -c "Obsidian quick_switch Todo\n"'
+    alias vt='nvim ~/wiki/obsidian/Todo.md'
     alias vj='nvim -c "Obsidian today"'
     alias vc='(cd "$HOME" && echo -n " fc" | nvim -s -)'
 fi
