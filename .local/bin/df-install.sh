@@ -158,6 +158,15 @@ if command -v tmux >/dev/null && [[ -f ~/.tmux/plugins/tpm/bin/install_plugins ]
 fi
 
 #
+# (3.2) install neovim plugins
+#
+if command -v nvim >/dev/null 2>&1 ; then
+  echo
+  logDo 'Installing missing neovim plugins'
+  nvim --headless "+Lazy! sync" +qall
+fi
+
+#
 # (4) source .shellrc in .bashrc if not done already
 #
 echo
