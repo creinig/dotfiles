@@ -47,6 +47,9 @@ kms("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 kms("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 kms("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- Quick "Insert blank line before / after" for DE keyboard
+kms("n", "ö", "moo<Esc>`o", { desc = "Insert blank line after current line" })
+kms("n", "Ö", "moO<Esc>`o", { desc = "Insert blank line before current line" })
 
 -- [[ Utilities (<leader>u) ]]
 -- remove all trailing whitespace in the file
