@@ -163,7 +163,7 @@ fi
 if command -v nvim >/dev/null 2>&1 ; then
   echo
   logDo 'Installing missing neovim plugins'
-  nvim --headless "+Lazy! sync" +qall
+  nvim --headless "+Lazy! restore" +qall
 fi
 
 #
