@@ -10,6 +10,7 @@ fi
 declare HINTS=()
 
 DF_CHANGED=false
+DF_LOGFILE="/tmp/df-install-$(date -u '+%Y%m%dT%H%M%S').log"
 
 if [[ -t 1 ]]; then
   LOG_START='\e[1m'
@@ -152,8 +153,8 @@ fi
 if command -v tmux >/dev/null && [[ -f ~/.tmux/plugins/tpm/bin/install_plugins ]] ; then
   echo
   logDo 'Installing missing tmux plugins'
-  ~/.tmux/plugins/tpm/bin/install_plugins && \
-    ~/.tmux/plugins/tpm/bin/update_plugins all
+  (~/.tmux/plugins/tpm/bin/install_plugins && \
+      ~/.tmux/plugins/tpm/bin/update_plugins all) >> "$DF_LOGFILE"
   tmux source-file ~/.tmux.conf
 fi
 
@@ -163,7 +164,7 @@ fi
 if command -v nvim >/dev/null 2>&1 ; then
   echo
   logDo 'Installing missing neovim plugins'
-  nvim --headless "+Lazy! restore" +qall
+  nvim --headless "+Lazy! restore" +qall >> "$DF_LOGFILE"
 fi
 
 #
@@ -219,14 +220,14 @@ fi
 echo
 if [[ ! -d ~/.fzf ]] ; then
   logDo 'installing fzf'
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf >> "$DF_LOGFILE"
   ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish
 elif [[ ! -f ~/.fzf.zsh ]] && command -v zsh >/dev/null ; then
   logDo '.fzf.zsh missing - re-running installer'
   ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish
 else
   logDo 'upgrading fzf'
-  cd ~/.fzf && git pull --quiet --stat && cd
+  (cd ~/.fzf && git pull --quiet --stat) >> "$DF_LOGFILE"
   ~/.fzf/install --key-bindings --completion --no-update-rc --no-fish
 fi
 
@@ -238,10 +239,10 @@ echo
 OMZ_DIR="${HOME}/.zsh/ohmyzsh"
 if [[ ! -d "$OMZ_DIR" ]] ; then
   logDo 'cloning oh-my-zsh'
-  git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git "$OMZ_DIR"
+  git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git "$OMZ_DIR" >> "$DF_LOGFILE"
 else
   logDo 'updating oh-my-zsh'
-  (cd "$OMZ_DIR" && git pull)
+  (cd "$OMZ_DIR" && git pull) >> "$DF_LOGFILE"
 fi
 
 #
@@ -289,3 +290,5 @@ if (( ${#HINTS[@]} > 0 )); then
     log '*' "$hint"
   done
 fi
+
+log "Verbose output of install / update commands was written to $DF_LOGFILE"
