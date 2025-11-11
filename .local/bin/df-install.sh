@@ -10,7 +10,7 @@ fi
 declare HINTS=()
 
 DF_CHANGED=false
-DF_LOGFILE="/tmp/df-install-$(date -u '+%Y%m%dT%H%M%S').log"
+DF_LOGFILE="${TMPDIR:-/tmp}/df-install-$(date -u '+%Y%m%dT%H%M%S').log"
 
 if [[ -t 1 ]]; then
   LOG_START='\e[1m'
