@@ -151,7 +151,10 @@ alias mydstat="dstat -lcdfmnp -C total --disk-util"
 alias sk="screenkey"
 alias ugi="ug -Q '--view=$EDITOR -R'" # tool: ugrep https://github.com/Genivia/ugrep
 alias ta="tmux a || tmux"
-alias apts='sudo apt install $(apt-cache pkgnames | fzf -m --preview="apt info {}" --preview-window=:hidden --bind=space:toggle-preview)' # credit: http://ix.io/2hgn
+
+_fzf_pkgtool() { fzf -m --preview="$1" --info-command='echo "<enter>: install, <space>: toggle preview"' --preview-window=:hidden --bind=space:toggle-preview ; }
+alias apts='sudo apt install $(apt-cache pkgnames | _fzf_pkgtool "apt info {}" )' # credit: http://ix.io/2hgn
+alias brews='brew install $(brew formulae | _fzf_pkgtool "brew info {}" )'
 snap.list() { snap list --all | awk '/-/{print $1}' | sort | uniq | grep -vhF "$(grep "default-provider:\|base:" /snap/*/current/meta/snap.yaml | awk '{print $NF}')" ; }
 alias brew.list="brew list --installed-on-request"
 
