@@ -122,7 +122,7 @@ function youtubeDownloadAudio {
     local url="$1"
     url=$(echo -n "$url" | sed -r 's#^(https?://)m\.(youtube)#\1www.\2#')
 
-    ytdl --extract-audio --audio-format best "$url"
+    ytdl --extract-audio --audio-format best --embed-metadata -o '%(channel)s - %(title)s.%(ext)s' "$url"
 }
 
 
