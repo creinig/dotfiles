@@ -304,15 +304,15 @@ else
 fi
 # Search in aliases
 alias AG='alias | grep -i --colour=auto'
-AF() { eval "$(alias | fzf --preview="$FZF_ALIAS_PREVIEW" --ansi --preview-window=down,5,wrap --info-command='echo "<enter>: run aliased command"' | cut -d '=' -f 1)" ; }
+AF() { eval "$(alias | fzf --preview="$FZF_ALIAS_PREVIEW" --ansi --preview-window=down,10,wrap --info-command='echo "<enter>: run aliased command"' | cut -d '=' -f 1)" ; }
 # Search in commands, aliases, functions & execute the found one (only works in zsh)
-CF() { eval "$(compgen -c -a -A Function | fzf --preview="$FZF_CMD_PREVIEW" --ansi --preview-window=down,5,wrap --info-command='echo "<enter>: run selected command"' )" ; }
+CF() { eval "$(compgen -c -a -A Function | fzf --preview="$FZF_CMD_PREVIEW" --ansi --preview-window=down,10,wrap --info-command='echo "<enter>: run selected command"' )" ; }
 # Search in environment
 alias EG='env | grep -i --colour=auto'
-EF() { env -0 | fzf --read0 --preview="$FZF_ENV_PREVIEW" --preview-window=down,5,wrap | cut -d '=' -f 1 ; }
+EF() { env -0 | fzf --read0 --preview="$FZF_ENV_PREVIEW" --preview-window=down,10,wrap | cut -d '=' -f 1 ; }
 # Search in running processes
 alias PG="$PS_CMD | grep -i --colour=auto"
-PF() { eval $PS_CMD | fzf --header-lines=1 --preview='echo {}' --preview-window=down,5,wrap | awk '{print $2}' ; }
+PF() { eval $PS_CMD | fzf --header-lines=1 --preview='echo {}' --preview-window=down,10,wrap | awk '{print $2}' ; }
 # List optional but useful tools
 alias df-extratools="grep -v df-extratols ~/.shellrc | grep -E -o '# tool:.*\$' | awk '{ printf(\"%-20s %s\\n\", \$3, \$4) }' | sort"
 
