@@ -14,6 +14,7 @@ return {
     {"<leader>/",        ":FzfLua blines<cr>",               desc = "[F]ind in current buffer"},
     {"<leader>f/",       ":FzfLua lines<cr>",                desc = "[F]ind in open buffers"},
     {"<leader>fh",       ":FzfLua helptags<cr>",             desc = "[F]ind [H]elp"},
+    {"<leader>fH",       ":FzfLua highlights<cr>",           desc = "[F]ind [H]ighlight groups"},
     {"<leader>fk",       ":FzfLua keymaps<cr>",              desc = "[F]ind [K]eymaps"},
     {"<leader>ff",       ":FzfLua files<cr>",                desc = "[F]ind [F]iles"},
     {"<leader>fs",       ":FzfLua builtin<cr>",              desc = "[F]ind [S]elect Picker"},
