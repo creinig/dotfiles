@@ -53,7 +53,7 @@ else
 fi
 
 
-if [[ $INSTALL_MODE == "rw" ]] ; then
+if [[ $INSTALL_MODE == "rw" ]] || (git remote get-url origin | grep -q 'git@') ; then
   GIT_REPO="ssh://git@codeberg.org/creinig/dotfiles.git"
 else
   GIT_REPO="https://codeberg.org/creinig/dotfiles.git"
@@ -86,7 +86,7 @@ function config() {
 }
 
 function ensure_codeberg_origin() {
-    config remote get-url origin | grep codeberg && return # already there? -> return
+    config remote get-url origin | grep -F "$GIT_REPO" && return # already there? -> return
     logDo "Changing upstream to codeberg"
     config remote set-url origin "$GIT_REPO"
     config fetch origin
