@@ -1,5 +1,9 @@
 # Collection of dotfiles for my personal use
 
+***Note: This repository is hosted on [codeberg](https://codeberg.org/creinig/dotfiles) 
+and mirrored on [github](https://github.com/creinig/dotfiles). The state on github
+typically lags behind codeberg.***
+
 This repo contains my core dotfiles that I really want to have on each system I 
 regularly use. So as long as git is installed I can get (most of) my familiar 
 environment with a single command (see the "Installation" section for details).
@@ -12,15 +16,21 @@ fall back to a more standard command if the preferred one is not installed.
 
 # Installation
 
+Readonly (pull via https only)
+```bash
+curl -Lks https://tinyurl.com/crdotfiles | /bin/bash
 ```
-# Readonly (pull via https only)
-curl -Lks https://git.io/crdotfiles | /bin/bash
 
-# Read/write (pull + push via ssh key)
-curl -Lks https://git.io/crdotfiles | INSTALL_MODE=rw /bin/bash 
+Read/write (pull + push via ssh key)
+```bash
+curl -Lks https://tinyurl.com/crdotfiles | INSTALL_MODE=rw /bin/bash 
 ```
 
 This fetches the [install script](.local/bin/df-install.sh) and executes it. 
+
+Or, to be more safety conscious: download the [install script](.local/bin/df-install.sh),
+review it and then run it.
+
 The basic idea behind it is described in this atlassian 
 [blog post](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).
 The same install script can also perform an update (it autodetects what mode of 

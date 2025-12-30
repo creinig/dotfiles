@@ -54,9 +54,9 @@ fi
 
 
 if [[ $INSTALL_MODE == "rw" ]] ; then
-  GIT_REPO="git@github.com:creinig/dotfiles.git"
+  GIT_REPO="ssh://git@codeberg.org/creinig/dotfiles.git"
 else
-  GIT_REPO="https://github.com/creinig/dotfiles.git"
+  GIT_REPO="https://codeberg.org/creinig/dotfiles.git"
 fi
 
 
@@ -70,7 +70,7 @@ else
 fi
 
 #
-# (0) Safety checks
+# (0) Safety checks and helper functions
 #
 
 
@@ -83,6 +83,15 @@ fi
 
 function config() {
   /usr/bin/git "--git-dir=$HOME/.dotfiles/" --work-tree="$HOME" "$@"
+}
+
+function ensure_codeberg_origin() {
+    config remote get-url origin | grep codeberg && return # already there? -> return
+    logDo "Changing upstream to codeberg"
+    config remote set-url origin "$GIT_REPO"
+    config fetch origin
+    config branch -m master main || echo "ignoring"
+    config branch --set-upstream-to=origin/main main
 }
 
 #
@@ -114,6 +123,7 @@ function install() {
 if $DO_UPDATE ; then
   last_commit=$(config log -n 1 --format=oneline)
   log "Updating the installation"
+  ensure_codeberg_origin
   config pull || exit 1
   if [[ "$last_commit" != $(config log -n 1 --format=oneline) ]] ; then
     DF_CHANGED=true
