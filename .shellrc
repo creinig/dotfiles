@@ -170,7 +170,7 @@ function cfgd() { cfg diff "$@" | $DIFF_PAGER $DIFF_PAGER_OPTS ; }
 alias cfgc='cfg commit -v'
 alias cfgp='cfg push origin'
 alias cfglog='cfg log --oneline --decorate --graph --all'
-alias cfgu='curl -Lks https://git.io/crdotfiles | bash' # Update installation
+alias cfgu='curl -Lks https://tinyurl.com/crdotfiles | bash' # Update installation
 alias cfgei='$EDITOR ~/.local/bin/df-install.sh'
 alias cfgai='cfg add ~/.local/bin/df-install.sh'
 
