@@ -53,12 +53,11 @@ else
 fi
 
 
-if [[ $INSTALL_MODE == "rw" ]] || (git remote get-url origin | grep -q 'git@') ; then
+if [[ $INSTALL_MODE == "rw" ]] || ! (git remote get-url origin | grep -q 'git@') ; then
   GIT_REPO="ssh://git@codeberg.org/creinig/dotfiles.git"
 else
   GIT_REPO="https://codeberg.org/creinig/dotfiles.git"
 fi
-
 
 cd "$HOME" || exit
 
