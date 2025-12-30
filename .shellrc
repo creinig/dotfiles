@@ -173,6 +173,7 @@ alias cfglog='cfg log --oneline --decorate --graph --all'
 alias cfgu='curl -Lks https://tinyurl.com/crdotfiles | bash' # Update installation
 alias cfgei='$EDITOR ~/.local/bin/df-install.sh'
 alias cfgai='cfg add ~/.local/bin/df-install.sh'
+alias cfg2gh='cfg push github main:master'
 
 if [[ "$FORGIT_INSTALL_DIR" != "" ]] ; then
   export FORGIT_FZF_DEFAULT_OPTS="$FORGIT_FZF_DEFAULT_OPTS --layout=reverse-list"
