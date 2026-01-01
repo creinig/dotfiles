@@ -22,27 +22,27 @@ if [[ -t 1 ]]; then
 fi
 
 function log() {
-  printf "${LOG_START}${LOG_INFO}== "
+  printf "%s%s== " "${LOG_START}" "${LOG_INFO}"
   echo -n "$@"
-  printf "${LOG_END}\n"
+  printf "%s\n" "${LOG_END}"
 }
 
 function logOk() {
-  printf "${LOG_START}${LOG_OK}=/ "
+  printf "%s%s=/ " "${LOG_START}" "${LOG_OK}"
   echo -n "$@"
-  printf "${LOG_END}\n"
+  printf "%s\n" "${LOG_END}"
 }
 
 function logDo() {
-  printf "${LOG_START}${LOG_DO}=> "
+  printf "%s%s=> " "${LOG_START}" "${LOG_DO}"
   echo -n "$@"
-  printf "${LOG_END}\n"
+  printf "%s\n" "${LOG_END}"
 }
 
 function logError() {
-  printf "${LOG_START}${LOG_ERR}!! "
+  printf "%s%s!! " "${LOG_START}" "${LOG_ERR}"
   echo -n "$@"
-  printf "${LOG_END}\n"
+  printf "%s\n" "${LOG_END}"
 }
 
 if command -v git &>/dev/null ; then
@@ -104,8 +104,7 @@ function install() {
   git config --global core.autocrlf input
 
   mkdir -p .dotfiles-backup
-  config checkout
-  if [[ $? = 0 ]]; then
+  if config checkout ; then
     logDo "Checked out dotfiles."
   else
     logDo "Backing up pre-existing dot files."
@@ -138,7 +137,7 @@ fi
 #
 echo
 if [[ -d ~/.oh-my-zsh ]] ; then
-  HINTS+=("~/.oh-my-zsh exists. Since it's not used anymore you might want to remove it")
+  HINTS+=("$HOME/.oh-my-zsh exists. Since it's not used anymore you might want to remove it")
 fi
 
 
@@ -184,9 +183,7 @@ if [[ -f ~/.bashrc ]] ; then
   if grep -q '\.shellrc' ~/.bashrc ; then
     logOk ".bashrc already sources .shellrc"
   else
-    echo >> ~/.bashrc
-    echo ". ~/.shellrc" >> ~/.bashrc
-    echo >> ~/.bashrc
+    printf "\n. ~/.shellrc\n\n" >> ~/.bashrc
     logDo ".bashrc now sources .shellrc"
   fi
 else
