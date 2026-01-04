@@ -22,27 +22,27 @@ if [[ -t 1 ]]; then
 fi
 
 function log() {
-  printf "%s%s== " "${LOG_START}" "${LOG_INFO}"
+  printf "${LOG_START}${LOG_INFO}== "
   echo -n "$@"
-  printf "%s\n" "${LOG_END}"
+  printf "${LOG_END}\n"
 }
 
 function logOk() {
-  printf "%s%s=/ " "${LOG_START}" "${LOG_OK}"
+  printf "${LOG_START}${LOG_OK}=/ "
   echo -n "$@"
-  printf "%s\n" "${LOG_END}"
+  printf "${LOG_END}\n"
 }
 
 function logDo() {
-  printf "%s%s=> " "${LOG_START}" "${LOG_DO}"
+  printf "${LOG_START}${LOG_DO}=> "
   echo -n "$@"
-  printf "%s\n" "${LOG_END}"
+  printf "${LOG_END}\n"
 }
 
 function logError() {
-  printf "%s%s!! " "${LOG_START}" "${LOG_ERR}"
+  printf "${LOG_START}${LOG_ERR}!! "
   echo -n "$@"
-  printf "%s\n" "${LOG_END}"
+  printf "${LOG_END}\n"
 }
 
 if command -v git &>/dev/null ; then
