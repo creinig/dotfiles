@@ -106,12 +106,8 @@ if [[ -f ~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE} ]] ; then
     [[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
 fi
 
-# ^v will edit the current cmdline in the default editor
-# Note: C-xC-e also does this (defined in omz key bindings). Maybe I'll remove
-# this mapping here (^v) in the future, but for now it's at least useful documentation.
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey '^v' edit-command-line
 
 autoload -Uz compinit && compinit
 
