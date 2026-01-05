@@ -108,6 +108,7 @@ fi
 
 autoload -Uz edit-command-line
 zle -N edit-command-line
+zstyle :zle:edit-command-line editor $EDITOR -c 'set nomod nolist syntax=bash ft=bash'
 
 autoload -Uz compinit && compinit
 
