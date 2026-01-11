@@ -47,6 +47,13 @@ return {
         hl.DiffDelete = { bold = true, fg = "none", bg = "#4c1e15" }
         hl.DiffText = { reverse = true,  fg = "none", bg = "#996d74" }
         hl.DiffChange = { bold = true, fg = "none", bg = "#45565c" }
+        hl.RenderMarkdownH1Bg ={ fg = '#b0d0f0', bg='#23273b' }
+        hl.RenderMarkdownH2Bg ={ fg = '#c6b6ee', bg='#2d282c' }
+        hl.RenderMarkdownH3Bg ={ fg = '#d2ebbe', bg='#252c2c' }
+        hl.RenderMarkdownChecked = { fg = '#55ff55' }
+        hl.RenderMarkdownRejected = { fg = '#ff5370' }
+        hl.RenderMarkdownInProgress = { fg = '#89ddff' }
+        hl.RenderMarkdownImportant = { fg = '#ffcc00' }
       end
     }
   },
