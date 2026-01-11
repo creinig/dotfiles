@@ -82,18 +82,4 @@ return {
     { "<leader>wT", "<cmd>Obsidian tags<CR>", desc = "Show [T]ags"},
     { "<leader>wx", "<cmd>Obsidian extract_note<CR>", mode = 'x', desc = "E[x]tract selection to new note"},
   },
-  --
-  -- init = function()
-  --   -- Most used functions
-  --   vim.keymap.set("n", "<leader>wf", "<cmd>Obsidian quick_switch<CR>", { desc = "[F]ind notes by name"})
-  --   vim.keymap.set("n", "<leader>fw", "<cmd>Obsidian quick_switch<CR>", { desc = "[F]ind wiki page by name"})
-  --   vim.keymap.set("x", "<leader>wl", "<cmd>Obsidian link<CR>", { desc = "Turn selection into [L]ink"})
-  --   vim.keymap.set("n", "<leader>wg", "<cmd>Obsidian search<CR>", { desc = "[G]rep in all notes"})
-  --   vim.keymap.set("n", "<leader>wj", "<cmd>Obsidian today<CR>", { desc = "Open [J]ournal for today"})
-  --   vim.keymap.set("n", "<leader>wn", "<cmd>Obsidian new", { desc = "[N]ew note"})
-  --   vim.keymap.set("n", "<leader>wb", "<cmd>Obsidian backlinks<CR>", { desc = "Show [B]acklinks"})
-  --   vim.keymap.set("n", "<leader>wt", "<cmd>Obsidian toc<CR>", { desc = "Show [T]OC"})
-  --   vim.keymap.set("n", "<leader>wT", "<cmd>Obsidian tags<CR>", { desc = "Show [T]ags"})
-  --   vim.keymap.set("x", "<leader>wx", "<cmd>Obsidian extract_note<CR>", { desc = "E[x]tract selection to new note"})
-  -- end
 }
