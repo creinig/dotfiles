@@ -12,16 +12,23 @@ else
     export DF_OS=unknown
 fi
 
-
+# Ensure that the given path - if it exists - is sitting at the front of $PATH.
+# If the given path is already in $PATH, it it moved to the front, otherwise it is
+# prepended.
 prependToPath() {
     if [[ -d "$1" ]] ; then
-        (echo "$PATH" | grep -q -F "$1") || export PATH="$1:$PATH"
+        PATH_WITHOUT=$(echo "$PATH" | sed -r -e "s#$1:?##")
+        export PATH="$1:$PATH_WITHOUT"
     fi
 }
 
+# Ensure that the given path - if it exists - is sitting at the end of $PATH.
+# If the given path is already in $PATH, it it moved to the end, otherwise it is
+# appended.
 appendToPath() {
     if [[ -d "$1" ]] ; then
-        (echo "$PATH" | grep -q -F "$1") || export PATH="$PATH:$1"
+        PATH_WITHOUT=$(echo "$PATH" | sed -r -e "s#$1:?##")
+        export PATH="$PATH_WITHOUT:$1"
     fi
 }
 
