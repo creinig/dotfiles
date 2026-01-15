@@ -7,6 +7,10 @@ return {
   ---@module 'render-markdown'
   ---@type render.md.UserConfig
   opts = {
+    completions = { lap = { enabled = true } },
+    code = {
+      border = 'thin',
+    },
     checkbox = {
       -- Checkboxes are a special instance of a 'list_item' that start with a 'shortcut_link'.
       -- There are two special states for unchecked & checked defined in the markdown grammar.
