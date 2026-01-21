@@ -495,6 +495,30 @@ sendToAllPanes() {
     done
 }
 
+# If we're in tmux, ssh should change the current window name to the remote host while connected
+# Adapted from https://soban.pl/dynamic-tmux-window-titles-with-ssh-and-hostname/
+if [[ -n $TMUX ]]; then
+    ssh() {
+        SAVED_WINDOW_NAME=$(tmux display-message -p '#W')
+
+        # Loop through arguments to find the target host (first non-flag argument)
+        for arg in "$@"; do
+            if [[ "$arg" != -* ]]; then
+                host="$arg"
+                break
+            fi
+        done
+
+        # Strip any trailing junk or whitespace
+        host="$(echo "$host" | cut -d' ' -f1)"
+
+
+        tmux rename-window "ssh $host"
+        command ssh "$@"
+        tmux rename-window "$SAVED_WINDOW_NAME"
+    }
+fi
+
 # Fix for tilix (see https://gnunn1.github.io/tilix-web/manual/vteconfig/)
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte.sh
