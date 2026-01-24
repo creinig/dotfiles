@@ -75,19 +75,19 @@ return {
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
           --  the definition of its *type*, not where it was *defined*.
-          map('<leader>D', ":FzfLua lsp_typedefs<cr>", 'Type [D]efinition')
+          map('<leader>cD', ":FzfLua lsp_typedefs<cr>", '[C]ode: Type [D]efinition')
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
-          map('<leader>ds', ":FzfLua lsp_document_symbols<cr>", '[D]ocument [S]ymbols')
+          map('<leader>cs', ":FzfLua lsp_document_symbols<cr>", '[C]ode: [S]ymbols in document')
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
-          map('<leader>ws', ":FzfLua lsp_workspace_symbols<cr>", '[W]orkspace [S]ymbols')
+          map('<leader>cD', ":FzfLua lsp_workspace_symbols<cr>", '[C]ode: [S]ymbols in workspace')
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
-          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+          map('<leader>cr', vim.lsp.buf.rename, '[C]ode: [R]ename')
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
