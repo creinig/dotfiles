@@ -10,6 +10,7 @@ return {
         "c",
         "diff",
         "git_config",
+        "helm",
         "html",
         "lua",
         "luadoc",
