@@ -404,6 +404,7 @@ alias vs='$EDITOR ~/.shellrc'
 alias vl='$EDITOR ~/.zsh/local/*'
 alias vv='$EDITOR ~/.vimrc'
 alias vz='$EDITOR ~/.zshrc'
+alias vssh='$EDITOR ~/.ssh/config'
 
 alias srcz='source ~/.zshrc'
 alias srcs='source ~/.shellrc'
