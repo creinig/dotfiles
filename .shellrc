@@ -411,7 +411,7 @@ alias srcs='source ~/.shellrc'
 srcl() {
     if [[ -d ~/.zsh/local ]] ; then
         for script in ~/.zsh/local/*.zsh ; do
-            source $script
+            source "$script"
         done
     fi
 }
