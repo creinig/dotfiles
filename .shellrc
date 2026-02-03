@@ -242,11 +242,10 @@ aws.alarms() {
         .MetricAlarms[]
         | select(.StateValue == "ALARM")
         | (
-            . as $a
-            | ($a.StateReasonData | fromjson // {}) as $d
+            (.StateReasonData | fromjson // {}) as $d
             | [
-            $a.AlarmName,
-            $a.StateValue,
+            .AlarmName,
+            .StateValue,
             ($d.recentDatapoints[0] // "---"),
             ($d.threshold // "---")
             ]
