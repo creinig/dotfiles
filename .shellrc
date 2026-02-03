@@ -233,6 +233,29 @@ alias aws.startdb="aws rds start-db-instance --output=table \
     --query \"DBInstance.{Class:DBInstanceClass,A_Id:DBInstanceIdentifier,Engine:Engine,Version:EngineVersion,\
               StorageGB:AllocatedStorage,Status:DBInstanceStatus,Endpoint:Endpoint.Address}\" --db-instance-identifier"
 
+# Show all active alarms together with an offending value and the threshold
+aws.alarms() {
+    (
+        echo -e "Name\tState\tValue\tThreshold"
+        echo -e "----\t-----\t-----\t---------"
+        aws cloudwatch describe-alarms --output json | jq -r '
+        .MetricAlarms[]
+        | select(.StateValue == "ALARM")
+        | (
+            . as $a
+            | ($a.StateReasonData | fromjson // {}) as $d
+            | [
+            $a.AlarmName,
+            $a.StateValue,
+            ($d.recentDatapoints[0] // "---"),
+            ($d.threshold // "---")
+            ]
+        )
+        | @tsv
+        '
+        ) | column -t
+}
+
 aws.tunnelLocal() {
     PROFILE=$1
     INSTANCE=$2
