@@ -1,0 +1,15 @@
+#
+# Custom styleset for & by me
+#
+
+*.default = true
+
+*.selected.bg = #484848
+
+msglist_marked.fg = #ffdd00
+msglist_unread.fg = #35a0ee
+msglist_unread.bold = true
+msglist_unread.selected.bg = #064064
+
+dirlist_unread.fg = #35a0ee
+
