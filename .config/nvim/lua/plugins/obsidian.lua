@@ -76,7 +76,7 @@ return {
     { "<leader>wl", "<cmd>Obsidian link<CR>", mode = 'x', desc = "Turn selection into [L]ink"},
     { "<leader>wg", "<cmd>Obsidian search<CR>", desc = "[G]rep in all notes"},
     { "<leader>wj", "<cmd>Obsidian today<CR>", desc = "Open [J]ournal for today"},
-    { "<leader>wn", "<cmd>Obsidian new", desc = "[N]ew note"},
+    { "<leader>wn", "<cmd>Obsidian new<CR>", desc = "[N]ew note"},
     { "<leader>wb", "<cmd>Obsidian backlinks<CR>", desc = "Show [B]acklinks"},
     { "<leader>wt", "<cmd>Obsidian toc<CR>", desc = "Show [T]OC"},
     { "<leader>wT", "<cmd>Obsidian tags<CR>", desc = "Show [T]ags"},
