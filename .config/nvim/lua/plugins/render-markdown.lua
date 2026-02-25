@@ -57,6 +57,11 @@ return {
       -- Priority to assign to scope highlight.
       scope_priority = nil,
     }, 
+    html = {
+      comment = {
+        conceal = false,
+      }
+    },
   },
   -- Highlights / Colors are defined in plugins/init.lua in the jellybeans config
 }
