@@ -8,10 +8,15 @@
         filemode = false
         autocrlf = true
         safecrlf = warn
+        ignoreCase = true
 [color]
         ui = true
 [credential]
         helper = cache --timeout=3600
+
+[branch]
+        autoSetupRebase = always
+
 [merge]
         tool = nvimdiff
 [mergetool]
