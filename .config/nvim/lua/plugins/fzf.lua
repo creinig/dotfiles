@@ -34,6 +34,7 @@ return {
     {"<leader>fl",       ":FzfLua loclist<cr>",              desc = "[F]ind [L]ocation list"},
     {"<leader>ft",       ":FzfLua btags<cr>",                desc = "[F]ind [T]ags in current buffer"},
     {"<leader>fT",       ":FzfLua tags<cr>",                 desc = "[F]ind [T]ags in project"},
+    {"<leader>vt",       ":FzfLua tabs<cr>",                 desc = "[V]iew open [T]abs and buffers"},
     -- {"<leader>fo", ':Telescope aerial<cr>', desc = "[F]ind in [O]utline"},
     {"<leader>f.",       ":FzfLua oldfiles<cr>",             desc = '[F]ind Recent Files ("." for repeat)'},
 
