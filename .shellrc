@@ -151,6 +151,7 @@ alias mydstat="dstat -lcdfmnp -C total --disk-util"
 alias sk="screenkey"
 alias ugi="ug -Q '--view=$EDITOR -R'" # tool: ugrep https://github.com/Genivia/ugrep
 alias ta="tmux a || tmux"
+alias osc52="base64 | xargs -0 printf '\033]52;c;%s\007'" # pipe text into this to write to clipboard
 
 _fzf_pkgtool() { fzf -m --preview="$1" --info-command='echo "<enter>: install, <space>: toggle preview"' --preview-window=:hidden --bind=space:toggle-preview ; }
 alias apts='sudo apt install $(apt-cache pkgnames | _fzf_pkgtool "apt info {}" )' # credit: http://ix.io/2hgn
