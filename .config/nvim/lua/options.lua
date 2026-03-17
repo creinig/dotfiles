@@ -55,8 +55,13 @@ vim.opt.diffopt = {
   "vertical",
 }
 
--- Sessions
+-- Clipboard
+-- when doing tmux -> ssh -> nvim, clipboard provider detection doesn't work => fix to osc52 in that case
+if os.getenv("SSH_TTY") ~ "" then
+  vim.g.clipboard = "osc52"
+end
 
+-- Sessions
 vim.opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- Undo and swap files
