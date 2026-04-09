@@ -16,6 +16,7 @@
 
 [branch]
         autoSetupRebase = always
+        autoSetupMerge = simple
 
 [merge]
         tool = nvimdiff
