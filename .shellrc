@@ -25,7 +25,7 @@ export VISUAL="$(firstCmdOf nvim vim)"
 BAT_CMD="$(firstCmdOf bat batcat)" # tool: bat https://github.com/sharkdp/bat
 
 if [[ -n $BAT_CMD ]]; then
-    [[ $TERMINAL_EMULATOR == 'JetBrains-JediTerm' ]] || alias cat="$BAT_CMD"
+    alias cat="$BAT_CMD"
     export BAT_STYLE=changes
     export BAT_THEME="Coldark-Dark"
     export BAT_PAGER=less # 'most' has some problems with the escape sequences
@@ -542,6 +542,13 @@ if [[ -n $TMUX ]]; then
         tmux rename-window "$SAVED_WINDOW_NAME"
     }
 fi
+
+# Fixes for terminal in IntelliJ. I only use this via Copilot, and that dislikes some of my customizations
+if [[ $TERMINAL_EMULATOR == 'JetBrains-JediTerm' ]] ; then
+    unalias cat
+    export GIT_PAGER="cat"
+fi
+
 
 # Fix for tilix (see https://gnunn1.github.io/tilix-web/manual/vteconfig/)
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
