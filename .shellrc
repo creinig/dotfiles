@@ -547,6 +547,10 @@ fi
 if [[ $TERMINAL_EMULATOR == 'JetBrains-JediTerm' ]] ; then
     unalias cat
     export GIT_PAGER="cat"
+    unset precmd_functions
+    unset RPROMPT
+    unset RPS1
+    export PROMPT='[copilot]$ '
 fi
 
 
