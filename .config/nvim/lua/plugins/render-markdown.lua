@@ -7,7 +7,7 @@ return {
   ---@module 'render-markdown'
   ---@type render.md.UserConfig
   opts = {
-    completions = { lap = { enabled = true } },
+    completions = { lsp = { enabled = true } },
     code = {
       border = 'thin',
     },
