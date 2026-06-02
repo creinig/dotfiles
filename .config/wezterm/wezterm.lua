@@ -7,6 +7,9 @@ local config = {
   hide_tab_bar_if_only_one_tab = true,
   initial_rows = 80,
   initial_cols = 200,
+  colors = {
+    selection_bg = '#555500',
+  },
 };
 
 return config
