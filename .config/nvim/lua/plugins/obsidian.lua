@@ -32,9 +32,9 @@ return {
       template = "templates/daily",
     },
 
-    completion = {
-      blink = true,
-    },
+    -- completion = {
+    --   blink = true,
+    -- },
 
     templates = {
       folder = "templates",
