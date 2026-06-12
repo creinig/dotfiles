@@ -3,72 +3,87 @@ return {
     "nvim-treesitter/nvim-treesitter",
     branch = "main",
     build = ":TSUpdate",
---    main = "nvim-treesitter.configs", -- Sets main module to use for opts
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-    opts = {
-      ensure_installed = {
-        "bash",
-        "c",
-        "diff",
-        "git_config",
-        "helm",
-        "html",
-        "lua",
-        "luadoc",
-        "markdown",
-        "markdown_inline",
-        "query",
-        "regex",
-        "ruby",
-        "sql",
-        "vim",
-        "vimdoc",
-        "yaml",
-      },
-      -- Autoinstall languages that are not installed
-      auto_install = true,
-      highlight = {
-        enable = true,
-        -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-        --  If you are experiencing weird indenting issues, add the language to
-        --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { "ruby" },
-      },
-      indent = { enable = true, disable = { "ruby", "yaml" } },
-      folds = { enable = true },
-    },
-    -- There are additional nvim-treesitter modules that you can use to interact
-    -- with nvim-treesitter. You should go explore a few and see what interests you:
-    --
-    --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-    --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-    --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-    init = function()
-      require'nvim-treesitter'.setup {
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "gnn",
-            node_incremental = "grn",
-            scope_incremental = "grc",
-            node_decremental = "grm",
+     config = function()
+        local ts = require 'nvim-treesitter'
+        local parsers = {
+          "bash",
+          "c",
+          "comment",
+          "css",
+          "diff",
+          "dockerfile",
+          "git_config",
+          "gitcommit",
+          "gitignore",
+          "groovy",
+          "helm",
+          "html",
+          "http",
+          "java",
+          "javascript",
+          "jsdoc",
+          "json",
+          "json5",
+          "lua",
+          "luadoc",
+          "make",
+          "markdown_inline",
+          "markdown",
+          "python",
+          "query",
+          "regex",
+          "rst",
+          "ruby",
+          "rust",
+          "scss",
+          "sql",
+          "ssh_config",
+          "terraform",
+          "toml",
+          "tsx",
+          "typescript",
+          "typst",
+          "vim",
+          "vimdoc",
+          "yaml",
+        }
+
+        for _, parser in ipairs(parsers) do
+            ts.install(parser)
+        end
+
+        -- Not every tree-sitter parser is the same as the file type detected
+        -- So the patterns need to be registered more cleverly
+        local patterns = {}
+        for _, parser in ipairs(parsers) do
+            local parser_patterns = vim.treesitter.language.get_filetypes(parser)
+            for _, pp in pairs(parser_patterns) do
+                table.insert(patterns, pp)
+            end
+        end
+
+        vim.filetype.add({
+          filename = {
+            [".sqlfluff"] = "dosini",
           },
-        },
-      }
+          pattern = {
+            [".*/waybar/config"] = "jsonc",
+            [".*/mako/config"] = "dosini",
+            [".*/kitty/.+%.conf"] = "kitty",
+            ["%.env%.[%w_.-]+"] = "sh",
+          },
+        })
+        vim.treesitter.language.register("bash", "kitty")
+        vim.treesitter.language.register("groovy", "Jenkinsfile")
+        vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        vim.wo[0][0].foldmethod = 'expr'
 
-      vim.filetype.add({
-        filename = {
-          [".sqlfluff"] = "dosini",
-        },
-        pattern = {
-          [".*/waybar/config"] = "jsonc",
-          [".*/mako/config"] = "dosini",
-          [".*/kitty/.+%.conf"] = "kitty",
-          ["%.env%.[%w_.-]+"] = "sh",
-        },
-      })
-      vim.treesitter.language.register("bash", "kitty")
-
+        vim.api.nvim_create_autocmd('FileType', {
+            pattern = patterns,
+            callback = function()
+                vim.treesitter.start()
+            end,
+        })
     end,
   }
 }
