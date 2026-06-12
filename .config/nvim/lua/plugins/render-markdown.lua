@@ -37,7 +37,7 @@ return {
         -- Replaces '[x]' of 'task_list_marker_checked'.
         icon = '✔ ',
         -- Highlight for the checked icon.
-        highlight = 'RenderMarkdownChecked',
+        highlight = 'RenderMarkdownSuccess',
         -- Highlight for item associated with checked checkbox.
         scope_highlight = "Comment",
       },
@@ -50,9 +50,9 @@ return {
       -- | scope_highlight | optional highlight for item associated with custom checkbox |
       -- stylua: ignore
       custom = {
-        in_progress = { raw = '[>]', rendered = '❱ ', highlight = 'RenderMarkdownInProgress', scope_highlight = nil },
-        rejected = { raw = '[~]', rendered = '✗ ', highlight = 'RenderMarkdownRejected', scope_highlight = "Comment" },
-        important = { raw = '[!]', rendered = ' ', highlight = 'RenderMarkdownImportant', scope_highlight = "DiagnosticWarn" },
+        in_progress = { raw = '[>]', rendered = '❱ ', highlight = 'RenderMarkdownInfo', scope_highlight = nil },
+        rejected = { raw = '[~]', rendered = '✗ ', highlight = 'RenderMarkdownError', scope_highlight = "Comment" },
+        important = { raw = '[!]', rendered = ' ', highlight = 'RenderMarkdownWarn', scope_highlight = "DiagnosticWarn" },
       },
       -- Priority to assign to scope highlight.
       scope_priority = nil,
