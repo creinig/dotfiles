@@ -20,6 +20,11 @@ return {
   },
 
   {
+    "dstein64/nvim-scrollview",
+    lazy = false,
+  },
+
+  {
     'unblevable/quick-scope', -- hints for f/t motions
     init = function()
       -- Trigger a highlight in the appropriate direction when pressing these keys:
