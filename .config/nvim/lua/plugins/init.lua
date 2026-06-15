@@ -40,6 +40,7 @@ return {
 
   {
     "wtfox/jellybeans.nvim",
+    lazy = false,
     priority = 1000,
     opts = {
       on_highlights = function(hl, _)
@@ -55,7 +56,12 @@ return {
         hl.RenderMarkdownInProgress = { fg = '#89ddff' }
         hl.RenderMarkdownImportant = { fg = '#ffcc00' }
       end
-    }
+    },
+    config = function()
+      -- load the colorscheme here
+      vim.cmd([[colorscheme jellybeans]])
+    end,
+
   },
 
   {
