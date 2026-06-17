@@ -41,7 +41,8 @@ vim.opt.showmode = false   -- Don't show the mode, since it's already in the sta
 vim.opt.cursorline = true  -- Show which line your cursor is on
 vim.opt.splitright = true
 vim.opt.splitbelow = true
-vim.opt.scrolloff = 10 -- Minimal number of screen lines to keep above and below the cursor.
+vim.opt.scrolloff = 10     -- Minimal number of screen lines to keep above and below the cursor.
+vim.opt.sidescrolloff = 20 -- Minimal number of screen columns to keep left and right of the cursor.
 vim.opt.conceallevel = 1   -- allow concealed text (used in obisidian.nvim)
 
 -- diffing
