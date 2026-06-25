@@ -13,6 +13,25 @@ return {
           always_show_tabline = true,
           globalstatus = false,
         },
+        sections = {
+          lualine_a = {'mode', {
+            'macro', -- credit: @countless-integers in https://github.com/nvim-lualine/lualine.nvim/issues/1355#issuecomment-2567831390
+            fmt = function()
+              local reg = vim.fn.reg_recording()
+              if reg ~= "" then
+                return "Rec @" .. reg
+              end
+              return nil
+            end,
+            -- color = { fg = "#ff9e64" },
+            draw_empty = false,
+          },},
+          lualine_b = {'branch', 'diff', 'diagnostics'},
+          lualine_c = {'filename'},
+          lualine_x = {'encoding', 'fileformat', 'filetype', 'lsp_status'},
+          lualine_y = {'progress'},
+          lualine_z = {'location'},
+        },
         tabline = {
           lualine_a = {},
           lualine_b = {'branch'},
