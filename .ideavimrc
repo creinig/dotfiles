@@ -1,0 +1,73 @@
+" Plugins -----------
+set commentary
+set dial
+set easymotion
+set highlightedyank
+set peekaboo
+set peekaboo
+set quickscope
+set surround
+set which-key
+
+" Idea-specific settings -----------
+set ideajoin " enable smart join with "J"
+set ideaput  " enable native clipboard
+set ideamark " sync capital letter (book-)marks
+
+" Other settings ---------------
+
+set nowrap          " a more sensible default for me
+set linebreak       " where wrapping is used, do it right
+set nostartofline   " Keep cursor in the same column when scrolling vertically (PgUp/PgDown etc)
+set showcmd         " Useful e.g. for seeing that the leader is active
+set encoding=utf-8
+set ttyfast         " Faster redrawing.
+set lazyredraw      " Only redraw when necessary.
+
+set history=200
+set backspace=indent,eol,start  " Make backspace work as you would expect.
+set hidden                 " Switch between buffers without having to save first.
+
+set splitbelow             " Open new windows below the current window.
+set splitright             " Open new windows right of the current window.
+
+" set timeout for escape seqs very small to make vim more responsive
+set timeout           " for mappings
+set timeoutlen=1000   " default value
+set ttimeout          " for key codes
+set ttimeoutlen=10    " unnoticeable small value
+
+set wrapscan               " Searches wrap around end-of-file.
+set incsearch              " Highlight while searching with / or ?.
+set hlsearch               " Keep matches highlighted.
+
+" From 'Practical Vim' p101
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+
+let mapleader = " "
+let maplocalleader = "-"
+
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+
+" option toggles / changes -- prefix o {{{
+let g:which_key_map['o'] = {'name' : 'Options'}
+"   toggle relative / absolute line numbers
+nnoremap <leader>or :set invrelativenumber<CR>
+nnoremap <leader>on :set invnumber<CR>
+"   toggle soft wrapping
+nnoremap <leader>ow :set invwrap<CR>
+"   toggle current line highlighting
+nnoremap <leader>oc :set invcursorline<CR>
+"   switch between folding styles
+let g:which_key_map.o['f'] = {'name' : 'foldmethod'}
+nnoremap <leader>ofn :set foldmethod=manual<CR>zR
+nnoremap <leader>ofm :set foldmethod=marker<CR>zR
+nnoremap <leader>ofi :set foldmethod=indent<CR>zM
+nnoremap <leader>ofs :set foldmethod=syntax<CR>zM
+" }}}
